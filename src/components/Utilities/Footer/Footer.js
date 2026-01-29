@@ -92,7 +92,7 @@ const Footer = () => {
                                 <div className="f-widget-title">
                                     <h2>{'Follow Us'}</h2>
                                 </div>
-                                <div className="footer-social  mt-30"> <a href="#"><i className="fab fa-facebook-f"></i></a>
+                                <div className="footer-social  mt-30"> <button type="button" style={{ background: 'none', border: 'none', cursor: 'pointer' }}><i className="fab fa-facebook-f"></i></button>
                                     <Link to={'#'}><i className="fab fa-twitter"></i></Link>
                                     <Link to={'#'}><i className="fab fa-instagram"></i></Link>
                                 </div>

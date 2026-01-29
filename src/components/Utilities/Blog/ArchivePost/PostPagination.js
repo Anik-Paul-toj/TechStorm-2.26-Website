@@ -1,34 +1,32 @@
-import { Link } from "react-router-dom";
-
 const PostPagination = () => {
     return (
         <div className="pagination-wrap">
             <nav>
                 <ul className="pagination">
                     <li className="page-item">
-                        <Link to={'#'}>
+                        <button type="button" style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
                             <i className="fas fa-angle-double-left"></i>
-                        </Link>
+                        </button>
                     </li>
                     <li className="page-item active">
-                        <a to={'#'}>{'1'}</a>
+                        <button type="button" style={{ background: 'none', border: 'none', cursor: 'pointer' }}>{'1'}</button>
                     </li>
                     <li className="page-item">
-                        <a to={'#'}>{'2'}</a>
+                        <button type="button" style={{ background: 'none', border: 'none', cursor: 'pointer' }}>{'2'}</button>
                     </li>
                     <li className="page-item">
-                        <a to={'#'}>{'3'}</a>
+                        <button type="button" style={{ background: 'none', border: 'none', cursor: 'pointer' }}>{'3'}</button>
                     </li>
                     <li className="page-item">
-                        <a to={'#'}>{'...'}</a>
+                        <button type="button" style={{ background: 'none', border: 'none', cursor: 'pointer' }}>{'...'}</button>
                     </li>
                     <li className="page-item">
-                        <a to={'#'}>{'10'}</a>
+                        <button type="button" style={{ background: 'none', border: 'none', cursor: 'pointer' }}>{'10'}</button>
                     </li>
                     <li className="page-item">
-                        <a to={'#'}>
+                        <button type="button" style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
                             <i className="fas fa-angle-double-right"></i>
-                        </a>
+                        </button>
                     </li>
                 </ul>
             </nav>
