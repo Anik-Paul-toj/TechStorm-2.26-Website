@@ -33,16 +33,16 @@ const Header = () => {
                                     </div>
                                 </div>
                                 <div className="col-xl-2 col-lg-2 text-right d-none d-lg-block mt-30 mb-30 ml-auto">
-                                    <a onClick={heandelOpen} className="menu-tigger">
+                                    <button onClick={heandelOpen} className="menu-tigger" style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
                                         <img src={toggolIcon} alt="Toggle Icon" />
-                                    </a>
+                                    </button>
                                 </div>
                                 <div className="col-6 d-block d-lg-none">
 
                                     <div className="mobile-toggler text-right">
-                                        <a onClick={() => setIconToggle(!iconToggle)}>
+                                        <button onClick={() => setIconToggle(!iconToggle)} style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
                                             <i className={`${iconToggle ? 'fas fa-times' : 'fa fa-bars'}`}></i>
-                                        </a>
+                                        </button>
                                     </div>
                                 </div>
                             </div>

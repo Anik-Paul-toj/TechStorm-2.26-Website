@@ -23,7 +23,7 @@ const AboutGame = () => {
                         </div>
                         <div className="col-lg-5">
                             <div className="about-right-image wow fadeInRight" data-wow-delay=".4s">
-                                <img src={about4} alt={'About Image'} />
+                                <img src={about4} alt="About section" />
                             </div>
                         </div>
                     </div>

@@ -56,10 +56,6 @@ const PillNav = ({
     }
   }, [items, ease, initialLoadAnimation]);
 
-  const handleEnter = i => {};
-
-  const handleLeave = i => {};
-
   const handleLogoEnter = () => {
     const img = logoImgRef.current;
     if (!img) return;
@@ -135,10 +131,10 @@ const PillNav = ({
   const isRouterLink = href => href && !isExternalLink(href);
 
   const cssVars = {
-    ['--base']: baseColor,
-    ['--pill-bg']: pillColor,
-    ['--hover-text']: hoveredPillTextColor,
-    ['--pill-text']: resolvedPillTextColor
+    '--base': baseColor,
+    '--pill-bg': pillColor,
+    '--hover-text': hoveredPillTextColor,
+    '--pill-text': resolvedPillTextColor
   };
 
   return (
