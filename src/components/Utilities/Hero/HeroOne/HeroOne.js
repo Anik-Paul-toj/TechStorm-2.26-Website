@@ -35,7 +35,7 @@ const HeroOne = () => {
                     chromaticAberration={0}
                     dither={0}
                     curvature={0.02}
-                    tint="#cdf312"
+                    tint="#f3a112"
                     mouseReact
                     mouseStrength={0.5}
                     pageLoadAnimation
