@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 
 import MobileMenu from './MobileMenu/MobileMenu';
 import Logo from '../Logo/Logo';
-import logo from '../../../assets/img/logo/logo.png';
+import IIC_logo from '../../../assets/img/logo/IIC_logo.jpeg';
+import Abhiyantran_logo from '../../../assets/img/logo/Abhiyantran-logo.png';
 import toggolIcon from '../../../assets/img/bg/toggle-menu.png';
 import Offcanvas from '../Offcanvas/Offcanvas';
 
@@ -27,8 +28,11 @@ const Header = () => {
                         <div className="second-menu">
                             <div className="row align-items-center">
                                 <div className="col-xl-1 col-lg-1 col-6">
-                                    <div className="logo">
-                                        <Logo logo={logo} />
+                                    <div className="logo ">
+
+                                        <Logo logo={Abhiyantran_logo}/>
+                                        <Logo logo={IIC_logo} />
+                                        
                                     </div>
                                 </div>
                                 <div className="col-xl-2 col-lg-2 text-right d-none d-lg-block mt-30 mb-30 ml-auto">

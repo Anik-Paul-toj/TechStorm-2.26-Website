@@ -61,82 +61,26 @@ class MobileMenu extends Component {
                         </Collapse>
                         <li>
                             <Link onClick={() => this.props.onClose(false)}
-                                to={'/about'}>
-                                {'About Us'}
-                            </Link>
-                        </li>
-                        <li onClick={this.isDropDownOpenTwo}>
-                            {'Pages'}
-                            <i className="fa fa-angle-down"></i></li>
-                        <Collapse in={isOpenTwo}>
-                            <ul>
-                                <li>
-                                    <Link
-                                        onClick={() => this.props.onClose(false)}
-                                        to={'/gallery'}>
-                                        {'Gallery'}
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link onClick={() => this.props.onClose(false)}
-                                        to={'/team'}>
-                                        {'Team'}
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link onClick={() => this.props.onClose(false)}
-                                        to={'/faq'}>
-                                        {'Faq'}
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link onClick={() => this.props.onClose(false)}
-                                        to={'/game'}>
-                                        {'Our Game'}
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link onClick={() => this.props.onClose(false)}
-                                        to={'/matchese'}>
-                                        {'Matchese'}
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link onClick={() => this.props.onClose(false)}
-                                        to={'/matchese-details'}>
-                                        {'Matchese Details'}
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link onClick={() => this.props.onClose(false)}
-                                        to={'/live-streaming'}>
-                                        {'Live Streaming'}
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link onClick={() => this.props.onClose(false)}
-                                        to={'/single-post'}>
-                                        {'Blog Details'}
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link onClick={() => this.props.onClose(false)}
-                                        to={'/404'}>
-                                        {'404 Page'}
-                                    </Link>
-                                </li>
-                            </ul>
-                        </Collapse>
-                        <li>
-                            <Link onClick={() => this.props.onClose(false)}
-                                to={'/blog'}>
-                                {'Blog'}
+                                to={'/events'}>
+                                {'Events'}
                             </Link>
                         </li>
                         <li>
                             <Link onClick={() => this.props.onClose(false)}
-                                to={'/contact'}>
-                                {'Contact'}
+                                to={'/gallery'}>
+                                {'Gallery'}
+                            </Link>
+                        </li>
+                        <li>
+                            <Link onClick={() => this.props.onClose(false)}
+                                to={'/schedule'}>
+                                {'Schedule'}
+                            </Link>
+                        </li>
+                        <li>
+                            <Link onClick={() => this.props.onClose(false)}
+                                to={'/team'}>
+                                {'Team'}
                             </Link>
                         </li>
                     </ul>

@@ -21,23 +21,18 @@ const Offcanvas = ({ onOpne, onClose }) => {
                             <Link to={'/'}>{'Home'}</Link>
                         </li>
                         <li className="menu-item menu-item-type-custom menu-item-object-custom">
-                            <Link to={'/about'}>{'About Us'}</Link>
+                            <Link to={'/events'}>{'Events'}</Link>
                         </li>
                         <li className="menu-item menu-item-type-custom menu-item-object-custom">
-                            <Link to={'/service'}>{'Services'}</Link>
+                            <Link to={'/gallery'}>{'Gallery'}</Link>
+                        </li>
+                        <li className="menu-item menu-item-type-custom menu-item-object-custom">
+                            <Link to={'/schedule'}>{'Schedule'}</Link>
                         </li>
                         <li className="menu-item menu-item-type-custom menu-item-object-custom">
                             <Link to={'/team'}>{'Team'}</Link>
                         </li>
-                        <li className="menu-item menu-item-type-custom menu-item-object-custom">
-                            <Link to={'/gallery'}>{'Gallery Study'}</Link>
-                        </li>
-                        <li className="menu-item menu-item-type-custom menu-item-object-custom">
-                            <Link to={'/blog'}>{'Blog'}</Link>
-                        </li>
-                        <li className="menu-item menu-item-type-custom menu-item-object-custom">
-                            <Link to={'/contact'}>{'Contact'}</Link>
-                        </li>
+                        
                     </ul>
                 </div>
                 <div id="cssmenu2" className="menu-one-page-menu-container">
@@ -46,7 +41,7 @@ const Offcanvas = ({ onOpne, onClose }) => {
                             <Link to={'#'}><span>{'+8 12 3456897'}</span></Link>
                         </li>
                         <li className="menu-item menu-item-type-custom menu-item-object-custom">
-                            <Link to={'#'}><span>{'info@example.com'}</span></Link>
+                            <Link to={'#'}><span>{'bppimt.ac.in'}</span></Link>
                         </li>
                     </ul>
                 </div>

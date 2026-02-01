@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch, useLocation } from 'react-route
 
 import Header from './Utilities/Header/Header';
 import PillNav from './Utilities/PillNav/PillNav';
-import logo from '../assets/img/logo/logo.png';
+import collegelogo from '../assets/img/logo/college-logo.png';
 import Home from './Pages/Home/HomeMain/HomeMain';
 import HomeTwo from './Pages/Home/HomeTwo/HomeTwo';
 import HomeThree from './Pages/Home/HomeThree/HomeThree';
@@ -23,20 +23,10 @@ import SinglePost from './Pages/SinglePost/SinglePost';
 
 const navItems = [
     { label: 'Home', href: '/' },
-    { label: 'About Us', href: '/about' },
-    { label: 'Pages', href: '#', submenu: [
-        { label: 'Gallery', href: '/gallery' },
-        { label: 'Team', href: '/team' },
-        { label: 'FAQ', href: '/faq' },
-        { label: 'Our Game', href: '/game' },
-        { label: 'Matches', href: '/matchese' },
-        { label: 'Match Details', href: '/matchese-details' },
-        { label: 'Live Streaming', href: '/live-streaming' },
-        { label: 'Blog Details', href: '/single-post' },
-        { label: '404 Page', href: '/404' }
-    ]},
-    { label: 'Blog', href: '/blog' },
-    { label: 'Contact', href: '/contact' }
+    { label: 'Events', href: '/about' },
+    { label: 'Gallery', href: '/gallery' },
+    { label: 'Schedule', href: '/schedule' },
+    { label: 'Team', href: '/team' }
 ];
 
 const AppContent = () => {
@@ -50,8 +40,8 @@ const AppContent = () => {
 
       {/* PillNav - Desktop Only */}
       <PillNav
-          logo={logo}
-          logoAlt="EOOROX Game Studio"
+          logo={collegelogo}
+          logoAlt="ICC Cell Logo"
           items={navItems}
           activeHref={location.pathname}
           baseColor="#ffc010"
