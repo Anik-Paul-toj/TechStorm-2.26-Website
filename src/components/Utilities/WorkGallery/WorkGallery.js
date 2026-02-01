@@ -6,6 +6,7 @@ import bgImg from '../../../assets/img/bg/trendiang-bg.png';
 
 import SectionTitle from '../SectionTitle/SectionTitle';
 import LiveStreamingVideo from '../LiveStreamingVideo/LiveStreamingVideo';
+import RetroCard from '../RetroCard/RetroCard';
 
 import workImg1 from '../../../assets/img/gallery/protfolio-img01.png';
 import workImg2 from '../../../assets/img/gallery/protfolio-img02.png';
@@ -134,6 +135,7 @@ const galleryItems = [
 const WorkGallery = () => {
     const [items, setItems] = useState(galleryItems);
     const [activeFilter, setActiveFilter] = useState('All');
+    const [hoveredIndex, setHoveredIndex] = useState(null);
     const scrollContainerRef = React.useRef(null);
 
     const fliterItem = (cat) => {
@@ -274,20 +276,84 @@ const WorkGallery = () => {
                         }}
                     >
                         {
-                            items.map(item => {
+                            items.map((item, index) => {
                                 const { id, img, tag, label, description } = item
                                 return (
-                                    <div className="grid-item" key={id} style={{ minWidth: '350px', maxWidth: '350px', flexShrink: 0 }}>
-                                        <Link to={img} className="popup-image">
-                                            <figure className="gallery-image" style={{ margin: 0 }}>
-                                                <img src={img} alt="img" className="img" style={{ height: '350px', objectFit: 'cover' }} />
-                                                <figcaption style={{ padding: '15px' }}>
-                                                    <span style={{ fontSize: '12px', padding: '4px 12px' }}>{tag}</span>
-                                                    <h4 style={{ fontSize: '18px', margin: '10px 0 5px' }}>{label}</h4>
-                                                    <p style={{ fontSize: '13px', margin: 0 }}>{description}</p>
-                                                </figcaption>
-                                            </figure>
-                                        </Link>
+                                    <div 
+                                        className="grid-item" 
+                                        key={id} 
+                                        style={{ minWidth: '350px', maxWidth: '350px', flexShrink: 0 }}
+                                    >
+                                        <RetroCard 
+                                            bg={hoveredIndex === index ? '#1a3d3d' : '#1a0e22'}
+                                            textColor={hoveredIndex === index ? '#00ffea' : '#ffffff'}
+                                            borderColor={hoveredIndex === index ? '#00ffea' : '#ffc010'}
+                                            shadowColor={hoveredIndex === index ? '#00ffea' : '#ffc010'}
+                                            style={{
+                                                width: '100%',
+                                                height: '420px',
+                                                display: 'flex',
+                                                flexDirection: 'column',
+                                                padding: '0',
+                                                overflow: 'hidden',
+                                                cursor: 'pointer',
+                                                transform: hoveredIndex === index ? 'translateY(-8px)' : 'translateY(0)',
+                                            }}
+                                            onMouseEnter={() => setHoveredIndex(index)}
+                                            onMouseLeave={() => setHoveredIndex(null)}
+                                        >
+                                            <Link to={img} className="popup-image" style={{ textDecoration: 'none', color: 'inherit', height: '100%', display: 'flex', flexDirection: 'column' }}>
+                                                <div style={{ height: '240px', overflow: 'hidden' }}>
+                                                    <img 
+                                                        src={img} 
+                                                        alt={label} 
+                                                        style={{ 
+                                                            width: '100%', 
+                                                            height: '100%', 
+                                                            objectFit: 'cover',
+                                                            imageRendering: 'pixelated'
+                                                        }} 
+                                                    />
+                                                </div>
+                                                <div style={{ 
+                                                    padding: '15px', 
+                                                    flex: '1',
+                                                    display: 'flex',
+                                                    flexDirection: 'column',
+                                                    justifyContent: 'center'
+                                                }}>
+                                                    <span 
+                                                        style={{ 
+                                                            fontSize: '10px', 
+                                                            padding: '4px 8px',
+                                                            border: `2px solid ${hoveredIndex === index ? '#1a0e22' : '#ffc010'}`,
+                                                            display: 'inline-block',
+                                                            width: 'fit-content',
+                                                            marginBottom: '10px',
+                                                            fontFamily: '"Press Start 2P", system-ui'
+                                                        }}
+                                                    >
+                                                        {tag}
+                                                    </span>
+                                                    <h4 style={{ 
+                                                        fontSize: '14px', 
+                                                        margin: '0 0 8px',
+                                                        fontFamily: '"Press Start 2P", system-ui',
+                                                        lineHeight: '1.4'
+                                                    }}>
+                                                        {label}
+                                                    </h4>
+                                                    <p style={{ 
+                                                        fontSize: '11px', 
+                                                        margin: 0,
+                                                        opacity: 0.9,
+                                                        lineHeight: '1.6'
+                                                    }}>
+                                                        {description}
+                                                    </p>
+                                                </div>
+                                            </Link>
+                                        </RetroCard>
                                     </div>
                                 )
                             })

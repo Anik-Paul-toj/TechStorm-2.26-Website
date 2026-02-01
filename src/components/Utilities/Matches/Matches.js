@@ -18,6 +18,7 @@ import forzaHorizon from '../../../assets/img/PIXELATED EVENT MASCOTS/FORZA HORI
 import fifaMobile from '../../../assets/img/PIXELATED EVENT MASCOTS/FIFA Mobile.png';
 
 import SectionTitle from '../SectionTitle/SectionTitle';
+import RetroCard from '../RetroCard/RetroCard';
 
 const Matches = () => {
     const [hoveredIndex, setHoveredIndex] = React.useState(null);
@@ -87,66 +88,44 @@ const Matches = () => {
                             const { logo, name } = event;
                             return (
                                 <div key={index} className="col-lg-4 col-md-6 col-sm-6 mb-40 wow fadeInUp animated" data-animation="fadeInUp" data-delay={`${0.1 * index}s`}>
-                                    <div 
+                                    <RetroCard 
+                                        bg={hoveredIndex === index ? '#1a3d3d' : '#1a0e22'}
+                                        textColor={hoveredIndex === index ? '#00ffea' : '#ffffff'}
+                                        borderColor={hoveredIndex === index ? '#00ffea' : '#ffc010'}
+                                        shadowColor={hoveredIndex === index ? '#00ffea' : '#ffc010'}
+                                        style={{
+                                            width: '100%',
+                                            aspectRatio: '16/9',
+                                            display: 'flex',
+                                            flexDirection: 'column',
+                                            alignItems: 'center',
+                                            justifyContent: 'center',
+                                            padding: '20px',
+                                            cursor: 'pointer',
+                                            transform: hoveredIndex === index ? 'translateY(-8px)' : 'translateY(0)',
+                                        }}
                                         onMouseEnter={() => setHoveredIndex(index)}
                                         onMouseLeave={() => setHoveredIndex(null)}
-                                        style={{
-                                        width: '100%',
-                                        aspectRatio: '16/9',
-                                        background: hoveredIndex === index ? 'rgba(255, 192, 16, 0.9)' : 'rgba(0, 0, 0, 0.9)',
-                                        clipPath: 'polygon(25px 0, 100% 0, 100% calc(100% - 25px), calc(100% - 25px) 100%, 0 100%, 0 25px)',
-                                        display: 'flex',
-                                        flexDirection: 'column',
-                                        alignItems: 'center',
-                                        justifyContent: 'center',
-                                        position: 'relative',
-                                        overflow: 'hidden',
-                                        padding: '20px',
-                                        transition: 'background 0.3s ease, transform 0.3s ease',
-                                        transform: hoveredIndex === index ? 'scale(1.05)' : 'scale(1)',
-                                        cursor: 'pointer'
-                                    }}>
-                                        {/* Corner fold effects */}
-                                        <div style={{
-                                            position: 'absolute',
-                                            top: 0,
-                                            left: 0,
-                                            width: '35px',
-                                            height: '35px',
-                                            background: 'linear-gradient(135deg, #ffc010 50%, transparent 50%)',
-                                            opacity: 0.8
-                                        }}></div>
-                                        <div style={{
-                                            position: 'absolute',
-                                            bottom: 0,
-                                            right: 0,
-                                            width: '35px',
-                                            height: '35px',
-                                            background: 'linear-gradient(315deg, #ffc010 50%, transparent 50%)',
-                                            opacity: 0.8
-                                        }}></div>
-                                        
+                                    >
                                         {/* Mascot image */}
                                         <img src={logo} alt={name} style={{ 
                                             maxWidth: '70%', 
                                             maxHeight: '65%', 
                                             objectFit: 'contain',
-                                            filter: 'drop-shadow(0 0 15px rgba(255, 192, 16, 0.6))',
-                                            marginBottom: '15px'
+                                            filter: hoveredIndex === index ? 'drop-shadow(0 0 20px rgba(0, 255, 234, 0.8))' : 'drop-shadow(0 0 15px rgba(255, 192, 16, 0.6))',
+                                            marginBottom: '15px',
+                                            imageRendering: 'pixelated'
                                         }} />
                                         
                                         {/* Event name */}
                                         <h4 style={{ 
-                                            color: hoveredIndex === index ? '#1a0e22' : '#fff',
                                             fontSize: '16px', 
                                             margin: 0,
                                             textAlign: 'center',
                                             fontFamily: '"Press Start 2P", system-ui',
-                                            textShadow: hoveredIndex === index ? 'none' : '0 0 15px rgba(255, 192, 16, 0.6)',
-                                            lineHeight: '1.4',
-                                            transition: 'color 0.3s ease, text-shadow 0.3s ease'
+                                            lineHeight: '1.4'
                                         }}>{name}</h4>
-                                    </div>
+                                    </RetroCard>
                                 </div>
                             );
                         })
