@@ -19,10 +19,11 @@ import Error404 from './Pages/404';
 import BlogPost from './Pages/Blog/Blog';
 import ContactUs from './Pages/ContactUs/ContactUs';
 import SinglePost from './Pages/SinglePost/SinglePost';
+import Events from './Pages/Events/Events';
 
 const navItems = [
     { label: 'Home', href: '/' },
-    { label: 'Events', href: '/about' },
+    { label: 'Events', href: '/events' },
     { label: 'Gallery', href: '/gallery' },
     { label: 'Schedule', href: '/schedule' },
     { label: 'Team', href: '/team' }
@@ -54,6 +55,7 @@ const AppContent = () => {
         <Route exact path="/home-two" component={HomeTwo} />
         <Route exact path="/home-three" component={HomeThree} />
         <Route exact path="/about" component={AboutUs} />
+        <Route exact path="/events" component={Events} />
         <Route exact path="/gallery" component={Gallery} />
         <Route exact path="/team" component={Teams} />
         <Route exact path="/faq" component={Faqs} />

@@ -39,7 +39,7 @@ const Matches = () => {
     ]
 
     return (
-        <section id="match" className="match-area pt-120 pb-90" style={{ background: `url(${matchBgImg})` }}>
+        <section id="match" className="match-area pt-60 pb-90" style={{ background: `url(${matchBgImg})` }}>
             <div className="container">
                 <div className="row align-items-center">
                     <div className="col-lg-12">
