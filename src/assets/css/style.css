@@ -12467,6 +12467,38 @@ body.header-scrolled .pill-nav-container {
     top: 25px !important;
 }
 
+/* Mobile logo styles */
+@media (max-width: 767px) {
+    .header-three .logo {
+        max-width: 200px !important;
+        gap: 8px !important;
+    }
+    
+    .header-three .logo a {
+        height: 40px !important;
+    }
+    
+    .header-three .logo img {
+        height: 40px !important;
+    }
+    
+    /* Make mobile hamburger menu white */
+    .header-three .mobile-toggler {
+        border: none !important;
+    }
+    
+    .header-three .mobile-toggler button {
+        border: none !important;
+        outline: none !important;
+        box-shadow: none !important;
+    }
+    
+    .header-three .mobile-toggler button i {
+        color: #ffffff !important;
+        font-size: 24px;
+    }
+}
+
 @keyframes slideDown {
     from {
         transform: translateY(-100%);
