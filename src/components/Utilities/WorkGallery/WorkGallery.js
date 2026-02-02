@@ -8,15 +8,6 @@ import SectionTitle from '../SectionTitle/SectionTitle';
 import LiveStreamingVideo from '../LiveStreamingVideo/LiveStreamingVideo';
 import RetroCard from '../RetroCard/RetroCard';
 
-import workImg1 from '../../../assets/img/gallery/protfolio-img01.png';
-import workImg2 from '../../../assets/img/gallery/protfolio-img02.png';
-import workImg3 from '../../../assets/img/gallery/protfolio-img03.png';
-import workImg4 from '../../../assets/img/gallery/protfolio-img04.png';
-import workImg5 from '../../../assets/img/gallery/protfolio-img05.png';
-import workImg6 from '../../../assets/img/gallery/protfolio-img06.png';
-import workImg7 from '../../../assets/img/gallery/protfolio-img07.png';
-import workImg8 from '../../../assets/img/gallery/protfolio-img08.png';
-
 // Event Images
 import codebeeImg from '../../../assets/img/events/codebee.png';
 import hackstormImg from '../../../assets/img/events/hackstorm.png';
