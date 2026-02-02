@@ -103,10 +103,11 @@ const HeroOne = () => {
                                         />
                                     </div>
                                     
-                                    {/* Mobile PC Image */}
-                                    <div className="d-lg-none" style={{
+                                    {/* Mobile PC Image - Single pcmain only */}
+                                    <div className="d-block d-lg-none" style={{
                                         textAlign: 'center',
-                                        marginBottom: '30px'
+                                        marginBottom: '30px',
+                                        display: 'block'
                                     }}>
                                         <img 
                                             src={pcmain}
@@ -115,7 +116,9 @@ const HeroOne = () => {
                                                 width: '100%',
                                                 maxWidth: '300px',
                                                 height: 'auto',
-                                                filter: 'drop-shadow(0 10px 30px rgba(0, 0, 0, 0.5))'
+                                                filter: 'drop-shadow(0 10px 30px rgba(0, 0, 0, 0.5))',
+                                                display: 'block',
+                                                margin: '0 auto'
                                             }}
                                         />
                                     </div>
