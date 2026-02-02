@@ -57,7 +57,8 @@
     aspect-ratio: 16/9;
     overflow: hidden;
     background: #000;
-    min-height: 500px;
+    max-height: 500px;
+    height: 500px;
 }
 
 .carousel-8bit-image-wrapper img {
@@ -137,18 +138,23 @@
     margin-top: -4px;
 }
 
+/* Custom dots container - outside carousel */
+.carousel-8bit-dots-container {
+    position: relative;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    z-index: 50;
+}
+
 /* Custom dots styling */
 .carousel-8bit-dots {
-    position: absolute;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
+    position: relative;
     display: flex !important;
     gap: 12px;
     list-style: none;
     padding: 0;
     margin: 0;
-    z-index: 50;
 }
 
 .carousel-8bit-dots li {
@@ -197,6 +203,11 @@
     .carousel-8bit-next {
         right: 20px;
     }
+    
+    .carousel-8bit-image-wrapper {
+        height: 450px;
+        max-height: 450px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -214,8 +225,11 @@
         right: 10px;
     }
     
+    .carousel-8bit-dots-container {
+        margin-top: 25px;
+    }
+    
     .carousel-8bit-dots {
-        bottom: -40px;
         gap: 10px;
     }
     
@@ -227,6 +241,12 @@
     
     .carousel-8bit-container {
         padding: 6px;
+    }
+    
+    .carousel-8bit-image-wrapper {
+        height: auto;
+        max-height: none;
+        min-height: 300px;
     }
 }
 

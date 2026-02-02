@@ -41,8 +41,11 @@ const NextArrow = ({ onClick }) => (
 );
 
 const Carousel8bit = () => {
+    const sliderRef = React.useRef(null);
+    const [currentSlide, setCurrentSlide] = React.useState(0);
+    
     const settings = {
-        dots: true,
+        dots: false,
         arrows: true,
         infinite: true,
         autoplay: true,
@@ -53,7 +56,7 @@ const Carousel8bit = () => {
         slidesToScroll: 1,
         prevArrow: <PrevArrow />,
         nextArrow: <NextArrow />,
-        dotsClass: 'slick-dots carousel-8bit-dots',
+        beforeChange: (oldIndex, newIndex) => setCurrentSlide(newIndex),
     };
 
     return (
@@ -64,12 +67,12 @@ const Carousel8bit = () => {
                         <SectionTitle titlefirst='Event' titleSec='Highlights' />
                     </div>
                 </div>
-                <div className="row justify-content-center mt-60">
+                <div className="row justify-content-center mt-30">
                     <div className="col-lg-12">
                         <div className="carousel-8bit-wrapper">
                             {/* Carousel Container with 8-bit border */}
                             <div className="carousel-8bit-container">
-                                <Slider {...settings}>
+                                <Slider ref={sliderRef} {...settings}>
                                     {carouselData.map((item) => (
                                         <div key={item.id} className="carousel-8bit-slide">
                                             <div className="carousel-8bit-image-wrapper">
@@ -79,6 +82,16 @@ const Carousel8bit = () => {
                                     ))}
                                 </Slider>
                             </div>
+                        </div>
+                        {/* Dots outside carousel */}
+                        <div className="carousel-8bit-dots-container">
+                            <ul className="carousel-8bit-dots">
+                                {carouselData.map((item, index) => (
+                                    <li key={item.id} className={index === currentSlide ? 'slick-active' : ''}>
+                                        <button onClick={() => sliderRef.current?.slickGoTo(index)}></button>
+                                    </li>
+                                ))}
+                            </ul>
                         </div>
                     </div>
                 </div>
