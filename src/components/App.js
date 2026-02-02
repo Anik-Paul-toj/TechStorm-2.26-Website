@@ -23,8 +23,9 @@ import SinglePost from './Pages/SinglePost/SinglePost';
 import Events from './Pages/Events/Events';
 
 const navItems = [
-    { label: 'Home', href: '/' },
-    { label: 'Events', href: '/about' },
+    { label: 'Home', href: '/#home' },
+    { label: 'About', href: '/#about' },
+    { label: 'Events', href: '/events' },
     { label: 'Gallery', href: '/gallery' },
     { label: 'Schedule', href: '/schedule' },
     { label: 'Team', href: '/team' }
@@ -42,7 +43,7 @@ const AppContent = () => {
       {/* PillNav - Desktop Only */}
       <PillNav
           logo={collegelogo}
-          logoAlt="ICC Cell Logo"
+          logoAlt="College Logo"
           items={navItems}
           activeHref={location.pathname}
           baseColor="#ffc010"
