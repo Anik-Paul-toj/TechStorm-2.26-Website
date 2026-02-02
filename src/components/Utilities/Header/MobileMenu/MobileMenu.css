@@ -84,7 +84,7 @@
 /* Close button styling for retro theme - positioned above blur overlay */
 .mobile-menu-close {
     position: fixed;
-    top: 20px;
+    top: 10px;
     right: 20px;
     z-index: 1001;
     background: #c93545;
@@ -165,7 +165,11 @@
 }
 
 /* Retro Button Styling for Menu Items */
-.mean-nav li,
+.mean-nav li {
+    display: block;
+    width: 100%;
+}
+
 .mean-nav li a {
     display: block;
     width: 100%;
@@ -200,7 +204,6 @@
 }
 
 /* Scanline effect on buttons */
-.mean-nav li::before,
 .mean-nav li a::before {
     content: '';
     position: absolute;
@@ -233,34 +236,33 @@
     z-index: 2;
 }
 
-.mean-nav li:hover,
 .mean-nav li a:hover {
-    background: #ffc010;
-    color: #14142A !important;
+    background: #ffc010 !important;
+    color: #000000 !important;
     transform: translateY(-2px);
     box-shadow: 
         0 0 0 2px transparent,
         0 0 0 4px #ffc010,
         0 0 0 6px transparent,
         0 8px 0 rgba(0, 0, 0, 0.4),
-        0 0 20px rgba(255, 192, 16, 0.5);
+        0 0 20px rgba(255, 192, 16, 0.5) !important;
 }
 
 .mean-nav li a:hover::after {
     opacity: 1;
     left: 20px;
+    color: #000000;
 }
 
-.mean-nav li:active,
 .mean-nav li a:active {
-    background: #ffb000;
-    color: #14142A !important;
+    background: #ffb000 !important;
+    color: #000000 !important;
     transform: translateY(2px);
     box-shadow: 
         0 0 0 2px transparent,
         0 0 0 4px #ffc010,
         0 0 0 6px transparent,
-        0 2px 0 rgba(0, 0, 0, 0.4);
+        0 2px 0 rgba(0, 0, 0, 0.4) !important;
 }
 
 /* Icon styling */
@@ -275,9 +277,8 @@
     transition: all 0.2s ease;
 }
 
-.mean-nav li:hover i,
 .mean-nav li a:hover i {
-    color: #14142A !important;
+    color: #000000 !important;
 }
 
 /* Submenu styling if needed */

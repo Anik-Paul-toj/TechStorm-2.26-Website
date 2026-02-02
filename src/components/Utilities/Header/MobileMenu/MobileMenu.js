@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import { Collapse } from 'react-bootstrap';
+
 import './MobileMenu.css';
 
 class MobileMenu extends Component {
