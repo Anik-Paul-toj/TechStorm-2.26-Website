@@ -19,7 +19,7 @@ const HeroOne = () => {
     const [isHovered, setIsHovered] = useState(false);
     
     return (
-        <section id="home" className="slider-area slider-four fix p-relative" style={{ position: 'relative', minHeight: '100vh', overflow: 'hidden' }}>
+        <section id="home" className="slider-area slider-four fix p-relative" style={{ position: 'relative', minHeight: '100vh' }}>
             {/* Background Image - Desktop */}
             <div className="d-none d-lg-block" style={{ 
                 position: 'absolute', 
@@ -28,7 +28,9 @@ const HeroOne = () => {
                 width: '100%', 
                 height: '100%', 
                 zIndex: 0,
-                overflow: 'hidden'
+                overflow: 'hidden',
+                willChange: 'transform',
+                backfaceVisibility: 'hidden'
             }}>
                 <img 
                     src={herobg}
@@ -38,7 +40,8 @@ const HeroOne = () => {
                         height: '100%',
                         objectFit: 'cover',
                         objectPosition: 'center',
-                        display: 'block'
+                        display: 'block',
+                        transform: 'translateZ(0)'
                     }}
                 />
             </div>
@@ -50,7 +53,9 @@ const HeroOne = () => {
                 width: '100%', 
                 height: '100%', 
                 zIndex: 0,
-                overflow: 'hidden'
+                overflow: 'hidden',
+                willChange: 'transform',
+                backfaceVisibility: 'hidden'
             }}>
                 <img 
                     src={heroph}
@@ -60,11 +65,12 @@ const HeroOne = () => {
                         height: '100%',
                         objectFit: 'cover',
                         objectPosition: 'center',
-                        display: 'block'
+                        display: 'block',
+                        transform: 'translateZ(0)'
                     }}
                 />
             </div>
-            <div className="slider-active" style={{ position: 'relative', zIndex: 1, minHeight: '100vh' }}>
+            <div className="slider-active" style={{ position: 'relative', zIndex: 1 }}>
                 <div className="single-slider slider-bg d-flex align-items-center" style={{ background: 'transparent', minHeight: '100vh' }}>
                     <div className="container" style={{ position: 'relative', zIndex: 2, paddingBottom: '100px' }}>
                         <div className="row justify-content-center pt-50">
@@ -190,7 +196,9 @@ const HeroOne = () => {
                                             position: 'absolute',
                                             top: '50%',
                                             left: '50%',
-                                            transform: 'translate(-50%, -50%)'
+                                            transform: 'translate(-50%, -50%) translateZ(0)',
+                                            willChange: 'opacity',
+                                            backfaceVisibility: 'hidden'
                                         }}
                                     />
                                     <img 
@@ -206,7 +214,9 @@ const HeroOne = () => {
                                             position: 'absolute',
                                             top: '50%',
                                             left: '50%',
-                                            transform: 'translate(-50%, -50%)'
+                                            transform: 'translate(-50%, -50%) translateZ(0)',
+                                            willChange: 'opacity',
+                                            backfaceVisibility: 'hidden'
                                         }}
                                     />
                                 </div>
