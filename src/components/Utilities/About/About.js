@@ -1,4 +1,4 @@
-import aboutBgImg from '../../../assets/img/bg/about-bg.png';
+import aboutBgImg from '../../../assets/img/aboutbg.png';
 import Button8bit from '../Button/Button8bit';
 import techstormLogo from '../../../assets/img/logo/iplogo.png';
 import features1 from '../../../assets/img/features/about1.jpeg';

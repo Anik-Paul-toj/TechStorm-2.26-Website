@@ -1387,6 +1387,10 @@ label {
 	padding-bottom : 15px;
 	background     : rgba(15, 8, 25, 0.98);
 	border-bottom  : 1px solid rgba(255, 192, 16, 0.1);
+	transition     : padding 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+	will-change    : padding;
+	transform      : translateZ(0);
+	-webkit-transform: translateZ(0);
 }
 
 .header-three .menu-area.scrolled {
@@ -12485,19 +12489,24 @@ div.single-cta:last-child {
 
 /* Custom scrolled header styles */
 .header-three .menu-area.scrolled {
-    background: rgba(0, 0, 0, 0.85) !important;
-    backdrop-filter: blur(10px) !important;
-    -webkit-backdrop-filter: blur(10px) !important;
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    width: 100% !important;
-    z-index: 9998 !important;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
-    animation: slideDown 0.3s ease !important;
-    padding-top: 5px !important;
-    padding-bottom: 5px !important;
+	background: rgba(0, 0, 0, 0.95) !important;
+	position: fixed !important;
+	top: 0 !important;
+	left: 0 !important;
+	right: 0 !important;
+	width: 100% !important;
+	z-index: 9998 !important;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3) !important;
+	padding-top: 5px !important;
+	padding-bottom: 5px !important;
+}
+
+/* Logo transition */
+.header-three .logo img {
+	transition: height 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+	will-change: height;
+	transform: translateZ(0);
+	-webkit-transform: translateZ(0);
 }
 
 /* Adjust PillNav position when scrolled */
@@ -12507,41 +12516,67 @@ body.header-scrolled .pill-nav-container {
 
 /* Mobile logo styles */
 @media (max-width: 767px) {
-    .header-three .logo {
-        max-width: 200px !important;
-        gap: 8px !important;
-    }
-    
-    .header-three .logo a {
-        height: 40px !important;
-    }
-    
-    .header-three .logo img {
-        height: 40px !important;
-    }
-    
-    /* Make mobile hamburger menu white */
-    .header-three .mobile-toggler {
-        border: none !important;
-    }
-    
-    .header-three .mobile-toggler button {
-        border: none !important;
-        outline: none !important;
-        box-shadow: none !important;
-    }
-    
-    .header-three .mobile-toggler button i {
-        color: #ffffff !important;
-        font-size: 24px;
-    }
+	.header-three .menu-area {
+		padding-top: 12px !important;
+		padding-bottom: 12px !important;
+		transition: padding 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+		will-change: padding !important;
+		transform: translateZ(0) !important;
+		-webkit-transform: translateZ(0) !important;
+	}
+	
+	.header-three .menu-area.scrolled {
+		padding-top: 6px !important;
+		padding-bottom: 6px !important;
+	}
+	
+	.header-three .logo {
+		max-width: 200px !important;
+		gap: 8px !important;
+		display: flex !important;
+		align-items: center !important;
+	}
+	
+	.header-three .logo a {
+		height: 45px !important;
+		transition: height 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+		will-change: height !important;
+		transform: translateZ(0) !important;
+		-webkit-transform: translateZ(0) !important;
+	}
+	
+	.header-three .logo img {
+		height: 45px !important;
+		width: auto !important;
+		transition: height 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+		will-change: height !important;
+		transform: translateZ(0) !important;
+		-webkit-transform: translateZ(0) !important;
+	}
+	
+	.header-three .menu-area.scrolled .logo a {
+		height: 35px !important;
+	}
+	
+	.header-three .menu-area.scrolled .logo img {
+		height: 35px !important;
+	}
+	
+	/* Make mobile hamburger menu white */
+	.header-three .mobile-toggler {
+		border: none !important;
+	}
+	
+	.header-three .mobile-toggler button {
+		border: none !important;
+		outline: none !important;
+		box-shadow: none !important;
+	}
+	
+	.header-three .mobile-toggler button i {
+		color: #ffffff !important;
+		font-size: 24px;
+	}
 }
 
-@keyframes slideDown {
-    from {
-        transform: translateY(-100%);
-    }
-    to {
-        transform: translateY(0);
-    }
-}
+
