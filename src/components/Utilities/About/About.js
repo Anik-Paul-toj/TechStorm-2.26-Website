@@ -180,8 +180,14 @@ const About = () => {
                                     </div>
                                 </div>
                             </div>
-                                <div className="slider-btn2 mt-30">
-                                    <Button8bit to={'/about'} variant="primary" size="medium">{'Discover More'}</Button8bit>
+                                <div className="slider-btn2 mt-30" style={{ 
+                                    textAlign: window.innerWidth <= 768 ? 'center' : 'right',
+                                    position: 'relative',
+                                    top: window.innerWidth <= 768 ? '0' : '-120px',
+                                    right: window.innerWidth <= 768 ? '0' : '50px',
+                                    marginTop: window.innerWidth <= 768 ? '30px' : '0'
+                                }}>
+                                    <Button8bit to={'/about'} variant="primary" size="large">{'Discover More'}</Button8bit>
                                 </div>
                             </div>
                         </AnimateOnScroll>
