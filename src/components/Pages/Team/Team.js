@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import heroVideo from '../../../assets/img/HERO.mp4';
+import aboutBg from '../../../assets/img/aboutbg.png';
 import SectionTitle from '../../Utilities/SectionTitle/SectionTitle';
 import Member from '../../Utilities/Team/Member';
 import { coreMembers } from './teamData';
@@ -58,11 +59,18 @@ const Teams = () => {
             </div>
           </section>
         </div>
+        <div className="team-hero-bottom-accent" aria-hidden="true" />
       </div>
 
-      {/* Event Co-ordinators & Volunteers - card grid */}
-      <section className="team-events-section">
-        <div className="team-events-section-accent" aria-hidden="true" />
+      {/* Co-ordinators & Volunteers: preserve layout — EVENT TEAMS badge, aboutbg, headings, yellow underline */}
+      <section
+        className="team-events-section"
+        style={{
+          backgroundImage: `url(${aboutBg})`,
+          backgroundRepeat: 'repeat',
+          backgroundPosition: 'center',
+        }}
+      >
         <div className="container">
           <div className="team-events-heading">
             <span className="team-events-badge">Event Teams</span>

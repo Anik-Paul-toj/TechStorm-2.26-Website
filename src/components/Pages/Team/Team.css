@@ -64,37 +64,10 @@
   color: #ffc010;
 }
 
-/* ----- Event Co-ordinators section: gradient, glow, polished ----- */
-/* Override global overflow:hidden so cards (border + shadow) don't get cut off */
-.team-events-section .container,
-.team-events-section [class*="col-"] {
-  overflow: visible;
-}
-
-.team-events-section {
-  position: relative;
-  background: linear-gradient(180deg, #1a0e22 0%, #14142A 25%, #0f0d18 100%);
-  padding: 4.5rem 0 5.5rem;
-  overflow: visible;
-}
-
-/* Soft gold glow at top */
-.team-events-section::before {
-  content: '';
+/* Dashed yellow line at the very edge where the video ends */
+.team-hero-bottom-accent {
   position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80%;
-  max-width: 600px;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255, 192, 16, 0.6), transparent);
-  box-shadow: 0 0 24px 4px rgba(255, 192, 16, 0.25);
-}
-
-.team-events-section-accent {
-  position: absolute;
-  top: 0;
+  bottom: 0;
   left: 0;
   right: 0;
   height: 6px;
@@ -106,6 +79,56 @@
     transparent 20px
   );
   opacity: 0.9;
+  z-index: 2;
+}
+
+/* ----- Co-ordinators & Volunteers: keep as-is (badge, aboutbg, headings, underline) ----- */
+/* Override global overflow:hidden so cards (border + shadow) don't get cut off */
+.team-events-section .container,
+.team-events-section [class*="col-"] {
+  overflow: visible;
+}
+
+.team-events-section {
+  position: relative;
+  padding: 4.5rem 0 5.5rem;
+  overflow: visible;
+  background-color: #0f0d18;
+}
+
+/* Dark overlay over aboutbg so content stays readable */
+.team-events-section::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(26, 14, 34, 0.85) 0%,
+    rgba(20, 20, 42, 0.88) 50%,
+    rgba(15, 13, 24, 0.9) 100%
+  );
+  z-index: 0;
+  pointer-events: none;
+}
+
+.team-events-section .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Soft gold glow at top of Co-ordinators section */
+.team-events-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  max-width: 600px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 192, 16, 0.6), transparent);
+  box-shadow: 0 0 24px 4px rgba(255, 192, 16, 0.25);
+  z-index: 1;
 }
 
 /* Heading block: badge + title + subtitle + underline */
@@ -252,9 +275,57 @@
   margin-bottom: 0.2rem;
 }
 
+/* ========== MOBILE ONLY: video fit + full page responsiveness ========== */
+/* Desktop video is untouched; below applies only on small screens */
+
 @media (max-width: 768px) {
+  /* Hero: give video a proper viewport to fill */
+  .team-org-hero {
+    min-height: 70vh;
+    position: relative;
+  }
+
+  /* Mobile: make video fully cover the hero area (no black bars, no crop issues) */
+  .team-hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+    transform: translate(-50%, -50%);
+  }
+
+  .team-hero-overlay {
+    padding-bottom: 2rem;
+  }
+
+  .team-breadcrumb .breadcrumb-title h2 {
+    font-size: 1.4rem;
+  }
+
+  .team-org-section {
+    padding-top: 8px;
+  }
+
+  .team-org-section .section-title h2 {
+    font-size: 1.6rem !important;
+  }
+
+  .team-org-section.pb-120 {
+    padding-bottom: 2.5rem !important;
+  }
+
+  /* Co-ordinators section */
   .team-events-section {
-    padding: 3.5rem 0 4rem;
+    padding: 2.5rem 0 3rem;
+  }
+
+  .team-events-heading {
+    margin-bottom: 2rem;
   }
 
   .team-events-badge {
@@ -268,7 +339,11 @@
   }
 
   .team-events-subtitle {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
+  }
+
+  .team-event-cards {
+    padding-top: 8px;
   }
 
   .team-event-card {
@@ -277,5 +352,29 @@
 
   .team-event-card-title {
     font-size: 0.6rem;
+  }
+
+  .team-event-card-col {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+}
+
+@media (max-width: 576px) {
+  .team-org-hero {
+    min-height: 65vh;
+  }
+
+  .team-events-section {
+    padding: 2rem 0 2.5rem;
+  }
+
+  .team-event-card-col {
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+
+  .team-breadcrumb .breadcrumb-title h2 {
+    font-size: 1.25rem;
   }
 }
