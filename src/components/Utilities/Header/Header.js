@@ -35,13 +35,19 @@ const Header = ({ navItems, activeHref }) => {
     useEffect(() => {
         let ticking = false;
         let lastScrollY = window.scrollY;
+        let scrollTimeout = null;
 
         const handleScroll = () => {
             const currentScrollY = window.scrollY;
             
-            // Only process if scroll position changed
-            if (currentScrollY === lastScrollY) return;
+            // Only process if scroll position changed significantly
+            if (Math.abs(currentScrollY - lastScrollY) < 1) return;
             lastScrollY = currentScrollY;
+            
+            // Clear any pending timeout
+            if (scrollTimeout) {
+                clearTimeout(scrollTimeout);
+            }
             
             if (!ticking) {
                 window.requestAnimationFrame(() => {
@@ -58,6 +64,11 @@ const Header = ({ navItems, activeHref }) => {
                 });
                 ticking = true;
             }
+            
+            // Debounce for cleanup
+            scrollTimeout = setTimeout(() => {
+                ticking = false;
+            }, 100);
         };
 
         // Set initial state immediately
@@ -72,6 +83,9 @@ const Header = ({ navItems, activeHref }) => {
         return () => {
             window.removeEventListener('scroll', handleScroll);
             document.body.classList.remove('header-scrolled');
+            if (scrollTimeout) {
+                clearTimeout(scrollTimeout);
+            }
         };
     }, [isScrolled]);
 
