@@ -48,9 +48,9 @@ const teamData = [
 const TeamTwo = () => {
 
     return (
-        <section id="team" className="team-area2 pb-90">
+        <section id="team" className="team-area2" style={{paddingTop: '10px', paddingBottom: '60px'}}>
             <div className="container">
-                <div className="row ">
+                <div className="row">
                     <Member teamData={teamData} />
                 </div>
             </div>
