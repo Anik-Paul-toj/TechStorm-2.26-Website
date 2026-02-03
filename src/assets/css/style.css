@@ -145,6 +145,22 @@ h6 {
 	overflow: visible !important;
 }
 
+/* Exception: Allow overflow for blog area - needed for card shadows */
+.blog-area .container,
+.blog-area .container-fluid,
+.blog-area .row,
+.blog-area [class*="col-"] {
+	overflow: visible !important;
+}
+
+/* Exception: Allow overflow for CTA/features area */
+.features-area .container,
+.features-area .container-fluid,
+.features-area .row,
+.features-area [class*="col-"] {
+	overflow: visible !important;
+}
+
 /* Exception: Allow overflow for header/navigation */
 .header-area .container-fluid,
 .header-area .row,
@@ -284,7 +300,7 @@ nav a {
 .slider-bg {
 	max-width: none !important;
 	width: 100% !important;
-	min-height: 600px !important;
+	min-height: 500px !important;
 }
 
 /* Make slider content visible */
@@ -1615,14 +1631,14 @@ label {
 	top            : 0;
 	left           : 0;
 	right          : 0;
-	z-index        : 9998;
+	z-index        : 10000;
 	width          : 100%;
 	padding-top    : 10px;
 	padding-bottom : 10px;
 	background     : transparent;
 	border-bottom  : none;
 	transition     : background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-	will-change    : background-color;
+	contain        : layout style;
 }
 
 .header-three .menu-area.scrolled {
@@ -3192,29 +3208,42 @@ section:hover .section-title h2:before {
 	padding           : 40px 50px 45px;
 	background        : transparent;
 	z-index           : 1;
-	box-shadow        : 0px 1px 59px 0px rgba(0, 0, 0, 0.11);
-	-webkit-clip-path : polygon(0 35px, 35px 0, 100% 0, 100% calc(100% - 60px), calc(100% - 60px) 100%, 0 100%, 0 0);
-	clip-path         : polygon(0 35px, 35px 0, 100% 0, 100% calc(100% - 60px), calc(100% - 60px) 100%, 0 100%, 0 0);
+	border            : 4px solid #ffc010;
+	border-image-slice: 3;
+	border-image-width: 3;
+	border-image-repeat: stretch;
+	border-image-source: url('data:image/svg+xml;utf8,<?xml version="1.0" encoding="UTF-8" ?><svg version="1.1" width="8" height="8" xmlns="http://www.w3.org/2000/svg"><path d="M3 1 h1 v1 h-1 z M4 1 h1 v1 h-1 z M2 2 h1 v1 h-1 z M5 2 h1 v1 h-1 z M1 3 h1 v1 h-1 z M6 3 h1 v1 h-1 z M1 4 h1 v1 h-1 z M6 4 h1 v1 h-1 z M2 5 h1 v1 h-1 z M5 5 h1 v1 h-1 z M3 6 h1 v1 h-1 z M4 6 h1 v1 h-1 z" fill="%23ffc010" /></svg>');
+	box-shadow        : 8px 8px 0px 0px rgba(255, 192, 16, 0.3),
+	                    inset -2px -2px 0px 0px rgba(0, 0, 0, 0.5),
+	                    inset 2px 2px 0px 0px rgba(255, 255, 255, 0.05);
 	-webkit-transition: .3s;
 	transition        : .3s;
 	z-index           : 1;
+	image-rendering   : pixelated;
+	-webkit-clip-path : none;
+	clip-path         : none;
 }
 
 .services-area .services-box:hover {
 	background-color: #ffc010;
+	border-color: #ffd966;
+	box-shadow        : 12px 12px 0px 0px rgba(255, 192, 16, 0.5),
+	                    inset -2px -2px 0px 0px rgba(0, 0, 0, 0.3),
+	                    inset 2px 2px 0px 0px rgba(255, 255, 255, 0.1);
+	transform: translateY(-4px);
 }
 
 .services-area .services-box:before {
 	content          : '';
 	position         : absolute;
-	top              : 1px;
-	left             : 1px;
-	width            : calc(100% - 2px);
-	height           : calc(100% - 2px);
-	background       : #20132a;
+	top              : 4px;
+	left             : 4px;
+	width            : calc(100% - 8px);
+	height           : calc(100% - 8px);
+	background       : #2d1b3d;
 	z-index          : -1;
-	-webkit-clip-path: polygon(0 35px, 35px 0, 100% 0, 100% calc(100% - 60px), calc(100% - 60px) 100%, 0 100%, 0 0);
-	clip-path        : polygon(0 35px, 35px 0, 100% 0, 100% calc(100% - 60px), calc(100% - 60px) 100%, 0 100%, 0 0);
+	-webkit-clip-path: none;
+	clip-path        : none;
 }
 
 .services-box .services-content2 .services-icon {
@@ -3236,32 +3265,67 @@ section:hover .section-title h2:before {
 	height            : 90px;
 	color             : #ffc010;
 	font-size         : 50px;
-	line-height       : 96px;
+	line-height       : 90px;
 	text-align        : center;
-	background        : #202020;
+	background        : #1a0e22;
 	margin-right      : 30px;
 	-webkit-transition: .3s;
 	transition        : .3s;
+	border            : 4px solid #ffc010;
+	box-shadow        : 4px 4px 0px 0px rgba(255, 192, 16, 0.3),
+	                    inset -2px -2px 0px 0px rgba(0, 0, 0, 0.5),
+	                    inset 2px 2px 0px 0px rgba(255, 255, 255, 0.05);
+	image-rendering   : pixelated;
 }
 
 .services-box:hover .services-content2 .services-icon i {
-	color     : #fff;
+	color     : #2d1b3d;
 	background: #ffc010;
+	border-color: #ffd966;
+	box-shadow        : 6px 6px 0px 0px rgba(255, 192, 16, 0.5),
+	                    inset -1px -1px 0px 0px rgba(0, 0, 0, 0.2),
+	                    inset 1px 1px 0px 0px rgba(255, 255, 255, 0.3);
+	animation: pixel-pulse 0.3s ease;
+}
+
+@keyframes pixel-pulse {
+	0%, 100% { transform: scale(1); }
+	50% { transform: scale(1.05); }
 }
 
 .services-box .services-content2 p {
 	margin-bottom: 0;
+	font-size: 16px;
+	line-height: 1.8;
+	color: #FFFFFF;
+	font-family: 'Minecraft', 'Press Start 2P', monospace;
+	font-weight: 300;
+	letter-spacing: 0.5px;
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.services-box:hover .services-content2 p {
+	color: #FFFFFF;
 }
 
 .services-content2 h5 {
-	font-size     : 24px;
+	font-size     : 32px;
 	margin-bottom : 0px;
-	text-transform: capitalize;
-	font-weight   : 500;
+	text-transform: uppercase;
+	font-weight   : 400;
+	letter-spacing: 2px;
+	color         : #FFD700;
+	text-shadow   : 2px 2px 0px rgba(0, 0, 0, 1),
+	                4px 4px 0px rgba(0, 0, 0, 0.5);
+	font-family   : 'Press Start 2P', cursive;
 }
 
 .services-content2 h5 a {
-	color: #fff;
+	color: #FFD700;
+}
+
+.services-box:hover .services-content2 h5 {
+	color: #FFD700;
 }
 
 .best-gaming {
@@ -6368,6 +6432,11 @@ section:hover .section-title h2:before {
 	margin-bottom: 50px;
 }
 
+.footer-top {
+	padding-bottom: 0;
+	margin-bottom: 0;
+}
+
 .f-contact {
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -6415,6 +6484,8 @@ section:hover .section-title h2:before {
 	border-bottom      : 4px solid #170f0f;
 	background         : #1e191f;
 	background-position: center 0 !important;
+	padding-bottom     : 0;
+	margin-bottom      : 0;
 }
 
 .f-cta-area.gray-bg {
@@ -6452,6 +6523,55 @@ section:hover .section-title h2:before {
 .footer-social a:hover {
 	background: rgb(255, 138, 1);
 	color     : #fff !important;
+}
+
+/* NES.css Footer Social Icons */
+.footer-social-nes {
+	display        : flex;
+	flex-wrap      : wrap;
+	gap            : 15px;
+	align-items    : center;
+	justify-content: flex-start;
+}
+
+.footer-social-nes .nes-social-icon {
+	display        : inline-flex;
+	align-items    : center;
+	justify-content: center;
+	transition     : transform 0.2s ease, opacity 0.2s ease;
+	padding        : 5px;
+	border-radius  : 4px;
+}
+
+.footer-social-nes .nes-social-icon:hover {
+	transform: scale(1.15) translateY(-3px);
+	opacity  : 0.85;
+}
+
+.footer-social-nes .nes-social-icon i {
+	image-rendering: pixelated;
+}
+
+/* Desktop alignment for footer sections */
+@media (min-width: 992px) {
+	.footer-links-section {
+		padding-top: 80px;
+	}
+}
+
+/* Map Container with borders */
+.map-f-container {
+	margin-top: 20px;
+}
+
+.map-f {
+	overflow      : hidden;
+	border-radius : 0;
+	box-shadow    : 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.map-f iframe {
+	filter: brightness(0.95) contrast(1.05);
 }
 
 .f-widget-title h2 {
@@ -6556,11 +6676,18 @@ section:hover .section-title h2:before {
 }
 
 .copyright-wrap {
-	color        : #fff;
-	font-size    : 16px;
-	font-weight  : 600;
-	margin-bottom: 30px;
-	font-family  : 'Press Start 2P', system-ui;
+	color          : #fff;
+	font-size      : 16px;
+	font-weight    : 600;
+	margin-bottom  : 0;
+	margin-top     : -60px;
+	padding-top    : 0;
+	padding-bottom : 30px;
+	font-family    : 'Press Start 2P', system-ui;
+}
+
+.copyright-wrap .copyright-content div {
+	line-height: 1.8;
 }
 
 .copyright-wrap span {

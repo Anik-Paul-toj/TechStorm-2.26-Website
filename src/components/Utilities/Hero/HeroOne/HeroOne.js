@@ -19,7 +19,7 @@ const HeroOne = () => {
     const [isHovered, setIsHovered] = useState(false);
     
     return (
-        <section id="home" className="slider-area slider-four fix p-relative" style={{ position: 'relative', minHeight: '100vh' }}>
+        <section id="home" className="slider-area slider-four fix p-relative" style={{ position: 'relative', minHeight: '85vh', isolation: 'isolate', zIndex: 1 }}>
             {/* Background Image - Desktop */}
             <div className="d-none d-lg-block" style={{ 
                 position: 'absolute', 
@@ -28,9 +28,7 @@ const HeroOne = () => {
                 width: '100%', 
                 height: '100%', 
                 zIndex: 0,
-                overflow: 'hidden',
-                willChange: 'transform',
-                backfaceVisibility: 'hidden'
+                overflow: 'hidden'
             }}>
                 <img 
                     src={herobg}
@@ -41,7 +39,6 @@ const HeroOne = () => {
                         objectFit: 'cover',
                         objectPosition: 'center',
                         display: 'block',
-                        transform: 'translateZ(0)',
                         opacity: 0.6
                     }}
                 />
@@ -56,6 +53,7 @@ const HeroOne = () => {
                     zIndex: 1
                 }}></div>
             </div>
+            
             {/* Background Image - Mobile */}
             <div className="d-lg-none" style={{ 
                 position: 'absolute', 
@@ -64,9 +62,7 @@ const HeroOne = () => {
                 width: '100%', 
                 height: '100%', 
                 zIndex: 0,
-                overflow: 'hidden',
-                willChange: 'transform',
-                backfaceVisibility: 'hidden'
+                overflow: 'hidden'
             }}>
                 <img 
                     src={heroph}
@@ -77,7 +73,6 @@ const HeroOne = () => {
                         objectFit: 'cover',
                         objectPosition: 'center',
                         display: 'block',
-                        transform: 'translateZ(0)',
                         opacity: 0.6
                     }}
                 />
@@ -92,9 +87,9 @@ const HeroOne = () => {
                     zIndex: 1
                 }}></div>
             </div>
-            <div className="slider-active" style={{ position: 'relative', zIndex: 1 }}>
-                <div className="single-slider slider-bg d-flex align-items-center" style={{ background: 'transparent', minHeight: '100vh' }}>
-                    <div className="container" style={{ position: 'relative', zIndex: 2, paddingBottom: '100px' }}>
+            <div className="slider-active" style={{ position: 'relative', zIndex: 2 }}>
+                <div className="single-slider slider-bg d-flex align-items-center" style={{ background: 'transparent', minHeight: '85vh' }}>
+                    <div className="container" style={{ position: 'relative', zIndex: 3, paddingBottom: '60px' }}>
                         <div className="row justify-content-center pt-50">
                             <div className="col-lg-1 col-md-1 d-none d-lg-block"></div>
                             <div className="col-lg-6 col-md-6 col-12">
@@ -102,7 +97,7 @@ const HeroOne = () => {
                                     {/* IP Logo */}
                                     <AnimateOnScroll animation="hero-title" className="d-none d-lg-block">
                                         <div style={{
-                                            marginBottom: '40px',
+                                            marginBottom: '25px',
                                             textAlign: 'left'
                                         }}>
                                             <img 
@@ -110,10 +105,10 @@ const HeroOne = () => {
                                                 alt="Event IP Logo" 
                                                 style={{
                                                     width: '100%',
-                                                    maxWidth: '650px',
+                                                    maxWidth: '550px',
                                                     height: 'auto',
                                                     filter: 'drop-shadow(0 0 30px rgba(255, 192, 16, 0.8))',
-                                                    transform: 'scale(1.1)'
+                                                    transform: 'scale(1.0)'
                                                 }}
                                             />
                                         </div>
@@ -166,7 +161,7 @@ const HeroOne = () => {
                                         <h2>{title}</h2>
                                     </AnimateOnScroll>
                                     <AnimateOnScroll animation="hero-subtitle" delay={200} className="d-none d-lg-block">
-                                        <p style={{color: '#fff', fontSize: '18px', marginBottom: '30px'}}>{'INSERT COIN to begin your journey at the ultimate technical fest experience. Where retro meets revolution.'}</p>
+                                        <p style={{color: '#fff', fontSize: '18px', marginBottom: '20px'}}>{'INSERT COIN to begin your journey at the ultimate technical fest experience. Where retro meets revolution.'}</p>
                                     </AnimateOnScroll>
                                     
                                     {/* Buttons - Mobile */}
@@ -183,7 +178,7 @@ const HeroOne = () => {
                                             <Button8bit to={'/contact'} variant="primary" size="large">
                                                 {btnText}
                                             </Button8bit>
-                                            <Button8bit to={'/about'} variant="outline" size="large">
+                                            <Button8bit to={'/about'} variant="primary" size="large">
                                                 {'Explore Events'}
                                             </Button8bit>
                                         </div>
@@ -210,7 +205,7 @@ const HeroOne = () => {
                                         alt="PC Main"
                                         style={{
                                             width: '100%',
-                                            maxWidth: '500px',
+                                            maxWidth: '420px',
                                             height: 'auto',
                                             filter: 'drop-shadow(0 10px 40px rgba(0, 0, 0, 0.5))',
                                             transition: 'opacity 0.3s ease-in-out',
@@ -218,9 +213,7 @@ const HeroOne = () => {
                                             position: 'absolute',
                                             top: '50%',
                                             left: '50%',
-                                            transform: 'translate(-50%, -50%) translateZ(0)',
-                                            willChange: 'opacity',
-                                            backfaceVisibility: 'hidden'
+                                            transform: 'translate(-50%, -50%)'
                                         }}
                                     />
                                     <img 
@@ -228,7 +221,7 @@ const HeroOne = () => {
                                         alt="PC Start"
                                         style={{
                                             width: '100%',
-                                            maxWidth: '500px',
+                                            maxWidth: '420px',
                                             height: 'auto',
                                             filter: 'drop-shadow(0 10px 40px rgba(0, 0, 0, 0.5))',
                                             transition: 'opacity 0.3s ease-in-out',
@@ -236,9 +229,7 @@ const HeroOne = () => {
                                             position: 'absolute',
                                             top: '50%',
                                             left: '50%',
-                                            transform: 'translate(-50%, -50%) translateZ(0)',
-                                            willChange: 'opacity',
-                                            backfaceVisibility: 'hidden'
+                                            transform: 'translate(-50%, -50%)'
                                         }}
                                     />
                                 </div>
@@ -249,12 +240,13 @@ const HeroOne = () => {
                             <div className="slider-btn btn-8bit-group" style={{
                                 position: 'absolute',
                                 bottom: '0px',
-                                right: '80px',
+                                left: '78%',
+                                transform: 'translateX(-50%)',
                                 display: 'flex',
                                 flexDirection: 'row',
                                 gap: '30px',
                                 alignItems: 'center',
-                                zIndex: 10
+                                zIndex: 100
                             }}>
                                 <Button8bit to={'/contact'} variant="primary" size="large">
                                     {btnText}

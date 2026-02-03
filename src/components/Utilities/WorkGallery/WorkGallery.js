@@ -207,7 +207,7 @@ const WorkGallery = () => {
 
     return (
         <section id="work" className="pt-120 pb-120" style={{ background: `url(${bgImg}) no-repeat` }}>
-            <div className="container-fluid px-4">
+            <div className="container-fluid gallery-container">
                 <div className="portfolio ">
                     <div className="row align-items-center mb-30">
                         <div className="col-lg-12 d-flex justify-content-between align-items-center">
@@ -315,8 +315,6 @@ const WorkGallery = () => {
                                         <div 
                                             className="grid-item gallery-card-wrapper" 
                                             style={{ 
-                                                minWidth: 'clamp(280px, 90vw, 350px)', 
-                                                maxWidth: 'clamp(280px, 90vw, 350px)', 
                                                 flexShrink: 0 
                                             }}
                                         >
@@ -332,7 +330,7 @@ const WorkGallery = () => {
                                                 padding: '0',
                                                 overflow: 'hidden',
                                                 cursor: 'pointer',
-                                                transform: hoveredIndex === index ? 'translateY(-8px)' : 'translateY(0)',
+                                                transform: hoveredIndex === index ? 'scale(1.02)' : 'scale(1)',
                                             }}
                                             onMouseEnter={() => setHoveredIndex(index)}
                                             onMouseLeave={() => setHoveredIndex(null)}

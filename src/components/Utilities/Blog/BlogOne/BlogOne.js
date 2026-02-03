@@ -4,6 +4,8 @@ import blogImg1 from '../../../../assets/img/blog/inner_b1.jpg';
 import blogImg2 from '../../../../assets/img/blog/inner_b2.jpg';
 import blogImg3 from '../../../../assets/img/blog/inner_b3.jpg';
 import BlogCard from "../BlogCard";
+import SectionTitle from '../../SectionTitle/SectionTitle';
+import './BlogOne.css';
 
 const blogData = [
     {
@@ -35,6 +37,11 @@ const BlogOne = () => {
     return (
         <section id="blog" className="blog-area  p-relative pt-120 pb-120 fix" style={{ background: `url(${bgImg}) no-repeat right bottom` }}>
             <div className="container">
+                <div className="row justify-content-center">
+                    <div className="col-lg-8">
+                        <SectionTitle titlefirst='Latest' titleSec='Updates' className='text-center' />
+                    </div>
+                </div>
                 <div className="row">
                     <BlogCard blogData={blogData} />
                 </div>

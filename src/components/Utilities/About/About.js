@@ -8,7 +8,7 @@ import AnimateOnScroll from '../ScrollAnimation/AnimateOnScroll';
 
 const About = () => {
     return (
-        <section id="about" className="about-area about-p pt-70 pb-140 p-relative" style={{ position: 'relative' }}>
+        <section id="about" className="about-area about-p pt-70 pb-140 p-relative" style={{ position: 'relative', isolation: 'isolate', zIndex: 2 }}>
             <div style={{
                 position: 'absolute',
                 top: 0,
@@ -25,11 +25,11 @@ const About = () => {
                 top: 0,
                 left: 0,
                 right: 0,
-                height: '150px',
-                background: 'linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, transparent 100%)',
+                height: '200px',
+                background: 'linear-gradient(to bottom, rgba(0, 0, 0, 0.9) 0%, transparent 100%)',
                 zIndex: 1
             }}></div>
-            <div className="container" style={{ position: 'relative', zIndex: 2 }}>
+            <div className="container" style={{ position: 'relative', zIndex: 3 }}>
                 <div className="row">
                     <div className="col-lg-6 col-md-12 col-sm-12">
                         <AnimateOnScroll animation="slide-in-left">
@@ -44,7 +44,7 @@ const About = () => {
                             }} />
                             <div className="about-image2 wow fadeInUp d-none d-md-block" data-wow-delay=".4s" style={{
                                 position: 'absolute',
-                                bottom: '-238px',
+                                bottom: '-220px',
                                 right: '-30px',
                                 zIndex: 2,
                                 width: '70%'
@@ -86,26 +86,32 @@ const About = () => {
                                 background: 'rgba(26, 14, 34, 0.9)',
                                 border: '4px solid #ffc010',
                                 marginBottom: '30px',
-                                marginTop: '20px'
+                                marginTop: '20px',
+                                position: 'relative',
+                                overflow: 'visible'
                             }}>
-                                <p className="title" style={{
+                                <p className="title about-event-title" style={{
                                     background: '#1a0e22',
                                     color: '#ffc010',
                                     fontFamily: 'Press Start 2P, Minecraft, monospace',
                                     fontSize: '12px',
-                                    padding: '5px 15px'
+                                    padding: '5px 15px',
+                                    position: 'relative',
+                                    zIndex: 1
                                 }}>Event Info</p>
                                 
                                 <div className="message-list">
-                                    <div className="message -left" style={{ marginBottom: '20px' }}>
-                                        <i className="nes-mario" style={{ 
-                                            fontSize: '32px'
+                                    <div className="message -left" style={{ marginBottom: '20px', position: 'relative' }}>
+                                        <i className="nes-mario about-emoji" style={{ 
+                                            fontSize: '32px',
+                                            position: 'relative'
                                         }}></i>
                                         <div className="nes-balloon from-left is-dark" style={{
                                             background: '#2d1b3d',
                                             border: '4px solid #ffc010',
                                             color: '#ffd966',
-                                            maxWidth: '400px'
+                                            maxWidth: '400px',
+                                            position: 'relative'
                                         }}>
                                             <p style={{ 
                                                 fontFamily: 'Minecraft, monospace',
@@ -117,12 +123,13 @@ const About = () => {
                                         </div>
                                     </div>
 
-                                    <div className="message -right" style={{ marginBottom: '20px' }}>
+                                    <div className="message -right" style={{ marginBottom: '20px', position: 'relative' }}>
                                         <div className="nes-balloon from-right is-dark" style={{
                                             background: '#2d1b3d',
                                             border: '4px solid #ffc010',
                                             color: '#ffd966',
-                                            maxWidth: '400px'
+                                            maxWidth: '400px',
+                                            position: 'relative'
                                         }}>
                                             <p style={{ 
                                                 fontFamily: 'Minecraft, monospace',
@@ -132,20 +139,23 @@ const About = () => {
                                                 Press START to join 15+ events including Coding, Robotics, Gaming, and Creative competitions!
                                             </p>
                                         </div>
-                                        <i className="nes-ash" style={{ 
-                                            fontSize: '32px'
+                                        <i className="nes-ash about-emoji" style={{ 
+                                            fontSize: '32px',
+                                            position: 'relative'
                                         }}></i>
                                     </div>
 
-                                    <div className="message -left">
-                                        <i className="nes-kirby" style={{ 
-                                            fontSize: '32px'
+                                    <div className="message -left" style={{ position: 'relative' }}>
+                                        <i className="nes-kirby about-emoji" style={{ 
+                                            fontSize: '32px',
+                                            position: 'relative'
                                         }}></i>
                                         <div className="nes-balloon from-left is-dark" style={{
                                             background: '#2d1b3d',
                                             border: '4px solid #ffc010',
                                             color: '#ffd966',
-                                            maxWidth: '400px'
+                                            maxWidth: '400px',
+                                            position: 'relative'
                                         }}>
                                             <p style={{ 
                                                 fontFamily: 'Minecraft, monospace',
@@ -170,8 +180,14 @@ const About = () => {
                                     </div>
                                 </div>
                             </div>
-                                <div className="slider-btn2 mt-30">
-                                    <Button8bit to={'/about'} variant="primary" size="medium">{'Discover More'}</Button8bit>
+                                <div className="slider-btn2 mt-30" style={{ 
+                                    textAlign: window.innerWidth <= 768 ? 'center' : 'right',
+                                    position: 'relative',
+                                    top: window.innerWidth <= 768 ? '0' : '-120px',
+                                    right: window.innerWidth <= 768 ? '0' : '50px',
+                                    marginTop: window.innerWidth <= 768 ? '30px' : '0'
+                                }}>
+                                    <Button8bit to={'/about'} variant="primary" size="large">{'Discover More'}</Button8bit>
                                 </div>
                             </div>
                         </AnimateOnScroll>

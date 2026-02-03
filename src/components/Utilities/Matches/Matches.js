@@ -156,6 +156,7 @@ const Matches = () => {
     const events = filteredEvents.length > 0 ? filteredEvents : allEvents;
 
     return (
+<<<<<<< HEAD
         <section id="match" className="match-area pt-60 pb-90" style={{ background: `url(${matchBgImg})` }}>
             <div className="container">
                 {/* Auto-scrolling Pictures Album */}
@@ -306,6 +307,10 @@ const Matches = () => {
                     </div>
                 </div>
 
+=======
+        <section id="match" className="match-area pt-60 pb-90" style={{ background: `url(${matchBgImg})`, overflow: 'visible' }}>
+            <div className="container" style={{ overflow: 'visible' }}>
+>>>>>>> bd7e8f5f22ba5f1f23bbc911cb22c0cbc37b278b
                 <div className="row align-items-center mb-30">
                     <div className="col-lg-12">
                         <SectionTitle titlefirst='Featured' titleSec='Events' />
@@ -323,14 +328,19 @@ const Matches = () => {
                         </div>
                     </div>
                 </div>
-                <div className="row">
+                <div className="row" style={{ paddingTop: '20px', overflow: 'visible' }}>
                     {
                         events.map((event, index) => {
                             const { logo, name, url } = event;
                             return (
+<<<<<<< HEAD
                                 <div key={index} className="col-lg-4 col-md-6 col-sm-6 mb-40 wow fadeInUp animated" data-animation="fadeInUp" data-delay={`${0.1 * index}s`}>
                                     <Link to={url} style={{ textDecoration: 'none' }}>
                                         <RetroCard 
+=======
+                                <div key={index} className="col-lg-4 col-md-6 col-sm-6 mb-40 wow fadeInUp animated" data-animation="fadeInUp" data-delay={`${0.1 * index}s`} style={{ paddingTop: '10px' }}>
+                                    <RetroCard 
+>>>>>>> bd7e8f5f22ba5f1f23bbc911cb22c0cbc37b278b
                                         bg={hoveredIndex === index ? '#1a3d3d' : '#1a0e22'}
                                         textColor={hoveredIndex === index ? '#00ffea' : '#ffffff'}
                                         borderColor={hoveredIndex === index ? '#00ffea' : '#ffc010'}

@@ -9,7 +9,7 @@ const Member = ({ teamData }) => {
                     const { id, avatar, name, deg } = data;
                     const delay = (index % 6) * 100;
                     return (
-                        <div className="col-lg-4 col-md-6" key={id}>
+                        <div className="col-lg-3 col-md-6 col-sm-6" key={id}>
                             <AnimateOnScroll animation="fade-scale" delay={delay}>
                                 <div className="single-team text-center mb-30">
                                     <div className="team-thumb">
