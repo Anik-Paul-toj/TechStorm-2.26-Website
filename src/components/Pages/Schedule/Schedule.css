@@ -1,5 +1,14 @@
 /* Schedule Page Custom Styles */
 
+/* Breadcrumb: Home & Schedule in yellow */
+.schedule-breadcrumb .breadcrumb a,
+.schedule-breadcrumb .breadcrumb-item.active {
+    color: #ffc010 !important;
+}
+.schedule-breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+    color: rgba(255, 192, 16, 0.6);
+}
+
 /* Schedule Container - No constraints */
 .schedule-container {
     width: 100%;

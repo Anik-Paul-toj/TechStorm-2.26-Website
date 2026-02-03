@@ -157,7 +157,7 @@ const Footer = () => {
                         </div>
                     </div>
                 </div>
-            </div>, paddingTop: '20px', marginTop: '20px'
+            </div>
             <div className="copyright-wrap" style={{ position: 'relative', zIndex: 1 }}>
                 <div className="container">
                     <div className="row align-items-center">

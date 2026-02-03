@@ -73,7 +73,7 @@ const Schedule = () => {
                     backgroundColor: 'rgba(0, 0, 0, 0.7)',
                     minHeight: '100vh'
                 }}>
-                    <section className="breadcrumb-area d-flex align-items-center" style={{background: 'transparent', padding: '0', minHeight: 'auto', margin: '0'}}>
+                    <section className="breadcrumb-area d-flex align-items-center schedule-breadcrumb" style={{background: 'transparent', padding: '0', minHeight: 'auto', margin: '0'}}>
                         <div className="container">
                             <div className="row align-items-center">
                                 <div className="col-xl-12 col-lg-12">
