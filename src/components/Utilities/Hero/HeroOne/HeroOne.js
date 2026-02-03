@@ -183,7 +183,7 @@ const HeroOne = () => {
                                             <Button8bit to={'/contact'} variant="primary" size="large">
                                                 {btnText}
                                             </Button8bit>
-                                            <Button8bit to={'/about'} variant="outline" size="large">
+                                            <Button8bit to={'/about'} variant="primary" size="large">
                                                 {'Explore Events'}
                                             </Button8bit>
                                         </div>
