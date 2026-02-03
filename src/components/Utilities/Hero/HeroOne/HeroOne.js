@@ -240,7 +240,8 @@ const HeroOne = () => {
                             <div className="slider-btn btn-8bit-group" style={{
                                 position: 'absolute',
                                 bottom: '0px',
-                                right: '80px',
+                                left: '78%',
+                                transform: 'translateX(-50%)',
                                 display: 'flex',
                                 flexDirection: 'row',
                                 gap: '30px',

@@ -9,7 +9,7 @@ const services = [
     {
         icon: 'flaticon-archery',
         title: 'Robo League',
-        description: 'Ro-Navigator, Ro-Combat, Ro-Soccer, Ro-Terrance & Aqua-Race await your machines.'
+        description: 'Ro-Navigator, Ro-Combat, Ro-Soccer, Ro-Terrance await your machines.'
     },
     {
         icon: 'flaticon-competition',
