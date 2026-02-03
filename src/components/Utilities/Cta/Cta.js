@@ -1,5 +1,6 @@
 import bgImg from '../../../assets/img/bg/divider-bg.png';
 import Button8bit from '../Button/Button8bit';
+import './Cta.css';
 const ctaData = {
     bg: bgImg,
     title: 'Ready to Press Start? Register Now for TechStorm 2026!',

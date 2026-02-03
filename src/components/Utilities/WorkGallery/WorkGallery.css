@@ -85,10 +85,10 @@
     }
     
     .gallery-scroll-container {
-        gap: 35px;
-        padding-left: 35px !important;
-        padding-right: 35px !important;
-        scroll-padding-left: 35px;
+        gap: 20px;
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+        scroll-padding-left: 15px;
         margin: 0;
     }
     
@@ -122,10 +122,10 @@
 
 @media (max-width: 480px) {
     .gallery-scroll-container {
-        gap: 30px;
-        padding-left: 30px !important;
-        padding-right: 30px !important;
-        scroll-padding-left: 30px;
+        gap: 15px;
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+        scroll-padding-left: 10px;
         margin: 0;
     }
     
@@ -162,5 +162,25 @@
     .gallery-scroll-container {
         scrollbar-width: none;
         -ms-overflow-style: none;
+    }
+}
+
+/* Gallery container padding control */
+.gallery-container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .gallery-container {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-container {
+        padding-left: 0.25rem;
+        padding-right: 0.25rem;
     }
 }

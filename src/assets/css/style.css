@@ -145,6 +145,22 @@ h6 {
 	overflow: visible !important;
 }
 
+/* Exception: Allow overflow for blog area - needed for card shadows */
+.blog-area .container,
+.blog-area .container-fluid,
+.blog-area .row,
+.blog-area [class*="col-"] {
+	overflow: visible !important;
+}
+
+/* Exception: Allow overflow for CTA/features area */
+.features-area .container,
+.features-area .container-fluid,
+.features-area .row,
+.features-area [class*="col-"] {
+	overflow: visible !important;
+}
+
 /* Exception: Allow overflow for header/navigation */
 .header-area .container-fluid,
 .header-area .row,
