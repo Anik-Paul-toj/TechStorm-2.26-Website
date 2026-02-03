@@ -53,7 +53,7 @@ const Teams = () => {
                   <SectionTitle titlefirst="Organizing" titleSec="Committee" />
                 </div>
               </div>
-              <div className="row">
+              <div className="row team-org-members-row">
                 <Member teamData={coreMembers} />
               </div>
             </div>

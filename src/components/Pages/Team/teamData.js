@@ -9,6 +9,8 @@ import team3 from '../../../assets/img/team/team_img04.png';
 import team4 from '../../../assets/img/team/team_img05.png';
 import team5 from '../../../assets/img/team/team_img06.png';
 import team6 from '../../../assets/img/team/team_img07.png';
+import team7 from '../../../assets/img/team/team_img01.png';
+import team8 from '../../../assets/img/team/team_img08.png';
 
 export const coreMembers = [
     { id: '1', avatar: team1, name: '[Name]', deg: 'Convenor' },
@@ -17,6 +19,11 @@ export const coreMembers = [
     { id: '4', avatar: team4, name: '[Name]', deg: 'Creative Head' },
     { id: '5', avatar: team5, name: '[Name]', deg: 'Sponsorship Head' },
     { id: '6', avatar: team6, name: '[Name]', deg: 'PR Head' },
+    { id: '7', avatar: team7, name: '[Name]', deg: '[Role]' },
+    { id: '8', avatar: team8, name: '[Name]', deg: '[Role]' },
+    { id: '9', avatar: team1, name: '[Name]', deg: '[Role]' },
+    { id: '10', avatar: team2, name: '[Name]', deg: '[Role]' },
+    { id: '11', avatar: team3, name: '[Name]', deg: '[Role]' },
 ];
 
 export const eventTeams = [
