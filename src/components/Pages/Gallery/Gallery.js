@@ -2,6 +2,7 @@ import React, { useState, useMemo, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { cloudinaryImages } from '../../../config/cloudinary';
 import heroVideo from '../../../assets/img/HERO.mp4';
+import SectionTitle from '../../Utilities/SectionTitle/SectionTitle';
 import {
   Pagination,
   PaginationContent,
@@ -122,6 +123,11 @@ const Gallery = () => {
           </section>
           <section id="work" className="pt-40 pb-90">
             <div className="container">
+              <div className="row align-items-center mb-30">
+                <div className="col-lg-12">
+                  <SectionTitle titlefirst="Glimpses of" titleSec="last year" className="gallery-heading-title" />
+                </div>
+              </div>
               <div className="portfolio gallery-retro">
                 <div className="grid col4 gallery-grid-4x3">
                   {paginatedItems.map((data) => {

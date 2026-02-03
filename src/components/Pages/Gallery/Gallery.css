@@ -3,6 +3,7 @@
 .gallery-hero-wrap {
   position: relative;
   overflow: hidden;
+  overflow-x: hidden;
   min-height: 100vh;
 }
 
@@ -24,6 +25,7 @@
   padding-top: 20px;
   padding-bottom: 40px;
 }
+
 
 .gallery-hero-overlay .section-title h2,
 .gallery-hero-overlay .section-title span {
@@ -59,15 +61,63 @@
   color: rgba(255, 192, 16, 0.6);
 }
 
-/* 4x3 grid: 4 columns, 3 rows (12 items per page) */
+/* Allow brushstroke dash to show fully (avoid overflow clipping) */
+.gallery-hero-overlay section#work .container,
+.gallery-hero-overlay section#work .row.align-items-center.mb-30,
+.gallery-hero-overlay section#work .row.align-items-center.mb-30 [class*="col-"] {
+  overflow: visible;
+}
+.gallery-heading-title.section-title,
+.gallery-heading-title.section-title h2 {
+  overflow: visible;
+}
+
+/* Gallery heading: pixel/8-bit style like "Organizing Committee" */
+.gallery-heading-title.section-title h2 {
+  font-family: 'Press Start 2P', 'Minecraft', monospace, cursive;
+  color: #fff !important;
+  font-size: 1.75rem;
+  line-height: 1.6;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+.gallery-heading-title.section-title h2 span {
+  color: #ffc010 !important;
+  display: inline;
+  margin-top: 0;
+}
+
+.gallery-heading-title.section-title img {
+  display: none;
+}
+
+/* Brushstroke dash: use provided brushstroke image */
+.gallery-heading-title.section-title h2::after {
+  content: '';
+  display: block;
+  margin-top: 12px;
+  width: 200px;
+  height: 28px;
+  background: url('../../../assets/img/brushstroke-dash.png') no-repeat left center;
+  background-size: contain;
+  position: relative;
+  left: 0;
+}
+
+/* 4x3 grid: 4 columns, 3 rows (12 items per page) + proper height spacing */
 .gallery-grid-4x3 {
   display: flex;
   flex-wrap: wrap;
+  gap: 0;
 }
 
 .gallery-grid-4x3 .grid-item {
   width: calc(25% - 10px);
-  margin: 0 5px 12px;
+  margin: 0 5px 24px;
 }
 
 /* Image toast (shows image when clicked) */
@@ -139,10 +189,10 @@
   transform: scale(1.05);
 }
 
-/* Retro pixel gallery cards (4 columns) */
+/* Retro pixel gallery cards (4 columns) + proper height spacing */
 .gallery-retro .portfolio .grid.col4 .grid-item {
   width: calc(25% - 10px);
-  margin: 0 5px 12px;
+  margin: 0 5px 24px;
   padding: 0;
 }
 
@@ -221,18 +271,58 @@
   margin-bottom: 20px;
 }
 
+/* ---------- Tablet ---------- */
 @media (max-width: 991px) {
+  .gallery-hero-overlay {
+    padding-top: 16px;
+    padding-bottom: 32px;
+  }
+
+  .gallery-heading-title.section-title h2 {
+    font-size: 1.4rem;
+  }
+
   .gallery-retro .portfolio .grid.col4 .grid-item,
   .gallery-grid-4x3 .grid-item {
     width: calc(33.33% - 10px);
+    margin-bottom: 22px;
+  }
+
+  .gallery-hero-overlay section#work.pt-40 {
+    padding-top: 24px !important;
+  }
+
+  .gallery-pagination-wrap {
+    margin-top: 24px;
+    margin-bottom: 16px;
   }
 }
 
+/* ---------- Mobile landscape / small tablet ---------- */
 @media (max-width: 767px) {
+  .gallery-hero-overlay {
+    padding-top: 12px;
+    padding-bottom: 24px;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .gallery-breadcrumb .breadcrumb-title h2 {
+    font-size: 1.35rem;
+  }
+
+  .gallery-breadcrumb .breadcrumb {
+    font-size: 0.8rem;
+  }
+
   .gallery-retro .portfolio .grid.col4 .grid-item,
   .gallery-grid-4x3 .grid-item {
-    width: calc(50% - 4px);
-    margin: 0 2px 8px;
+    width: calc(50% - 6px);
+    margin: 0 3px 18px;
+  }
+
+  .gallery-heading-title.section-title h2 {
+    font-size: 1.15rem;
   }
 
   .gallery-retro .grid-item .box {
@@ -245,5 +335,150 @@
       calc(100% - 6px) 100%, 6px 100%, 6px calc(100% - 6px),
       0 calc(100% - 6px)
     );
+  }
+
+  .gallery-retro .grid-item .box-hover {
+    padding-top: 42%;
+    font-size: 28px;
+  }
+
+  .gallery-hero-overlay section#work.pt-40 {
+    padding-top: 16px !important;
+  }
+
+  .gallery-hero-overlay section#work.pb-90 {
+    padding-bottom: 32px !important;
+  }
+
+  .gallery-pagination-wrap {
+    margin-top: 20px;
+    margin-bottom: 12px;
+    padding: 0 8px;
+  }
+
+  .gallery-pagination-wrap .pagination-8bit {
+    font-size: 8px;
+  }
+
+  .gallery-pagination-wrap .pagination-prev-8bit,
+  .gallery-pagination-wrap .pagination-next-8bit,
+  .gallery-pagination-wrap .pagination-link-8bit {
+    min-width: 32px;
+    height: 30px;
+    padding: 0 6px;
+  }
+
+  .gallery-pagination-wrap .pagination-content-8bit {
+    gap: 4px;
+  }
+
+  .gallery-toast-overlay {
+    padding: 12px;
+    padding-top: env(safe-area-inset-top, 12px);
+    padding-bottom: env(safe-area-inset-bottom, 12px);
+    padding-left: env(safe-area-inset-left, 12px);
+    padding-right: env(safe-area-inset-right, 12px);
+  }
+
+  .gallery-toast {
+    max-width: 96vw;
+    max-height: 82vh;
+    padding: 6px;
+    border-width: 2px;
+  }
+
+  .gallery-toast-img {
+    max-height: calc(82vh - 20px);
+  }
+
+  .gallery-toast-close {
+    top: 4px;
+    right: 4px;
+    width: 44px;
+    height: 44px;
+    font-size: 18px;
+    min-width: 44px;
+    min-height: 44px;
+  }
+}
+
+/* ---------- Mobile portrait (single column for easier tap) ---------- */
+@media (max-width: 480px) {
+  .gallery-hero-overlay {
+    padding-top: 10px;
+    padding-bottom: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .gallery-hero-overlay .container {
+    padding-left: 8px;
+    padding-right: 8px;
+    max-width: 100%;
+  }
+
+  .gallery-breadcrumb .breadcrumb-title h2 {
+    font-size: 1.2rem;
+  }
+
+  .gallery-breadcrumb .breadcrumb {
+    font-size: 0.75rem;
+  }
+
+  .gallery-retro .portfolio .grid.col4 .grid-item,
+  .gallery-grid-4x3 .grid-item {
+    width: 100%;
+    margin: 0 0 20px;
+    max-width: 100%;
+  }
+
+  .gallery-heading-title.section-title h2 {
+    font-size: 0.95rem;
+  }
+
+  .gallery-heading-title.section-title img {
+    max-width: 80px;
+    margin-top: 6px;
+  }
+
+  .gallery-retro .grid-item .box-hover {
+    padding-top: 40%;
+    font-size: 24px;
+  }
+
+  .gallery-hero-overlay section#work.pt-40 {
+    padding-top: 12px !important;
+  }
+
+  .gallery-hero-overlay section#work.pb-90 {
+    padding-bottom: 24px !important;
+  }
+
+  .gallery-pagination-wrap {
+    margin-top: 16px;
+    margin-bottom: 10px;
+    padding: 0 4px;
+  }
+
+  .gallery-pagination-wrap .pagination-content-8bit {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+  }
+
+  .gallery-pagination-wrap .pagination-prev-8bit,
+  .gallery-pagination-wrap .pagination-next-8bit {
+    min-width: 36px;
+    height: 32px;
+  }
+
+  .gallery-toast {
+    max-width: 98vw;
+    max-height: 80vh;
+  }
+
+  .gallery-toast-close {
+    top: 8px;
+    right: 8px;
   }
 }

@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import heroBg from '../../../assets/img/herobg.png';
+import SectionTitle from '../../Utilities/SectionTitle/SectionTitle';
 import './Schedule.css';
 
 const scheduleData = {
@@ -96,9 +97,19 @@ const Schedule = () => {
                             </div>
                         </div>
                     </section>
+
+                    <section className="schedule-title-section">
+                        <div className="container">
+                            <div className="row align-items-center mb-30">
+                                <div className="col-lg-12">
+                                    <SectionTitle titlefirst="What's on" titleSec="this year" className="schedule-heading-title" />
+                                </div>
+                            </div>
+                        </div>
+                    </section>
             
                     <div style={{ 
-                        paddingTop: '50px',
+                        paddingTop: '20px',
                         paddingBottom: '80px'
                     }}>
                         <div className="schedule-container">{/* Day 1 Schedule */}
