@@ -67,9 +67,15 @@
 .gallery-hero-overlay section#work .row.align-items-center.mb-30 [class*="col-"] {
   overflow: visible;
 }
+.gallery-hero-overlay section#work .row.align-items-center.mb-30 {
+  margin-bottom: 16px !important;
+}
 .gallery-heading-title.section-title,
 .gallery-heading-title.section-title h2 {
   overflow: visible;
+}
+.gallery-heading-title.section-title {
+  margin-bottom: 0 !important;
 }
 
 /* Gallery heading: pixel/8-bit style like "Organizing Committee" */
@@ -318,7 +324,11 @@
   .gallery-retro .portfolio .grid.col4 .grid-item,
   .gallery-grid-4x3 .grid-item {
     width: calc(50% - 6px);
-    margin: 0 3px 18px;
+    margin: 0 3px 40px;
+  }
+  .gallery-retro .portfolio .grid.col4.gallery-grid-4x3,
+  .gallery-grid-4x3 {
+    row-gap: 40px;
   }
 
   .gallery-heading-title.section-title h2 {
@@ -428,8 +438,12 @@
   .gallery-retro .portfolio .grid.col4 .grid-item,
   .gallery-grid-4x3 .grid-item {
     width: 100%;
-    margin: 0 0 20px;
+    margin: 0 0 48px;
     max-width: 100%;
+  }
+  .gallery-retro .portfolio .grid.col4.gallery-grid-4x3,
+  .gallery-grid-4x3 {
+    row-gap: 48px;
   }
 
   .gallery-heading-title.section-title h2 {
