@@ -232,18 +232,255 @@ const EventDetail = ({ eventData }) => {
                                 <div className="heading-brush"></div>
                             </div>
                             <div className="about-content">
-                                <p className="about-text" style={{ 
-                                    color: '#ffffff', 
-                                    fontSize: '14px',
+                                <p style={{ 
+                                    color: '#fffacd', 
+                                    fontSize: '16px',
                                     lineHeight: '1.8',
-                                    fontFamily: 'Arial, sans-serif',
+                                    fontFamily: 'Minecraft, monospace',
                                     margin: 0,
-                                    padding: 0,
-                                    display: 'block',
-                                    textShadow: '0 0 5px rgba(255,255,255,0.5)'
+                                    textAlign: 'justify',
+                                    fontWeight: '400'
                                 }}>
                                     {description}
                                 </p>
+                                <section className="message -right" style={{ 
+                                    marginTop: '25px',
+                                    display: 'flex',
+                                    flexDirection: 'row',
+                                    alignItems: 'flex-start',
+                                    gap: '10px'
+                                }}>
+                                    <div className="nes-balloon from-right" style={{ borderStyle: 'dashed', flex: 1 }}>
+                                        <p style={{ fontSize: '16px' }}>📅 <span style={{ color: '#00ffea' }}>Event Dates: </span>   9-10th April</p>
+                                    </div>
+                                    <i className="nes-bcrikko" style={{
+                                        display: 'block'
+                                    }}></i>
+                                </section>
+                                
+                                <style>{`
+                                    @media (max-width: 768px) {
+                                        .message.-right {
+                                            flex-direction: column-reverse !important;
+                                            align-items: center !important;
+                                        }
+                                        .message.-right .nes-bcrikko {
+                                            margin-bottom: 10px;
+                                        }
+                                        
+                                        .about-heading {
+                                            text-align: center;
+                                            display: flex;
+                                            flex-direction: column;
+                                            align-items: center;
+                                            position: relative;
+                                            width: 100%;
+                                        }
+                                        
+                                        .about-heading .heading-white,
+                                        .about-heading .heading-gold {
+                                            display: block;
+                                            text-align: center;
+                                            margin: 0;
+                                            font-size: 20px !important;
+                                        }
+                                        
+                                        .about-heading .heading-brush {
+                                            position: relative;
+                                            bottom: auto;
+                                            left: auto;
+                                            margin: 10px auto 20px;
+                                            width: 80px;
+                                        }
+                                        
+                                        .about-content p {
+                                            text-align: center !important;
+                                        }
+                                        
+                                        /* Entry fee mobile centering */
+                                        .col-lg-6[style*="paddingLeft"] {
+                                            padding-left: 5px !important;
+                                            padding-right: 5px !important;
+                                            display: flex;
+                                            flex-direction: column;
+                                            align-items: center;
+                                        }
+                                        
+                                        .entry-heading {
+                                            text-align: center;
+                                            display: flex;
+                                            flex-direction: column;
+                                            align-items: center;
+                                            position: relative;
+                                            width: 100%;
+                                        }
+                                        
+                                        .entry-heading .heading-white,
+                                        .entry-heading .heading-gold {
+                                            display: block;
+                                            text-align: center;
+                                            margin: 0;
+                                            font-size: 20px !important;
+                                        }
+                                        
+                                        .entry-heading .heading-brush {
+                                            position: relative;
+                                            bottom: auto;
+                                            left: auto;
+                                            margin: 10px auto 20px;
+                                            width: 80px;
+                                        }
+                                        
+                                        .rules-heading {
+                                            text-align: center;
+                                            display: flex;
+                                            flex-direction: column;
+                                            align-items: center;
+                                            position: relative;
+                                            width: 100%;
+                                        }
+                                        
+                                        .rules-heading .heading-white,
+                                        .rules-heading .heading-gold {
+                                            display: block;
+                                            text-align: center;
+                                            margin: 0;
+                                            font-size: 20px !important;
+                                        }
+                                        
+                                        .rules-heading .heading-brush {
+                                            position: relative;
+                                            bottom: auto;
+                                            left: auto;
+                                            margin: 10px auto 20px;
+                                            width: 80px;
+                                        }
+                                        
+                                        .coordinator-heading {
+                                            text-align: center;
+                                            display: flex;
+                                            flex-direction: column;
+                                            align-items: center;
+                                            position: relative;
+                                            width: 100%;
+                                        }
+                                        
+                                        .coordinator-heading .heading-white,
+                                        .coordinator-heading .heading-gold {
+                                            display: block;
+                                            text-align: center;
+                                            margin: 0;
+                                            font-size: 20px !important;
+                                        }
+                                        
+                                        .coordinator-heading .heading-brush {
+                                            position: relative !important;
+                                            margin: 10px auto 15px !important;
+                                            width: 80px !important;
+                                            left: 0 !important;
+                                            right: 0 !important;
+                                            bottom: auto !important;
+                                            display: block !important;
+                                        }
+                                        
+                                        .entry-content {
+                                            display: flex;
+                                            flex-direction: column;
+                                            align-items: center;
+                                            width: 100%;
+                                            padding: 0;
+                                            margin-left: 0;
+                                            margin-right: 0;
+                                        }
+                                        
+                                        .fee-category {
+                                            text-align: center;
+                                            width: 100%;
+                                            max-width: 350px;
+                                            margin-left: auto;
+                                            margin-right: auto;
+                                        }
+                                        
+                                        .fee-amount {
+                                            display: flex;
+                                            justify-content: center;
+                                            align-items: center;
+                                            gap: 15px;
+                                            margin-left: 0 !important;
+                                            margin-right: 0 !important;
+                                        }
+                                    }
+                                `}</style>
+                                
+                                <div className="event-rounds" style={{ marginTop: '30px' }}>
+                                    <div className="rounds-list">
+                                        <div className="round-item" style={{
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            marginBottom: '15px',
+                                            gap: '15px'
+                                        }}>
+                                            <span style={{
+                                                color: '#ffc010',
+                                                fontSize: '24px',
+                                                flexShrink: 0
+                                            }}>✓</span>
+                                            <p style={{
+                                                color: '#e0e0e0',
+                                                fontSize: '14px',
+                                                fontFamily: 'Press Start 2P, monospace',
+                                                margin: 0,
+                                                textTransform: 'uppercase'
+                                            }}>
+                                                Round 1: Offline Prelims
+                                            </p>
+                                        </div>
+                                        
+                                        <div className="round-item" style={{
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            marginBottom: '15px',
+                                            gap: '15px'
+                                        }}>
+                                            <span style={{
+                                                color: '#ffc010',
+                                                fontSize: '24px',
+                                                flexShrink: 0
+                                            }}>✓</span>
+                                            <p style={{
+                                                color: '#e0e0e0',
+                                                fontSize: '14px',
+                                                fontFamily: 'Press Start 2P, monospace',
+                                                margin: 0,
+                                                textTransform: 'uppercase'
+                                            }}>
+                                                Round 2: Semi-Finals
+                                            </p>
+                                        </div>
+                                        
+                                        <div className="round-item" style={{
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            marginBottom: '15px',
+                                            gap: '15px'
+                                        }}>
+                                            <span style={{
+                                                color: '#ffc010',
+                                                fontSize: '24px',
+                                                flexShrink: 0
+                                            }}>✓</span>
+                                            <p style={{
+                                                color: '#e0e0e0',
+                                                fontSize: '14px',
+                                                fontFamily: 'Press Start 2P, monospace',
+                                                margin: 0,
+                                                textTransform: 'uppercase'
+                                            }}>
+                                                Final Round
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -255,7 +492,7 @@ const EventDetail = ({ eventData }) => {
                 <div className="container">
                     <div className="row">
                         {/* Left: Entry Fee & Payment */}
-                        <div className="col-lg-6 mb-40" style={{ paddingLeft: '80px' }}>
+                        <div className="col-lg-6 mb-40" style={{ paddingLeft: '10px' }}>
                             <div className="entry-heading">
                                 <h2 className="heading-white">ENTRY</h2>
                                 <h2 className="heading-gold">FEE</h2>
@@ -292,18 +529,27 @@ const EventDetail = ({ eventData }) => {
                                     </div>
                                 </div>
 
-                                {/* Team Size Container */}
-                                <div className="nes-container is-centered is-dark with-title" style={{ marginTop: '40px' }}>
-                                    <p className="title">Team Size Options</p>
+                                {/* Team Size Options */}
+                                <div className="nes-container with-title" style={{ 
+                                    marginTop: '40px',
+                                    backgroundColor: 'rgba(255, 192, 16, 0.08)',
+                                    borderColor: '#ffc010'
+                                }}>
+                                    <p className="title" style={{ 
+                                        margin: 0, 
+                                        padding: '3px 3px 3px 3px',
+                                        color: '#ffc010'
+                                    }}>Team Options</p>
                                     <p style={{ 
-                                        textAlign: 'center', 
-                                        fontSize: '20px',
-                                        margin: '20px 0'
+                                        fontSize: '18px',
+                                        margin: '0 0 10px 0',
+                                        fontFamily: 'Press Start 2P',
+                                        lineHeight: '1.6',
+                                        color: '#d0d0d0'
                                     }}>
                                         Solo / Duo / Thrice
                                     </p>
                                 </div>
-
                                 {qrCode && (
                                     <div className="qr-section">
                                         <h4 className="qr-title">Scan to Pay</h4>
@@ -359,8 +605,25 @@ const EventDetail = ({ eventData }) => {
                     <div className="row justify-content-center mt-40">
                         {coordinators && coordinators.length > 0 ? (
                             coordinators.map((coordinator, index) => (
-                                <div key={index} className="col-lg-3 col-md-4 col-sm-6 mb-30">
-                                    <div className="coordinator-card">
+                                <div key={index} className="col-lg-3 col-md-4 col-sm-6 mb-30" style={{ paddingTop: '10px' }}>
+                                    <div 
+                                        className="nes-container is-rounded" 
+                                        style={{ 
+                                            borderColor: '#555',
+                                            transition: 'all 0.4s ease-out',
+                                            cursor: 'pointer'
+                                        }}
+                                        onMouseEnter={(e) => {
+                                            e.currentTarget.style.transform = 'translateY(-8px) scale(1.02)';
+                                            e.currentTarget.style.boxShadow = '0 5px 15px rgba(255, 215, 0, 0.2), 0 10px 30px rgba(255, 215, 0, 0.15), 0 20px 50px rgba(255, 215, 0, 0.1), 0 0 40px rgba(255, 215, 0, 0.3)';
+                                            e.currentTarget.style.borderColor = '#888';
+                                        }}
+                                        onMouseLeave={(e) => {
+                                            e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                                            e.currentTarget.style.boxShadow = 'none';
+                                            e.currentTarget.style.borderColor = '#555';
+                                        }}
+                                    >
                                         <div className="coordinator-avatar">
                                             {coordinator.image ? (
                                                 <img src={coordinator.image} alt={coordinator.name} />
@@ -381,8 +644,25 @@ const EventDetail = ({ eventData }) => {
                             ))
                         ) : contact && contact.length > 0 ? (
                             contact.map((person, index) => (
-                                <div key={index} className="col-lg-3 col-md-4 col-sm-6 mb-30">
-                                    <div className="coordinator-card">
+                                <div key={index} className="col-lg-3 col-md-4 col-sm-6 mb-30" style={{ paddingTop: '10px' }}>
+                                    <div 
+                                        className="nes-container is-rounded" 
+                                        style={{ 
+                                            borderColor: '#555',
+                                            transition: 'all 0.4s ease-out',
+                                            cursor: 'pointer'
+                                        }}
+                                        onMouseEnter={(e) => {
+                                            e.currentTarget.style.transform = 'translateY(-8px) scale(1.02)';
+                                            e.currentTarget.style.boxShadow = '0 5px 15px rgba(255, 215, 0, 0.2), 0 10px 30px rgba(255, 215, 0, 0.15), 0 20px 50px rgba(255, 215, 0, 0.1), 0 0 40px rgba(255, 215, 0, 0.3)';
+                                            e.currentTarget.style.borderColor = '#888';
+                                        }}
+                                        onMouseLeave={(e) => {
+                                            e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                                            e.currentTarget.style.boxShadow = 'none';
+                                            e.currentTarget.style.borderColor = '#555';
+                                        }}
+                                    >
                                         <div className="coordinator-avatar">
                                             <div className="avatar-placeholder">
                                                 {person.name.charAt(0)}
