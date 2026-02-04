@@ -5,6 +5,21 @@
     overflow: visible;
 }
 
+.carousel-8bit-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(
+        to bottom,
+        #05030a 0%,
+        rgba(5, 3, 10, 0) 15%,
+        rgba(5, 3, 10, 0) 85%,
+        #05030a 100%
+    );
+    z-index: 0;
+}
+
 .carousel-8bit-wrapper {
     position: relative;
     width: 100%;

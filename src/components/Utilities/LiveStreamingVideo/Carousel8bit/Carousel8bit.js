@@ -5,6 +5,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import { cloudinaryImages } from '../../../../config/cloudinary';
 import SectionTitle from '../../SectionTitle/SectionTitle';
 import './Carousel8bit.css';
+import highlightBg from '../../../../assets/img/bg/highlightbg.png';
 
 // Carousel images from Cloudinary
 const c1 = cloudinaryImages.carousel.c1;
@@ -45,7 +46,16 @@ const Carousel8bit = () => {
     };
 
     return (
-        <section className="carousel-8bit-section pt-120 pb-120" style={{ background: '#0f0819' }}>
+        <section
+            className="carousel-8bit-section pt-120 pb-120"
+            style={{
+                backgroundColor: '#05030a',
+                backgroundImage: `url(${highlightBg})`,
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: '110% auto',
+                backgroundPosition: 'center top',
+            }}
+        >
             <div className="container">
                 <div className="row">
                     <div className="col-lg-12">
