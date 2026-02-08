@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from "react-router-dom";
 import { cloudinaryImages } from '../../../config/cloudinary';
-import bgImg from '../../../assets/img/bg/trendiang-bg.png';
+import bgImg from '../../../assets/img/eventbg.png';
 import './WorkGallery.css';
 
 import SectionTitle from '../SectionTitle/SectionTitle';
@@ -206,8 +206,42 @@ const WorkGallery = () => {
 
 
     return (
-        <section id="work" className="pt-120 pb-120" style={{ background: `url(${bgImg}) no-repeat` }}>
-            <div className="container-fluid gallery-container">
+        <section
+            id="work"
+            className="pt-120 pb-120"
+            style={{
+                backgroundColor: '#05030a',
+                backgroundImage: `url(${bgImg})`,
+                // Show the full cityscape artwork without zooming / cropping
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: 'contain',
+                backgroundPosition: 'center top',
+                backgroundAttachment: 'scroll',
+                position: 'relative',
+            }}
+        >
+            {/* Gradient overlay for smooth blending with neighboring sections,
+                but keep some of the cityscape visible near the bottom */}
+            <div
+                style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    background:
+                        'linear-gradient(to bottom,' +
+                        'rgba(0, 0, 0, 0.85) 0%,' +   // darken hero overlap
+                        'rgba(0, 0, 0, 0.4) 25%,' +
+                        'rgba(0, 0, 0, 0.25) 65%,' +
+                        'rgba(0, 0, 0, 0.15) 88%,' +  // ease out towards the seam
+                        'rgba(0, 0, 0, 0.0) 100%)',   // match the plain #05030a below
+                    pointerEvents: 'none',
+                    zIndex: 0,
+                }}
+            ></div>
+            
+            <div className="container-fluid gallery-container" style={{ position: 'relative', zIndex: 1 }}>
                 <div className="portfolio ">
                     <div className="row align-items-center mb-30">
                         <div className="col-lg-12 d-flex justify-content-between align-items-center">

@@ -1,4 +1,4 @@
-import bgImg from '../../../assets/img/bg/divider-bg.png';
+import bgImg from '../../../assets/img/bg/newbg.png';
 import Button8bit from '../Button/Button8bit';
 import './Cta.css';
 const ctaData = {
@@ -10,7 +10,16 @@ const ctaData = {
 const Cta = () => {
     const { bg, title, description, btn } = ctaData;
     return (
-        <section id="graph" className="features-area pt-120 pb-120" style={{ background: `url(${bg}) no-repeat` }}>
+    <section
+        id="graph"
+        className="features-area pt-120 pb-120"
+        style={{
+            backgroundImage: `url(${bg})`,
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+        }}
+    >
             <div className="container">
                 <div className="row align-items-center text-center">
                     <div className="col-lg-12 col-md-12">
