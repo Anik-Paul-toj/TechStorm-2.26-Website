@@ -1,12 +1,14 @@
 import React from 'react';
 import EventDetail from '../EventDetail';
 import roNavigator from '../../../../assets/img/PIXELATED EVENT MASCOTS/RO-NAVIGATOR.png';
+import roNavigatorBanner from '../../../../assets/img/event_specific_pictures/robotics/ro_navigator.png';
 
 const RoNavigatorEvent = () => {
     const eventData = {
         name: 'Ro-Navigator',
         logo: roNavigator,
         category: 'Robotics',
+        breadcrumbBg: roNavigatorBanner,
         description: 'Ro-Navigator is an autonomous robot navigation challenge where your bot must navigate through a complex maze filled with obstacles. Using sensors and intelligent programming, guide your robot from start to finish in the shortest time possible. This event tests your skills in robotics, sensor integration, and algorithm implementation.',
         teamSize: '2-4 Members',
         duration: '2.5 Hours',

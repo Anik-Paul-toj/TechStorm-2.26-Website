@@ -54,11 +54,11 @@
 
 .gallery-breadcrumb .breadcrumb a,
 .gallery-breadcrumb .breadcrumb-item.active {
-  color: #ffc010 !important;
+  color: #ffbb00 !important;
 }
 
 .gallery-breadcrumb .breadcrumb-item + .breadcrumb-item::before {
-  color: rgba(255, 192, 16, 0.6);
+  color: rgb(255, 187, 1);
 }
 
 /* Allow brushstroke dash to show fully (avoid overflow clipping) */

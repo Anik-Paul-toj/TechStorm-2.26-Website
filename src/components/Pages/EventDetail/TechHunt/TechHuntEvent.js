@@ -1,12 +1,14 @@
 import React from 'react';
 import EventDetail from '../EventDetail';
 import techHunt from '../../../../assets/img/PIXELATED EVENT MASCOTS/TECH HUNT.png';
+import techHuntBanner from '../../../../assets/img/event_specific_pictures/techHunt/techhunt_banner.png';
 
 const TechHuntEvent = () => {
     const eventData = {
         name: 'Tech Hunt',
         logo: techHunt,
         category: 'Brain Teaser',
+        breadcrumbBg: techHuntBanner,
         description: 'Tech Hunt is an exciting treasure hunt meets tech quiz event. Navigate through campus following cryptic clues, solve technical riddles, and crack codes to reach the final destination. This event combines physical activity with mental challenges, testing both your technical knowledge and problem-solving abilities in a fun, engaging format.',
         teamSize: '3-4 Members',
         duration: '3 Hours',

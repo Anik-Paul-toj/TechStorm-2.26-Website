@@ -1,12 +1,14 @@
 import React from 'react';
 import EventDetail from '../EventDetail';
 import passionWithReels from '../../../../assets/img/PIXELATED EVENT MASCOTS/PASSION WITH REELS.png';
+import passionWithReelsBanner from '../../../../assets/img/event_specific_pictures/creative/passion_with_reels.png';
 
 const PassionWithReelsEvent = () => {
     const eventData = {
         name: 'Passion with Reels',
         logo: passionWithReels,
         category: 'Creative',
+        breadcrumbBg: passionWithReelsBanner,
         description: 'Passion with Reels is a short video creation competition perfect for the social media generation. Create engaging, creative short-form content that tells a story, spreads a message, or simply entertains. Whether it\'s comedy, drama, tech tips, or creative editing showcases - bring your passion and storytelling skills to create viral-worthy content!',
         teamSize: '1-4 Members',
         duration: '5 Hours',

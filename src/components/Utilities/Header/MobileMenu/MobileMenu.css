@@ -116,7 +116,7 @@
 
 .mobile-menu-close.active {
     visibility: visible;
-    opacity: 1;
+    opacity: 1.5;
     transform: scale(1);
 }
 

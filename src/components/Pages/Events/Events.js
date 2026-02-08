@@ -11,10 +11,13 @@ const Events = () => {
             <div style={{ 
                 background: `url(${bgImage}) repeat`,
                 minHeight: '100vh',
-                paddingTop: '20px'
+                paddingTop: '20px',
+                opacity: '0.7'
             }}>
-                {/* Featured Events Component */}
-                <Matches />
+                <div style={{ opacity: '1' }}>
+                    {/* Featured Events Component */}
+                    <Matches />
+                </div>
             </div>
         </Fragment>
     );

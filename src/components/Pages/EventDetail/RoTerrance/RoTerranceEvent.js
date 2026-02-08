@@ -1,12 +1,14 @@
 import React from 'react';
 import EventDetail from '../EventDetail';
 import roTerrance from '../../../../assets/img/PIXELATED EVENT MASCOTS/RO-TERRANCE.png';
+import roTerranceBanner from '../../../../assets/img/event_specific_pictures/robotics/ro_terrance.png';
 
 const RoTerranceEvent = () => {
     const eventData = {
         name: 'Ro-Terrance',
         logo: roTerrance,
         category: 'Robotics',
+        breadcrumbBg: roTerranceBanner,
         description: 'Ro-Terrance is an all-terrain robot challenge that tests your bot\'s ability to traverse various obstacles and challenging terrains. From steep inclines to narrow bridges, sand pits to rocky paths, your robot must conquer it all. Design a versatile, robust robot with exceptional mobility to emerge victorious in this grueling test of mechanical engineering.',
         teamSize: '2-4 Members',
         duration: '3 Hours',
