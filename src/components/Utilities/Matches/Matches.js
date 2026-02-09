@@ -1,11 +1,5 @@
 import React, { useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-<<<<<<< HEAD
-=======
-import matchBgImg from '../../../assets/img/bg/match-bg.png';
-// import hackstormBanner from '../../../assets/img/event_specific_pictures/hackstorm/hstorm.png';
-// import omegatrixBanner from '../../../assets/img/event_specific_pictures/omegatrix/OMEGATRIX_bannerg';
->>>>>>> e86f4e922fad2871a10341cedceda55d48bb0c36
 
 // Import pixelated event mascots
 import codeBee from '../../../assets/img/PIXELATED EVENT MASCOTS/CODE BEE.png';
