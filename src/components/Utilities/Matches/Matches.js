@@ -1,6 +1,5 @@
 import React, { useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import matchBgImg from '../../../assets/img/bg/match-bg.png';
 
 // Import pixelated event mascots
 import codeBee from '../../../assets/img/PIXELATED EVENT MASCOTS/CODE BEE.png';
