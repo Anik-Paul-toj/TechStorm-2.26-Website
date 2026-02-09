@@ -1,12 +1,14 @@
 import React from 'react';
 import EventDetail from '../EventDetail';
 import fifaMobile from '../../../../assets/img/PIXELATED EVENT MASCOTS/FIFA Mobile.png';
+import fifaMobileBanner from '../../../../assets/img/event_specific_pictures/games/fifa_mobile.png';
 
 const FifaMobileEvent = () => {
     const eventData = {
         name: 'FIFA Mobile',
         logo: fifaMobile,
         category: 'Gaming',
+        breadcrumbBg: fifaMobileBanner,
         description: 'FIFA Mobile brings the world\'s most popular sport to your fingertips! Compete in intense mobile football matches, build your ultimate team, and showcase your gaming skills. From tactical gameplay to lightning-fast reflexes, prove that you\'re the best FIFA Mobile player in the tournament. Glory awaits the champion!',
         teamSize: '1 Member',
         duration: '3 Hours',

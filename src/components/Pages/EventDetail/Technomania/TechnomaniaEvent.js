@@ -1,12 +1,14 @@
 import React from 'react';
 import EventDetail from '../EventDetail';
 import technomania from '../../../../assets/img/PIXELATED EVENT MASCOTS/TECHNOMANIA.png';
+import technomaniaBanner from '../../../../assets/img/event_specific_pictures/technomania/technomania.png';
 
 const TechnomaniaEvent = () => {
     const eventData = {
         name: 'TechnoMania',
         logo: technomania,
         category: 'Coding',
+        breadcrumbBg: technomaniaBanner,
         description: 'TechnoMania is a technical extravaganza featuring multiple rounds of technical challenges. From debugging to system design, from API development to database optimization - this event tests your complete development stack knowledge. It\'s not just about coding; it\'s about understanding the entire software development lifecycle and making smart technical decisions under pressure.',
         teamSize: '1-3 Members',
         duration: '4 Hours',

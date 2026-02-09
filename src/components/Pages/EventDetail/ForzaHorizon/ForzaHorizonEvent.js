@@ -1,12 +1,14 @@
 import React from 'react';
 import EventDetail from '../EventDetail';
 import forzaHorizon from '../../../../assets/img/PIXELATED EVENT MASCOTS/FORZA HORIZON.png';
+import forzaHorizonBanner from '../../../../assets/img/event_specific_pictures/games/forza_horizon.png';
 
 const ForzaHorizonEvent = () => {
     const eventData = {
         name: 'Forza Horizon',
         logo: forzaHorizon,
         category: 'Gaming',
+        breadcrumbBg: forzaHorizonBanner,
         description: 'Forza Horizon brings high-octane racing action to TechStorm! Compete in the ultimate racing simulation where speed, skill, and strategy collide. Master different tracks, perfect your racing lines, and leave your opponents in the dust. Whether you\'re a casual racer or a sim-racing pro, this tournament will test your driving abilities to the limit.',
         teamSize: '1 Member',
         duration: '4 Hours',

@@ -1,12 +1,14 @@
 import React from 'react';
 import EventDetail from '../EventDetail';
 import khet from '../../../../assets/img/PIXELATED EVENT MASCOTS/KHET.png';
+import khetBanner from '../../../../assets/img/event_specific_pictures/games/khet.png';
 
 const KhetEvent = () => {
     const eventData = {
         name: 'KHET',
         logo: khet,
         category: 'Gaming',
+        breadcrumbBg: khetBanner,
         description: 'KHET (originally called Deflexion) is a laser game of strategy that combines elements of chess with lasers! Two players alternate moving Egyptian-themed pieces that have mirrors on their faces, using them to redirect laser beams. The objective is to illuminate your opponent\'s Pharaoh piece while protecting your own. A perfect blend of strategy, geometry, and tactical thinking!',
         teamSize: '1-2 Members',
         duration: '2 Hours',
