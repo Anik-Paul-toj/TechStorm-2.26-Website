@@ -234,7 +234,7 @@ const EventDetail = ({ eventData }) => {
                             <div className="about-content">
                                 <p style={{ 
                                     color: '#fffacd', 
-                                    fontSize: '16px',
+                                    fontSize: 'clamp(12px, 2vw, 16px)',
                                     lineHeight: '1.8',
                                     fontFamily: 'Minecraft, monospace',
                                     margin: 0,

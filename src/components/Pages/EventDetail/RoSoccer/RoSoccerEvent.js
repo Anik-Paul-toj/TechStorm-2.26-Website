@@ -1,12 +1,14 @@
 import React from 'react';
 import EventDetail from '../EventDetail';
 import roSoccer from '../../../../assets/img/PIXELATED EVENT MASCOTS/RO-SOCCER.png';
+import roSoccerBanner from '../../../../assets/img/event_specific_pictures/robotics/ro_soccer.png';
 
 const RoSoccerEvent = () => {
     const eventData = {
         name: 'Ro-Soccer',
         logo: roSoccer,
         category: 'Robotics',
+        breadcrumbBg: roSoccerBanner,
         description: 'Ro-Soccer brings the beautiful game to the robotics world! Control your custom-built robot to score goals against opponent teams. This event requires precise mechanical design, responsive controls, and strategic gameplay. Form your robotic team and compete in this thrilling tournament where engineering meets sports.',
         teamSize: '3-5 Members',
         duration: '4 Hours (League Format)',

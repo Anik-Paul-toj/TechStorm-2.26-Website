@@ -1,12 +1,14 @@
 import React from 'react';
 import EventDetail from '../EventDetail';
 import hackStorm from '../../../../assets/img/PIXELATED EVENT MASCOTS/HACKSTORM.png';
+import hackStormBanner from '../../../../assets/img/event_specific_pictures/hackstorm/hstorm.png';
 
 const HackStormEvent = () => {
     const eventData = {
         name: 'Hack Storm',
         logo: hackStorm,
         category: 'Coding',
+        breadcrumbBg: hackStormBanner,
         description: 'Hack Storm is an intensive hackathon where innovation meets implementation. Teams will have 24 hours to develop a working prototype that solves real-world problems. Whether you\'re into web development, mobile apps, IoT, or AI/ML, this is your chance to build something amazing. Bring your ideas, form your dream team, and code your way to victory!',
         teamSize: '2-4 Members',
         duration: '24 Hours',

@@ -1,12 +1,14 @@
 import React from 'react';
 import EventDetail from '../EventDetail';
 import omegatrix from '../../../../assets/img/PIXELATED EVENT MASCOTS/OMEGATRIX.png';
+import omegatrixBanner from '../../../../assets/img/event_specific_pictures/omegatrix/OMEGATRIX_banner.png';
 
 const OmegatrixEvent = () => {
     const eventData = {
         name: 'Omegatrix',
         logo: omegatrix,
         category: 'Brain Teaser',
+        breadcrumbBg: omegatrixBanner,
         description: 'Omegatrix challenges your logical reasoning and analytical thinking. This brain teaser event features puzzles, riddles, and mind-bending challenges that will push your cognitive abilities to the limit. From mathematical puzzles to lateral thinking problems, each round gets progressively harder. Only the sharpest minds will prevail!',
         teamSize: '1-2 Members',
         duration: '2 Hours',

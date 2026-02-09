@@ -3,6 +3,11 @@
 .carousel-8bit-section {
     position: relative;
     overflow: visible;
+    /* Pull this section slightly up so its top
+       overlaps the end of the All Events background,
+       removing the hard black gap between sections. */
+    margin-top: -60px;
+    padding-top: 160px;
 }
 
 .carousel-8bit-section::before {
@@ -10,11 +15,13 @@
     position: absolute;
     inset: 0;
     pointer-events: none;
+    /* Very subtle vignette only inside this section;
+       keep the seam with the previous section clean
+       by starting and ending on the same base color. */
     background: linear-gradient(
         to bottom,
         #05030a 0%,
-        rgba(5, 3, 10, 0) 15%,
-        rgba(5, 3, 10, 0) 85%,
+        rgba(5, 3, 10, 0.0) 50%,
         #05030a 100%
     );
     z-index: 0;
@@ -340,6 +347,34 @@
         height: auto;
         max-height: 300px;
         min-height: 200px;
+    }
+}
+
+/* Background artwork responsiveness for Prev. Year Highlights section */
+@media (max-width: 991px) {
+    .carousel-8bit-section {
+        /* Let the background artwork fill the screen height on tablets/phones */
+        background-size: cover !important;
+        background-position: center top !important;
+        background-repeat: no-repeat !important;
+        background-attachment: scroll !important;
+        margin-top: -30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .carousel-8bit-section {
+        /* Reduce the overlap with the previous section on small screens */
+        margin-top: -10px;
+        padding-top: 50px !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .carousel-8bit-section {
+        /* Keep the important part of the artwork visible on very small screens */
+        background-size: cover !important;
+        background-position: top center !important;
     }
 }
 

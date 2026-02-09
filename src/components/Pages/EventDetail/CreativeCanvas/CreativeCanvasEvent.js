@@ -1,12 +1,14 @@
 import React from 'react';
 import EventDetail from '../EventDetail';
 import creativeCanvas from '../../../../assets/img/PIXELATED EVENT MASCOTS/CREATIVE CANVAS.png';
+import creativeCanvasBanner from '../../../../assets/img/event_specific_pictures/creative/creative_canvas.png';
 
 const CreativeCanvasEvent = () => {
     const eventData = {
         name: 'Creative Canvas',
         logo: creativeCanvas,
         category: 'Creative',
+        breadcrumbBg: creativeCanvasBanner,
         description: 'Creative Canvas is a digital art and design competition where imagination knows no bounds. Create stunning visual content using graphic design tools, photo manipulation, or digital illustration. From poster design to logo creation, UI/UX mockups to digital art, showcase your creative genius and design thinking. Theme will be revealed on the event day!',
         teamSize: '1-2 Members',
         duration: '3 Hours',

@@ -1,5 +1,11 @@
 import React, { useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+<<<<<<< HEAD
+=======
+import matchBgImg from '../../../assets/img/bg/match-bg.png';
+// import hackstormBanner from '../../../assets/img/event_specific_pictures/hackstorm/hstorm.png';
+// import omegatrixBanner from '../../../assets/img/event_specific_pictures/omegatrix/OMEGATRIX_bannerg';
+>>>>>>> e86f4e922fad2871a10341cedceda55d48bb0c36
 
 // Import pixelated event mascots
 import codeBee from '../../../assets/img/PIXELATED EVENT MASCOTS/CODE BEE.png';
@@ -155,8 +161,32 @@ const Matches = () => {
     const events = filteredEvents.length > 0 ? filteredEvents : allEvents;
 
     return (
-        <section id="match" className="match-area pt-60 pb-90" style={{ background: `url(${matchBgImg})`, overflow: 'visible' }}>
+        <section id="match" className="match-area" style={{ background: 'transparent', overflow: 'visible', paddingTop: '0', paddingBottom: '90px' }}>
             <div className="container" style={{ overflow: 'visible' }}>
+                {/* Breadcrumb Section */}
+                <section className="breadcrumb-area d-flex align-items-center schedule-breadcrumb" style={{background: 'transparent', padding: '40px 0', minHeight: '150px', margin: '0', marginBottom: '40px'}}>
+                        <div className="container">
+                            <div className="row align-items-center">
+                                <div className="col-xl-12 col-lg-12">
+                                    <div className="breadcrumb-wrap text-left">
+                                        <div className="breadcrumb-title">
+                                            <h2 style={{marginBottom: '8px', marginTop: '0'}}>Events</h2>
+                                            <div className="breadcrumb-wrap">
+                                                <nav aria-label="breadcrumb">
+                                                    <ol className="breadcrumb">
+                                                        <li className="breadcrumb-item">
+                                                            <Link to={'/'}>{'Home'}</Link>
+                                                        </li>
+                                                        <li className="breadcrumb-item active" aria-current="page">EVENTS</li>
+                                                    </ol>
+                                                </nav>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
                 {/* Auto-scrolling Pictures Album */}
                 <div className="row mb-50">
                     <div className="col-lg-12">
@@ -168,7 +198,7 @@ const Matches = () => {
                                 color: '#ffffff'
                             }}>
                                 Previous Year <span style={{ 
-                                    color: '#ffc010',
+                                    color: '#ffd700',
                                     fontFamily: "'Minecraft', monospace",
                                     fontWeight: 600
                                 }}>Gallery</span>
@@ -176,7 +206,7 @@ const Matches = () => {
                             <div style={{
                                 height: '4px',
                                 width: '60px',
-                                background: '#ffc010',
+                                background: '#ffd700',
                                 margin: '0 auto 30px',
                                 transition: '0.3s'
                             }}></div>
@@ -192,7 +222,7 @@ const Matches = () => {
                                     transform: 'translateY(-50%)',
                                     width: '40px',
                                     height: '40px',
-                                    background: '#ffc010',
+                                    background: '#ffd700',
                                     border: '3px solid #000',
                                     borderRadius: '0',
                                     cursor: 'pointer',
@@ -211,7 +241,7 @@ const Matches = () => {
                                     e.target.style.transform = 'translateY(-50%) scale(1.1)';
                                 }}
                                 onMouseLeave={(e) => {
-                                    e.target.style.background = '#ffc010';
+                                    e.target.style.background = '#ffd700';
                                     e.target.style.transform = 'translateY(-50%) scale(1)';
                                 }}
                             >
@@ -228,7 +258,7 @@ const Matches = () => {
                                     transform: 'translateY(-50%)',
                                     width: '40px',
                                     height: '40px',
-                                    background: '#ffc010',
+                                    background: '#ffd700',
                                     border: '3px solid #000',
                                     borderRadius: '0',
                                     cursor: 'pointer',
@@ -247,7 +277,7 @@ const Matches = () => {
                                     e.target.style.transform = 'translateY(-50%) scale(1.1)';
                                 }}
                                 onMouseLeave={(e) => {
-                                    e.target.style.background = '#ffc010';
+                                    e.target.style.background = '#ffd700';
                                     e.target.style.transform = 'translateY(-50%) scale(1)';
                                 }}
                             >
@@ -264,9 +294,9 @@ const Matches = () => {
                                     padding: '20px 0',
                                     scrollBehavior: 'smooth',
                                     background: 'rgba(26, 14, 34, 0.5)',
-                                    border: '3px solid #ffc010',
+                                    border: '3px solid #ffd700',
                                     borderRadius: '10px',
-                                    boxShadow: '0 0 20px rgba(255, 192, 16, 0.3)',
+                                    boxShadow: '0 0 20px rgba(255, 215, 0, 0.3)',
                                 }}
                             >
                             {galleryImages.concat(galleryImages).map((image, index) => (
@@ -332,8 +362,8 @@ const Matches = () => {
                                         <RetroCard
                                         bg={hoveredIndex === index ? '#1a3d3d' : '#1a0e22'}
                                         textColor={hoveredIndex === index ? '#00ffea' : '#ffffff'}
-                                        borderColor={hoveredIndex === index ? '#00ffea' : '#ffc010'}
-                                        shadowColor={hoveredIndex === index ? '#00ffea' : '#ffc010'}
+                                        borderColor={hoveredIndex === index ? '#00ffea' : '#ffd700'}
+                                        shadowColor={hoveredIndex === index ? '#00ffea' : '#ffd700'}
                                         style={{
                                             width: '100%',
                                             aspectRatio: '16/9',
@@ -353,7 +383,7 @@ const Matches = () => {
                                             maxWidth: '70%', 
                                             maxHeight: '65%', 
                                             objectFit: 'contain',
-                                            filter: hoveredIndex === index ? 'drop-shadow(0 0 20px rgba(0, 255, 234, 0.8))' : 'drop-shadow(0 0 15px rgba(255, 192, 16, 0.6))',
+                                            filter: hoveredIndex === index ? 'drop-shadow(0 0 20px rgba(0, 255, 234, 0.8))' : 'drop-shadow(0 0 15px rgba(255, 215, 0, 0.8))',
                                             marginBottom: '15px',
                                             imageRendering: 'pixelated'
                                         }} />

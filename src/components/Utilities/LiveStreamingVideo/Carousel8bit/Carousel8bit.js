@@ -51,9 +51,9 @@ const Carousel8bit = () => {
             style={{
                 backgroundColor: '#05030a',
                 backgroundImage: `url(${highlightBg})`,
+                // Show the full artwork without zooming / cropping
                 backgroundRepeat: 'no-repeat',
-                // Ensure the background fully covers the section
-                backgroundSize: 'cover',
+                backgroundSize: 'contain',
                 backgroundPosition: 'center top',
             }}
         >

@@ -49,6 +49,7 @@ export const cloudinaryImages = {
   events: {
     codebee: `${CLOUDINARY_BASE_URL}/w_600,h_400,c_fit,q_auto:good,f_auto/eoorox/events/codebee`,
     crreativecanvas: `${CLOUDINARY_BASE_URL}/w_600,h_400,c_fit,q_auto:good,f_auto/eoorox/events/crreativecanvas`,
+    creativecanvas: `${CLOUDINARY_BASE_URL}/w_600,h_400,c_fit,q_auto:good,f_auto/eoorox/creative/creative_canvas`,
     fifamobile: `${CLOUDINARY_BASE_URL}/w_600,h_400,c_fit,q_auto:good,f_auto/eoorox/events/fifamobile`,
     forzahorizon: `${CLOUDINARY_BASE_URL}/w_600,h_400,c_fit,q_auto:good,f_auto/eoorox/events/forzahorizon`,
     hackstorm: `${CLOUDINARY_BASE_URL}/w_600,h_400,c_fit,q_auto:good,f_auto/eoorox/events/hackstorm`,
@@ -82,6 +83,11 @@ export const cloudinaryImages = {
     collegelogo: `${CLOUDINARY_BASE_URL}/eoorox/logo/college-logo`,
     IIC_logo: `${CLOUDINARY_BASE_URL}/eoorox/logo/IIC_logo`,
     Abhiyantran_logo: `${CLOUDINARY_BASE_URL}/eoorox/logo/Abhiyantran-logo`,
+  },
+  
+  // Event-specific banner images
+  banners: {
+    creativeCanvas: `${CLOUDINARY_BASE_URL}/w_1200,h_600,c_fill,q_auto:good,f_auto/eoorox/img/event_specific_pictures/creative/creative_canvas`,
   }
 };
 
