@@ -16,6 +16,7 @@ import passionWithReels from '../../../assets/img/PIXELATED EVENT MASCOTS/PASSIO
 import khet from '../../../assets/img/PIXELATED EVENT MASCOTS/KHET.png';
 import forzaHorizon from '../../../assets/img/PIXELATED EVENT MASCOTS/FORZA HORIZON.png';
 import fifaMobile from '../../../assets/img/PIXELATED EVENT MASCOTS/FIFA Mobile.png';
+import rosumo from '../../../assets/img/PIXELATED EVENT MASCOTS/rosumo.png';
 
 import SectionTitle from '../SectionTitle/SectionTitle';
 import RetroCard from '../RetroCard/RetroCard';
@@ -114,6 +115,7 @@ const Matches = () => {
         forzaHorizon,
         fifaMobile,
         khet,
+        rosumo,
     ];
     
     const allEvents = [
@@ -123,6 +125,7 @@ const Matches = () => {
         { logo: omegatrix, name: 'Omegatrix', category: 'Brain Teaser', url: '/events/omegatrix' },
         { logo: techHunt, name: 'Tech Hunt', category: 'Brain Teaser', url: '/events/tech-hunt' },
         { logo: roNavigator, name: 'Ro-Navigator', category: 'Rover', url: '/events/ro-navigator' },
+        { logo: rosumo, name: 'Ro-sumo', category: 'Rover', url: '/events/rosumo' },
         { logo: roCombat, name: 'Ro-Combat', category: 'Rover', url: '/events/ro-combat' },
         { logo: roSoccer, name: 'Ro-Soccer', category: 'Rover', url: '/events/ro-soccer' },
         { logo: roTerrance, name: 'Ro-Terrance', category: 'Rover', url: '/events/ro-terrance' },
@@ -131,6 +134,7 @@ const Matches = () => {
         { logo: forzaHorizon, name: 'Forza Horizon', category: 'Games', url: '/events/forza-horizon' },
         { logo: fifaMobile, name: 'FIFA Mobile', category: 'Games', url: '/events/fifa-mobile' },
         { logo: khet, name: 'KHET', category: 'Games', url: '/events/khet' },
+        
     ];
 
     const [filteredEvents, setFilteredEvents] = React.useState(allEvents);

@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link } from "react-router-dom";
 import { cloudinaryImages } from '../../../config/cloudinary';
 import bgImg from '../../../assets/img/eventbg.png';
+import rosumoImg from '../../../assets/img/events/rosumo.png';
 import './WorkGallery.css';
 
 import SectionTitle from '../SectionTitle/SectionTitle';
@@ -136,6 +137,14 @@ const galleryItems = [
         label: 'KHET',
         description: 'Laser chess competition',
         cat: 'Gaming',
+    },
+    {
+        id: '15',
+        img: rosumoImg,
+        tag: 'Robotics',
+        label: 'Rosumo',
+        description: 'Robot sumo wrestling',
+        cat: 'Robotics',
     },
 ]
 

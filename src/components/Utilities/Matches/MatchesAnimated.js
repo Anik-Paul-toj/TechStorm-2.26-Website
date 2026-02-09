@@ -16,6 +16,7 @@ import passionWithReels from '../../../assets/img/PIXELATED EVENT MASCOTS/PASSIO
 import khet from '../../../assets/img/PIXELATED EVENT MASCOTS/KHET.png';
 import forzaHorizon from '../../../assets/img/PIXELATED EVENT MASCOTS/FORZA HORIZON.png';
 import fifaMobile from '../../../assets/img/PIXELATED EVENT MASCOTS/FIFA Mobile.png';
+import rosumo from '../../../assets/img/events/rosumo.png';
 
 import SectionTitle from '../SectionTitle/SectionTitle';
 import RetroCard from '../RetroCard/RetroCard';
@@ -40,6 +41,7 @@ const MatchesAnimated = () => {
         { logo: forzaHorizon, name: 'Forza Horizon', category: 'Games' },
         { logo: fifaMobile, name: 'FIFA Mobile', category: 'Games' },
         { logo: khet, name: 'KHET', category: 'Games' },
+        { logo: rosumo, name: 'Rosumo', category: 'Rover' },
     ];
 
     const [filteredEvents, setFilteredEvents] = React.useState(allEvents);
