@@ -1,5 +1,5 @@
 import React from 'react';
-import brandbg from '../../../../assets/img/bg/barnd-bg.png';
+import newBg from '../../../../assets/img/bg/new-bg.png';
 import './BlogOne.css';
 
 /*
@@ -16,7 +16,7 @@ const sponsorPreviewData = [
 
 const BlogOne = () => {
     return (
-        <section id="blog" className="brand-area pt-120 pb-120 sponsor-preview-section" style={{ background: `url(${brandbg}) no-repeat` }}>
+        <section id="blog" className="brand-area pt-120 pb-120 sponsor-preview-section" style={{ background: `url(${newBg}) no-repeat` }}>
             <div className="container">
                 <h2 className="text-center mb-4 sponsor-preview-title">Our Sponsors</h2>
                 <p className="text-center sponsor-coming-soon mb-5">
