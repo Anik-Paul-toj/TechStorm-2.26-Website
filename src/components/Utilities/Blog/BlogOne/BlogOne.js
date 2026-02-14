@@ -1,52 +1,50 @@
 import React from 'react';
-import bgImg from '../../../../assets/img/bg/blog-bg.png';
-import blogImg1 from '../../../../assets/img/blog/inner_b1.jpg';
-import blogImg2 from '../../../../assets/img/blog/inner_b2.jpg';
-import blogImg3 from '../../../../assets/img/blog/inner_b3.jpg';
-import BlogCard from "../BlogCard";
-import SectionTitle from '../../SectionTitle/SectionTitle';
+import brandbg from '../../../../assets/img/bg/barnd-bg.png';
 import './BlogOne.css';
 
-const blogData = [
-    {
-        id: '1',
-        thumb: blogImg1,
-        title: 'Registrations Now Open!',
-        admin: 'TechStorm Team',
-        date: '[Date] 2026',
-        excerpt: 'Early bird registrations for TechStorm 2026 are now live! Grab your spot in the most exciting technical fest of the year. Limited seats for all events - register now!'
-    },
-    {
-        id: '2',
-        thumb: blogImg2,
-        title: 'Meet Our Sponsors',
-        admin: 'TechStorm Team',
-        date: '[Date] 2026',
-        excerpt: 'We are thrilled to announce our amazing sponsors for TechStorm 2026! Stay tuned for exclusive prizes, workshops, and goodies from our partners.'
-    },
-    {
-        id: '3',
-        thumb: blogImg3,
-        title: 'Event Schedule Released',
-        admin: 'TechStorm Team',
-        date: '[Date] 2026',
-        excerpt: 'The complete event schedule for TechStorm 2026 is here! Plan your day across Coding Arena, Robo League, and Gaming Zone. Download the schedule now.'
-    },
+/*
+import brand1 from '../../../../assets/img/brand/b-logo1.png';
+import brand2 from '../../../../assets/img/brand/b-logo2.png';
+import brand3 from '../../../../assets/img/brand/b-logo3.png';
+
+const sponsorPreviewData = [
+    { id: '1', name: 'Sponsor Name 1', logo: brand1 },
+    { id: '2', name: 'Sponsor Name 2', logo: brand2 },
+    { id: '3', name: 'Sponsor Name 3', logo: brand3 }
 ];
+*/
+
 const BlogOne = () => {
     return (
-        <section id="blog" className="blog-area  p-relative pt-120 pb-120 fix" style={{ background: `url(${bgImg}) no-repeat right bottom` }}>
+        <section id="blog" className="brand-area pt-120 pb-120 sponsor-preview-section" style={{ background: `url(${brandbg}) no-repeat` }}>
             <div className="container">
-                <div className="row justify-content-center">
-                    <div className="col-lg-8">
-                        <SectionTitle titlefirst='Latest' titleSec='Updates' className='text-center' />
+                <h2 className="text-center mb-4 sponsor-preview-title">Our Sponsors</h2>
+                <p className="text-center sponsor-coming-soon mb-5">
+                    Talks are currently going on. Sponsor announcements coming soon.
+                </p>
+
+                {/* <div className="row justify-content-center mb-4">
+                    <div className="col-lg-10">
+                        <p className="text-center sponsor-preview-label mb-0">
+                            Preview: This is how sponsor logo + name will look after adding final sponsors.
+                        </p>
                     </div>
                 </div>
-                <div className="row">
-                    <BlogCard blogData={blogData} />
+
+                <div className="row brand-active sponsor-preview-grid">
+                    {sponsorPreviewData.map((sponsor) => (
+                        <div className="col-lg-4 col-md-6 col-sm-6 mb-4" key={sponsor.id}>
+                            <div className="single-brand sponsor-preview-card">
+                                <img src={sponsor.logo} alt={`${sponsor.name} logo`} />
+                                <h6 className="sponsor-name mb-0">{sponsor.name}</h6>
+                            </div>
+                        </div>
+                    ))}
                 </div>
+                */}
             </div>
         </section>
-    )
-}
+    );
+};
+
 export default BlogOne;
