@@ -369,7 +369,12 @@ const EventDetail = ({ eventData }) => {
                                                     // Registration fee line detection (case-insensitive, contains 'registration fee' or starts with '₹')
                                                     const isRegistrationFee = /registration fee|registration fees|^₹/i.test(rule.trim());
 
+                                                    // Reduce space after description (first empty line)
                                                     if (isEmpty) {
+                                                        // If this is the first empty line after the description, use minimum height
+                                                        if (index === 1 && rules[0] && rules[0].toLowerCase().includes('creative canvas')) {
+                                                            return <div key={index} style={{ height: '1px' }}></div>;
+                                                        }
                                                         return <div key={index} style={{ height: '15px' }}></div>;
                                                     }
                                                     if (isJudgingCriteria) {
