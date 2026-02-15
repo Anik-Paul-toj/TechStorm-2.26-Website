@@ -359,11 +359,65 @@ const EventDetail = ({ eventData }) => {
                                                     const isHeader = /^[\u{1F300}-\u{1F9FF}]|^[\u{2600}-\u{26FF}]|^[\u{2700}-\u{27BF}]/u.test(rule);
                                                     // Check if it's an empty line
                                                     const isEmpty = rule.trim() === '';
-                                                    
+                                                    // Highlight Judging Criteria header
+                                                    const isJudgingCriteria = rule.includes('JUDGING CRITERIA');
+                                                    // Highlight Round 1 and Round 2
+                                                    const isRound1 = rule.trim().toLowerCase().startsWith('🎯 round 1:');
+                                                    const isRound2 = rule.trim().toLowerCase().startsWith('🎯 round 2:');
+                                                    // FAQ question detection
+                                                    const isFaqQuestion = /\?$/.test(rule.trim()) && rule.trim().length < 60;
+
                                                     if (isEmpty) {
                                                         return <div key={index} style={{ height: '15px' }}></div>;
                                                     }
-                                                    
+                                                    if (isJudgingCriteria) {
+                                                        return (
+                                                            <h3 key={index} style={{
+                                                                color: '#ff2d2d',
+                                                                fontSize: 'clamp(14px, 4vw, 20px)',
+                                                                fontFamily: 'Press Start 2P',
+                                                                marginTop: '35px',
+                                                                marginBottom: '20px',
+                                                                lineHeight: '1.5',
+                                                                textTransform: 'uppercase',
+                                                                letterSpacing: '2px',
+                                                                background: 'rgba(255,45,45,0.12)',
+                                                                padding: '8px 0'
+                                                            }}>
+                                                                {rule}
+                                                            </h3>
+                                                        );
+                                                    }
+                                                    if (isRound1) {
+                                                        return (
+                                                            <div key={index} style={{ display: 'flex', alignItems: 'center', marginTop: '25px', marginBottom: '10px' }}>
+                                                                <span style={{ fontSize: '22px', marginRight: '10px' }}>🎯</span>
+                                                                <span style={{
+                                                                    color: '#ffc010',
+                                                                    fontFamily: 'Press Start 2P',
+                                                                    fontSize: 'clamp(16px, 4vw, 24px)',
+                                                                    fontWeight: 'bold',
+                                                                    textTransform: 'uppercase',
+                                                                    letterSpacing: '2px',
+                                                                }}>{rule.replace('🎯 ', '')}</span>
+                                                            </div>
+                                                        );
+                                                    }
+                                                    if (isRound2) {
+                                                        return (
+                                                            <div key={index} style={{ display: 'flex', alignItems: 'center', marginTop: '25px', marginBottom: '10px' }}>
+                                                                <span style={{ fontSize: '22px', marginRight: '10px' }}>🏁</span>
+                                                                <span style={{
+                                                                    color: '#ffc010',
+                                                                    fontFamily: 'Press Start 2P',
+                                                                    fontSize: 'clamp(16px, 4vw, 24px)',
+                                                                    fontWeight: 'bold',
+                                                                    textTransform: 'uppercase',
+                                                                    letterSpacing: '2px',
+                                                                }}>{rule.replace('🎯 ', '')}</span>
+                                                            </div>
+                                                        );
+                                                    }
                                                     if (isHeader) {
                                                         return (
                                                             <h3 key={index} style={{
@@ -379,27 +433,28 @@ const EventDetail = ({ eventData }) => {
                                                             </h3>
                                                         );
                                                     }
-                                                    
+                                                    // FAQ question: bullet
+                                                    if (isFaqQuestion) {
+                                                        return (
+                                                            <div key={index} style={{ display: 'flex', alignItems: 'flex-start', marginBottom: '12px', gap: '12px' }}>
+                                                                <span style={{ color: '#00ffea', fontSize: '14px', flexShrink: 0, marginTop: '2px' }}>▸</span>
+                                                                <span style={{ color: '#e0e0e0', fontSize: '13px', lineHeight: '1.6', fontFamily: 'Silkscreen, sans-serif', fontWeight: 'bold' }}>{rule}</span>
+                                                            </div>
+                                                        );
+                                                    }
+                                                    // FAQ answer: no bullet, indented
+                                                    if (index > 0 && rules[index - 1] && /\?$/.test(rules[index - 1].trim())) {
+                                                        return (
+                                                            <div key={index} style={{ marginLeft: '32px', marginBottom: '12px' }}>
+                                                                <span style={{ color: '#e0e0e0', fontSize: '13px', lineHeight: '1.6', fontFamily: 'Silkscreen, sans-serif', fontWeight: 'normal' }}>{rule}</span>
+                                                            </div>
+                                                        );
+                                                    }
                                                     // Regular rule with bullet
                                                     return (
-                                                        <div key={index} style={{
-                                                            display: 'flex',
-                                                            alignItems: 'flex-start',
-                                                            marginBottom: '12px',
-                                                            gap: '12px'
-                                                        }}>
-                                                            <span style={{
-                                                                color: '#00ffea',
-                                                                fontSize: '14px',
-                                                                flexShrink: 0,
-                                                                marginTop: '2px'
-                                                            }}>▸</span>
-                                                            <span style={{
-                                                                color: '#e0e0e0',
-                                                                fontSize: '13px',
-                                                                lineHeight: '1.6',
-                                                                fontFamily: 'Silkscreen, sans-serif'
-                                                            }}>{rule}</span>
+                                                        <div key={index} style={{ display: 'flex', alignItems: 'flex-start', marginBottom: '12px', gap: '12px' }}>
+                                                            <span style={{ color: '#00ffea', fontSize: '14px', flexShrink: 0, marginTop: '2px' }}>▸</span>
+                                                            <span style={{ color: '#e0e0e0', fontSize: '13px', lineHeight: '1.6', fontFamily: 'Silkscreen, sans-serif' }}>{rule}</span>
                                                         </div>
                                                     );
                                                 })}

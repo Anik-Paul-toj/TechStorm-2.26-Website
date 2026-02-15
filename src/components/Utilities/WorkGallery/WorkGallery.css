@@ -112,9 +112,9 @@
     
     .gallery-scroll-container {
         gap: 20px;
-        padding-left: 15px !important;
-        padding-right: 15px !important;
-        scroll-padding-left: 15px;
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+        scroll-padding-left: 8px;
         margin: 0;
     }
     
@@ -149,9 +149,9 @@
 @media (max-width: 480px) {
     .gallery-scroll-container {
         gap: 15px;
-        padding-left: 10px !important;
-        padding-right: 10px !important;
-        scroll-padding-left: 10px;
+        padding-left: 5px !important;
+        padding-right: 5px !important;
+        scroll-padding-left: 5px;
         margin: 0;
     }
     
@@ -199,14 +199,14 @@
 
 @media (max-width: 768px) {
     .gallery-container {
-        padding-left: 0.5rem;
-        padding-right: 0.5rem;
+        padding-left: 0.25rem;
+        padding-right: 0.25rem;
     }
 }
 
 @media (max-width: 480px) {
     .gallery-container {
-        padding-left: 0.25rem;
-        padding-right: 0.25rem;
+        padding-left: 0.1rem;
+        padding-right: 0.1rem;
     }
 }
