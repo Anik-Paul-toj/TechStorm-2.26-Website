@@ -13,6 +13,10 @@ const PassionWithReelsEvent = () => {
         teamSize: '1-4 Members',
         duration: '5 Hours',
         venue: 'Media Lab & Campus',
+        registerButton: {
+            text: 'Register Now',
+            link: 'https://forms.gle/your-registration-form-link'
+        },
         rules: [
             'Video duration: 30-90 seconds',
             'Vertical format (9:16) required',

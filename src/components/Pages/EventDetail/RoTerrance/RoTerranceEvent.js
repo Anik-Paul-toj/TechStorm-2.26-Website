@@ -13,6 +13,10 @@ const RoTerranceEvent = () => {
         teamSize: '2-4 Members',
         duration: '3 Hours',
         venue: 'Outdoor Arena',
+        registerButton: {
+            text: 'Register Now',
+            link: 'https://forms.gle/your-registration-form-link'
+        },
         rules: [
             'Robot dimensions: Max 40cm x 40cm x 40cm',
             'Manual or autonomous control allowed',

@@ -13,6 +13,10 @@ const TechnomaniaEvent = () => {
         teamSize: '1-3 Members',
         duration: '4 Hours',
         venue: 'Tech Arena',
+        registerButton: {
+            text: 'Register Now',
+            link: 'https://forms.gle/your-registration-form-link'
+        },
         rules: [
             'Teams can have 1-3 participants',
             'Event consists of multiple rounds',

@@ -13,6 +13,10 @@ const FifaMobileEvent = () => {
         teamSize: '1 Member',
         duration: '3 Hours',
         venue: 'Gaming Zone B',
+        registerButton: {
+            text: 'Register Now',
+            link: 'https://forms.gle/your-registration-form-link'
+        },
         rules: [
             'Individual tournament format',
             'Bring your own device (smartphone/tablet)',

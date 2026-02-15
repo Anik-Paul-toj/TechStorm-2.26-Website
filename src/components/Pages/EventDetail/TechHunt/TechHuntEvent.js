@@ -13,6 +13,10 @@ const TechHuntEvent = () => {
         teamSize: '3-4 Members',
         duration: '3 Hours',
         venue: 'Campus-wide',
+        registerButton: {
+            text: 'Register Now',
+            link: 'https://forms.gle/your-registration-form-link'
+        },
         rules: [
             'Teams must have 3-4 members',
             'All team members must stay together',

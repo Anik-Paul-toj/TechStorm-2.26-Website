@@ -13,6 +13,10 @@ const OmegatrixEvent = () => {
         teamSize: '1-2 Members',
         duration: '2 Hours',
         venue: 'Quiz Hall',
+        registerButton: {
+            text: 'Register Now',
+            link: 'https://forms.gle/your-registration-form-link'
+        },
         rules: [
             'Individual or teams of 2 allowed',
             'No electronic devices except provided materials',

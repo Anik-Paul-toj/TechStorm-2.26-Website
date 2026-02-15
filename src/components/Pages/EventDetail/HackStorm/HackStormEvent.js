@@ -13,6 +13,10 @@ const HackStormEvent = () => {
         teamSize: '2-4 Members',
         duration: '24 Hours',
         venue: 'Main Auditorium',
+        registerButton: {
+            text: 'Register Now',
+            link: 'https://forms.gle/your-registration-form-link'
+        },
         rules: [
             'Teams must have 2-4 members',
             'Project must be started from scratch during the event',

@@ -13,6 +13,10 @@ const RoNavigatorEvent = () => {
         teamSize: '2-4 Members',
         duration: '2.5 Hours',
         venue: 'Robotics Arena',
+        registerButton: {
+            text: 'Register Now',
+            link: 'https://forms.gle/your-registration-form-link'
+        },
         rules: [
             'Robot dimensions: Max 30cm x 30cm x 30cm',
             'Must be autonomous (no manual control during run)',

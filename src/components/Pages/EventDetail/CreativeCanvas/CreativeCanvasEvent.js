@@ -13,6 +13,10 @@ const CreativeCanvasEvent = () => {
         teamSize: '1-2 Members',
         duration: '3 Hours',
         venue: 'Design Studio',
+        registerButton: {
+            text: 'Register Now',
+            link: 'https://forms.gle/your-registration-form-link'
+        },
         rules: [
             'Individual or teams of 2 allowed',
             'Any digital design software can be used',

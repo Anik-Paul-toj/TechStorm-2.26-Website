@@ -13,6 +13,10 @@ const RoSoccerEvent = () => {
         teamSize: '3-5 Members',
         duration: '4 Hours (League Format)',
         venue: 'Robo Sports Arena',
+        registerButton: {
+            text: 'Register Now',
+            link: 'https://forms.gle/your-registration-form-link'
+        },
         rules: [
             'Each team operates 2 robots simultaneously',
             'Robot dimensions: Max 25cm x 25cm x 25cm each',

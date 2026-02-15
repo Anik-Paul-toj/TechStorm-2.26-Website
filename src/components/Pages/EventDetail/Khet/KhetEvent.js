@@ -13,6 +13,10 @@ const KhetEvent = () => {
         teamSize: '1-2 Members',
         duration: '2 Hours',
         venue: 'Board Game Arena',
+        registerButton: {
+            text: 'Register Now',
+            link: 'https://forms.gle/your-registration-form-link'
+        },
         rules: [
             'Individual or teams of 2 allowed',
             'Standard KHET 2.0 rules apply',

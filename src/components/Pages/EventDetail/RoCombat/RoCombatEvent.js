@@ -13,6 +13,10 @@ const RoCombatEvent = () => {
         teamSize: '2-5 Members',
         duration: '4 Hours (Tournament Format)',
         venue: 'Combat Arena',
+        registerButton: {
+            text: 'Register Now',
+            link: 'https://forms.gle/your-registration-form-link'
+        },
         rules: [
             'Robot weight: Maximum 20kg',
             'Dimensions: Fit within 60cm cube at start',
