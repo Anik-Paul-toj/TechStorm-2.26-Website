@@ -1,5 +1,7 @@
-import React, { Fragment, useEffect, useRef } from 'react';
+import React, { Fragment, useEffect, useRef, useState } from 'react';
 import './EventDetail.css';
+import { Button } from '../../ui/8bit/button';
+import { Dialog, DialogTrigger, DialogContent } from '../../ui/8bit/dialog';
 
 const EventDetail = ({ eventData }) => {
     const { 
@@ -11,12 +13,14 @@ const EventDetail = ({ eventData }) => {
         paymentLink,
         previousYearImages,
         coordinators,
-        breadcrumbBg
+        breadcrumbBg,
+        registerButton
     } = eventData;
 
     const scrollContainerRef = useRef(null);
     const autoScrollInterval = useRef(null);
     const pauseTimeout = useRef(null);
+    const [isRulesDialogOpen, setIsRulesDialogOpen] = useState(false);
 
     // Dummy placeholder images - replace with actual event photos later
     const dummyImages = [
@@ -243,6 +247,154 @@ const EventDetail = ({ eventData }) => {
                                 }}>
                                     {description}
                                 </p>
+                                
+                                {/* Action Buttons */}
+                                <div style={{ 
+                                    marginTop: '30px', 
+                                    display: 'flex', 
+                                    justifyContent: 'center',
+                                    gap: '15px',
+                                    flexWrap: 'wrap'
+                                }}>
+                                    {registerButton && (
+                                        <Button 
+                                            variant="default"
+                                            onClick={registerButton.onClick || (() => {
+                                                if (registerButton.link) {
+                                                    window.open(registerButton.link, '_blank');
+                                                }
+                                            })}
+                                            style={{ 
+                                                fontSize: '12px',
+                                                padding: '0 24px',
+                                                height: '42px'
+                                            }}
+                                        >
+                                            {registerButton.text || 'Register Now'}
+                                        </Button>
+                                    )}
+                                    
+                                    <Button 
+                                        variant="outline"
+                                        onClick={() => setIsRulesDialogOpen(true)}
+                                        style={{ 
+                                            fontSize: '12px',
+                                            padding: '0 24px',
+                                            height: '42px',
+                                            '--button-color': '#00ffea',
+                                            color: '#00ffea',
+                                            boxShadow: '0 0 0 2px transparent, 0 0 0 4px #00ffea, 0 0 0 6px transparent'
+                                        }}
+                                        onMouseEnter={(e) => {
+                                            e.currentTarget.style.color = '#000000';
+                                            e.currentTarget.style.background = '#00ffea';
+                                            e.currentTarget.style.boxShadow = '0 0 0 2px transparent, 0 0 0 4px #00ffea, 0 0 0 6px transparent, 0 0 15px rgba(0, 255, 234, 0.4)';
+                                        }}
+                                        onMouseLeave={(e) => {
+                                            e.currentTarget.style.color = '#00ffea';
+                                            e.currentTarget.style.background = '#1a0e22';
+                                            e.currentTarget.style.boxShadow = '0 0 0 2px transparent, 0 0 0 4px #00ffea, 0 0 0 6px transparent';
+                                        }}
+                                    >
+                                        Event Rules
+                                    </Button>
+                                </div>
+                                
+                                {/* Rules Dialog */}
+                                <Dialog open={isRulesDialogOpen} onOpenChange={setIsRulesDialogOpen}>
+                                    <DialogContent>
+                                        <div style={{
+                                            backgroundColor: '#1a0e22',
+                                            padding: '30px',
+                                            maxWidth: '700px',
+                                            maxHeight: '80vh',
+                                            overflowY: 'auto',
+                                            border: '4px solid #ffc010',
+                                            boxShadow: '0 0 30px rgba(255, 192, 16, 0.3)',
+                                            margin: '20px'
+                                        }}>
+                                            <div style={{ marginBottom: '25px', textAlign: 'center' }}>
+                                                <h2 style={{
+                                                    color: '#ffc010',
+                                                    fontFamily: 'Press Start 2P',
+                                                    fontSize: 'clamp(14px, 4vw, 20px)',
+                                                    marginBottom: '10px',
+                                                    lineHeight: '1.5'
+                                                }}>EVENT RULES</h2>
+                                                <div style={{
+                                                    height: '3px',
+                                                    width: '60px',
+                                                    background: '#ffc010',
+                                                    margin: '0 auto'
+                                                }}></div>
+                                            </div>
+                                            <div style={{
+                                                padding: 0,
+                                                margin: 0
+                                            }}>
+                                                {rules && rules.map((rule, index) => {
+                                                    // Check if it's a section header (starts with emoji)
+                                                    const isHeader = /^[\u{1F300}-\u{1F9FF}]|^[\u{2600}-\u{26FF}]|^[\u{2700}-\u{27BF}]/u.test(rule);
+                                                    // Check if it's an empty line
+                                                    const isEmpty = rule.trim() === '';
+                                                    
+                                                    if (isEmpty) {
+                                                        return <div key={index} style={{ height: '15px' }}></div>;
+                                                    }
+                                                    
+                                                    if (isHeader) {
+                                                        return (
+                                                            <h3 key={index} style={{
+                                                                color: '#ffc010',
+                                                                fontSize: 'clamp(12px, 3vw, 16px)',
+                                                                fontFamily: 'Press Start 2P',
+                                                                marginTop: index === 0 ? '0' : '25px',
+                                                                marginBottom: '15px',
+                                                                lineHeight: '1.5',
+                                                                textTransform: 'uppercase'
+                                                            }}>
+                                                                {rule}
+                                                            </h3>
+                                                        );
+                                                    }
+                                                    
+                                                    // Regular rule with bullet
+                                                    return (
+                                                        <div key={index} style={{
+                                                            display: 'flex',
+                                                            alignItems: 'flex-start',
+                                                            marginBottom: '12px',
+                                                            gap: '12px'
+                                                        }}>
+                                                            <span style={{
+                                                                color: '#00ffea',
+                                                                fontSize: '14px',
+                                                                flexShrink: 0,
+                                                                marginTop: '2px'
+                                                            }}>▸</span>
+                                                            <span style={{
+                                                                color: '#e0e0e0',
+                                                                fontSize: '13px',
+                                                                lineHeight: '1.6',
+                                                                fontFamily: 'Silkscreen, sans-serif'
+                                                            }}>{rule}</span>
+                                                        </div>
+                                                    );
+                                                })}
+                                            </div>
+                                            <div style={{ textAlign: 'center', marginTop: '25px' }}>
+                                                <Button 
+                                                    variant="outline"
+                                                    onClick={() => setIsRulesDialogOpen(false)}
+                                                    style={{ fontSize: '11px' }}
+                                                >
+                                                    Close
+                                                </Button>
+                                            </div>
+                                        </div>
+                                    </DialogContent>
+                                </Dialog>
+                                
                                 <section className="message -right" style={{ 
                                     marginTop: '25px',
                                     display: 'flex',
@@ -297,15 +449,6 @@ const EventDetail = ({ eventData }) => {
                                             text-align: center !important;
                                         }
                                         
-                                        /* Entry fee mobile centering */
-                                        .col-lg-6[style*="paddingLeft"] {
-                                            padding-left: 5px !important;
-                                            padding-right: 5px !important;
-                                            display: flex;
-                                            flex-direction: column;
-                                            align-items: center;
-                                        }
-                                        
                                         .entry-heading {
                                             text-align: center;
                                             display: flex;
@@ -324,31 +467,6 @@ const EventDetail = ({ eventData }) => {
                                         }
                                         
                                         .entry-heading .heading-brush {
-                                            position: relative;
-                                            bottom: auto;
-                                            left: auto;
-                                            margin: 10px auto 20px;
-                                            width: 80px;
-                                        }
-                                        
-                                        .rules-heading {
-                                            text-align: center;
-                                            display: flex;
-                                            flex-direction: column;
-                                            align-items: center;
-                                            position: relative;
-                                            width: 100%;
-                                        }
-                                        
-                                        .rules-heading .heading-white,
-                                        .rules-heading .heading-gold {
-                                            display: block;
-                                            text-align: center;
-                                            margin: 0;
-                                            font-size: 20px !important;
-                                        }
-                                        
-                                        .rules-heading .heading-brush {
                                             position: relative;
                                             bottom: auto;
                                             left: auto;
@@ -384,154 +502,112 @@ const EventDetail = ({ eventData }) => {
                                         }
                                         
                                         .entry-content {
-                                            display: flex;
-                                            flex-direction: column;
-                                            align-items: center;
-                                            width: 100%;
-                                            padding: 0;
-                                            margin-left: 0;
-                                            margin-right: 0;
+                                            padding: 0 15px;
                                         }
                                         
                                         .fee-category {
-                                            text-align: center;
-                                            width: 100%;
-                                            max-width: 350px;
-                                            margin-left: auto;
-                                            margin-right: auto;
-                                        }
-                                        
-                                        .fee-amount {
-                                            display: flex;
-                                            justify-content: center;
-                                            align-items: center;
-                                            gap: 15px;
-                                            margin-left: 0 !important;
-                                            margin-right: 0 !important;
+                                            width: 100% !important;
+                                            min-width: unset !important;
+                                            margin-bottom: 20px;
                                         }
                                     }
                                 `}</style>
-                                
-                                <div className="event-rounds" style={{ marginTop: '30px' }}>
-                                    <div className="rounds-list">
-                                        <div className="round-item" style={{
-                                            display: 'flex',
-                                            alignItems: 'center',
-                                            marginBottom: '15px',
-                                            gap: '15px'
-                                        }}>
-                                            <span style={{
-                                                color: '#ffc010',
-                                                fontSize: '24px',
-                                                flexShrink: 0
-                                            }}>✓</span>
-                                            <p style={{
-                                                color: '#e0e0e0',
-                                                fontSize: '14px',
-                                                fontFamily: 'Press Start 2P, monospace',
-                                                margin: 0,
-                                                textTransform: 'uppercase'
-                                            }}>
-                                                Round 1: Offline Prelims
-                                            </p>
-                                        </div>
-                                        
-                                        <div className="round-item" style={{
-                                            display: 'flex',
-                                            alignItems: 'center',
-                                            marginBottom: '15px',
-                                            gap: '15px'
-                                        }}>
-                                            <span style={{
-                                                color: '#ffc010',
-                                                fontSize: '24px',
-                                                flexShrink: 0
-                                            }}>✓</span>
-                                            <p style={{
-                                                color: '#e0e0e0',
-                                                fontSize: '14px',
-                                                fontFamily: 'Press Start 2P, monospace',
-                                                margin: 0,
-                                                textTransform: 'uppercase'
-                                            }}>
-                                                Round 2: Semi-Finals
-                                            </p>
-                                        </div>
-                                        
-                                        <div className="round-item" style={{
-                                            display: 'flex',
-                                            alignItems: 'center',
-                                            marginBottom: '15px',
-                                            gap: '15px'
-                                        }}>
-                                            <span style={{
-                                                color: '#ffc010',
-                                                fontSize: '24px',
-                                                flexShrink: 0
-                                            }}>✓</span>
-                                            <p style={{
-                                                color: '#e0e0e0',
-                                                fontSize: '14px',
-                                                fontFamily: 'Press Start 2P, monospace',
-                                                margin: 0,
-                                                textTransform: 'uppercase'
-                                            }}>
-                                                Final Round
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* Event Rules Section */}
-            <section className="event-rules-section pt-30 pb-60">
+            {/* Entry Fee Section */}
+            <section className="entry-fee-section pt-30 pb-60">
                 <div className="container">
                     <div className="row">
-                        {/* Left: Entry Fee & Payment */}
-                        <div className="col-lg-6 mb-40" style={{ paddingLeft: '10px' }}>
-                            <div className="entry-heading">
+                        <div className="col-12">
+                            <div className="entry-heading" style={{ textAlign: 'center' }}>
                                 <h2 className="heading-white">ENTRY</h2>
-                                <h2 className="heading-gold">FEE</h2>
-                                <div className="heading-brush"></div>
+                                <h2 className="heading-white">FEE</h2>
+                                <div className="heading-brush" style={{ margin: '10px auto 30px' }}></div>
                             </div>
                             <div className="entry-content">
-                                <div className="fee-category">
-                                    <h4 style={{ 
-                                        color: '#ffc010', 
-                                        fontSize: '16px', 
-                                        fontFamily: 'Press Start 2P',
-                                        marginBottom: '10px'
+                                {/* Horizontal Fee Layout */}
+                                <div style={{
+                                    display: 'flex',
+                                    justifyContent: 'center',
+                                    gap: '30px',
+                                    flexWrap: 'wrap',
+                                    marginBottom: '40px'
+                                }}>
+                                    <div className="fee-category" style={{
+                                        flex: '1',
+                                        minWidth: '280px',
+                                        maxWidth: '400px',
+                                        padding: '25px',
+                                        backgroundColor: 'rgba(255, 192, 16, 0.05)',
+                                        border: '3px solid #ffc010',
+                                        textAlign: 'center'
                                     }}>
-                                        For BPPIMT students
-                                    </h4>
-                                    <div className="fee-amount">
-                                        <span className="fee-icon">💰</span>
-                                        <span className="fee-text">₹80 per team</span>
+                                        <h4 style={{ 
+                                            color: '#ffc010', 
+                                            fontSize: '14px', 
+                                            fontFamily: 'Press Start 2P',
+                                            marginBottom: '15px',
+                                            lineHeight: '1.5'
+                                        }}>
+                                            For BPPIMT students
+                                        </h4>
+                                        <div className="fee-amount" style={{
+                                            display: 'flex',
+                                            justifyContent: 'center',
+                                            alignItems: 'center',
+                                            gap: '12px'
+                                        }}>
+                                            <span className="fee-icon" style={{ fontSize: '28px' }}>💰</span>
+                                            <span className="fee-text" style={{
+                                                color: '#fff',
+                                                fontSize: '18px',
+                                                fontFamily: 'Press Start 2P'
+                                            }}>₹80 per team</span>
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div className="fee-category" style={{ marginTop: '30px' }}>
-                                    <h4 style={{ 
-                                        color: '#00ffea', 
-                                        fontSize: '16px', 
-                                        fontFamily: 'Press Start 2P',
-                                        marginBottom: '10px'
+                                    <div className="fee-category" style={{
+                                        flex: '1',
+                                        minWidth: '280px',
+                                        maxWidth: '400px',
+                                        padding: '25px',
+                                        backgroundColor: 'rgba(0, 255, 234, 0.05)',
+                                        border: '3px solid #00ffea',
+                                        textAlign: 'center'
                                     }}>
-                                        For outside students
-                                    </h4>
-                                    <div className="fee-amount">
-                                        <span className="fee-icon">💰</span>
-                                        <span className="fee-text">₹100 per team</span>
+                                        <h4 style={{ 
+                                            color: '#00ffea', 
+                                            fontSize: '14px', 
+                                            fontFamily: 'Press Start 2P',
+                                            marginBottom: '15px',
+                                            lineHeight: '1.5'
+                                        }}>
+                                            For outside students
+                                        </h4>
+                                        <div className="fee-amount" style={{
+                                            display: 'flex',
+                                            justifyContent: 'center',
+                                            alignItems: 'center',
+                                            gap: '12px'
+                                        }}>
+                                            <span className="fee-icon" style={{ fontSize: '28px' }}>💰</span>
+                                            <span className="fee-text" style={{
+                                                color: '#fff',
+                                                fontSize: '18px',
+                                                fontFamily: 'Press Start 2P'
+                                            }}>₹100 per team</span>
+                                        </div>
                                     </div>
                                 </div>
 
                                 {/* Team Size Options */}
                                 <div className="nes-container with-title" style={{ 
-                                    marginTop: '40px',
+                                    maxWidth: '500px',
+                                    margin: '0 auto',
                                     backgroundColor: 'rgba(255, 192, 16, 0.08)',
                                     borderColor: '#ffc010'
                                 }}>
@@ -541,49 +617,56 @@ const EventDetail = ({ eventData }) => {
                                         color: '#ffc010'
                                     }}>Team Options</p>
                                     <p style={{ 
-                                        fontSize: '18px',
+                                        fontSize: '16px',
                                         margin: '0 0 10px 0',
                                         fontFamily: 'Press Start 2P',
                                         lineHeight: '1.6',
-                                        color: '#d0d0d0'
+                                        color: '#d0d0d0',
+                                        textAlign: 'center'
                                     }}>
                                         Solo / Duo / Thrice
                                     </p>
                                 </div>
-                                {qrCode && (
-                                    <div className="qr-section">
-                                        <h4 className="qr-title">Scan to Pay</h4>
-                                        <div className="qr-code-wrapper">
-                                            <img src={qrCode} alt="Payment QR Code" className="qr-code" />
+                                
+                                {/* Payment Options */}
+                                <div style={{
+                                    display: 'flex',
+                                    justifyContent: 'center',
+                                    gap: '30px',
+                                    marginTop: '30px',
+                                    flexWrap: 'wrap'
+                                }}>
+                                    {qrCode && (
+                                        <div className="qr-section" style={{ textAlign: 'center' }}>
+                                            <h4 className="qr-title" style={{
+                                                fontFamily: 'Press Start 2P',
+                                                color: '#ffc010',
+                                                fontSize: '14px',
+                                                marginBottom: '15px'
+                                            }}>Scan to Pay</h4>
+                                            <div className="qr-code-wrapper">
+                                                <img src={qrCode} alt="Payment QR Code" className="qr-code" style={{
+                                                    maxWidth: '200px',
+                                                    border: '3px solid #ffc010'
+                                                }} />
+                                            </div>
                                         </div>
-                                    </div>
-                                )}
-                                {paymentLink && (
-                                    <div className="payment-link-section">
-                                        <a href={paymentLink} target="_blank" rel="noopener noreferrer" className="payment-button">
-                                            <span>PAY ONLINE</span>
-                                        </a>
-                                    </div>
-                                )}
-                            </div>
-                        </div>
-
-                        {/* Right: Rules */}
-                        <div className="col-lg-6 mb-40">
-                            <div className="rules-heading">
-                                <h2 className="heading-white">EVENT</h2>
-                                <h2 className="heading-gold">RULES</h2>
-                                <div className="heading-brush"></div>
-                            </div>
-                            <div className="rules-content">
-                                <ul className="rules-list-new">
-                                    {rules.map((rule, index) => (
-                                        <li key={index}>
-                                            <span className="rule-bullet">▸</span>
-                                            <span className="rule-text">{rule}</span>
-                                        </li>
-                                    ))}
-                                </ul>
+                                    )}
+                                    {paymentLink && (
+                                        <div className="payment-link-section" style={{
+                                            display: 'flex',
+                                            alignItems: 'center'
+                                        }}>
+                                            <Button
+                                                variant="default"
+                                                onClick={() => window.open(paymentLink, '_blank')}
+                                                style={{ fontSize: '12px' }}
+                                            >
+                                                PAY ONLINE
+                                            </Button>
+                                        </div>
+                                    )}
+                                </div>
                             </div>
                         </div>
                     </div>
