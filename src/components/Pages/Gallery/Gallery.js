@@ -28,6 +28,12 @@ const img11 = cloudinaryImages.gallery.c11;
 const img12 = cloudinaryImages.gallery.c12;
 const img13 = cloudinaryImages.gallery.c13;
 const img14 = cloudinaryImages.gallery.c14;
+const img15 = cloudinaryImages.gallery.c15;
+const img17 = cloudinaryImages.gallery.c17;
+const img18 = cloudinaryImages.gallery.c18;
+const img19 = cloudinaryImages.gallery.c19;
+const img20 = cloudinaryImages.gallery.c20;
+const img21 = cloudinaryImages.gallery.c21;
 
 const galleryImgs = [
   { id: '1', thumb: img1 },
@@ -44,6 +50,12 @@ const galleryImgs = [
   { id: '12', thumb: img12 },
   { id: '13', thumb: img13 },
   { id: '14', thumb: img14 },
+  { id: '15', thumb: img15 },
+  { id: '17', thumb: img17 },
+  { id: '18', thumb: img18 },
+  { id: '19', thumb: img19 },
+  { id: '20', thumb: img20 },
+  { id: '21', thumb: img21 },
 ];
 
 const ITEMS_PER_PAGE = 12; /* 4 columns x 3 rows */
@@ -79,6 +91,10 @@ const Gallery = () => {
     const t = setTimeout(() => setToastImage(null), TOAST_AUTO_DISMISS_MS);
     return () => clearTimeout(t);
   }, [toastImage]);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [currentPage]);
 
   const handleImageClick = (e, thumb) => {
     e.preventDefault();
