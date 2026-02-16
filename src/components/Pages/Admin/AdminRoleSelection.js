@@ -9,28 +9,22 @@ const AdminRoleSelection = () => {
     {
       name: 'Core',
       role: 'core',
-      description: 'Full system access with all permissions',
-      icon: '🔴',
-      color: '#ff4444',
-      permissions: ['Create', 'Read', 'Update', 'Delete'],
+      description: 'System-level administration',
+      color: '#0f766e',
       path: '/admin/core'
     },
     {
       name: 'Coordinator',
       role: 'coordinator',
-      description: 'Event management with read and update access',
-      icon: '🟡',
-      color: '#ffaa00',
-      permissions: ['Read', 'Update'],
+      description: 'Event operations and updates',
+      color: '#2563eb',
       path: '/admin/coordinator'
     },
     {
       name: 'Volunteer',
       role: 'volunteer',
-      description: 'Read-only access to view information',
-      icon: '🟢',
-      color: '#44ff44',
-      permissions: ['Read'],
+      description: 'Event monitoring and support',
+      color: '#9333ea',
       path: '/admin/volunteer'
     }
   ];
@@ -44,7 +38,7 @@ const AdminRoleSelection = () => {
       <div className="admin-container">
         <div className="admin-header">
           <h1 className="admin-title">TechStorm Admin Portal</h1>
-          <p className="admin-subtitle">Select your role to continue</p>
+          <p className="admin-subtitle">Select your role</p>
         </div>
 
         <div className="role-cards-container">
@@ -55,29 +49,16 @@ const AdminRoleSelection = () => {
               onClick={() => handleRoleClick(role.path)}
               style={{ '--role-color': role.color }}
             >
-              <div className="role-icon">{role.icon}</div>
+              <div className="role-chip">{role.role.toUpperCase()}</div>
               <h2 className="role-name">{role.name}</h2>
               <p className="role-description">{role.description}</p>
-              <div className="role-permissions">
-                <h3>Permissions:</h3>
-                <ul>
-                  {role.permissions.map((permission) => (
-                    <li key={permission}>
-                      <span className="permission-check">✓</span> {permission}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <button className="role-button">
-                Login as {role.name}
-                <span className="arrow">→</span>
-              </button>
+              <button className="role-button">Continue</button>
             </div>
           ))}
         </div>
 
         <div className="admin-footer">
-          <p>© 2026 TechStorm. Authorized personnel only.</p>
+          <p>2026 TechStorm. Authorized personnel only.</p>
         </div>
       </div>
     </div>

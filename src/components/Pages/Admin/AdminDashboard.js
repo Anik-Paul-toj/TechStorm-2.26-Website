@@ -28,7 +28,7 @@ const AdminDashboard = () => {
     }
 
     const parsedUser = JSON.parse(userData);
-    
+
     // Verify role matches
     if (parsedUser.role !== role) {
       alert('Access denied: Role mismatch');
@@ -43,18 +43,15 @@ const AdminDashboard = () => {
   const roleConfig = {
     core: {
       name: 'Core',
-      icon: '🔴',
-      color: '#ff4444'
+      color: '#0f766e'
     },
     coordinator: {
       name: 'Coordinator',
-      icon: '🟡',
-      color: '#ffaa00'
+      color: '#2563eb'
     },
     volunteer: {
       name: 'Volunteer',
-      icon: '🟢',
-      color: '#44ff44'
+      color: '#9333ea'
     }
   };
 
@@ -64,10 +61,7 @@ const AdminDashboard = () => {
     return (
       <div className="admin-dashboard" style={{ '--role-color': config.color }}>
         <div className="dashboard-container">
-          <div className="loading">
-            <div className="spinner-large"></div>
-            <p>Loading dashboard...</p>
-          </div>
+          <div className="loading">Loading dashboard...</div>
         </div>
       </div>
     );
@@ -77,102 +71,84 @@ const AdminDashboard = () => {
     <div className="admin-dashboard" style={{ '--role-color': config.color }}>
       <div className="dashboard-container">
         <header className="dashboard-header">
-          <div className="header-left">
-            <div className="role-icon-small">{config.icon}</div>
-            <div>
-              <h1 className="dashboard-title">{config.name} Dashboard</h1>
-              <p className="dashboard-subtitle">TechStorm 2.26 Admin Portal</p>
-            </div>
+          <div>
+            <p className="header-kicker">TechStorm Admin</p>
+            <h1 className="dashboard-title">{config.name} Dashboard</h1>
           </div>
           <button className="logout-button" onClick={handleLogout}>
-            Logout →
+            Log out
           </button>
         </header>
 
         <div className="welcome-card">
-          <h2>Welcome back, {user.name || config.name}!</h2>
+          <h2>Welcome, {user.name || config.name}</h2>
           <div className="user-info">
             <div className="info-item">
-              <span className="info-label">Email:</span>
+              <span className="info-label">Email</span>
               <span className="info-value">{user.email}</span>
             </div>
             <div className="info-item">
-              <span className="info-label">Role:</span>
+              <span className="info-label">Role</span>
               <span className="info-value">{user.role}</span>
             </div>
             {user.eventAbbr && (
               <div className="info-item">
-                <span className="info-label">Event:</span>
+                <span className="info-label">Event</span>
                 <span className="info-value">{user.eventName || user.eventAbbr}</span>
               </div>
             )}
-            <div className="info-item">
-              <span className="info-label">Permissions:</span>
-              <span className="info-value">{user.permissions?.join(', ')}</span>
-            </div>
           </div>
         </div>
 
         <div className="dashboard-grid">
           <div className="dashboard-card">
-            <div className="card-icon">📊</div>
+            <p className="card-kicker">Overview</p>
             <h3>Statistics</h3>
-            <p>View system and event statistics</p>
-            <button className="card-button">View Stats</button>
+            <p>View key event and system metrics.</p>
+            <button className="card-button">Open</button>
           </div>
 
           {user.permissions?.includes('read') && (
             <div className="dashboard-card">
-              <div className="card-icon">📋</div>
+              <p className="card-kicker">Data</p>
               <h3>Events</h3>
-              <p>Manage and view events</p>
-              <button className="card-button">View Events</button>
+              <p>Review schedules and event records.</p>
+              <button className="card-button">Open</button>
             </div>
           )}
 
           {user.permissions?.includes('update') && (
             <div className="dashboard-card">
-              <div className="card-icon">✏️</div>
+              <p className="card-kicker">Actions</p>
               <h3>Edit Content</h3>
-              <p>Update event information</p>
-              <button className="card-button">Edit Events</button>
+              <p>Update event details and announcements.</p>
+              <button className="card-button">Open</button>
             </div>
           )}
 
           {user.permissions?.includes('create') && (
             <div className="dashboard-card">
-              <div className="card-icon">➕</div>
+              <p className="card-kicker">Actions</p>
               <h3>Create New</h3>
-              <p>Add new events and resources</p>
-              <button className="card-button">Create Event</button>
+              <p>Add new events and resources.</p>
+              <button className="card-button">Open</button>
             </div>
           )}
 
           {user.permissions?.includes('delete') && (
             <div className="dashboard-card">
-              <div className="card-icon">🗑️</div>
+              <p className="card-kicker">Admin</p>
               <h3>Manage Users</h3>
-              <p>User administration</p>
-              <button className="card-button">Manage Users</button>
+              <p>Access user administration controls.</p>
+              <button className="card-button">Open</button>
             </div>
           )}
 
           <div className="dashboard-card">
-            <div className="card-icon">👥</div>
+            <p className="card-kicker">Participants</p>
             <h3>Registrations</h3>
-            <p>View participant registrations</p>
-            <button className="card-button">View Registrations</button>
-          </div>
-        </div>
-
-        <div className="permissions-info">
-          <h3>Your Permissions</h3>
-          <div className="permissions-list">
-            {user.permissions?.map((permission) => (
-              <span key={permission} className="permission-badge">
-                ✓ {permission.toUpperCase()}
-              </span>
-            ))}
+            <p>View participant registration status.</p>
+            <button className="card-button">Open</button>
           </div>
         </div>
       </div>

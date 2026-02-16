@@ -5,10 +5,10 @@ import './AdminLogin.css';
 const AdminLogin = () => {
   const history = useHistory();
   const location = useLocation();
-  
+
   // Extract role from pathname (/admin/core -> core)
   const role = location.pathname.split('/')[2];
-  
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -17,20 +17,17 @@ const AdminLogin = () => {
   const roleConfig = {
     core: {
       name: 'Core',
-      icon: '🔴',
-      color: '#ff4444',
+      color: '#0f766e',
       placeholder: 'core@techstorm.com'
     },
     coordinator: {
       name: 'Coordinator',
-      icon: '🟡',
-      color: '#ffaa00',
+      color: '#2563eb',
       placeholder: 'coord<event>@techstorm.com'
     },
     volunteer: {
       name: 'Volunteer',
-      icon: '🟢',
-      color: '#44ff44',
+      color: '#9333ea',
       placeholder: 'volt<event>@techstorm.com'
     }
   };
@@ -61,7 +58,7 @@ const AdminLogin = () => {
         // Store token and user data
         localStorage.setItem('adminToken', data.token);
         localStorage.setItem('adminUser', JSON.stringify(data.user));
-        
+
         // Redirect to dashboard
         history.push(`/admin/${role}/dashboard`);
       } else {
@@ -83,22 +80,17 @@ const AdminLogin = () => {
     <div className="admin-login" style={{ '--role-color': config.color }}>
       <div className="login-container">
         <button className="back-button" onClick={handleBack}>
-          ← Back to Role Selection
+          Back to role selection
         </button>
 
         <div className="login-card">
           <div className="login-header">
-            <div className="role-icon-large">{config.icon}</div>
+            <span className="role-badge">{config.name.toUpperCase()}</span>
             <h1 className="login-title">{config.name} Login</h1>
-            <p className="login-subtitle">Enter your credentials to access the {config.name} portal</p>
+            <p className="login-subtitle">Sign in to continue</p>
           </div>
 
-          {error && (
-            <div className="error-message">
-              <span className="error-icon">⚠️</span>
-              {error}
-            </div>
-          )}
+          {error && <div className="error-message">{error}</div>}
 
           <form onSubmit={handleSubmit} className="login-form">
             <div className="form-group">
@@ -113,12 +105,6 @@ const AdminLogin = () => {
                 disabled={loading}
                 className="form-input"
               />
-              <span className="input-hint">
-                {role === 'core' 
-                  ? 'Use: core@techstorm.com' 
-                  : `Format: ${config.placeholder}`
-                }
-              </span>
             </div>
 
             <div className="form-group">
@@ -133,63 +119,19 @@ const AdminLogin = () => {
                 disabled={loading}
                 className="form-input"
               />
-              <span className="input-hint">
-                {role === 'core' 
-                  ? 'Password: sapbad@2026' 
-                  : role === 'coordinator'
-                  ? 'Format: coord<event>'
-                  : 'Format: volt<event>'
-                }
-              </span>
             </div>
 
-            <button 
-              type="submit" 
+            <button
+              type="submit"
               className="submit-button"
               disabled={loading}
             >
-              {loading ? (
-                <>
-                  <span className="spinner"></span>
-                  Logging in...
-                </>
-              ) : (
-                <>
-                  Login to {config.name} Portal
-                  <span className="arrow">→</span>
-                </>
-              )}
+              {loading ? 'Signing in...' : 'Sign in'}
             </button>
           </form>
-
-          <div className="login-info">
-            <h3>Access Information:</h3>
-            <ul>
-              {role === 'core' ? (
-                <>
-                  <li>✓ Full system access</li>
-                  <li>✓ All CRUD operations</li>
-                  <li>✓ User management</li>
-                </>
-              ) : role === 'coordinator' ? (
-                <>
-                  <li>✓ Event management</li>
-                  <li>✓ Read & Update access</li>
-                  <li>✓ Registration viewing</li>
-                </>
-              ) : (
-                <>
-                  <li>✓ View event details</li>
-                  <li>✓ Read-only access</li>
-                  <li>✓ Participant information</li>
-                </>
-              )}
-            </ul>
-          </div>
         </div>
 
         <div className="security-notice">
-          <span className="lock-icon">🔒</span>
           <p>This is a secure admin portal. Unauthorized access is prohibited.</p>
         </div>
       </div>
