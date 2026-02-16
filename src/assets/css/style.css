@@ -2795,6 +2795,17 @@ section:hover .section-title h2:before {
 	z-index     : 10000;
 }
 
+/* Restore Discover More button for mobile screens */
+@media (max-width: 767px) {
+	.about-discover-btn {
+		margin-top: 20px !important;
+		margin-left: 0 !important;
+		text-align: center !important;
+		display: flex;
+		justify-content: center;
+	}
+}
+
 /* 6. services */
 
 #feature-top {
