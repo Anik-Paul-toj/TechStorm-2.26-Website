@@ -5,6 +5,15 @@ import creativeCanvasBanner from '../../../../assets/img/event_specific_pictures
 
 const CreativeCanvasEvent = () => {
     const eventData = {
+                previousYearImages: [
+                    process.env.PUBLIC_URL + '/pictures_of_gallery/Creative Canva_/DSC_0095 (1).JPG',
+                    process.env.PUBLIC_URL + '/pictures_of_gallery/Creative Canva_/DSC_0097.JPG',
+                    process.env.PUBLIC_URL + '/pictures_of_gallery/Creative Canva_/DSC_0098.JPG',
+                    process.env.PUBLIC_URL + '/pictures_of_gallery/Creative Canva_/DSC_0099.JPG',
+                    process.env.PUBLIC_URL + '/pictures_of_gallery/Creative Canva_/DSC_0103.JPG',
+                    process.env.PUBLIC_URL + '/pictures_of_gallery/Creative Canva_/DSC_0105.JPG',
+                    process.env.PUBLIC_URL + '/pictures_of_gallery/Creative Canva_/IMG_8186.JPG',
+                ],
         name: 'Creative Canvas',
         logo: creativeCanvas,
         category: 'Creative',

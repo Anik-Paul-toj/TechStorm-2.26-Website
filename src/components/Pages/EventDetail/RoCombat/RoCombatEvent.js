@@ -5,6 +5,22 @@ import roCombatBanner from '../../../../assets/img/event_specific_pictures/robot
 
 const RoCombatEvent = () => {
     const eventData = {
+                previousYearImages: [
+                    process.env.PUBLIC_URL + '/pictures_of_gallery/Combat/DSC02738.jpeg',
+                    process.env.PUBLIC_URL + '/pictures_of_gallery/Combat/DSC02848.jpeg',
+                    process.env.PUBLIC_URL + '/pictures_of_gallery/Combat/DSC02849.jpeg',
+                    process.env.PUBLIC_URL + '/pictures_of_gallery/Combat/DSC02850.jpeg',
+                    process.env.PUBLIC_URL + '/pictures_of_gallery/Combat/DSC02877.jpeg',
+                    process.env.PUBLIC_URL + '/pictures_of_gallery/Combat/DSC02884.jpeg',
+                    process.env.PUBLIC_URL + '/pictures_of_gallery/Combat/DSC03101.jpeg',
+                    process.env.PUBLIC_URL + '/pictures_of_gallery/Combat/DSC03102.jpeg',
+                    process.env.PUBLIC_URL + '/pictures_of_gallery/Combat/DSC03107.jpeg',
+                    process.env.PUBLIC_URL + '/pictures_of_gallery/Combat/DSC03108.jpeg',
+                    process.env.PUBLIC_URL + '/pictures_of_gallery/Combat/DSC03114.jpeg',
+                    process.env.PUBLIC_URL + '/pictures_of_gallery/Combat/DSC03116.jpeg',
+                    process.env.PUBLIC_URL + '/pictures_of_gallery/Combat/DSC03117.jpeg',
+                    process.env.PUBLIC_URL + '/pictures_of_gallery/Combat/IMG_8129.JPG',
+                ],
         name: 'Ro-Combat',
         logo: roCombat,
         category: 'Robotics',

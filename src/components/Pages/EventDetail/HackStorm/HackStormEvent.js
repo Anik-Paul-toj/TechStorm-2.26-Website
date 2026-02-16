@@ -5,6 +5,13 @@ import hackStormBanner from '../../../../assets/img/event_specific_pictures/hack
 
 const HackStormEvent = () => {
     const eventData = {
+                previousYearImages: [
+                    process.env.PUBLIC_URL + '/pictures_of_gallery/Hackstrom/DSC02934.jpeg',
+                    process.env.PUBLIC_URL + '/pictures_of_gallery/Hackstrom/DSC02938.jpeg',
+                    process.env.PUBLIC_URL + '/pictures_of_gallery/Hackstrom/DSC02946.jpeg',
+                    process.env.PUBLIC_URL + '/pictures_of_gallery/Hackstrom/DSC02947.jpeg',
+                    process.env.PUBLIC_URL + '/pictures_of_gallery/Hackstrom/IMG_8057.JPG',
+                ],
         name: 'Hack Storm',
         logo: hackStorm,
         category: 'Coding',

@@ -5,6 +5,14 @@ import omegatrixBanner from '../../../../assets/img/event_specific_pictures/omeg
 
 const OmegatrixEvent = () => {
     const eventData = {
+                previousYearImages: [
+                    process.env.PUBLIC_URL + '/pictures_of_gallery/Omega trix_/DSC02782.jpeg',
+                    process.env.PUBLIC_URL + '/pictures_of_gallery/Omega trix_/DSC02785.jpeg',
+                    process.env.PUBLIC_URL + '/pictures_of_gallery/Omega trix_/DSC02786.jpeg',
+                    process.env.PUBLIC_URL + '/pictures_of_gallery/Omega trix_/DSC02787.jpeg',
+                    process.env.PUBLIC_URL + '/pictures_of_gallery/Omega trix_/DSC02788.jpeg',
+                    process.env.PUBLIC_URL + '/pictures_of_gallery/Omega trix_/DSC02798.jpeg',
+                ],
         name: 'Omegatrix',
         logo: omegatrix,
         category: 'Brain Teaser',

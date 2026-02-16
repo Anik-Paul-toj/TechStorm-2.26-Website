@@ -5,6 +5,16 @@ import fifaMobileBanner from '../../../../assets/img/event_specific_pictures/gam
 
 const FifaMobileEvent = () => {
     const eventData = {
+                previousYearImages: [
+                    process.env.PUBLIC_URL + '/pictures_of_gallery/FIFA mobile_/DSC02911.jpeg',
+                    process.env.PUBLIC_URL + '/pictures_of_gallery/FIFA mobile_/DSC02916.jpeg',
+                    process.env.PUBLIC_URL + '/pictures_of_gallery/FIFA mobile_/DSC02920.jpeg',
+                    process.env.PUBLIC_URL + '/pictures_of_gallery/FIFA mobile_/DSC_0189.JPG',
+                    process.env.PUBLIC_URL + '/pictures_of_gallery/FIFA mobile_/DSC_0191.JPG',
+                    process.env.PUBLIC_URL + '/pictures_of_gallery/FIFA mobile_/IMG_7990.JPG',
+                    process.env.PUBLIC_URL + '/pictures_of_gallery/FIFA mobile_/IMG_8015.JPG',
+                    process.env.PUBLIC_URL + '/pictures_of_gallery/FIFA mobile_/IMG_8022.JPG',
+                ],
         name: 'FIFA Mobile',
         logo: fifaMobile,
         category: 'Gaming',

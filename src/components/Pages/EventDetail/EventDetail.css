@@ -119,6 +119,7 @@
     width: 350px;
     height: 100%;
     position: relative;
+    margin-right: 0; /* No gap between images */
 }
 
 .scroll-image {
@@ -127,6 +128,7 @@
     object-fit: cover;
     image-rendering: pixelated;
     filter: contrast(1.1) saturate(1.2);
+    display: block;
 }
 
 .about-heading,

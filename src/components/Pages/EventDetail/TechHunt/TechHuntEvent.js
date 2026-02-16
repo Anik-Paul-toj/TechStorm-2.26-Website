@@ -5,6 +5,15 @@ import techHuntBanner from '../../../../assets/img/event_specific_pictures/techH
 
 const TechHuntEvent = () => {
     const eventData = {
+                previousYearImages: [
+                    process.env.PUBLIC_URL + '/pictures_of_gallery/Tech- Hunt/DSC02954.jpeg',
+                    process.env.PUBLIC_URL + '/pictures_of_gallery/Tech- Hunt/DSC02955.jpeg',
+                    process.env.PUBLIC_URL + '/pictures_of_gallery/Tech- Hunt/DSC02969.jpeg',
+                    process.env.PUBLIC_URL + '/pictures_of_gallery/Tech- Hunt/DSC02970.jpeg',
+                    process.env.PUBLIC_URL + '/pictures_of_gallery/Tech- Hunt/DSC02971.jpeg',
+                    process.env.PUBLIC_URL + '/pictures_of_gallery/Tech- Hunt/DSC02972.jpeg',
+                    process.env.PUBLIC_URL + '/pictures_of_gallery/Tech- Hunt/DSC02974.jpeg',
+                ],
         name: 'Tech Hunt',
         logo: techHunt,
         category: 'Brain Teaser',

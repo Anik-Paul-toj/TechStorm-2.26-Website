@@ -69,13 +69,12 @@ const EventDetail = ({ eventData }) => {
 
         autoScrollInterval.current = setInterval(() => {
             const maxScroll = scrollContainer.scrollWidth - scrollContainer.clientWidth;
-            
             if (scrollContainer.scrollLeft >= maxScroll) {
                 scrollContainer.scrollLeft = 0;
             } else {
-                scrollContainer.scrollLeft += 1;
+                scrollContainer.scrollLeft += 4; // Increased speed (was 1)
             }
-        }, 30);
+        }, 16); // Faster interval (was 30)
     };
 
     // Stop auto-scroll

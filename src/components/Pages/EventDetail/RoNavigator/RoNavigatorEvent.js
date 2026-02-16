@@ -5,6 +5,11 @@ import roNavigatorBanner from '../../../../assets/img/event_specific_pictures/ro
 
 const RoNavigatorEvent = () => {
     const eventData = {
+                previousYearImages: [
+                    process.env.PUBLIC_URL + '/pictures_of_gallery/Ro Navigator/IMG_20240403_125518.jpg',
+                    process.env.PUBLIC_URL + '/pictures_of_gallery/Ro Navigator/IMG_20240403_125521.jpg',
+                    process.env.PUBLIC_URL + '/pictures_of_gallery/Ro Navigator/IMG_6571.jpeg',
+                ],
         name: 'Ro-Navigator',
         logo: roNavigator,
         category: 'Robotics',

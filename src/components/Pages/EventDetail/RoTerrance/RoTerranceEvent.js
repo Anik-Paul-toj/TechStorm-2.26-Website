@@ -5,6 +5,15 @@ import roTerranceBanner from '../../../../assets/img/event_specific_pictures/rob
 
 const RoTerranceEvent = () => {
     const eventData = {
+                previousYearImages: [
+                    process.env.PUBLIC_URL + '/pictures_of_gallery/Ro Terrance_/DSC02725.jpeg',
+                    process.env.PUBLIC_URL + '/pictures_of_gallery/Ro Terrance_/DSC02726.jpeg',
+                    process.env.PUBLIC_URL + '/pictures_of_gallery/Ro Terrance_/DSC02731.jpeg',
+                    process.env.PUBLIC_URL + '/pictures_of_gallery/Ro Terrance_/DSC02735.jpeg',
+                    process.env.PUBLIC_URL + '/pictures_of_gallery/Ro Terrance_/DSC02835.jpeg',
+                    process.env.PUBLIC_URL + '/pictures_of_gallery/Ro Terrance_/DSC02836.jpeg',
+                    process.env.PUBLIC_URL + '/pictures_of_gallery/Ro Terrance_/DSC02839.jpeg',
+                ],
         name: 'Ro-Terrance',
         logo: roTerrance,
         category: 'Robotics',
