@@ -1,12 +1,10 @@
-import { cloudinaryImages } from '../../../config/cloudinary';
 import Button8bit from '../Button/Button8bit';
 import techstormLogo from '../../../assets/img/logo/iplogo.png';
 import features1 from '../../../assets/img/features/about1.jpeg';
 import features2 from '../../../assets/img/features/about2.jpeg';
+import aboutBgImg from '../../../assets/img/aboutbg.png';
 import SectionTitle from '../SectionTitle/SectionTitle';
 import AnimateOnScroll from '../ScrollAnimation/AnimateOnScroll';
-
-const aboutBgImg = cloudinaryImages.root.aboutbg;
 
 const About = () => {
     return (
@@ -182,15 +180,10 @@ const About = () => {
                                     </div>
                                 </div>
                             </div>
-                                <div className="slider-btn2 mt-30" style={{ 
-                                    textAlign: window.innerWidth <= 768 ? 'center' : 'right',
-                                    position: 'relative',
-                                    top: window.innerWidth <= 768 ? '0' : '-120px',
-                                    right: window.innerWidth <= 768 ? '0' : '50px',
-                                    marginTop: window.innerWidth <= 768 ? '30px' : '0'
-                                }}>
-                                    <Button8bit to={'/about'} variant="primary" size="large">{'Discover More'}</Button8bit>
-                                </div>
+                            {/* Discover More Button - Aligned with checkmarks */}
+                            <div className="about-discover-btn mt-30">
+                                <Button8bit to={'/about'} variant="primary" size="large">{'Discover More'}</Button8bit>
+                            </div>
                             </div>
                         </AnimateOnScroll>
                     </div>

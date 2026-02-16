@@ -52,8 +52,8 @@ const Footer = () => {
                                             <i className="icon dripicons-mail"></i>
                                             <span>
                                                 {'Email :'} 
-                                                <Link to={'mailto:techstorm@college.edu'}>
-                                                    {'techstorm@college.edu'}
+                                                <Link to={'mailto:techstorm@bppimt.ac.in'}>
+                                                    {'techstorm@bppimt.ac.in'}
                                                 </Link>
                                             </span>
                                         </li>
@@ -112,16 +112,13 @@ const Footer = () => {
                                     <Link to={'https://www.facebook.com'} target="_blank" rel="noopener noreferrer" className="nes-social-icon">
                                         <i className="nes-icon facebook is-medium"></i>
                                     </Link>
-                                    <Link to={'https://twitter.com'} target="_blank" rel="noopener noreferrer" className="nes-social-icon">
-                                        <i className="nes-icon twitter is-medium"></i>
-                                    </Link>
                                     <Link to={'https://www.instagram.com'} target="_blank" rel="noopener noreferrer" className="nes-social-icon">
                                         <i className="nes-icon instagram is-medium"></i>
                                     </Link>
                                     <Link to={'https://www.linkedin.com'} target="_blank" rel="noopener noreferrer" className="nes-social-icon">
                                         <i className="nes-icon linkedin is-medium"></i>
                                     </Link>
-                                    <Link to={'mailto:techstorm@college.edu'} className="nes-social-icon">
+                                    <Link to={'mailto:techstorm@bppimt.ac.in'} className="nes-social-icon">
                                         <i className="nes-icon gmail is-medium"></i>
                                     </Link>
                                     <Link to={'https://wa.me/919038903850'} target="_blank" rel="noopener noreferrer" className="nes-social-icon">
@@ -142,7 +139,7 @@ const Footer = () => {
                                         marginBottom: '20px'
                                     }}>
                                         <iframe 
-                                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3682.8287896869886!2d88.47249007516844!3d22.63474097945438!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f89fa702ccbc2b%3A0x9e94acde66c43bb9!2sBP%20Poddar%20Institute%20of%20Management%20%26%20Technology!5e0!3m2!1sen!2sin!4v1738522844123!5m2!1sen!2sin"
+                                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3682.9862!2d88.4319943!3d22.6296667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f89fe3b109c623%3A0xdfbe090bb9572f78!2sB.%20P.%20Poddar%20Institute%20of%20Management%20and%20Technology!5e0!3m2!1sen!2sin!4v1738522844123!5m2!1sen!2sin"
                                             width="100%" 
                                             height="200" 
                                             style={{ border: 0, display: 'block' }} 

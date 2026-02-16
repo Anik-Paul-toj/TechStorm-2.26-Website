@@ -1,66 +1,112 @@
 import React, { Fragment } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import heroBg from '../../../assets/img/herobg.png';
-import SectionTitle from '../../Utilities/SectionTitle/SectionTitle';
+// import SectionTitle from '../../Utilities/SectionTitle/SectionTitle';
 import './Schedule.css';
 
-const scheduleData = {
-    day1: {
-        date: '9TH APRIL',
-        events: [
-            { timing: '9:30 A.M. - 10:30 A.M.', event: 'Inauguration', venue: 'B Block Seminar Hall', round: '-' },
-            { timing: '10:30 A.M. – 12:00 P.M.', event: 'Omegatrix', venue: 'C Block Auditorium 7th Floor', round: 'Prelims' },
-            { timing: '10:30 A.M. – 1:30 P.M.', event: 'FIFA Mobile', venue: 'C Block Lab 8', round: 'Prelims' },
-            { timing: '10:30 A.M. – 1:30 P.M.', event: 'Passion with Reels', venue: 'B Block Seminar Hall', round: 'Final' },
-            { timing: '12:15 P.M. – 1:30 P.M.', event: 'PES', venue: 'C Block Auditorium 7th Floor', round: 'Prelims' },
-            { timing: '12:00 P.M. – 1:30 P.M.', event: 'Code-Bee', venue: 'C Block Labs', round: 'Qualifier Round 1' },
-            { timing: '10:30 A.M. – 1:30 P.M.', event: 'Ro-Terrance', venue: 'B-Block 204', round: 'Qualifier Round' },
-            { timing: '10:30 A.M. – 1:30 P.M.', event: 'Ro-Navigator', venue: 'B Block 205', round: 'Qualifier Round' },
-            { timing: '10:30 A.M. – 1:30 P.M.', event: 'Ro-Soccer', venue: 'B-Block 202', round: 'Qualifier Round' },
-            { timing: '10:30 A.M. – 1:30 P.M.', event: 'Aqua Race', venue: "C Block Boy's Common Room", round: 'Qualifier Round' },
-            { timing: '10:30 A.M. – 1:30 P.M.', event: 'Khet', venue: 'B Block 404', round: 'Qualifier Round' },
-            { timing: '10:30 A.M. – 1:30 P.M.', event: 'Ro-Combat', venue: 'A Block', round: 'Bot Testing' },
-            { timing: '1:30 P.M. – 2:30 P.M.', event: 'LUNCH BREAK', venue: '-', round: '-' },
-            { timing: '2:30 P.M. – 5:30 P.M.', event: 'PES', venue: 'C Block Auditorium 7th Floor', round: 'Prelims' },
-            { timing: '2:30 P.M. – 5:30 P.M.', event: 'Code-Bee', venue: 'C Block Labs', round: 'Qualifier Round 2' },
-            { timing: '2:30 P.M. – 5:30 P.M.', event: 'Ro-Terrance', venue: 'B-Block 204', round: 'Qualifier Round' },
-            { timing: '2:30 P.M. – 5:30 P.M.', event: 'Ro-Navigator', venue: 'B Block 205', round: 'Qualifier Round' },
-            { timing: '2:30 P.M. – 5:30 P.M.', event: 'Ro-Soccer', venue: 'B-Block 202', round: 'Qualifier Round' },
-            { timing: '2:30 P.M. – 5:30 P.M.', event: 'Aqua Race', venue: "C Block Boy's Common Room", round: 'Qualifier Round' },
-            { timing: '2:30 P.M. – 5:30 P.M.', event: 'Khet', venue: 'B Block 404', round: 'Qualifier Round' },
-            { timing: '2:30 P.M. – 5:30 P.M.', event: 'FIFA Mobile', venue: 'C Block Lab 8', round: 'Prelims' },
-            { timing: '2:30 P.M. – 5:30 P.M.', event: 'Appmania', venue: 'B Block Seminar Hall', round: 'Final' }
-        ]
-    },
-    day2: {
-        date: '10TH APRIL',
-        events: [
-            { timing: '10:00 A.M. - 11:30 A.M.', event: 'Omegatrix', venue: 'C Block Auditorium 7th Floor', round: 'Final' },
-            { timing: '10:00 A.M. - 1:00 P.M.', event: 'Creative Canvas', venue: 'C Block Lab 403', round: 'Final' },
-            { timing: '11:00 A.M. – 12:30 P.M.', event: 'Code-Bee', venue: 'C Block Labs', round: 'Final' },
-            { timing: '10:30 A.M. – 1:30 P.M.', event: 'Ro-Terrance', venue: 'B-Block 204', round: 'Final' },
-            { timing: '10:30 A.M. – 1:30 P.M.', event: 'Ro-Navigator', venue: 'B Block 205', round: 'Final' },
-            { timing: '10:30 A.M. – 1:30 P.M.', event: 'Ro-Soccer', venue: 'B-Block 202', round: 'Final' },
-            { timing: '10:30 A.M. – 1:30 P.M.', event: 'Aqua Race', venue: "C Block Boy's Common Room", round: 'Final' },
-            { timing: '10:30 A.M. – 1:30 P.M.', event: 'Khet', venue: 'B Block 404', round: 'Final' },
-            { timing: '10:30 A.M. – 1:30 P.M.', event: 'FIFA Mobile', venue: 'C Block Lab 8', round: 'Final' },
-            { timing: '12:00 P.M. – 1:30 P.M.', event: 'PES', venue: 'C Block Auditorium 7th Floor', round: 'Final' },
-            { timing: '10:30 A.M. – 1:30 P.M.', event: 'Tech Hunt', venue: 'C Block Student Activity Room', round: 'Prelims' },
-            { timing: '1:30 P.M. – 2:30 P.M.', event: 'LUNCH BREAK', venue: '-', round: '-' },
-            { timing: '2:30 P.M. – 5:30 P.M.', event: 'Tech Hunt', venue: 'C Block Student Activity Room', round: 'Final' },
-            { timing: '2:30 P.M. – 5:30 P.M.', event: 'Tech Writing', venue: 'C Block Student Activity Room', round: 'Final' },
-            { timing: '2:30 P.M. – 5:30 P.M.', event: 'Ro-Terrance', venue: 'B-Block 204', round: 'Final' },
-            { timing: '2:30 P.M. – 5:30 P.M.', event: 'Ro-Navigator', venue: 'B Block 205', round: 'Final' },
-            { timing: '2:30 P.M. – 5:30 P.M.', event: 'Ro-Soccer', venue: 'B-Block 202', round: 'Final' },
-            { timing: '2:30 P.M. – 5:30 P.M.', event: 'Aqua Race', venue: "C Block Boy's Common Room", round: 'Final' },
-            { timing: '2:30 P.M. – 5:30 P.M.', event: 'Khet', venue: 'B Block 404', round: 'Final' }
-        ]
-    }
-};
+// const scheduleData = {
+//     day1: {
+//         date: '9TH APRIL',
+//         events: [
+//             { timing: '9:30 A.M. - 10:30 A.M.', event: 'Inauguration', venue: 'B Block Seminar Hall', round: '-' },
+//             { timing: '10:30 A.M. – 12:00 P.M.', event: 'Omegatrix', venue: 'C Block Auditorium 7th Floor', round: 'Prelims' },
+//             { timing: '10:30 A.M. – 1:30 P.M.', event: 'FIFA Mobile', venue: 'C Block Lab 8', round: 'Prelims' },
+//             { timing: '10:30 A.M. – 1:30 P.M.', event: 'Passion with Reels', venue: 'B Block Seminar Hall', round: 'Final' },
+//             { timing: '12:15 P.M. – 1:30 P.M.', event: 'PES', venue: 'C Block Auditorium 7th Floor', round: 'Prelims' },
+//             { timing: '12:00 P.M. – 1:30 P.M.', event: 'Code-Bee', venue: 'C Block Labs', round: 'Qualifier Round 1' },
+//             { timing: '10:30 A.M. – 1:30 P.M.', event: 'Ro-Terrance', venue: 'B-Block 204', round: 'Qualifier Round' },
+//             { timing: '10:30 A.M. – 1:30 P.M.', event: 'Ro-Navigator', venue: 'B Block 205', round: 'Qualifier Round' },
+//             { timing: '10:30 A.M. – 1:30 P.M.', event: 'Ro-Soccer', venue: 'B-Block 202', round: 'Qualifier Round' },
+//             { timing: '10:30 A.M. – 1:30 P.M.', event: 'Aqua Race', venue: "C Block Boy's Common Room", round: 'Qualifier Round' },
+//             { timing: '10:30 A.M. – 1:30 P.M.', event: 'Khet', venue: 'B Block 404', round: 'Qualifier Round' },
+//             { timing: '10:30 A.M. – 1:30 P.M.', event: 'Ro-Combat', venue: 'A Block', round: 'Bot Testing' },
+//             { timing: '1:30 P.M. – 2:30 P.M.', event: 'LUNCH BREAK', venue: '-', round: '-' },
+//             { timing: '2:30 P.M. – 5:30 P.M.', event: 'PES', venue: 'C Block Auditorium 7th Floor', round: 'Prelims' },
+//             { timing: '2:30 P.M. – 5:30 P.M.', event: 'Code-Bee', venue: 'C Block Labs', round: 'Qualifier Round 2' },
+//             { timing: '2:30 P.M. – 5:30 P.M.', event: 'Ro-Terrance', venue: 'B-Block 204', round: 'Qualifier Round' },
+//             { timing: '2:30 P.M. – 5:30 P.M.', event: 'Ro-Navigator', venue: 'B Block 205', round: 'Qualifier Round' },
+//             { timing: '2:30 P.M. – 5:30 P.M.', event: 'Ro-Soccer', venue: 'B-Block 202', round: 'Qualifier Round' },
+//             { timing: '2:30 P.M. – 5:30 P.M.', event: 'Aqua Race', venue: "C Block Boy's Common Room", round: 'Qualifier Round' },
+//             { timing: '2:30 P.M. – 5:30 P.M.', event: 'Khet', venue: 'B Block 404', round: 'Qualifier Round' },
+//             { timing: '2:30 P.M. – 5:30 P.M.', event: 'FIFA Mobile', venue: 'C Block Lab 8', round: 'Prelims' },
+//             { timing: '2:30 P.M. – 5:30 P.M.', event: 'Appmania', venue: 'B Block Seminar Hall', round: 'Final' }
+//         ]
+//     },
+//     day2: {
+//         date: '10TH APRIL',
+//         events: [
+//             { timing: '10:00 A.M. - 11:30 A.M.', event: 'Omegatrix', venue: 'C Block Auditorium 7th Floor', round: 'Final' },
+//             { timing: '10:00 A.M. - 1:00 P.M.', event: 'Creative Canvas', venue: 'C Block Lab 403', round: 'Final' },
+//             { timing: '11:00 A.M. – 12:30 P.M.', event: 'Code-Bee', venue: 'C Block Labs', round: 'Final' },
+//             { timing: '10:30 A.M. – 1:30 P.M.', event: 'Ro-Terrance', venue: 'B-Block 204', round: 'Final' },
+//             { timing: '10:30 A.M. – 1:30 P.M.', event: 'Ro-Navigator', venue: 'B Block 205', round: 'Final' },
+//             { timing: '10:30 A.M. – 1:30 P.M.', event: 'Ro-Soccer', venue: 'B-Block 202', round: 'Final' },
+//             { timing: '10:30 A.M. – 1:30 P.M.', event: 'Aqua Race', venue: "C Block Boy's Common Room", round: 'Final' },
+//             { timing: '10:30 A.M. – 1:30 P.M.', event: 'Khet', venue: 'B Block 404', round: 'Final' },
+//             { timing: '10:30 A.M. – 1:30 P.M.', event: 'FIFA Mobile', venue: 'C Block Lab 8', round: 'Final' },
+//             { timing: '12:00 P.M. – 1:30 P.M.', event: 'PES', venue: 'C Block Auditorium 7th Floor', round: 'Final' },
+//             { timing: '10:30 A.M. – 1:30 P.M.', event: 'Tech Hunt', venue: 'C Block Student Activity Room', round: 'Prelims' },
+//             { timing: '1:30 P.M. – 2:30 P.M.', event: 'LUNCH BREAK', venue: '-', round: '-' },
+//             { timing: '2:30 P.M. – 5:30 P.M.', event: 'Tech Hunt', venue: 'C Block Student Activity Room', round: 'Final' },
+//             { timing: '2:30 P.M. – 5:30 P.M.', event: 'Tech Writing', venue: 'C Block Student Activity Room', round: 'Final' },
+//             { timing: '2:30 P.M. – 5:30 P.M.', event: 'Ro-Terrance', venue: 'B-Block 204', round: 'Final' },
+//             { timing: '2:30 P.M. – 5:30 P.M.', event: 'Ro-Navigator', venue: 'B Block 205', round: 'Final' },
+//             { timing: '2:30 P.M. – 5:30 P.M.', event: 'Ro-Soccer', venue: 'B-Block 202', round: 'Final' },
+//             { timing: '2:30 P.M. – 5:30 P.M.', event: 'Aqua Race', venue: "C Block Boy's Common Room", round: 'Final' },
+//             { timing: '2:30 P.M. – 5:30 P.M.', event: 'Khet', venue: 'B Block 404', round: 'Final' }
+//         ]
+//     }
+// };
 
 const Schedule = () => {
     return (
         <Fragment>
+            <div
+                style={{
+                    minHeight: '100vh',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    background: `url(${heroBg}) center center / cover no-repeat fixed`,
+                    backgroundColor: '#0a0a0a',
+                    position: 'relative',
+                    overflow: 'hidden'
+                }}
+            >
+                <div
+                    style={{
+                        position: 'absolute',
+                        inset: 0,
+                        backgroundColor: 'rgba(0, 0, 0, 0.75)'
+                    }}
+                />
+                <div style={{ position: 'relative', zIndex: 1, textAlign: 'center', padding: '20px' }}>
+                    <h1
+                        style={{
+                            fontFamily: "'Press Start 2P', 'Silkscreen', monospace",
+                            color: '#ffc010',
+                            fontSize: 'clamp(2rem, 6vw, 5rem)',
+                            lineHeight: '1.3',
+                            margin: 0,
+                            textTransform: 'uppercase'
+                        }}
+                    >
+                        Coming Soon
+                    </h1>
+                    <p
+                        style={{
+                            color: '#fffacd',
+                            fontSize: 'clamp(14px, 2vw, 22px)',
+                            marginTop: '20px',
+                            marginBottom: 0
+                        }}
+                    >
+                        Schedule will be updated shortly.
+                    </p>
+                </div>
+            </div>
+
+            {/* Existing Schedule UI (temporarily hidden for later restore)
             <div style={{ 
                 position: 'relative', 
                 minHeight: '100vh', 
@@ -112,8 +158,7 @@ const Schedule = () => {
                         paddingTop: '20px',
                         paddingBottom: '80px'
                     }}>
-                        <div className="schedule-container">{/* Day 1 Schedule */}
-                    {/* Day 1 Schedule */}
+                        <div className="schedule-container">
                     <div className="row mb-5">
                         <div className="col-12">
                             <h3 className="schedule-day-title">
@@ -144,7 +189,7 @@ const Schedule = () => {
                         </div>
                     </div>
 
-                    {/* Day 2 Schedule */}
+                    
                     <div className="row mb-5">
                         <div className="col-12">
                             <h3 className="schedule-day-title">
@@ -175,7 +220,7 @@ const Schedule = () => {
                         </div>
                     </div>
 
-                    {/* Important Notes */}
+                    
                     <div className="row">
                         <div className="col-12">
                             <h3 className="schedule-day-title" style={{ marginBottom: '30px' }}>
@@ -201,6 +246,7 @@ const Schedule = () => {
             </div>
                 </div>
             </div>
+            */}
         </Fragment>
     );
 }

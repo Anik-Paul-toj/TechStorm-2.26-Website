@@ -31,6 +31,13 @@ export const cloudinaryImages = {
     c12: `${CLOUDINARY_BASE_URL}/w_800,h_600,c_fill,q_auto:good,f_auto/eoorox/gallery/c12`,
     c13: `${CLOUDINARY_BASE_URL}/w_800,h_600,c_fill,q_auto:good,f_auto/eoorox/gallery/c13`,
     c14: `${CLOUDINARY_BASE_URL}/w_800,h_600,c_fill,q_auto:good,f_auto/eoorox/gallery/c14`,
+    c15: `${CLOUDINARY_BASE_URL}/w_800,h_600,c_fill,q_auto:good,f_auto/eoorox/gallery/c15`,
+    c16: `${CLOUDINARY_BASE_URL}/w_800,h_600,c_fill,q_auto:good,f_auto/eoorox/gallery/c16`,
+    c17: `${CLOUDINARY_BASE_URL}/w_800,h_600,c_fill,q_auto:good,f_auto/eoorox/gallery/c17`,
+    c18: `${CLOUDINARY_BASE_URL}/w_800,h_600,c_fill,q_auto:good,f_auto/eoorox/gallery/c18`,
+    c19: `${CLOUDINARY_BASE_URL}/w_800,h_600,c_fill,q_auto:good,f_auto/eoorox/gallery/c19`,
+    c20: `${CLOUDINARY_BASE_URL}/w_800,h_600,c_fill,q_auto:good,f_auto/eoorox/gallery/c20`,
+    c21: `${CLOUDINARY_BASE_URL}/w_800,h_600,c_fill,q_auto:good,f_auto/eoorox/gallery/c21`,
   },
   
   // Carousel images - optimized for fast loading

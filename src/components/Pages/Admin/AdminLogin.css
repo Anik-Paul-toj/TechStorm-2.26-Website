@@ -1,0 +1,160 @@
+.admin-login {
+  min-height: 100vh;
+  padding: 32px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Sora', 'Segoe UI', sans-serif;
+  background:
+    radial-gradient(950px 440px at 0% 0%, rgba(15, 118, 110, 0.12), transparent 65%),
+    radial-gradient(1000px 500px at 100% 0%, rgba(37, 99, 235, 0.12), transparent 65%),
+    #f6f8fb;
+}
+
+.login-container {
+  width: 100%;
+  max-width: 460px;
+}
+
+.back-button {
+  border: 0;
+  background: transparent;
+  color: #374151;
+  font-size: 13px;
+  margin-bottom: 14px;
+  padding: 0;
+  cursor: pointer;
+}
+
+.back-button:hover {
+  color: var(--role-color);
+}
+
+.login-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 28px;
+  box-shadow: 0 18px 38px rgba(17, 24, 39, 0.08);
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.role-badge {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--role-color) 14%, #fff);
+  color: var(--role-color);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+}
+
+.login-title {
+  margin: 14px 0 6px;
+  font-size: 30px;
+  color: #111827;
+  letter-spacing: -0.02em;
+}
+
+.login-subtitle {
+  margin: 0;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.error-message {
+  margin-bottom: 14px;
+  border: 1px solid #fecaca;
+  background: #fff1f2;
+  color: #b91c1c;
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 13px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  color: #374151;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  background: #ffffff;
+  color: #111827;
+  font-size: 14px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--role-color);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--role-color) 18%, transparent);
+}
+
+.form-input:disabled {
+  opacity: 0.7;
+}
+
+.submit-button {
+  margin-top: 6px;
+  border: 0;
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+  background: var(--role-color);
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.submit-button:hover:not(:disabled) {
+  opacity: 0.92;
+}
+
+.submit-button:disabled {
+  opacity: 0.75;
+  cursor: not-allowed;
+}
+
+.security-notice {
+  margin-top: 12px;
+  text-align: center;
+}
+
+.security-notice p {
+  margin: 0;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+@media (max-width: 480px) {
+  .login-card {
+    padding: 22px;
+  }
+
+  .login-title {
+    font-size: 26px;
+  }
+}
