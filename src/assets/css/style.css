@@ -173,6 +173,14 @@ h6 {
 	overflow: visible !important;
 }
 
+/* Exception: Allow overflow for about area - needed for offset button/shadows */
+.about-area .container,
+.about-area .container-fluid,
+.about-area .row,
+.about-area [class*="col-"] {
+	overflow: visible !important;
+}
+
 /* Exception: Allow overflow for header/navigation */
 .header-area .container-fluid,
 .header-area .row,
@@ -2776,6 +2784,15 @@ section:hover .section-title h2:before {
 	content     : "";
 	margin-right: 10px;
 	color       : #ffc010;
+}
+
+/* Discover More Button on Left Side */
+.about-discover-btn {
+	margin-top  : -70px;
+	margin-left : -200px;
+	text-align  : left;
+	position    : relative;
+	z-index     : 10000;
 }
 
 /* 6. services */
