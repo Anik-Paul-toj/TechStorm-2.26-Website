@@ -25,8 +25,7 @@ const FifaMobileEvent = () => {
         duration: '3 Hours',
         venue: 'Gaming Zone B',
         registerButton: {
-            text: 'Register Now',
-            link: 'https://forms.gle/your-registration-form-link'
+            text: 'Register Now'
         },
         rules: [
             '🎮 TECHSTORM FIFA MOBILE TOURNAMENT RULES',

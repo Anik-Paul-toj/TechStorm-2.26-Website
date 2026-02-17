@@ -36,6 +36,7 @@ const EventDetail = ({ eventData }) => {
             'Ro-Combat': '/register/ro-combat',
             'Ro-Soccer': '/register/ro-soccer',
             'Ro-Terrance': '/register/ro-terrance',
+            'Ro-Sumo': '/register/ro-sumo',
             'Creative Canvas': '/register/creative-canvas',
             'Passion with Reels': '/register/passion-with-reels',
             'Forza Horizon': '/register/forza-horizon',
@@ -282,8 +283,13 @@ const EventDetail = ({ eventData }) => {
                                         <Button 
                                             variant="default"
                                             onClick={registerButton.onClick || (() => {
-                                                // Navigate to specific event registration page
-                                                history.push(getRegistrationRoute(name));
+                                                // If external link is provided, open in new tab
+                                                if (registerButton.link) {
+                                                    window.open(registerButton.link, '_blank', 'noopener,noreferrer');
+                                                } else {
+                                                    // Navigate to specific event registration page
+                                                    history.push(getRegistrationRoute(name));
+                                                }
                                             })}
                                             style={{ 
                                                 fontSize: '12px',

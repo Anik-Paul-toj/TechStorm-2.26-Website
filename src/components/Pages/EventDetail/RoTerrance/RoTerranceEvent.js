@@ -24,8 +24,7 @@ const RoTerranceEvent = () => {
         duration: '3 Hours',
         venue: 'Outdoor Arena',
         registerButton: {
-            text: 'Register Now',
-            link: 'https://forms.gle/your-registration-form-link'
+            text: 'Register Now'
         },
         rules: [
             '🤖 RO-TERRANCE EVENT RULES',

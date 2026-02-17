@@ -25,8 +25,7 @@ const RoSoccerEvent = () => {
         duration: '4 Hours (League Format)',
         venue: 'Robo Sports Arena',
         registerButton: {
-            text: 'Register Now',
-            link: 'https://forms.gle/your-registration-form-link'
+            text: 'Register Now'
         },
         rules: [
             '⚽ RO-SOCCER EVENT RULES',

@@ -20,8 +20,7 @@ const RoSumoEvent = () => {
         duration: '2 Hours',
         venue: 'Robotics Arena',
         registerButton: {
-            text: 'Register Now',
-            link: 'https://forms.gle/your-registration-form-link'
+            text: 'Register Now'
         },
         rules: [
             // Faculty Coordinators

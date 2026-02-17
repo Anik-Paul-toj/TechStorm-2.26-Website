@@ -31,8 +31,7 @@ const RoCombatEvent = () => {
         duration: '4 Hours (Tournament Format)',
         venue: 'Combat Arena',
         registerButton: {
-            text: 'Register Now',
-            link: 'https://forms.gle/your-registration-form-link'
+            text: 'Register Now'
         },
         rules: [
             '🤖 RO-COMBAT (LIGHT) EVENT RULES',

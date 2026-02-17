@@ -23,8 +23,7 @@ const OmegatrixEvent = () => {
         duration: '2 Hours',
         venue: 'Quiz Hall',
         registerButton: {
-            text: 'Register Now',
-            link: 'https://forms.gle/your-registration-form-link'
+            text: 'Register Now'
         },
         rules: [
             '🧩 OMEGATRIX 2.26 RULES',

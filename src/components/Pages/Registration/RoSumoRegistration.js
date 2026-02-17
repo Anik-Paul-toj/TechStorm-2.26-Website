@@ -2,27 +2,27 @@ import React, { useMemo, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import Breadcrumb from '../../Utilities/Breadcrumb/Breadcrumb';
 import './Registration.css';
-import technomaniaBanner from '../../../assets/img/event_specific_pictures/technomania/technomania.png';
+import roSumoBanner from '../../../assets/img/event_specific_pictures/robotics/ro_sumo.png';
 
-const MIN_PARTICIPANTS = 1;
-const MAX_PARTICIPANTS = 4;
-const YEAR_OPTIONS = ['1st', '2nd', '3rd', '4rth'];
+const MIN_PARTICIPANTS = 2;
+const MAX_PARTICIPANTS = 5;
+const YEAR_OPTIONS = ['1st year', '2nd year', '3rd year', '4th year', 'Other'];
 
 const createParticipant = () => ({
   name: '',
+  year: '',
   contact: '',
   email: '',
   college: '',
-  year: '',
   idFile: null
 });
 
-const TechnomaniaRegistration = () => {
+const RoSumoRegistration = () => {
   const history = useHistory();
 
   const [formData, setFormData] = useState({
     teamName: '',
-    numberOfParticipants: '1',
+    numberOfParticipants: '2',
     participants: Array.from({ length: MAX_PARTICIPANTS }, createParticipant),
     paymentMode: '',
     transactionId: '',
@@ -90,48 +90,48 @@ const TechnomaniaRegistration = () => {
     if (!String(formData.numberOfParticipants).trim()) {
       nextErrors.numberOfParticipants = 'Number of Participants is required';
     } else if (!Number.isInteger(numericCount) || numericCount < MIN_PARTICIPANTS || numericCount > MAX_PARTICIPANTS) {
-      nextErrors.numberOfParticipants = 'Participants must be an integer between 1 and 4';
+      nextErrors.numberOfParticipants = 'Participants must be an integer between 2 and 5';
     }
 
     for (let i = 0; i < participantCount; i += 1) {
       const participant = formData.participants[i];
-      const isParticipantOne = i === 0;
+      const isMandatoryParticipant = i < 2;
 
-      if (isParticipantOne && !participant.name.trim()) {
-        nextErrors[`participant_${i}_name`] = 'Name is required';
+      if (isMandatoryParticipant || participant.name.trim()) {
+        if (!participant.name.trim()) nextErrors[`participant_${i}_name`] = 'Name is required';
       }
 
-      if (isParticipantOne) {
+      if (isMandatoryParticipant || participant.year) {
+        if (!participant.year) nextErrors[`participant_${i}_year`] = 'Year is required';
+      }
+
+      if (isMandatoryParticipant || participant.contact.trim()) {
         if (!participant.contact.trim()) {
           nextErrors[`participant_${i}_contact`] = 'Contact Number is required';
         } else if (!/^\d{10,15}$/.test(participant.contact.replace(/\D/g, ''))) {
           nextErrors[`participant_${i}_contact`] = 'Enter a valid contact number';
         }
-      } else if (participant.contact.trim() && !/^\d{10,15}$/.test(participant.contact.replace(/\D/g, ''))) {
-        nextErrors[`participant_${i}_contact`] = 'Enter a valid contact number';
       }
 
-      if (isParticipantOne && !participant.email.trim()) {
-        nextErrors[`participant_${i}_email`] = 'Email ID is required';
-      } else if (participant.email.trim() && !/\S+@\S+\.\S+/.test(participant.email)) {
-        nextErrors[`participant_${i}_email`] = 'Invalid email format';
+      if (isMandatoryParticipant || participant.email.trim()) {
+        if (!participant.email.trim()) {
+          nextErrors[`participant_${i}_email`] = 'Email ID is required';
+        } else if (!/\S+@\S+\.\S+/.test(participant.email)) {
+          nextErrors[`participant_${i}_email`] = 'Invalid email format';
+        }
       }
 
-      if (isParticipantOne && !participant.college.trim()) {
-        nextErrors[`participant_${i}_college`] = 'College Name is required';
+      if (isMandatoryParticipant || participant.college.trim()) {
+        if (!participant.college.trim()) nextErrors[`participant_${i}_college`] = 'College Name is required';
       }
 
-      if (!participant.year) {
-        nextErrors[`participant_${i}_year`] = 'Year is required';
-      }
-
-      if (isParticipantOne && !participant.idFile) {
-        nextErrors[`participant_${i}_idFile`] = 'Participant ID file is required';
+      if (isMandatoryParticipant || participant.idFile) {
+        if (!participant.idFile) nextErrors[`participant_${i}_idFile`] = 'Participant ID file is required';
       }
     }
 
     if (!formData.paymentMode) {
-      nextErrors.paymentMode = 'Mode is required';
+      nextErrors.paymentMode = 'Mode of Payment is required';
     }
 
     if (!formData.paymentDate) {
@@ -143,7 +143,7 @@ const TechnomaniaRegistration = () => {
         nextErrors.transactionId = 'Transaction ID is required for online payment';
       }
       if (!formData.paymentScreenshot) {
-        nextErrors.paymentScreenshot = 'Upload screenshot for online payment';
+        nextErrors.paymentScreenshot = 'Upload payment screenshot for online payment';
       }
     }
 
@@ -175,7 +175,7 @@ const TechnomaniaRegistration = () => {
     setIsSubmitting(true);
 
     setTimeout(() => {
-      console.log('Technomania registration submitted:', formData);
+      console.log('RoSumo registration submitted:', formData);
       setIsSubmitting(false);
       setSubmitSuccess(true);
 
@@ -188,16 +188,16 @@ const TechnomaniaRegistration = () => {
   return (
     <div className="registration-page">
       <Breadcrumb
-        pageTitle="Register for Technomania"
+        pageTitle="Register for Ro-Sumo"
         currentPage="Registration"
-        bgImage={technomaniaBanner}
+        bgImage={roSumoBanner}
       />
 
       <div className="registration-container">
         <div className="registration-content">
           <div className="registration-header">
-            <h1 className="registration-title">Technomania Registration Form</h1>
-            <p className="registration-subtitle">Note: "*" = Mandatory</p>
+            <h1 className="registration-title">Ro-Sumo Registration Form</h1>
+            <p className="registration-subtitle">Note: * = Mandatory fields</p>
           </div>
 
           {submitSuccess && (
@@ -244,12 +244,11 @@ const TechnomaniaRegistration = () => {
             {Array.from({ length: participantCount }).map((_, index) => {
               const participant = formData.participants[index];
               const number = index + 1;
-              const requiredClass = index === 0 ? 'required' : '';
-              const titleText = index === 0 ? '>>> Participant 1*' : `>>> Participant ${number}`;
+              const requiredClass = index < 2 ? 'required' : '';
 
               return (
                 <div className="form-section" key={number}>
-                  <h2 className="form-section-title">{titleText}</h2>
+                  <h2 className="form-section-title">&gt;&gt;&gt; Participant {number}</h2>
 
                   <div className="form-group">
                     <label className={`form-label ${requiredClass}`}>Name</label>
@@ -262,6 +261,27 @@ const TechnomaniaRegistration = () => {
                     />
                     {errors[`participant_${index}_name`] && (
                       <div className="error-message">{errors[`participant_${index}_name`]}</div>
+                    )}
+                  </div>
+
+                  <div className="form-group">
+                    <label className={`form-label ${requiredClass}`}>Year</label>
+                    <div className="mcq-group">
+                      {YEAR_OPTIONS.map((yearOption) => (
+                        <label className="mcq-option" key={`${number}_${yearOption}`}>
+                          <input
+                            type="radio"
+                            name={`participantYear_${index}`}
+                            value={yearOption}
+                            checked={participant.year === yearOption}
+                            onChange={(e) => handleParticipantChange(index, 'year', e.target.value)}
+                          />
+                          <span className="mcq-option-label">{yearOption}</span>
+                        </label>
+                      ))}
+                    </div>
+                    {errors[`participant_${index}_year`] && (
+                      <div className="error-message">{errors[`participant_${index}_year`]}</div>
                     )}
                   </div>
 
@@ -308,29 +328,8 @@ const TechnomaniaRegistration = () => {
                   </div>
 
                   <div className="form-group">
-                    <label className="form-label required">Year</label>
-                    <div className="mcq-group">
-                      {YEAR_OPTIONS.map((yearOption) => (
-                        <label className="mcq-option" key={`${number}_${yearOption}`}>
-                          <input
-                            type="radio"
-                            name={`participantYear_${index}`}
-                            value={yearOption}
-                            checked={participant.year === yearOption}
-                            onChange={(e) => handleParticipantChange(index, 'year', e.target.value)}
-                          />
-                          <span className="mcq-option-label">{yearOption}</span>
-                        </label>
-                      ))}
-                    </div>
-                    {errors[`participant_${index}_year`] && (
-                      <div className="error-message">{errors[`participant_${index}_year`]}</div>
-                    )}
-                  </div>
-
-                  <div className="form-group">
                     <label className={`form-label ${requiredClass}`}>
-                      Participants Id (if student then clg id / library card)
+                      Participant ID (College ID / Library card)
                     </label>
                     <div className="file-upload-wrapper">
                       <div className="file-upload">
@@ -366,7 +365,7 @@ const TechnomaniaRegistration = () => {
               <h2 className="form-section-title">&gt;&gt;&gt; Payment</h2>
 
               <div className="form-group">
-                <label className="form-label required">Mode</label>
+                <label className="form-label required">Mode of Payment</label>
                 <div className="mcq-group">
                   <label className="mcq-option">
                     <input
@@ -500,16 +499,17 @@ const TechnomaniaRegistration = () => {
 
             <div className="form-section">
               <h2 className="form-section-title">&gt;&gt;&gt; WhatsApp Group</h2>
+
               <div className="form-group">
                 <label className="form-label">Link</label>
                 <p style={{ margin: 0 }}>
                   <a
-                    href="https://chat.whatsapp.com/LYFTaPVEzXAFP3PiTPsFVg?mode=gi_t"
+                    href="https://chat.whatsapp.com/KOk8wb6I2Ww8KJwZBTU1sF"
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{ color: '#ffc010' }}
                   >
-                    https://chat.whatsapp.com/LYFTaPVEzXAFP3PiTPsFVg?mode=gi_t
+                    https://chat.whatsapp.com/KOk8wb6I2Ww8KJwZBTU1sF
                   </a>
                 </p>
               </div>
@@ -524,7 +524,7 @@ const TechnomaniaRegistration = () => {
                   />
                   <span className="checkbox-custom"></span>
                   <span className="checkbox-label">
-                    Yes, I have joined the Whatsapp group and will follow the instructions shared there
+                    Yes, I have checked all the details carefully and have joined the WhatsApp group
                   </span>
                 </label>
                 {errors.whatsappConfirmed && <div className="error-message">{errors.whatsappConfirmed}</div>}
@@ -551,4 +551,4 @@ const TechnomaniaRegistration = () => {
   );
 };
 
-export default TechnomaniaRegistration;
+export default RoSumoRegistration;

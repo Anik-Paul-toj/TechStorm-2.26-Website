@@ -23,7 +23,7 @@ const HackStormEvent = () => {
         venue: 'Main Auditorium',
         registerButton: {
             text: 'Register Now',
-            link: 'https://forms.gle/your-registration-form-link'
+            link: 'https://hack-storm.devfolio.co/overview'
         },
         rules: [
                 '🕹️ Coding Time: 10:00-(6:30 – 7:00)',

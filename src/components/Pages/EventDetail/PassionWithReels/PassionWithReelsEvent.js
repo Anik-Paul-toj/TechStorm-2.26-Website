@@ -52,8 +52,7 @@ const PassionWithReelsEvent = () => {
         duration: '10 Minutes (max)',
         venue: 'Media Lab & Campus',
         registerButton: {
-            text: 'Register Now',
-            link: 'https://forms.gle/your-registration-form-link'
+            text: 'Register Now'
         },
         rules: themedRules,
         prizes: [

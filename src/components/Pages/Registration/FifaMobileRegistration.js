@@ -16,6 +16,9 @@ const FifaMobileRegistration = () => {
     fifaUsername: '',
     teamOvr: '',
     deviceModel: '',
+    paymentMode: '',
+    paymentDate: '',
+    paymentReceipt: null,
     agreeToRules: false,
     whatsappConfirmed: false
   });
@@ -56,6 +59,17 @@ const FifaMobileRegistration = () => {
     if (!formData.fifaUsername.trim()) nextErrors.fifaUsername = 'FIFA Mobile Username is required';
     if (!formData.teamOvr.trim()) nextErrors.teamOvr = 'Team OVR is required';
     if (!formData.deviceModel.trim()) nextErrors.deviceModel = 'Device Model is required';
+    
+    if (!formData.paymentMode) nextErrors.paymentMode = 'Payment mode is required';
+    if (!formData.paymentDate) nextErrors.paymentDate = 'Payment date is required';
+    
+    if (formData.paymentMode === 'online' && !formData.paymentReceipt) {
+      nextErrors.paymentReceipt = 'Payment screenshot is required for online payment';
+    }
+    if (formData.paymentMode === 'offline' && !formData.paymentReceipt) {
+      nextErrors.paymentReceipt = 'Offline receipt is required for offline payment';
+    }
+    
     if (!formData.agreeToRules) nextErrors.agreeToRules = 'You must agree to tournament rules';
     if (!formData.whatsappConfirmed) {
       nextErrors.whatsappConfirmed = 'Please confirm after joining the WhatsApp group';
@@ -226,6 +240,88 @@ const FifaMobileRegistration = () => {
                 />
                 {errors.deviceModel && <div className="error-message">{errors.deviceModel}</div>}
               </div>
+            </div>
+
+            <div className="form-section">
+              <h2 className="form-section-title">&gt;&gt;&gt; Payment Information</h2>
+              
+              <div className="form-group">
+                <label className="form-label required">Payment Mode</label>
+                <div className="mcq-group">
+                  <label className="mcq-option">
+                    <input
+                      type="radio"
+                      name="paymentMode"
+                      value="online"
+                      checked={formData.paymentMode === 'online'}
+                      onChange={handleInputChange}
+                    />
+                    <span className="mcq-option-label">Online Payment</span>
+                  </label>
+                  <label className="mcq-option">
+                    <input
+                      type="radio"
+                      name="paymentMode"
+                      value="offline"
+                      checked={formData.paymentMode === 'offline'}
+                      onChange={handleInputChange}
+                    />
+                    <span className="mcq-option-label">Offline Payment</span>
+                  </label>
+                </div>
+                {errors.paymentMode && <div className="error-message">{errors.paymentMode}</div>}
+              </div>
+
+              <div className="form-group">
+                <label className="form-label required">Payment Date</label>
+                <input
+                  type="date"
+                  name="paymentDate"
+                  value={formData.paymentDate}
+                  onChange={handleInputChange}
+                  className="retro-input"
+                  max={new Date().toISOString().split('T')[0]}
+                />
+                {errors.paymentDate && <div className="error-message">{errors.paymentDate}</div>}
+              </div>
+
+              {formData.paymentMode && (
+                <div className="form-group">
+                  <label className="form-label required">
+                    {formData.paymentMode === 'online' ? 'Upload Payment Screenshot' : 'Upload Offline Receipt'}
+                  </label>
+                  <div className="file-upload-wrapper">
+                    <div className="file-upload">
+                      <input
+                        type="file"
+                        name="paymentReceipt"
+                        id="paymentReceipt"
+                        onChange={handleInputChange}
+                        className="file-upload-input"
+                        accept="image/*,.pdf"
+                      />
+                      <label htmlFor="paymentReceipt" className="file-upload-label">
+                        <div className="file-upload-icon">FILE</div>
+                        <div className="file-upload-text">
+                          <span className="highlight">Click to upload</span><br/>
+                          {formData.paymentMode === 'online' ? 'Payment screenshot' : 'Offline receipt'}<br/>
+                          (PNG, JPG, PDF)
+                        </div>
+                      </label>
+                    </div>
+                    {formData.paymentReceipt && (
+                      <div className="file-name">
+                        ✓ {formData.paymentReceipt.name}
+                      </div>
+                    )}
+                  </div>
+                  {errors.paymentReceipt && <div className="error-message">{errors.paymentReceipt}</div>}
+                </div>
+              )}
+            </div>
+
+            <div className="form-section">
+              <h2 className="form-section-title">&gt;&gt;&gt; Agreement</h2>
 
               <div className="form-group">
                 <label className="form-label required">Agreement to Tournament Rules</label>

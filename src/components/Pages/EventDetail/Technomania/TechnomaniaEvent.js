@@ -28,8 +28,7 @@ const TechnomaniaEvent = () => {
         duration: 'Single Round',
         venue: 'VIP Campus, B. P. Poddar Institute of Management and Technology',
         registerButton: {
-            text: 'Register Now',
-            link: 'https://forms.gle/your-registration-form-link'
+            text: 'Register Now'
         },
         rules: [
             '🌱 THEME: ROLE OF ARTIFICIAL INTELLIGENCE IN SUSTAINABLE DEVELOPMENT',

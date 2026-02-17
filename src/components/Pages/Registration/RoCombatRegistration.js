@@ -24,7 +24,10 @@ const RoCombatRegistration = () => {
     participants: Array.from({ length: MAX_PARTICIPANTS }, createParticipant),
     paymentMode: '',
     transactionId: '',
+    paymentDate: '',
     paymentScreenshot: null,
+    cashReceipt: null,
+    agreeToRules: false,
     whatsappConfirmed: false
   });
 
@@ -120,12 +123,27 @@ const RoCombatRegistration = () => {
       nextErrors.paymentMode = 'Payment Mode is required';
     }
 
-    if (!formData.transactionId.trim()) {
-      nextErrors.transactionId = 'Transaction ID is required';
+    if (!formData.paymentDate) {
+      nextErrors.paymentDate = 'Payment date is required';
     }
 
-    if (formData.paymentMode === 'online' && !formData.paymentScreenshot) {
-      nextErrors.paymentScreenshot = 'Upload screenshot for online payment';
+    if (formData.paymentMode === 'online') {
+      if (!formData.transactionId.trim()) {
+        nextErrors.transactionId = 'Transaction ID is required for online payment';
+      }
+      if (!formData.paymentScreenshot) {
+        nextErrors.paymentScreenshot = 'Upload screenshot for online payment';
+      }
+    }
+
+    if (formData.paymentMode === 'cash') {
+      if (!formData.cashReceipt) {
+        nextErrors.cashReceipt = 'Upload cash receipt for offline payment';
+      }
+    }
+
+    if (!formData.agreeToRules) {
+      nextErrors.agreeToRules = 'You must agree to the event rules and regulations';
     }
 
     if (!formData.whatsappConfirmed) {
@@ -196,16 +214,16 @@ const RoCombatRegistration = () => {
 
               <div className="form-group">
                 <label className="form-label required">Number of Participants</label>
-                <input
-                  type="number"
+                <select
                   name="numberOfParticipants"
-                  min={MIN_PARTICIPANTS}
-                  max={MAX_PARTICIPANTS}
                   value={formData.numberOfParticipants}
                   onChange={handleFieldChange}
                   className="retro-input"
-                  placeholder="Enter number between 2 and 5"
-                />
+                >
+                  {Array.from({ length: MAX_PARTICIPANTS - MIN_PARTICIPANTS + 1 }, (_, i) => MIN_PARTICIPANTS + i).map(num => (
+                    <option key={num} value={num}>{num} Participant{num > 1 ? 's' : ''}</option>
+                  ))}
+                </select>
                 {errors.numberOfParticipants && (
                   <div className="error-message">{errors.numberOfParticipants}</div>
                 )}
@@ -342,42 +360,107 @@ const RoCombatRegistration = () => {
               </div>
 
               <div className="form-group">
-                <label className="form-label required">Transaction ID</label>
+                <label className="form-label required">Payment Date</label>
                 <input
-                  type="text"
-                  name="transactionId"
-                  value={formData.transactionId}
+                  type="date"
+                  name="paymentDate"
+                  value={formData.paymentDate}
                   onChange={handleFieldChange}
                   className="retro-input"
-                  placeholder="Transaction ID"
+                  max={new Date().toISOString().split('T')[0]}
                 />
-                {errors.transactionId && <div className="error-message">{errors.transactionId}</div>}
+                {errors.paymentDate && <div className="error-message">{errors.paymentDate}</div>}
               </div>
 
-              <div className="form-group">
-                <label className="form-label">In case of Online Transaction please upload the screenshot</label>
-                <div className="file-upload-wrapper">
-                  <div className="file-upload">
+              {formData.paymentMode === 'online' && (
+                <>
+                  <div className="form-group">
+                    <label className="form-label required">Transaction ID</label>
                     <input
-                      type="file"
-                      name="paymentScreenshot"
-                      id="paymentScreenshot"
-                      className="file-upload-input"
-                      accept="image/*,.pdf"
+                      type="text"
+                      name="transactionId"
+                      value={formData.transactionId}
                       onChange={handleFieldChange}
+                      className="retro-input"
+                      placeholder="Transaction ID"
                     />
-                    <label htmlFor="paymentScreenshot" className="file-upload-label">
-                      <div className="file-upload-icon">FILE</div>
-                      <div className="file-upload-text">
-                        <span className="highlight">Click to upload</span>
-                        <br />
-                        PNG, JPG, PDF
-                      </div>
-                    </label>
+                    {errors.transactionId && <div className="error-message">{errors.transactionId}</div>}
                   </div>
-                  {formData.paymentScreenshot && <div className="file-name">{formData.paymentScreenshot.name}</div>}
+
+                  <div className="form-group">
+                    <label className="form-label required">Upload Payment Screenshot</label>
+                    <div className="file-upload-wrapper">
+                      <div className="file-upload">
+                        <input
+                          type="file"
+                          name="paymentScreenshot"
+                          id="paymentScreenshot"
+                          className="file-upload-input"
+                          accept="image/*,.pdf"
+                          onChange={handleFieldChange}
+                        />
+                        <label htmlFor="paymentScreenshot" className="file-upload-label">
+                          <div className="file-upload-icon">FILE</div>
+                          <div className="file-upload-text">
+                            <span className="highlight">Click to upload</span>
+                            <br />
+                            PNG, JPG, PDF
+                          </div>
+                        </label>
+                      </div>
+                      {formData.paymentScreenshot && <div className="file-name">{formData.paymentScreenshot.name}</div>}
+                    </div>
+                    {errors.paymentScreenshot && <div className="error-message">{errors.paymentScreenshot}</div>}
+                  </div>
+                </>
+              )}
+
+              {formData.paymentMode === 'cash' && (
+                <div className="form-group">
+                  <label className="form-label required">Upload Cash Receipt</label>
+                  <div className="file-upload-wrapper">
+                    <div className="file-upload">
+                      <input
+                        type="file"
+                        name="cashReceipt"
+                        id="cashReceipt"
+                        className="file-upload-input"
+                        accept="image/*,.pdf"
+                        onChange={handleFieldChange}
+                      />
+                      <label htmlFor="cashReceipt" className="file-upload-label">
+                        <div className="file-upload-icon">FILE</div>
+                        <div className="file-upload-text">
+                          <span className="highlight">Click to upload</span>
+                          <br />
+                          PNG, JPG, PDF
+                        </div>
+                      </label>
+                    </div>
+                    {formData.cashReceipt && <div className="file-name">{formData.cashReceipt.name}</div>}
+                  </div>
+                  {errors.cashReceipt && <div className="error-message">{errors.cashReceipt}</div>}
                 </div>
-                {errors.paymentScreenshot && <div className="error-message">{errors.paymentScreenshot}</div>}
+              )}
+            </div>
+
+            <div className="form-section">
+              <h2 className="form-section-title">&gt;&gt;&gt; Rules & Regulations</h2>
+              
+              <div className="form-group">
+                <label className="checkbox-group">
+                  <input
+                    type="checkbox"
+                    name="agreeToRules"
+                    checked={formData.agreeToRules}
+                    onChange={handleFieldChange}
+                  />
+                  <span className="checkbox-custom"></span>
+                  <span className="checkbox-label">
+                    I agree to follow all event rules, regulations, and organizers' decisions. I understand the registration fee is non-refundable.
+                  </span>
+                </label>
+                {errors.agreeToRules && <div className="error-message">{errors.agreeToRules}</div>}
               </div>
             </div>
 
