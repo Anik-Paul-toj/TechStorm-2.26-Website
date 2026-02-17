@@ -1,9 +1,17 @@
+
 import React from 'react';
 import EventDetail from '../EventDetail';
 import codeBee from '../../../../assets/img/PIXELATED EVENT MASCOTS/CODE BEE.png';
 import codeBeeGif from '../../../../assets/img/event_specific_pictures/codebee/codebeefibg.gif';
+import { getCloudinaryUrl } from '../../../../config/cloudinary';
 
 const CodeBeeEvent = () => {
+    const galleryImages = [
+        getCloudinaryUrl('pictures_of_gallery/Codebee', 'DSC03087.jpeg', 'w_800,h_600,c_fill,q_auto:good,f_auto'),
+        getCloudinaryUrl('pictures_of_gallery/Codebee', 'DSC03090.jpeg', 'w_800,h_600,c_fill,q_auto:good,f_auto'),
+        getCloudinaryUrl('pictures_of_gallery/Codebee', 'DSC03091.jpeg', 'w_800,h_600,c_fill,q_auto:good,f_auto'),
+        getCloudinaryUrl('pictures_of_gallery/Codebee', 'DSC03092.jpeg', 'w_800,h_600,c_fill,q_auto:good,f_auto'),
+    ];
     const eventData = {
         name: 'Code-Bee',
         logo: codeBee,
@@ -22,6 +30,8 @@ const CodeBeeEvent = () => {
             // OR use onClick for custom handler:
             // onClick: () => { console.log('Register clicked'); }
         },
+        // galleryImages is not a prop for EventDetail, must use previousYearImages
+        previousYearImages: galleryImages,
         rules: [
             '📋 GENERAL INFORMATION',
             'Event Name: CodeBee 2.26',
@@ -94,10 +104,7 @@ const CodeBeeEvent = () => {
             { position: '2nd Prize', amount: '₹10,000' },
             { position: '3rd Prize', amount: '₹5,000' }
         ],
-        previousYearImages: [
-            // Add your previous year event images here
-            // Example: '/path/to/image1.jpg', '/path/to/image2.jpg', etc.
-        ],
+        // Removed empty previousYearImages array to avoid overwriting galleryImages
         coordinators: [
             {
                 name: 'Rahul Sharma',

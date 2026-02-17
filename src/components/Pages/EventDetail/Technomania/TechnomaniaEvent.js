@@ -2,14 +2,28 @@ import React from 'react';
 import EventDetail from '../EventDetail';
 import technomania from '../../../../assets/img/PIXELATED EVENT MASCOTS/TECHNOMANIA.png';
 import technomaniaBanner from '../../../../assets/img/event_specific_pictures/technomania/technomania.png';
+import { getCloudinaryUrl } from '../../../../config/cloudinary';
 
 const TechnomaniaEvent = () => {
     const eventData = {
+        previousYearImages: [
+            getCloudinaryUrl('pictures_of_gallery/Technomania', 'DSC02745.jpeg', 'w_800,h_600,c_fill,q_auto:good,f_auto'),
+            getCloudinaryUrl('pictures_of_gallery/Technomania', 'DSC02752.jpeg', 'w_800,h_600,c_fill,q_auto:good,f_auto'),
+            getCloudinaryUrl('pictures_of_gallery/Technomania', 'DSC02753.jpeg', 'w_800,h_600,c_fill,q_auto:good,f_auto'),
+            getCloudinaryUrl('pictures_of_gallery/Technomania', 'DSC02762.jpeg', 'w_800,h_600,c_fill,q_auto:good,f_auto'),
+            getCloudinaryUrl('pictures_of_gallery/Technomania', 'DSC02764.jpeg', 'w_800,h_600,c_fill,q_auto:good,f_auto'),
+            getCloudinaryUrl('pictures_of_gallery/Technomania', 'DSC02765.jpeg', 'w_800,h_600,c_fill,q_auto:good,f_auto'),
+            getCloudinaryUrl('pictures_of_gallery/Technomania', 'DSC02768.jpeg', 'w_800,h_600,c_fill,q_auto:good,f_auto'),
+            getCloudinaryUrl('pictures_of_gallery/Technomania', 'DSC02770.jpeg', 'w_800,h_600,c_fill,q_auto:good,f_auto'),
+            getCloudinaryUrl('pictures_of_gallery/Technomania', 'DSC02778.jpeg', 'w_800,h_600,c_fill,q_auto:good,f_auto'),
+            getCloudinaryUrl('pictures_of_gallery/Technomania', 'DSC02779.jpeg', 'w_800,h_600,c_fill,q_auto:good,f_auto'),
+            getCloudinaryUrl('pictures_of_gallery/Technomania', 'DSC03075.jpeg', 'w_800,h_600,c_fill,q_auto:good,f_auto'),
+        ],
         name: 'TechnoMania',
         logo: technomania,
         category: 'Coding',
         breadcrumbBg: technomaniaBanner,
-        description: 'Welcome to TECHNO MANIA 2026, the flagship technical innovation event of the VIP Campus, B. P. Poddar Institute of Management and Technology. This year, we invite aspiring innovators, developers, and problem-solvers to explore how Artificial Intelligence can drive Sustainable Development and shape a smarter, greener future. It is an offline, single-round technical competition that challenges participants to design and present innovative solutions integrating both hardware and software components. Participants are expected to develop a working model that demonstrates a real-world application aligned with the theme.',
+        description: 'TechnoMania 2026 is a hands-on innovation challenge. Build and present a working model that uses AI for sustainable development. Compete, create, and showcase your solution in this single-round, offline event! Bring your best ideas and teamwork. Exciting prizes and recognition await the top innovators.',
         teamSize: 'Individual or up to 4 Members',
         duration: 'Single Round',
         venue: 'VIP Campus, B. P. Poddar Institute of Management and Technology',
