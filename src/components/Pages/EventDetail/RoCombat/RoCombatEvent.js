@@ -35,24 +35,8 @@ const RoCombatEvent = () => {
             link: 'https://forms.gle/your-registration-form-link'
         },
         rules: [
-            '🤖 RO-COMBAT (LIGHT) EVENT RULES',
-            '',
-            'FACULTY CO-ORDINATOR NAME:',
-            'Mr. Subhasish Das',
-            'Mr. Ranjit Kumar Pal',
-            '',
-            'STUDENT CO-ORDINATOR NAME:',
-            'Soumyadeep Ghosh (ECE3)',
-            'Sumit Ghosh (ECE3)',
-            'Sampurna Biswas (CSE3)',
-            '',
-            'VOLUNTEER NAME:',
-            'Urba Das (ECE2)',
-            '',
-            'TEAM STRENGTH:',
-            'Minimum Members: 2',
-            'Maximum Members: 5',
-            '',
+            // ...existing code...
+            // ...existing code...
             'BOT SPECIFICATIONS:',
             'No dimension limit for the bot.',
             'Weight of the bot shall be 8 kg (wireless) with no weight tolerance.',

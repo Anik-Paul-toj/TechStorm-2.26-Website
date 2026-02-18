@@ -28,27 +28,9 @@ const RoTerranceEvent = () => {
             link: 'https://forms.gle/your-registration-form-link'
         },
         rules: [
-            '🤖 RO-TERRANCE EVENT RULES',
-            '',
-            'FACULTY CO-ORDINATOR NAME:',
-            'Mr. Arindrajit Chaudhury',
-            'Mr. Aritra Ghosh',
-            '',
-            'STUDENT CO-ORDINATOR NAME:',
-            'Abhijit Mahata (ECE3)',
-            'Aditya Saha (ECE3)',
-            '',
-            'VOLUNTEER NAME:',
-            'Insha Hossain (ECE2)',
-            'Rankan Das (EE2)',
-            '',
-            'TEAM STRENGTH:',
-            'Minimum Members: 2',
-            'Maximum Members: 5',
-            '',
-            'REGISTRATION FEES:',
-            '400/- Per Team/Bot',
-            '',
+            // ...existing code...
+            // ...existing code...
+            // ...existing code...
             'BOT SPECIFICATIONS:',
             'The dimension of the bot must not exceed 30 × 30 cm (no tolerance) throughout the event.',
             'The maximum weight of the bot must not exceed 3 Kg (no tolerance).',

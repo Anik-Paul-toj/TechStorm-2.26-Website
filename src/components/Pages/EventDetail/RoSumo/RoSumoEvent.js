@@ -24,26 +24,7 @@ const RoSumoEvent = () => {
             link: 'https://forms.gle/your-registration-form-link'
         },
         rules: [
-            // Faculty Coordinators
-            'FACULTY CO-ORDINATOR NAME:',
-            'Dr. Binoy Krishna Biswas',
-            'Mr. Subhasish Das',
-            '',
-            // Student Coordinators
-            'STUDENT CO-ORDINATOR NAME:',
-            'D Samir Dora (ECE3)',
-            'Sagnek Chowdhury (ECE3)',
-            '',
-            // Volunteers
-            'VOLUNTEER NAME:',
-            'Abdul Razzak (ECE2)',
-            'Sumit Ghara (EE2)',
-            '',
-            // Team Strength
-            'TEAM STRENGTH:',
-            'Minimum Members: 2',
-            'Maximum Members: 5',
-            '',
+            // ...existing code...
             // Bot Specifications
             'BOT SPECIFICATIONS:',
             'The total weight of the bot including all onboard batteries, pneumatic tanks, hydraulic systems, and weapons must not exceed 3 kg (only 100 g margin allowed), and remote controller weight is excluded.',

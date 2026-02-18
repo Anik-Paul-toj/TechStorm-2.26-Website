@@ -4,27 +4,32 @@ import './EventDetail.css';
 import { Button } from '../../ui/8bit/button';
 import { Dialog, DialogContent } from '../../ui/8bit/dialog';
 
-const EventDetail = ({ eventData }) => {
+const EventDetail = ({ eventData, faqAccordion }) => {
+        // Fix: Declare missing refs and state
+        const autoScrollInterval = useRef(null);
+        const scrollContainerRef = useRef(null);
+        const pauseTimeout = useRef(null);
+        const [isRulesDialogOpen, setIsRulesDialogOpen] = useState(false);
     const history = useHistory();
-    const { 
-        name, 
-        description, 
-        rules, 
+    const {
+        name,
+        logo,
+        category,
+        breadcrumbBg,
+        description,
+        previousYearImages: galleryImages = [],
+        rules = [],
+        prizes = [],
+        teamSize,
+        duration,
+        venue,
+        registerButton,
         contact,
+        coordinators,
         qrCode,
         paymentLink,
-        previousYearImages,
-        coordinators,
-        breadcrumbBg,
-        registerButton
+        faq
     } = eventData;
-
-    const scrollContainerRef = useRef(null);
-    const autoScrollInterval = useRef(null);
-    const pauseTimeout = useRef(null);
-    const [isRulesDialogOpen, setIsRulesDialogOpen] = useState(false);
-
-    // Map event names to registration routes
     const getRegistrationRoute = (eventName) => {
         const routeMap = {
             'Code-Bee': '/register/code-bee',
@@ -45,20 +50,7 @@ const EventDetail = ({ eventData }) => {
         return routeMap[eventName] || '/events';
     };
 
-    // Dummy placeholder images - replace with actual event photos later
-    const dummyImages = [
-        'https://via.placeholder.com/400x300/1a0e22/ffc010?text=Event+Photo+1',
-        'https://via.placeholder.com/400x300/1a0e22/00ffea?text=Event+Photo+2',
-        'https://via.placeholder.com/400x300/1a0e22/ffc010?text=Event+Photo+3',
-        'https://via.placeholder.com/400x300/1a0e22/00ffea?text=Event+Photo+4',
-        'https://via.placeholder.com/400x300/1a0e22/ffc010?text=Event+Photo+5',
-        'https://via.placeholder.com/400x300/1a0e22/00ffea?text=Event+Photo+6',
-    ];
-
-    // Use provided images or fall back to dummy images
-    const galleryImages = (previousYearImages && previousYearImages.length > 0) 
-        ? previousYearImages 
-        : dummyImages;
+    // ...existing code...
 
     // Start auto-scroll
     const startAutoScroll = () => {
@@ -1075,14 +1067,17 @@ const EventDetail = ({ eventData }) => {
                                         </div>
                                     )}
                                 </div>
+
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
 
+            {/* FAQ Accordion for Ro-Navigator (above coordinators) */}
+            {faqAccordion}
             {/* Coordinators Section */}
-            <section className="coordinators-section pt-30 pb-90">
+            <section className="coordinators-section pt-30 pb-90" style={{marginTop: '48px'}}>
                 <div className="container">
                     <div className="row">
                         <div className="col-12">
