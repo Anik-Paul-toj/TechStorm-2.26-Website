@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import EventDetail from "../EventDetail";
 import roCombat from "../../../../assets/img/PIXELATED EVENT MASCOTS/RO-COMBAT.png";
 import roCombatBanner from "../../../../assets/img/event_specific_pictures/robotics/ro_combat.png";

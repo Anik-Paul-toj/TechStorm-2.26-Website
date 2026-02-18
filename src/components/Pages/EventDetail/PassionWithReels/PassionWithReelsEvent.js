@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import EventDetail from "../EventDetail";
 import passionWithReels from "../../../../assets/img/PIXELATED EVENT MASCOTS/PASSION WITH REELS.png";
 import passionWithReelsBanner from "../../../../assets/img/event_specific_pictures/creative/passion_with_reels.png";

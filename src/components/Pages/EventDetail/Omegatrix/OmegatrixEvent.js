@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import EventDetail from "../EventDetail";
 import omegatrix from "../../../../assets/img/PIXELATED EVENT MASCOTS/OMEGATRIX.png";
 import omegatrixBanner from "../../../../assets/img/event_specific_pictures/omegatrix/OMEGATRIX_banner.png";

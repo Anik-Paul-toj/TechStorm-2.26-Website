@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import EventDetail from "../EventDetail";
 import roSoccer from "../../../../assets/img/PIXELATED EVENT MASCOTS/RO-SOCCER.png";
 import roSoccerBanner from "../../../../assets/img/event_specific_pictures/robotics/ro_soccer.png";
