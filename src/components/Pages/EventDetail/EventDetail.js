@@ -422,6 +422,12 @@ const EventDetail = ({ eventData }) => {
                             const isEmpty = rule.trim() === "";
                             // Highlight Judging Criteria header
                             const isJudgingCriteria = false;
+                            // Check if it's a registration fee header
+                            const isRegistrationFeeHeader = 
+                              name === "Passion with Reels" &&
+                              rule.trim().toUpperCase() === "REGISTRATION FEES:";
+                            // Check if it's a FAQ question (ends with ?)
+                            const isFaqQuestion = /\?$/.test(rule.trim());
                             
                             if (isHeader) {
                               // Reduce space below Forza Horizon gold header
