@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import EventDetail from "../EventDetail";
 import khet from "../../../../assets/img/PIXELATED EVENT MASCOTS/KHET.png";
 import khetBanner from "../../../../assets/img/event_specific_pictures/games/khet.png";

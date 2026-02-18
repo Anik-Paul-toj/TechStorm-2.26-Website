@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import EventDetail from "../EventDetail";
 import fifaMobile from "../../../../assets/img/PIXELATED EVENT MASCOTS/FIFA Mobile.png";
 import fifaMobileBanner from "../../../../assets/img/event_specific_pictures/games/fifa_mobile.png";

@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import EventDetail from "../EventDetail";
 import forzaHorizon from "../../../../assets/img/PIXELATED EVENT MASCOTS/FORZA HORIZON.png";
 import forzaHorizonBanner from "../../../../assets/img/event_specific_pictures/games/forza_horizon.png";

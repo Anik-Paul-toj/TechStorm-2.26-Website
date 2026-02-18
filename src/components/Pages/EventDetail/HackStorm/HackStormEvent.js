@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import EventDetail from "../EventDetail";
 import hackStorm from "../../../../assets/img/PIXELATED EVENT MASCOTS/HACKSTORM.png";
 import hackStormBanner from "../../../../assets/img/event_specific_pictures/hackstorm/hstorm.png";
