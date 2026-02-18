@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import EventDetail from "../EventDetail";
 import techHunt from "../../../../assets/img/PIXELATED EVENT MASCOTS/TECH HUNT.png";
 import techHuntBanner from "../../../../assets/img/event_specific_pictures/techHunt/techhunt_banner.png";

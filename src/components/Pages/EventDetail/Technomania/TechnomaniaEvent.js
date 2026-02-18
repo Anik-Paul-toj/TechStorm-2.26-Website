@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import EventDetail from "../EventDetail";
 import technomania from "../../../../assets/img/PIXELATED EVENT MASCOTS/TECHNOMANIA.png";
 import technomaniaBanner from "../../../../assets/img/event_specific_pictures/technomania/technomania.png";

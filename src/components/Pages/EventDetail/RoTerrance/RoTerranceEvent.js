@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import EventDetail from "../EventDetail";
 import roTerrance from "../../../../assets/img/PIXELATED EVENT MASCOTS/RO-TERRANCE.png";
 import roTerranceBanner from "../../../../assets/img/event_specific_pictures/robotics/ro_terrance.png";

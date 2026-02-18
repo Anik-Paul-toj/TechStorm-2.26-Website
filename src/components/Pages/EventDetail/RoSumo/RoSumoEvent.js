@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import EventDetail from "../EventDetail";
 import roSumo from "../../../../assets/img/PIXELATED EVENT MASCOTS/rosumo.png";
 import roSumoBanner from "../../../../assets/img/event_specific_pictures/robotics/ro_sumo.png";

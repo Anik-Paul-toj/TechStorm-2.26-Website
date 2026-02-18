@@ -1,4 +1,4 @@
-﻿import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { cloudinaryImages } from "../../../config/cloudinary";
 
