@@ -205,12 +205,6 @@ const RoNavigatorRegistration = () => {
             <p className="registration-subtitle">Note: * = Mandatory fields</p>
           </div>
 
-          {submitSuccess && (
-            <div className="success-message">
-              ✓ Registration Successful! Redirecting to events page...
-            </div>
-          )}
-
           {errors.submit && (
             <div className="error-message" style={{ 
               marginBottom: '20px', 
@@ -355,7 +349,7 @@ const RoNavigatorRegistration = () => {
                           type="file"
                           id={`participantId_${index}`}
                           className="file-upload-input"
-                          accept="image/*,.pdf"
+                          accept="image/jpeg,image/jpg,image/png,.jpg,.jpeg,.png"
                           onChange={(e) =>
                             handleParticipantChange(index, 'idFile', e.target.files && e.target.files[0] ? e.target.files[0] : null)
                           }
@@ -365,7 +359,7 @@ const RoNavigatorRegistration = () => {
                           <div className="file-upload-text">
                             <span className="highlight">Click to upload</span>
                             <br />
-                            PNG, JPG, PDF
+                            PNG, JPG, JPEG
                           </div>
                         </label>
                       </div>
@@ -447,7 +441,7 @@ const RoNavigatorRegistration = () => {
                           name="paymentScreenshot"
                           id="paymentScreenshot"
                           className="file-upload-input"
-                          accept="image/*,.pdf"
+                          accept="image/jpeg,image/jpg,image/png,.jpg,.jpeg,.png"
                           onChange={handleFieldChange}
                         />
                         <label htmlFor="paymentScreenshot" className="file-upload-label">
@@ -455,7 +449,7 @@ const RoNavigatorRegistration = () => {
                           <div className="file-upload-text">
                             <span className="highlight">Click to upload</span>
                             <br />
-                            PNG, JPG, PDF
+                            PNG, JPG, JPEG
                           </div>
                         </label>
                       </div>
@@ -476,7 +470,7 @@ const RoNavigatorRegistration = () => {
                         name="cashReceipt"
                         id="cashReceipt"
                         className="file-upload-input"
-                        accept="image/*,.pdf"
+                        accept="image/jpeg,image/jpg,image/png,.jpg,.jpeg,.png"
                         onChange={handleFieldChange}
                       />
                       <label htmlFor="cashReceipt" className="file-upload-label">
@@ -484,7 +478,7 @@ const RoNavigatorRegistration = () => {
                         <div className="file-upload-text">
                           <span className="highlight">Click to upload</span>
                           <br />
-                          PNG, JPG, PDF
+                          PNG, JPG, JPEG
                         </div>
                       </label>
                     </div>
@@ -561,6 +555,12 @@ const RoNavigatorRegistration = () => {
                 Cancel
               </button>
             </div>
+
+            {submitSuccess && (
+              <div className="success-message" style={{ marginTop: '20px' }}>
+                ✓ Registration Successful! Redirecting to events page...
+              </div>
+            )}
           </form>
         </div>
       </div>

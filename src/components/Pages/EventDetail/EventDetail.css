@@ -1,6 +1,5 @@
 /* Judging Criteria Header Underline */
 
-
 .judging-criteria-underline {
     display: none !important;
 }
@@ -44,20 +43,19 @@
 }
 
 .event-name-section::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: 
-        repeating-linear-gradient(
-            0deg,
-            rgba(255, 192, 16, 0.03) 0px,
-            transparent 1px,
-            transparent 2px,
-            rgba(255, 192, 16, 0.03) 3px
-        );
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(255, 192, 16, 0.03) 0px,
+        transparent 1px,
+        transparent 2px,
+        rgba(255, 192, 16, 0.03) 3px
+    );
     pointer-events: none;
 }
 
@@ -68,7 +66,7 @@
 
 .event-title-white,
 .event-title-gold {
-    font-family: 'Press Start 2P', cursive;
+    font-family: "Press Start 2P", cursive;
     font-weight: 700;
     line-height: 1.2;
     margin: 0;
@@ -81,7 +79,7 @@
     letter-spacing: 3px;
     color: #ffffff;
     margin-right: 20px;
-    text-shadow: 
+    text-shadow:
         4px 4px 0 rgba(0, 0, 0, 0.3),
         0 0 20px rgba(255, 255, 255, 0.3);
 }
@@ -90,7 +88,7 @@
     font-size: 96px;
     letter-spacing: 3px;
     color: #ffc010;
-    text-shadow: 
+    text-shadow:
         4px 4px 0 rgba(0, 0, 0, 0.3),
         0 0 30px rgba(255, 192, 16, 0.7);
 }
@@ -121,7 +119,7 @@
     position: relative;
     background: rgba(0, 0, 0, 0.3);
     border: 3px solid #ffc010;
-    box-shadow: 
+    box-shadow:
         0 0 20px rgba(255, 192, 16, 0.3),
         inset 0 0 30px rgba(0, 0, 0, 0.5);
 }
@@ -162,18 +160,18 @@
 .heading-white {
     font-size: 48px;
     color: #ffffff;
-    text-shadow: 
+    text-shadow:
         4px 4px 0 rgba(0, 0, 0, 0.3),
         0 0 20px rgba(255, 255, 255, 0.3);
     margin-right: 10px;
 }
 
 .heading-gold {
-    font-family: 'Silkscreen', monospace;
+    font-family: "Silkscreen", monospace;
     font-size: 48px;
     font-weight: 600;
     color: #ffc010;
-    text-shadow: 
+    text-shadow:
         4px 4px 0 rgba(0, 0, 0, 0.3),
         0 0 30px rgba(255, 192, 16, 0.7);
 }
@@ -203,7 +201,7 @@
 .about-content .about-text,
 .about-content p.about-text,
 p.about-text {
-    font-family: 'Press Start 2P', cursive;
+    font-family: "Press Start 2P", cursive;
     font-size: 11px;
     line-height: 2.2;
     color: #ffffff !important;
@@ -251,14 +249,14 @@ p.about-text {
 }
 
 .meta-label {
-    font-family: 'Press Start 2P', cursive;
+    font-family: "Press Start 2P", cursive;
     font-size: 9px;
     color: #00ffea;
     text-transform: uppercase;
 }
 
 .meta-value {
-    font-family: 'Press Start 2P', cursive;
+    font-family: "Press Start 2P", cursive;
     font-size: 12px;
     color: #ffffff;
 }
@@ -278,7 +276,11 @@ p.about-text {
     align-items: center;
     gap: 20px;
     padding: 25px;
-    background: linear-gradient(135deg, rgba(255, 192, 16, 0.1) 0%, rgba(255, 192, 16, 0.05) 100%);
+    background: linear-gradient(
+        135deg,
+        rgba(255, 192, 16, 0.1) 0%,
+        rgba(255, 192, 16, 0.05) 100%
+    );
     border: 3px solid #ffc010;
     box-shadow: 0 5px 20px rgba(255, 192, 16, 0.3);
     margin-bottom: 30px;
@@ -290,7 +292,7 @@ p.about-text {
 }
 
 .fee-text {
-    font-family: 'Press Start 2P', cursive;
+    font-family: "Press Start 2P", cursive;
     font-size: 16px;
     color: #ffc010;
     text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5);
@@ -302,7 +304,7 @@ p.about-text {
 }
 
 .qr-title {
-    font-family: 'Press Start 2P', cursive;
+    font-family: "Press Start 2P", cursive;
     font-size: 12px;
     color: #00ffea;
     margin-bottom: 20px;
@@ -330,7 +332,7 @@ p.about-text {
 
 .payment-button {
     display: inline-block;
-    font-family: 'Press Start 2P', cursive;
+    font-family: "Press Start 2P", cursive;
     font-size: 14px;
     color: #1a0e22;
     background: #ffc010;
@@ -355,7 +357,7 @@ p.about-text {
 }
 
 .prizes-title {
-    font-family: 'Press Start 2P', cursive;
+    font-family: "Press Start 2P", cursive;
     font-size: 14px;
     color: #ffc010;
     margin-bottom: 20px;
@@ -383,14 +385,14 @@ p.about-text {
 }
 
 .prize-pos {
-    font-family: 'Press Start 2P', cursive;
+    font-family: "Press Start 2P", cursive;
     font-size: 10px;
     color: #00ffea;
     flex: 1;
 }
 
 .prize-amt {
-    font-family: 'Press Start 2P', cursive;
+    font-family: "Press Start 2P", cursive;
     font-size: 12px;
     color: #ffc010;
     font-weight: bold;
@@ -430,7 +432,7 @@ p.about-text {
 
 .rule-text {
     flex: 1;
-    font-family: 'Press Start 2P', cursive;
+    font-family: "Press Start 2P", cursive;
     font-size: 10px;
     line-height: 2;
     color: #ffffff;
@@ -455,7 +457,11 @@ p.about-text {
 .coordinator-card {
     text-align: center;
     padding: 30px 20px;
-    background: linear-gradient(135deg, rgba(26, 14, 34, 0.8) 0%, rgba(15, 10, 26, 0.9) 100%);
+    background: linear-gradient(
+        135deg,
+        rgba(26, 14, 34, 0.8) 0%,
+        rgba(15, 10, 26, 0.9) 100%
+    );
     border: 3px solid #ffc010;
     box-shadow: 0 5px 20px rgba(255, 192, 16, 0.2);
     transition: all 0.3s ease;
@@ -467,46 +473,16 @@ p.about-text {
     border-color: #00ffea;
 }
 
-.coordinator-avatar {
-    width: 100px;
-    height: 100px;
-    margin: 0 auto 20px;
-    border: 4px solid #ffc010;
-    box-shadow: 0 0 20px rgba(255, 192, 16, 0.4);
-    overflow: hidden;
-    border-radius: 50%;
-}
-
-.coordinator-avatar img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    image-rendering: pixelated;
-}
-
-.avatar-placeholder {
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, #ffc010 0%, #ff8c00 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Press Start 2P', cursive;
-    font-size: 36px;
-    color: #1a0e22;
-    font-weight: bold;
-}
-
 .coordinator-name {
-    font-family: 'Press Start 2P', cursive;
+    font-family: "Press Start 2P", cursive;
     font-size: 12px;
     color: #ffc010;
-    margin: 15px 0 8px;
+    margin: 0 0 8px;
     line-height: 1.6;
 }
 
 .coordinator-role {
-    font-family: 'Press Start 2P', cursive;
+    font-family: "Press Start 2P", cursive;
     font-size: 9px;
     color: #00ffea;
     margin-bottom: 15px;
@@ -521,7 +497,7 @@ p.about-text {
 
 .coord-phone,
 .coord-email {
-    font-family: 'Press Start 2P', cursive;
+    font-family: "Press Start 2P", cursive;
     font-size: 8px;
     color: #ffffff;
     margin: 8px 0;
@@ -586,7 +562,7 @@ p.about-text {
         font-size: 9px;
     }
 
-   .meta-value,
+    .meta-value,
     .fee-text {
         font-size: 10px;
     }

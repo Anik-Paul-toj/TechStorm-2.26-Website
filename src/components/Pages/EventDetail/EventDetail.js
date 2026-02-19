@@ -35,74 +35,480 @@ const EventDetail = ({ eventData }) => {
   // Event-specific coordinators data
   const eventCoordinators = {
     "Code-Bee": [
-      { name: "Saikat Mondal", role: "Student Co-Ordinator", phone: "6291341212", type: "coordinator" },
-      { name: "Adarsh Kumar", role: "Student Co-Ordinator", phone: "8271238822", type: "coordinator" },
-      { name: "Medhansh Arora", role: "Volunteer", phone: "7003962640", type: "volunteer" }
+      {
+        name: "Saikat Mondal (CSE3)",
+        role: "Student Co-Ordinator",
+        phone: "6291341212",
+        type: "coordinator",
+      },
+      {
+        name: "Adarsh Kumar (IT3)",
+        role: "Student Co-Ordinator",
+        phone: "8271238822",
+        type: "coordinator",
+      },
+      {
+        name: "Medhansh Arora (CSE3)",
+        role: "Student Co-Ordinator",
+        phone: "7003962640",
+        type: "coordinator",
+      },
+      {
+        name: "Sneha Patra (CSE2)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+      {
+        name: "Sagnik Maitra (CSE2)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+      {
+        name: "Ayush Misra (IT2)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+      {
+        name: "Narayan Kumar Jha (CSE1)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+      {
+        name: "Sayan Karmakar (CSE1)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
     ],
     "Hack Storm": [
-      { name: "Ootso Dhar Chowdhury", role: "Student Co-Ordinator", phone: "9593135858", type: "coordinator" },
-      { name: "Sambit Das", role: "Student Co-Ordinator", phone: "8240653185", type: "coordinator" },
-      { name: "Parthita Chattopadhay", role: "Volunteer", phone: "7001088737", type: "volunteer" },
-      { name: "Priyam Kumar", role: "Volunteer", phone: "8873932040", type: "volunteer" }
+      {
+        name: "Ootso Dhar Chowdhury (CSE3)",
+        role: "Student Co-Ordinator",
+        phone: "9593135858",
+        type: "coordinator",
+      },
+      {
+        name: "Sambit Das (CSE3)",
+        role: "Student Co-Ordinator",
+        phone: "8240653185",
+        type: "coordinator",
+      },
+      {
+        name: "Parthita Chattopadhay (CSE3)",
+        role: "Student Co-Ordinator",
+        phone: "7001088737",
+        type: "coordinator",
+      },
+      {
+        name: "Priyam Kumar (IT3)",
+        role: "Student Co-Ordinator",
+        phone: "8873932040",
+        type: "coordinator",
+      },
+      {
+        name: "Shilpa Banerjee (MCA)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+      {
+        name: "Sneha Roy (CSE2)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+      {
+        name: "Dibyojyoti Biswas (CSE1)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+      {
+        name: "Shaezah Iqbal (IT1)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
     ],
-    "TechnoMania": [
-      { name: "Disha Saha", role: "Student Co-Ordinator", phone: "9339744395", type: "coordinator" },
-      { name: "Arpita Gupta", role: "Student Co-Ordinator", phone: "9832199722", type: "coordinator" }
+    TechnoMania: [
+      {
+        name: "Disha Saha (ECE3)",
+        role: "Student Co-Ordinator",
+        phone: "9339744395",
+        type: "coordinator",
+      },
+      {
+        name: "Arpita Gupta (ECE3)",
+        role: "Student Co-Ordinator",
+        phone: "9832199722",
+        type: "coordinator",
+      },
+      {
+        name: "Sagor Paul (CSE2)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+      {
+        name: "Ayush Saha (ECE2)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+      {
+        name: "Anjali Kumari Mahato (ECE1)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+      {
+        name: "Jishanuddin Mondal (EE1)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
     ],
     "Ro-Navigator": [
-      { name: "Arushmita Sikder", role: "Student Co-Ordinator", phone: "8100396199", type: "coordinator" },
-      { name: "Amrita Ghosh", role: "Student Co-Ordinator", phone: "9800472736", type: "coordinator" }
+      {
+        name: "Arushmita Sikder (CSE3)",
+        role: "Student Co-Ordinator",
+        phone: "8100396199",
+        type: "coordinator",
+      },
+      {
+        name: "Amrita Ghosh (CSE3)",
+        role: "Student Co-Ordinator",
+        phone: "9800472736",
+        type: "coordinator",
+      },
+      {
+        name: "Archita Hazra (ECE2)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+      {
+        name: "Rankan Das (EE2)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+      {
+        name: "Debjit Dhar (EE1)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
     ],
     "Ro-Combat": [
-      { name: "Soumyadeep Ghosh", role: "Student Co-Ordinator", phone: "7001022557", type: "coordinator" },
-      { name: "Sumit Ghosh", role: "Student Co-Ordinator", phone: "9749645061", type: "coordinator" },
-      { name: "Sampurna Biswas", role: "Volunteer", phone: "8777726522", type: "volunteer" }
+      {
+        name: "Soumyadeep Ghosh (ECE3)",
+        role: "Student Co-Ordinator",
+        phone: "7001022557",
+        type: "coordinator",
+      },
+      {
+        name: "Sumit Ghosh (ECE3)",
+        role: "Student Co-Ordinator",
+        phone: "9749645061",
+        type: "coordinator",
+      },
+      {
+        name: "Sampurna Biswas (CSE3)",
+        role: "Student Co-Ordinator",
+        phone: "8777726522",
+        type: "coordinator",
+      },
     ],
     "Ro-Soccer": [
-      { name: "Soumadeep Layek", role: "Student Co-Ordinator", phone: "7439443801", type: "coordinator" },
-      { name: "Samima Nasrin", role: "Student Co-Ordinator", phone: "7044290112", type: "coordinator" }
+      {
+        name: "Soumadeep Layek (Core)",
+        role: "Student Co-Ordinator",
+        phone: "7439443801",
+        type: "coordinator",
+      },
+      {
+        name: "Samima Nasrin (CSE3)",
+        role: "Student Co-Ordinator",
+        phone: "7044290112",
+        type: "coordinator",
+      },
+      {
+        name: "Sakchham Kapoor (ECE2)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+      {
+        name: "Aadipto Ghosh (ECE2)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+      {
+        name: "Yash Ghosh (ECE1)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
     ],
     "Ro-Terrance": [
-      { name: "Abhijit Mahato", role: "Student Co-Ordinator", phone: "9064545534", type: "coordinator" },
-      { name: "Aditya Saha", role: "Student Co-Ordinator", phone: "8240655792", type: "coordinator" }
+      {
+        name: "Abhijit Mahato (ECE3)",
+        role: "Student Co-Ordinator",
+        phone: "9064545534",
+        type: "coordinator",
+      },
+      {
+        name: "Aditya Saha (ECE3)",
+        role: "Student Co-Ordinator",
+        phone: "8240655792",
+        type: "coordinator",
+      },
+      {
+        name: "Insha Hossain (ECE2)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+      {
+        name: "Indranil Maji (EE2)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
     ],
     "Ro-Sumo": [
-      { name: "D Samir Dora", role: "Student Co-Ordinator", phone: "9477924228", type: "coordinator" },
-      { name: "Sagnek Chowdhury", role: "Student Co-Ordinator", phone: "8584031268", type: "coordinator" }
+      {
+        name: "D Samir Dora (ECE3)",
+        role: "Student Co-Ordinator",
+        phone: "9477924228",
+        type: "coordinator",
+      },
+      {
+        name: "Sagnek Chowdhury (ECE3)",
+        role: "Student Co-Ordinator",
+        phone: "8584031268",
+        type: "coordinator",
+      },
+      {
+        name: "Abdul Razzak (ECE2)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+      {
+        name: "Sumit Ghara (EE2)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
     ],
     "Tech Hunt": [
-      { name: "Soumi Maji", role: "Student Co-Ordinator", phone: "8597607718", type: "coordinator" },
-      { name: "Chitradeep Das", role: "Student Co-Ordinator", phone: "9547182611", type: "coordinator" },
-      { name: "Prerit Mishra", role: "Volunteer", phone: "7519103600", type: "volunteer" }
+      {
+        name: "Soumi Maji (CSE3)",
+        role: "Student Co-Ordinator",
+        phone: "8597607718",
+        type: "coordinator",
+      },
+      {
+        name: "Chitradeep Das (MCA)",
+        role: "Student Co-Ordinator",
+        phone: "9547182611",
+        type: "coordinator",
+      },
+      {
+        name: "Prerit Mishra (IT3)",
+        role: "Student Co-Ordinator",
+        phone: "7519103600",
+        type: "coordinator",
+      },
+      {
+        name: "Satarupa Sarkar (CSE2)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+      {
+        name: "Anuradha Kumari (IT3)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+      {
+        name: "Soudeep Shaw (BBA2)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+      {
+        name: "Shrishti Banerjee (IT1)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
     ],
-    "Omegatrix": [
-      { name: "Nandini Saboo", role: "Student Co-Ordinator", phone: "7439617848", type: "coordinator" },
-      { name: "Aditya Jaiswal", role: "Student Co-Ordinator", phone: "8100207280", type: "coordinator" },
-      { name: "Ayushi", role: "Volunteer", phone: "9113122297", type: "volunteer" }
+    Omegatrix: [
+      {
+        name: "Nandini Saboo (CSE3)",
+        role: "Student Co-Ordinator",
+        phone: "7439617848",
+        type: "coordinator",
+      },
+      {
+        name: "Aditya Jaiswal (ECE3)",
+        role: "Student Co-Ordinator",
+        phone: "8100207280",
+        type: "coordinator",
+      },
+      {
+        name: "Ayushi (IT3)",
+        role: "Student Co-Ordinator",
+        phone: "9113122297",
+        type: "coordinator",
+      },
+      {
+        name: "Saikat Maity (BBA3)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+      {
+        name: "Biswajit Biswas (IT2)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+      {
+        name: "Kingshuk Adhikari (CSE2)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+      {
+        name: "Shreyan Dutta (IT1)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+      {
+        name: "Sania Parvin (CSE1)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
     ],
     "Creative Canvas": [
-      { name: "Rashmi Kumari", role: "Student Co-Ordinator", phone: "9142151819", type: "coordinator" },
-      { name: "Madhurima Roy", role: "Student Co-Ordinator", phone: "6294245592", type: "coordinator" }
+      {
+        name: "Rashmi Kumari (IT3)",
+        role: "Student Co-Ordinator",
+        phone: "9142151819",
+        type: "coordinator",
+      },
+      {
+        name: "Madhurima Roy (BCA3)",
+        role: "Student Co-Ordinator",
+        phone: "6294245592",
+        type: "coordinator",
+      },
+      {
+        name: "Riya Pathak (CSE2)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+      {
+        name: "Sucheta Maity (IT2)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+      {
+        name: "Larenza Roy (CSE1)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
     ],
     "Passion with Reels": [
-      { name: "Soumili Mahindar", role: "Student Co-Ordinator", phone: "8240369593", type: "coordinator" },
-      { name: "Rishav Kumar", role: "Student Co-Ordinator", phone: "7488327181", type: "coordinator" }
+      {
+        name: "Soumili Mahindar (CSE3)",
+        role: "Student Co-Ordinator",
+        phone: "8240369593",
+        type: "coordinator",
+      },
+      {
+        name: "Rishav Kumar (IT3)",
+        role: "Student Co-Ordinator",
+        phone: "7488327181",
+        type: "coordinator",
+      },
+      {
+        name: "Shreyanka Satpathy (CSE2)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+      {
+        name: "Srijita Roy (MCA)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+      {
+        name: "Sristi Bandyopadhyay (CSE1)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+      {
+        name: "Parna Majhi (IT1)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
     ],
-    "KHET": [
-      { name: "Himobanta Dutta", role: "Student Co-Ordinator", phone: "8167599621", type: "coordinator" }
+    KHET: [
+      {
+        name: "Himobanta Dutta",
+        role: "Student Co-Ordinator",
+        phone: "8167599621",
+        type: "coordinator",
+      },
+      {
+        name: "Susnata Sarkar (ECE2)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+      {
+        name: "Prantik Ghosh (Core)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
     ],
     "Forza Horizon": [
-      { name: "Snehasish Banerjee", role: "Student Co-Ordinator", phone: "7980441675", type: "coordinator" },
-      { name: "Sayan Das", role: "Student Co-Ordinator", phone: "7439763472", type: "coordinator" }
+      {
+        name: "Snehasish Banerjee (CSE3)",
+        role: "Student Co-Ordinator",
+        phone: "7980441675",
+        type: "coordinator",
+      },
+      {
+        name: "Sayan Das (IT3)",
+        role: "Student Co-Ordinator",
+        phone: "7439763472",
+        type: "coordinator",
+      },
+      {
+        name: "Krittish Barman (MCA)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+      {
+        name: "Krish Agarwalla (BCA2)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+      {
+        name: "Banibrata Mitra (CSE1)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
     ],
     "FIFA Mobile": [
-      { name: "Adrish Basak", role: "Student Co-Ordinator", phone: "7003940421", type: "coordinator" },
-      { name: "Shubham Mallik", role: "Student Co-Ordinator", phone: "9830339469", type: "coordinator" }
-    ]
+      {
+        name: "Adrish Basak (CSE3)",
+        role: "Student Co-Ordinator",
+        phone: "7003940421",
+        type: "coordinator",
+      },
+      {
+        name: "Shubham Mallik (CSE3)",
+        role: "Student Co-Ordinator",
+        phone: "9830339469",
+        type: "coordinator",
+      },
+      {
+        name: "Upashak Ghosal (CSE3)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+      {
+        name: "Souvik Kumar Mallik (CSE1)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+    ],
   };
 
   // Get coordinators for current event
-  const currentEventCoordinators = eventCoordinators[name] || coordinators || contact || [];
+  const currentEventCoordinators =
+    eventCoordinators[name] || coordinators || contact || [];
 
   // Map event names to registration routes
   const getRegistrationRoute = (eventName) => {
@@ -490,7 +896,9 @@ const EventDetail = ({ eventData }) => {
                           rules.map((rule, index) => {
                             // Check if it's a section header (starts with emoji)
                             const isHeader =
-                              /^[\u{1F300}-\u{1F9FF}]|^[\u{2600}-\u{26FF}]|^[\u{2700}-\u{27BF}]/u.test(rule);
+                              /^[\u{1F300}-\u{1F9FF}]|^[\u{2600}-\u{26FF}]|^[\u{2700}-\u{27BF}]/u.test(
+                                rule,
+                              );
                             // Check if it's an empty line
                             // const isEmpty = rule.trim() === "";
                             // Highlight Judging Criteria header
@@ -504,12 +912,13 @@ const EventDetail = ({ eventData }) => {
 
                             // const isJudgingCriteria = false;
                             // Check if it's a registration fee header
-                            const isRegistrationFeeHeader = 
+                            const isRegistrationFeeHeader =
                               name === "Passion with Reels" &&
-                              rule.trim().toUpperCase() === "REGISTRATION FEES:";
+                              rule.trim().toUpperCase() ===
+                                "REGISTRATION FEES:";
                             // Check if it's a FAQ question (ends with ?)
                             const isFaqQuestion = /\?$/.test(rule.trim());
-                            
+
                             if (isHeader) {
                               // Reduce space below Forza Horizon gold header
                               const isForzaHorizonHeader =
@@ -1256,7 +1665,6 @@ const EventDetail = ({ eventData }) => {
                                 </span>
                               </div>
                             );
-
                           })}
                       </div>
                       <div style={{ textAlign: "center", marginTop: "25px" }}>
@@ -1739,7 +2147,7 @@ const EventDetail = ({ eventData }) => {
                   <div
                     key={index}
                     className="col-lg-3 col-md-4 col-sm-6 mb-30"
-                    style={{ paddingTop: "10px" }}
+                    style={{ paddingTop: "10px", display: "flex" }}
                   >
                     <div
                       className="nes-container is-rounded"
@@ -1747,6 +2155,12 @@ const EventDetail = ({ eventData }) => {
                         borderColor: "#555",
                         transition: "all 0.4s ease-out",
                         cursor: "pointer",
+                        width: "100%",
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        textAlign: "center",
                       }}
                       onMouseEnter={(e) => {
                         e.currentTarget.style.transform =
@@ -1762,18 +2176,11 @@ const EventDetail = ({ eventData }) => {
                         e.currentTarget.style.borderColor = "#555";
                       }}
                     >
-                      <div className="coordinator-avatar">
-                        {person.image ? (
-                          <img src={person.image} alt={person.name} />
-                        ) : (
-                          <div className="avatar-placeholder">
-                            {person.name.charAt(0)}
-                          </div>
-                        )}
-                      </div>
                       <h4 className="coordinator-name">{person.name}</h4>
                       <p className="coordinator-role">
-                        {person.type === "volunteer" ? "Volunteer" : person.role || "Student Co-Ordinator"}
+                        {person.type === "volunteer"
+                          ? "Student Volunteer"
+                          : person.role || "Student Co-Ordinator"}
                       </p>
                       <div className="coordinator-contacts">
                         {person.type === "coordinator" && person.phone && (

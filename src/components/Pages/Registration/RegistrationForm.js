@@ -175,13 +175,6 @@ const RegistrationForm = ({ eventConfig }) => {
                         )}
                     </div>
 
-                    {submitSuccess && (
-                        <div className="success-message">
-                            ✓ Registration Successful!<br/>
-                            Redirecting to events page...
-                        </div>
-                    )}
-
                     {errors.submit && (
                         <div className="error-message" style={{ 
                             marginBottom: '20px', 
@@ -524,7 +517,7 @@ const RegistrationForm = ({ eventConfig }) => {
                                                     id="paymentReceipt"
                                                     onChange={handleInputChange}
                                                     className="file-upload-input"
-                                                    accept="image/*,.pdf"
+                                                    accept="image/jpeg,image/jpg,image/png,.jpg,.jpeg,.png"
                                                 />
                                                 <label htmlFor="paymentReceipt" className="file-upload-label">
                                                     <div className="file-upload-icon">💳</div>
@@ -533,7 +526,7 @@ const RegistrationForm = ({ eventConfig }) => {
                                                         {formData.paymentMode === 'online' 
                                                             ? 'Upload payment screenshot' 
                                                             : 'Upload offline receipt'}<br/>
-                                                        (PNG, JPG, PDF - Max 5MB)
+                                                        (PNG, JPG, JPEG - Max 5MB)
                                                     </div>
                                                 </label>
                                             </div>
@@ -680,14 +673,14 @@ const RegistrationForm = ({ eventConfig }) => {
                                             id="idProof"
                                             onChange={handleInputChange}
                                             className="file-upload-input"
-                                            accept="image/*,.pdf"
+                                            accept="image/jpeg,image/jpg,image/png,.jpg,.jpeg,.png"
                                         />
                                         <label htmlFor="idProof" className="file-upload-label">
                                             <div className="file-upload-icon">📁</div>
                                             <div className="file-upload-text">
                                                 <span className="highlight">Click to upload</span><br/>
                                                 or drag and drop<br/>
-                                                (PNG, JPG, PDF - Max 5MB)
+                                                (PNG, JPG, JPEG - Max 5MB)
                                             </div>
                                         </label>
                                     </div>
@@ -737,6 +730,13 @@ const RegistrationForm = ({ eventConfig }) => {
                                 Cancel
                             </button>
                         </div>
+
+                        {submitSuccess && (
+                            <div className="success-message" style={{ marginTop: '20px' }}>
+                                ✓ Registration Successful!<br/>
+                                Redirecting to events page...
+                            </div>
+                        )}
                     </form>
                 </div>
             </div>
