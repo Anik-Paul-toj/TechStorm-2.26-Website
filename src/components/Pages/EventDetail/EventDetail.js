@@ -2024,121 +2024,161 @@ const EventDetail = ({ eventData }) => {
                 ></div>
               </div>
               <div className="entry-content">
-                {/* Horizontal Fee Layout */}
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    gap: "30px",
-                    flexWrap: "wrap",
-                    marginBottom: "40px",
-                  }}
-                >
-                  <div
-                    className="fee-category"
-                    style={{
-                      flex: "1",
-                      minWidth: "280px",
-                      maxWidth: "400px",
-                      padding: "25px",
-                      backgroundColor: "rgba(255, 192, 16, 0.05)",
-                      border: "3px solid #ffc010",
-                      textAlign: "center",
-                    }}
-                  >
-                    <h4
-                      style={{
-                        color: "#ffc010",
-                        fontSize: "16px",
-                      }}
-                    >
-                      Team Size
-                    </h4>
-                    <p
-                      style={{
-                        fontSize: "18px",
-                        margin: "0 0 10px 0",
-
-                        fontFamily: "Press Start 2P",
-                        marginBottom: "15px",
-                        lineHeight: "1.5",
-                      }}
-                    >
-                      For BPPIMT students
-                    </p>
+                {/* Check if event is free */}
+                {eventData.isFree ? (
+                  <div style={{ textAlign: "center", marginBottom: "40px" }}>
                     <div
-                      className="fee-amount"
+                      className="nes-container is-rounded"
+                      style={{
+                        maxWidth: "500px",
+                        margin: "0 auto",
+                        padding: "30px",
+                        backgroundColor: "rgba(0, 255, 234, 0.08)",
+                        borderColor: "#00ffea",
+                      }}
+                    >
+                      <h3
+                        style={{
+                          color: "#00ffea",
+                          fontSize: "clamp(18px, 4vw, 28px)",
+                          fontFamily: "Press Start 2P",
+                          marginBottom: "15px",
+                          lineHeight: "1.5",
+                        }}
+                      >
+                        🎉 FREE EVENT 🎉
+                      </h3>
+                      <p
+                        style={{
+                          color: "#fff",
+                          fontSize: "14px",
+                          fontFamily: "Silkscreen, sans-serif",
+                          lineHeight: "1.6",
+                        }}
+                      >
+                        No registration fee required!
+                      </p>
+                    </div>
+                  </div>
+                ) : (
+                  <>
+                    {/* Horizontal Fee Layout */}
+                    <div
                       style={{
                         display: "flex",
                         justifyContent: "center",
-                        alignItems: "center",
-                        gap: "12px",
+                        gap: "30px",
+                        flexWrap: "wrap",
+                        marginBottom: "40px",
                       }}
                     >
-                      <span className="fee-icon" style={{ fontSize: "28px" }}>
-                        💰
-                      </span>
-                      <span
-                        className="fee-text"
+                      <div
+                        className="fee-category"
                         style={{
-                          color: "#fff",
-                          fontSize: "18px",
-                          fontFamily: "Press Start 2P",
+                          flex: "1",
+                          minWidth: "280px",
+                          maxWidth: "400px",
+                          padding: "25px",
+                          backgroundColor: "rgba(255, 192, 16, 0.05)",
+                          border: "3px solid #ffc010",
+                          textAlign: "center",
                         }}
                       >
-                        ₹80 per team
-                      </span>
-                    </div>
-                  </div>
+                        <h4
+                          style={{
+                            color: "#ffc010",
+                            fontSize: "16px",
+                          }}
+                        >
+                          Team Size
+                        </h4>
+                        <p
+                          style={{
+                            fontSize: "18px",
+                            margin: "0 0 10px 0",
 
-                  <div
-                    className="fee-category"
-                    style={{
-                      flex: "1",
-                      minWidth: "280px",
-                      maxWidth: "400px",
-                      padding: "25px",
-                      backgroundColor: "rgba(0, 255, 234, 0.05)",
-                      border: "3px solid #00ffea",
-                      textAlign: "center",
-                    }}
-                  >
-                    <h4
-                      style={{
-                        color: "#00ffea",
-                        fontSize: "14px",
-                        fontFamily: "Press Start 2P",
-                        marginBottom: "15px",
-                        lineHeight: "1.5",
-                      }}
-                    >
-                      For outside students
-                    </h4>
-                    <div
-                      className="fee-amount"
-                      style={{
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        gap: "12px",
-                      }}
-                    >
-                      <span className="fee-icon" style={{ fontSize: "28px" }}>
-                        💰
-                      </span>
-                      <span
-                        className="fee-text"
+                            fontFamily: "Press Start 2P",
+                            marginBottom: "15px",
+                            lineHeight: "1.5",
+                          }}
+                        >
+                          For BPPIMT students
+                        </p>
+                        <div
+                          className="fee-amount"
+                          style={{
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            gap: "12px",
+                          }}
+                        >
+                          <span className="fee-icon" style={{ fontSize: "28px" }}>
+                            💰
+                          </span>
+                          <span
+                            className="fee-text"
+                            style={{
+                              color: "#fff",
+                              fontSize: "18px",
+                              fontFamily: "Press Start 2P",
+                            }}
+                          >
+                            {eventData.entryFeeInternal || eventData.entryFee || "₹80 per team"}
+                          </span>
+                        </div>
+                      </div>
+
+                      <div
+                        className="fee-category"
                         style={{
-                          color: "#fff",
-                          fontSize: "18px",
-                          fontFamily: "Press Start 2P",
+                          flex: "1",
+                          minWidth: "280px",
+                          maxWidth: "400px",
+                          padding: "25px",
+                          backgroundColor: "rgba(0, 255, 234, 0.05)",
+                          border: "3px solid #00ffea",
+                          textAlign: "center",
                         }}
                       >
-                        ₹100 per team
-                      </span>
+                        <h4
+                          style={{
+                            color: "#00ffea",
+                            fontSize: "14px",
+                            fontFamily: "Press Start 2P",
+                            marginBottom: "15px",
+                            lineHeight: "1.5",
+                          }}
+                        >
+                          For outside students
+                        </h4>
+                        <div
+                          className="fee-amount"
+                          style={{
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            gap: "12px",
+                          }}
+                        >
+                          <span className="fee-icon" style={{ fontSize: "28px" }}>
+                            💰
+                          </span>
+                          <span
+                            className="fee-text"
+                            style={{
+                              color: "#fff",
+                              fontSize: "18px",
+                              fontFamily: "Press Start 2P",
+                            }}
+                          >
+                            {eventData.entryFeeExternal || eventData.entryFee || "₹100 per team"}
+                          </span>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
+                  </>
+                )}
 
                 {/* Team Size Options */}
                 <div
@@ -2170,7 +2210,7 @@ const EventDetail = ({ eventData }) => {
                       textAlign: "center",
                     }}
                   >
-                    Solo / Duo / Thrice
+                    {eventData.teamSize || "Solo / Duo / Thrice"}
                   </p>
                 </div>
 
