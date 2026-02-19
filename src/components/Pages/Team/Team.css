@@ -54,6 +54,7 @@
 
 .team-org-section {
   padding-top: 10px;
+  padding-bottom: 60px;
 }
 
 .team-org-section .section-title h2 {
@@ -64,11 +65,44 @@
   color: #ffc010;
 }
 
-/* Organizing Committee: 4 per row, larger circles with subtle pixel retro */
+/* Profile cards in organizing committee section */
+.team-org-section .profile-card-wrap {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.team-org-section .profile-card-section {
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Ensure profile cards are centered and properly sized */
+.team-org-section .col-lg-3,
+.team-org-section .col-md-6,
+.team-org-section .col-sm-6 {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Organizing Committee: 4 per row with profile cards */
+.team-org-section .team-org-members-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -15px;
+  justify-content: center;
+}
+
 .team-org-section .team-org-members-row > div {
   flex: 0 0 25%;
   max-width: 25%;
   padding: 0 15px;
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: center;
 }
 
 .team-org-section .single-team {
@@ -186,10 +220,24 @@
   font-weight: 500;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1200px) {
   .team-org-section .team-org-members-row > div {
     flex: 0 0 33.333333%;
     max-width: 33.333333%;
+  }
+}
+
+@media (max-width: 992px) {
+  .team-org-section .team-org-members-row > div {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+@media (max-width: 768px) {
+  .team-org-section .team-org-members-row > div {
+    flex: 0 0 50%;
+    max-width: 50%;
   }
 }
 
@@ -210,6 +258,15 @@
     overflow: hidden;
     aspect-ratio: 1;
     flex-shrink: 0;
+  }
+  
+  /* Adjust profile card size on mobile */
+  .profile-card-section {
+    max-height: 380px !important;
+  }
+  
+  .profile-card-wrap {
+    max-width: 260px !important;
   }
 }
 
