@@ -19,12 +19,45 @@ export const submitEventRegistration = async (eventName, registrationData) => {
   console.log('🌐 API URL:', `${API_BASE_URL}/event-registration/${eventName}`);
   
   try {
+    // Create FormData for file uploads
+    const formData = new FormData();
+    
+    // Helper function to append data to FormData
+    const appendToFormData = (key, value) => {
+      if (value === null || value === undefined) {
+        return;
+      }
+      
+      // Handle File objects
+      if (value instanceof File) {
+        formData.append(key, value);
+        console.log(`📎 Appending file: ${key} - ${value.name}`);
+      }
+      // Handle arrays (like participants)
+      else if (Array.isArray(value)) {
+        formData.append(key, JSON.stringify(value));
+        console.log(`📋 Appending array: ${key} with ${value.length} items`);
+      }
+      // Handle objects
+      else if (typeof value === 'object') {
+        formData.append(key, JSON.stringify(value));
+        console.log(`📦 Appending object: ${key}`);
+      }
+      // Handle primitive values
+      else {
+        formData.append(key, value);
+      }
+    };
+    
+    // Process all registration data
+    Object.keys(registrationData).forEach(key => {
+      appendToFormData(key, registrationData[key]);
+    });
+
     const response = await fetch(`${API_BASE_URL}/event-registration/${eventName}`, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(registrationData)
+      body: formData
+      // Don't set Content-Type header - browser will set it automatically with boundary
     });
 
     console.log('📡 Response status:', response.status);
@@ -37,7 +70,8 @@ export const submitEventRegistration = async (eventName, registrationData) => {
       if (response.status === 409) {
         throw new Error('duplicate: ' + (result.message || 'You have already registered for this event'));
       } else if (response.status === 400) {
-        throw new Error('validation: ' + (result.message || 'Invalid registration data'));
+        const errorDetails = result.details ? result.details.map(d => d.message).join(', ') : '';
+        throw new Error('validation: ' + (result.message || 'Invalid registration data') + (errorDetails ? ': ' + errorDetails : ''));
       } else {
         throw new Error(result.message || 'Registration failed');
       }

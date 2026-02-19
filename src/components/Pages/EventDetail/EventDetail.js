@@ -1,4 +1,5 @@
 import React, { Fragment, useEffect, useRef, useState } from "react";
+import coordinatorCardBg from "../../../assets/img/coordinatorcardbg.png";
 import { useHistory } from "react-router-dom";
 import "./EventDetail.css";
 import { Button } from "../../ui/8bit/button";
@@ -114,11 +115,500 @@ const EventDetail = ({ eventData }) => {
     registerButton,
   } = eventData;
 
+<<<<<<< HEAD
   const scrollContainerRef = useRef(null);
   const autoScrollInterval = useRef(null);
   const pauseTimeout = useRef(null);
   const [isRulesDialogOpen, setIsRulesDialogOpen] = useState(false);
 
+=======
+  // Refs for auto-scroll functionality
+  const scrollContainerRef = useRef(null);
+  const autoScrollInterval = useRef(null);
+  const pauseTimeout = useRef(null);
+
+  // State for rules dialog
+  const [isRulesDialogOpen, setIsRulesDialogOpen] = useState(false);
+
+  // Event-specific coordinators data
+  const eventCoordinators = {
+    "Code-Bee": [
+      {
+        name: "Saikat Mondal (CSE3)",
+        role: "Student Co-Ordinator",
+        phone: "6291341212",
+        type: "coordinator",
+      },
+      {
+        name: "Adarsh Kumar (IT3)",
+        role: "Student Co-Ordinator",
+        phone: "8271238822",
+        type: "coordinator",
+      },
+      {
+        name: "Medhansh Arora (CSE3)",
+        role: "Student Co-Ordinator",
+        phone: "7003962640",
+        type: "coordinator",
+      },
+      {
+        name: "Sneha Patra (CSE2)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+      {
+        name: "Sagnik Maitra (CSE2)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+      {
+        name: "Ayush Misra (IT2)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+      {
+        name: "Narayan Kumar Jha (CSE1)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+      {
+        name: "Sayan Karmakar (CSE1)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+    ],
+    "Hack Storm": [
+      {
+        name: "Ootso Dhar Chowdhury (CSE3)",
+        role: "Student Co-Ordinator",
+        phone: "9593135858",
+        type: "coordinator",
+      },
+      {
+        name: "Sambit Das (CSE3)",
+        role: "Student Co-Ordinator",
+        phone: "8240653185",
+        type: "coordinator",
+      },
+      {
+        name: "Parthita Chattopadhay (CSE3)",
+        role: "Student Co-Ordinator",
+        phone: "7001088737",
+        type: "coordinator",
+      },
+      {
+        name: "Priyam Kumar (IT3)",
+        role: "Student Co-Ordinator",
+        phone: "8873932040",
+        type: "coordinator",
+      },
+      {
+        name: "Shilpa Banerjee (MCA)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+      {
+        name: "Sneha Roy (CSE2)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+      {
+        name: "Dibyojyoti Biswas (CSE1)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+      {
+        name: "Shaezah Iqbal (IT1)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+    ],
+    TechnoMania: [
+      {
+        name: "Disha Saha (ECE3)",
+        role: "Student Co-Ordinator",
+        phone: "9339744395",
+        type: "coordinator",
+      },
+      {
+        name: "Arpita Gupta (ECE3)",
+        role: "Student Co-Ordinator",
+        phone: "9832199722",
+        type: "coordinator",
+      },
+      {
+        name: "Sagor Paul (CSE2)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+      {
+        name: "Ayush Saha (ECE2)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+      {
+        name: "Anjali Kumari Mahato (ECE1)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+      {
+        name: "Jishanuddin Mondal (EE1)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+    ],
+    "Ro-Navigator": [
+      {
+        name: "Arushmita Sikder (CSE3)",
+        role: "Student Co-Ordinator",
+        phone: "8100396199",
+        type: "coordinator",
+      },
+      {
+        name: "Amrita Ghosh (CSE3)",
+        role: "Student Co-Ordinator",
+        phone: "9800472736",
+        type: "coordinator",
+      },
+      {
+        name: "Archita Hazra (ECE2)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+      {
+        name: "Rankan Das (EE2)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+      {
+        name: "Debjit Dhar (EE1)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+    ],
+    "Ro-Combat": [
+      {
+        name: "Soumyadeep Ghosh (ECE3)",
+        role: "Student Co-Ordinator",
+        phone: "7001022557",
+        type: "coordinator",
+      },
+      {
+        name: "Sumit Ghosh (ECE3)",
+        role: "Student Co-Ordinator",
+        phone: "9749645061",
+        type: "coordinator",
+      },
+      {
+        name: "Sampurna Biswas (CSE3)",
+        role: "Student Co-Ordinator",
+        phone: "8777726522",
+        type: "coordinator",
+      },
+    ],
+    "Ro-Soccer": [
+      {
+        name: "Soumadeep Layek (Core)",
+        role: "Student Co-Ordinator",
+        phone: "7439443801",
+        type: "coordinator",
+      },
+      {
+        name: "Samima Nasrin (CSE3)",
+        role: "Student Co-Ordinator",
+        phone: "7044290112",
+        type: "coordinator",
+      },
+      {
+        name: "Sakchham Kapoor (ECE2)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+      {
+        name: "Aadipto Ghosh (ECE2)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+      {
+        name: "Yash Ghosh (ECE1)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+    ],
+    "Ro-Terrance": [
+      {
+        name: "Abhijit Mahato (ECE3)",
+        role: "Student Co-Ordinator",
+        phone: "9064545534",
+        type: "coordinator",
+      },
+      {
+        name: "Aditya Saha (ECE3)",
+        role: "Student Co-Ordinator",
+        phone: "8240655792",
+        type: "coordinator",
+      },
+      {
+        name: "Insha Hossain (ECE2)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+      {
+        name: "Indranil Maji (EE2)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+    ],
+    "Ro-Sumo": [
+      {
+        name: "D Samir Dora (ECE3)",
+        role: "Student Co-Ordinator",
+        phone: "9477924228",
+        type: "coordinator",
+      },
+      {
+        name: "Sagnek Chowdhury (ECE3)",
+        role: "Student Co-Ordinator",
+        phone: "8584031268",
+        type: "coordinator",
+      },
+      {
+        name: "Abdul Razzak (ECE2)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+      {
+        name: "Sumit Ghara (EE2)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+    ],
+    "Tech Hunt": [
+      {
+        name: "Soumi Maji (CSE3)",
+        role: "Student Co-Ordinator",
+        phone: "8597607718",
+        type: "coordinator",
+      },
+      {
+        name: "Chitradeep Das (MCA)",
+        role: "Student Co-Ordinator",
+        phone: "9547182611",
+        type: "coordinator",
+      },
+      {
+        name: "Prerit Mishra (IT3)",
+        role: "Student Co-Ordinator",
+        phone: "7519103600",
+        type: "coordinator",
+      },
+      {
+        name: "Satarupa Sarkar (CSE2)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+      {
+        name: "Anuradha Kumari (IT3)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+      {
+        name: "Soudeep Shaw (BBA2)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+      {
+        name: "Shrishti Banerjee (IT1)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+    ],
+    Omegatrix: [
+      {
+        name: "Nandini Saboo (CSE3)",
+        role: "Student Co-Ordinator",
+        phone: "7439617848",
+        type: "coordinator",
+      },
+      {
+        name: "Aditya Jaiswal (ECE3)",
+        role: "Student Co-Ordinator",
+        phone: "8100207280",
+        type: "coordinator",
+      },
+      {
+        name: "Ayushi (IT3)",
+        role: "Student Co-Ordinator",
+        phone: "9113122297",
+        type: "coordinator",
+      },
+      {
+        name: "Saikat Maity (BBA3)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+      {
+        name: "Biswajit Biswas (IT2)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+      {
+        name: "Kingshuk Adhikari (CSE2)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+      {
+        name: "Shreyan Dutta (IT1)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+      {
+        name: "Sania Parvin (CSE1)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+    ],
+    "Creative Canvas": [
+      {
+        name: "Rashmi Kumari (IT3)",
+        role: "Student Co-Ordinator",
+        phone: "9142151819",
+        type: "coordinator",
+      },
+      {
+        name: "Madhurima Roy (BCA3)",
+        role: "Student Co-Ordinator",
+        phone: "6294245592",
+        type: "coordinator",
+      },
+      {
+        name: "Riya Pathak (CSE2)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+      {
+        name: "Sucheta Maity (IT2)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+      {
+        name: "Larenza Roy (CSE1)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+    ],
+    "Passion with Reels": [
+      {
+        name: "Soumili Mahindar (CSE3)",
+        role: "Student Co-Ordinator",
+        phone: "8240369593",
+        type: "coordinator",
+      },
+      {
+        name: "Rishav Kumar (IT3)",
+        role: "Student Co-Ordinator",
+        phone: "7488327181",
+        type: "coordinator",
+      },
+      {
+        name: "Shreyanka Satpathy (CSE2)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+      {
+        name: "Srijita Roy (MCA)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+      {
+        name: "Sristi Bandyopadhyay (CSE1)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+      {
+        name: "Parna Majhi (IT1)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+    ],
+    KHET: [
+      {
+        name: "Himobanta Dutta",
+        role: "Student Co-Ordinator",
+        phone: "8167599621",
+        type: "coordinator",
+      },
+      {
+        name: "Susnata Sarkar (ECE2)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+      {
+        name: "Prantik Ghosh (Core)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+    ],
+    "Forza Horizon": [
+      {
+        name: "Snehasish Banerjee (CSE3)",
+        role: "Student Co-Ordinator",
+        phone: "7980441675",
+        type: "coordinator",
+      },
+      {
+        name: "Sayan Das (IT3)",
+        role: "Student Co-Ordinator",
+        phone: "7439763472",
+        type: "coordinator",
+      },
+      {
+        name: "Krittish Barman (MCA)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+      {
+        name: "Krish Agarwalla (BCA2)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+      {
+        name: "Banibrata Mitra (CSE1)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+    ],
+    "FIFA Mobile": [
+      {
+        name: "Adrish Basak (CSE3)",
+        role: "Student Co-Ordinator",
+        phone: "7003940421",
+        type: "coordinator",
+      },
+      {
+        name: "Shubham Mallik (CSE3)",
+        role: "Student Co-Ordinator",
+        phone: "9830339469",
+        type: "coordinator",
+      },
+      {
+        name: "Upashak Ghosal (CSE3)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+      {
+        name: "Souvik Kumar Mallik (CSE1)",
+        role: "Student Volunteer",
+        type: "volunteer",
+      },
+    ],
+  };
+
+  // Get coordinators for current event
+  const currentEventCoordinators =
+    eventCoordinators[name] || coordinators || contact || [];
+
+>>>>>>> 68d4231e8c9d848cbc757547cee76b5e49112da7
   // Map event names to registration routes
   const getRegistrationRoute = (eventName) => {
     const routeMap = {
@@ -502,6 +992,7 @@ const EventDetail = ({ eventData }) => {
                             // Check if it's an empty line
                             const isEmpty = rule.trim() === "";
                             // Highlight Judging Criteria header
+<<<<<<< HEAD
                             const isJudgingCriteria =
                               rule.includes("JUDGING CRITERIA");
                             // Highlight Round 1 and Round 2
@@ -645,6 +1136,25 @@ const EventDetail = ({ eventData }) => {
                                 </div>
                               );
                             }
+=======
+
+                            // const isJudgingCriteria = false; // Remove or properly initialize if needed
+                            // ...existing rule rendering logic...
+                            // (Move misplaced EventDetail definition out of map)
+                            // ...existing code...
+                            // All rule rendering logic should be inside this callback
+                            // Remove unreachable code after map
+
+                            // const isJudgingCriteria = false;
+                            // Check if it's a registration fee header
+                            const isRegistrationFeeHeader =
+                              name === "Passion with Reels" &&
+                              rule.trim().toUpperCase() ===
+                                "REGISTRATION FEES:";
+                            // Check if it's a FAQ question (ends with ?)
+                            const isFaqQuestion = /\?$/.test(rule.trim());
+
+>>>>>>> 68d4231e8c9d848cbc757547cee76b5e49112da7
                             if (isHeader) {
                               // Reduce space below Forza Horizon gold header
                               const isForzaHorizonHeader =
@@ -1496,7 +2006,19 @@ const EventDetail = ({ eventData }) => {
                     <h4
                       style={{
                         color: "#ffc010",
+<<<<<<< HEAD
                         fontSize: "14px",
+=======
+                        fontSize: "16px",
+                      }}
+                    >
+                      Team Size
+                    </p>
+                    <p
+                      style={{
+                        fontSize: "18px",
+                        margin: "0 0 10px 0",
+>>>>>>> 68d4231e8c9d848cbc757547cee76b5e49112da7
                         fontFamily: "Press Start 2P",
                         marginBottom: "15px",
                         lineHeight: "1.5",
@@ -1702,99 +2224,136 @@ const EventDetail = ({ eventData }) => {
               </div>
             </div>
           </div>
-          <div className="row justify-content-center mt-40">
-            {coordinators && coordinators.length > 0
-              ? coordinators.map((coordinator, index) => (
-                  <div
-                    key={index}
-                    className="col-lg-3 col-md-4 col-sm-6 mb-30"
-                    style={{ paddingTop: "10px" }}
-                  >
+
+          {/* ── Student Co-Ordinators row ── */}
+          {currentEventCoordinators.some((p) => p.type === "coordinator") && (
+            <>
+              <div className="row mt-40 justify-content-center text-center">
+                <div className="col-12">
+                  <p className="coord-group-label coord-group-label--coordinator">
+                    ★ Student Co-Ordinators
+                  </p>
+                </div>
+              </div>
+              <div className="row justify-content-center">
+                {currentEventCoordinators
+                  .filter((p) => p.type === "coordinator")
+                  .map((person, index) => (
                     <div
-                      className="nes-container is-rounded"
-                      style={{
-                        borderColor: "#555",
-                        transition: "all 0.4s ease-out",
-                        cursor: "pointer",
-                      }}
-                      onMouseEnter={(e) => {
-                        e.currentTarget.style.transform =
-                          "translateY(-8px) scale(1.02)";
-                        e.currentTarget.style.boxShadow =
-                          "0 5px 15px rgba(255, 215, 0, 0.2), 0 10px 30px rgba(255, 215, 0, 0.15), 0 20px 50px rgba(255, 215, 0, 0.1), 0 0 40px rgba(255, 215, 0, 0.3)";
-                        e.currentTarget.style.borderColor = "#888";
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.transform =
-                          "translateY(0) scale(1)";
-                        e.currentTarget.style.boxShadow = "none";
-                        e.currentTarget.style.borderColor = "#555";
-                      }}
-                    >
-                      <div className="coordinator-avatar">
-                        {coordinator.image ? (
-                          <img src={coordinator.image} alt={coordinator.name} />
-                        ) : (
-                          <div className="avatar-placeholder">
-                            {coordinator.name.charAt(0)}
-                          </div>
-                        )}
-                      </div>
-                      <h4 className="coordinator-name">{coordinator.name}</h4>
-                      <p className="coordinator-role">
-                        {coordinator.role || "Coordinator"}
-                      </p>
-                      <div className="coordinator-contacts">
-                        <p className="coord-phone">{coordinator.phone}</p>
-                        <p className="coord-email">{coordinator.email}</p>
-                      </div>
-                    </div>
-                  </div>
-                ))
-              : contact && contact.length > 0
-                ? contact.map((person, index) => (
-                    <div
-                      key={index}
+                      key={`coord-${index}`}
                       className="col-lg-3 col-md-4 col-sm-6 mb-30"
-                      style={{ paddingTop: "10px" }}
+                      style={{ paddingTop: "10px", display: "flex" }}
                     >
                       <div
-                        className="nes-container is-rounded"
+                        className="coord-card nes-container is-rounded"
                         style={{
-                          borderColor: "#555",
-                          transition: "all 0.4s ease-out",
-                          cursor: "pointer",
+                          borderColor: "#ffc010",
                         }}
                         onMouseEnter={(e) => {
                           e.currentTarget.style.transform =
                             "translateY(-8px) scale(1.02)";
                           e.currentTarget.style.boxShadow =
-                            "0 5px 15px rgba(255, 215, 0, 0.2), 0 10px 30px rgba(255, 215, 0, 0.15), 0 20px 50px rgba(255, 215, 0, 0.1), 0 0 40px rgba(255, 215, 0, 0.3)";
-                          e.currentTarget.style.borderColor = "#888";
+                            "0 5px 15px rgba(255, 192, 16, 0.3), 0 10px 30px rgba(255, 192, 16, 0.2), 0 0 40px rgba(255, 192, 16, 0.35)";
+                          e.currentTarget.style.borderColor = "#ffd54f";
                         }}
                         onMouseLeave={(e) => {
                           e.currentTarget.style.transform =
                             "translateY(0) scale(1)";
                           e.currentTarget.style.boxShadow = "none";
-                          e.currentTarget.style.borderColor = "#555";
+                          e.currentTarget.style.borderColor = "#ffc010";
                         }}
                       >
-                        <div className="coordinator-avatar">
-                          <div className="avatar-placeholder">
-                            {person.name.charAt(0)}
+                        {/* dim bg image */}
+                        <div
+                          className="coord-card-bg"
+                          style={{
+                            backgroundImage: `url(${coordinatorCardBg})`,
+                          }}
+                        />
+                        {/* content sits above bg */}
+                        <div className="coord-card-content">
+                          <h4 className="coordinator-name">{person.name}</h4>
+                          <p className="coordinator-role">
+                            {person.role || "Student Co-Ordinator"}
+                          </p>
+                          <div className="coordinator-contacts">
+                            {person.phone && (
+                              <div className="coord-phone-wrapper">
+                                <svg className="phone-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                  <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                                </svg>
+                                <p className="coord-phone">{person.phone}</p>
+                              </div>
+                            )}
                           </div>
-                        </div>
-                        <h4 className="coordinator-name">{person.name}</h4>
-                        <p className="coordinator-role">Contact Person</p>
-                        <div className="coordinator-contacts">
-                          <p className="coord-phone">{person.phone}</p>
-                          <p className="coord-email">{person.email}</p>
                         </div>
                       </div>
                     </div>
-                  ))
-                : null}
-          </div>
+                  ))}
+              </div>
+            </>
+          )}
+
+          {/* ── Student Volunteers row ── */}
+          {currentEventCoordinators.some((p) => p.type === "volunteer") && (
+            <>
+              <div className="row mt-30 justify-content-center text-center">
+                <div className="col-12">
+                  <p className="coord-group-label coord-group-label--volunteer">
+                    ✦ Student Volunteers
+                  </p>
+                </div>
+              </div>
+              <div className="row justify-content-center">
+                {currentEventCoordinators
+                  .filter((p) => p.type === "volunteer")
+                  .map((person, index) => (
+                    <div
+                      key={`vol-${index}`}
+                      className="col-lg-3 col-md-4 col-sm-6 mb-30"
+                      style={{ paddingTop: "10px", display: "flex" }}
+                    >
+                      <div
+                        className="coord-card nes-container is-rounded"
+                        style={{
+                          borderColor: "#00ffea",
+                        }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.transform =
+                            "translateY(-8px) scale(1.02)";
+                          e.currentTarget.style.boxShadow =
+                            "0 5px 15px rgba(0, 255, 234, 0.25), 0 10px 30px rgba(0, 255, 234, 0.15), 0 0 40px rgba(0, 255, 234, 0.3)";
+                          e.currentTarget.style.borderColor = "#66fff5";
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.transform =
+                            "translateY(0) scale(1)";
+                          e.currentTarget.style.boxShadow = "none";
+                          e.currentTarget.style.borderColor = "#00ffea";
+                        }}
+                      >
+                        {/* dim bg image */}
+                        <div
+                          className="coord-card-bg"
+                          style={{
+                            backgroundImage: `url(${coordinatorCardBg})`,
+                          }}
+                        />
+                        {/* content sits above bg */}
+                        <div className="coord-card-content">
+                          <h4 className="coordinator-name coordinator-name--volunteer">
+                            {person.name}
+                          </h4>
+                          <p className="coordinator-role coordinator-role--volunteer">
+                            Student Volunteer
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+              </div>
+            </>
+          )}
         </div>
       </section>
     </Fragment>

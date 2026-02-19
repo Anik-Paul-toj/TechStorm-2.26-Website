@@ -1,6 +1,5 @@
 /* Judging Criteria Header Underline */
 
-
 .judging-criteria-underline {
     display: none !important;
 }
@@ -44,20 +43,19 @@
 }
 
 .event-name-section::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: 
-        repeating-linear-gradient(
-            0deg,
-            rgba(255, 192, 16, 0.03) 0px,
-            transparent 1px,
-            transparent 2px,
-            rgba(255, 192, 16, 0.03) 3px
-        );
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(255, 192, 16, 0.03) 0px,
+        transparent 1px,
+        transparent 2px,
+        rgba(255, 192, 16, 0.03) 3px
+    );
     pointer-events: none;
 }
 
@@ -68,7 +66,7 @@
 
 .event-title-white,
 .event-title-gold {
-    font-family: 'Press Start 2P', cursive;
+    font-family: "Press Start 2P", cursive;
     font-weight: 700;
     line-height: 1.2;
     margin: 0;
@@ -81,7 +79,7 @@
     letter-spacing: 3px;
     color: #ffffff;
     margin-right: 20px;
-    text-shadow: 
+    text-shadow:
         4px 4px 0 rgba(0, 0, 0, 0.3),
         0 0 20px rgba(255, 255, 255, 0.3);
 }
@@ -90,7 +88,7 @@
     font-size: 96px;
     letter-spacing: 3px;
     color: #ffc010;
-    text-shadow: 
+    text-shadow:
         4px 4px 0 rgba(0, 0, 0, 0.3),
         0 0 30px rgba(255, 192, 16, 0.7);
 }
@@ -121,7 +119,7 @@
     position: relative;
     background: rgba(0, 0, 0, 0.3);
     border: 3px solid #ffc010;
-    box-shadow: 
+    box-shadow:
         0 0 20px rgba(255, 192, 16, 0.3),
         inset 0 0 30px rgba(0, 0, 0, 0.5);
 }
@@ -162,18 +160,18 @@
 .heading-white {
     font-size: 48px;
     color: #ffffff;
-    text-shadow: 
+    text-shadow:
         4px 4px 0 rgba(0, 0, 0, 0.3),
         0 0 20px rgba(255, 255, 255, 0.3);
     margin-right: 10px;
 }
 
 .heading-gold {
-    font-family: 'Silkscreen', monospace;
+    font-family: "Silkscreen", monospace;
     font-size: 48px;
     font-weight: 600;
     color: #ffc010;
-    text-shadow: 
+    text-shadow:
         4px 4px 0 rgba(0, 0, 0, 0.3),
         0 0 30px rgba(255, 192, 16, 0.7);
 }
@@ -203,7 +201,7 @@
 .about-content .about-text,
 .about-content p.about-text,
 p.about-text {
-    font-family: 'Press Start 2P', cursive;
+    font-family: "Press Start 2P", cursive;
     font-size: 11px;
     line-height: 2.2;
     color: #ffffff !important;
@@ -251,14 +249,14 @@ p.about-text {
 }
 
 .meta-label {
-    font-family: 'Press Start 2P', cursive;
+    font-family: "Press Start 2P", cursive;
     font-size: 9px;
     color: #00ffea;
     text-transform: uppercase;
 }
 
 .meta-value {
-    font-family: 'Press Start 2P', cursive;
+    font-family: "Press Start 2P", cursive;
     font-size: 12px;
     color: #ffffff;
 }
@@ -278,7 +276,11 @@ p.about-text {
     align-items: center;
     gap: 20px;
     padding: 25px;
-    background: linear-gradient(135deg, rgba(255, 192, 16, 0.1) 0%, rgba(255, 192, 16, 0.05) 100%);
+    background: linear-gradient(
+        135deg,
+        rgba(255, 192, 16, 0.1) 0%,
+        rgba(255, 192, 16, 0.05) 100%
+    );
     border: 3px solid #ffc010;
     box-shadow: 0 5px 20px rgba(255, 192, 16, 0.3);
     margin-bottom: 30px;
@@ -290,7 +292,7 @@ p.about-text {
 }
 
 .fee-text {
-    font-family: 'Press Start 2P', cursive;
+    font-family: "Press Start 2P", cursive;
     font-size: 16px;
     color: #ffc010;
     text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5);
@@ -302,7 +304,7 @@ p.about-text {
 }
 
 .qr-title {
-    font-family: 'Press Start 2P', cursive;
+    font-family: "Press Start 2P", cursive;
     font-size: 12px;
     color: #00ffea;
     margin-bottom: 20px;
@@ -330,7 +332,7 @@ p.about-text {
 
 .payment-button {
     display: inline-block;
-    font-family: 'Press Start 2P', cursive;
+    font-family: "Press Start 2P", cursive;
     font-size: 14px;
     color: #1a0e22;
     background: #ffc010;
@@ -355,7 +357,7 @@ p.about-text {
 }
 
 .prizes-title {
-    font-family: 'Press Start 2P', cursive;
+    font-family: "Press Start 2P", cursive;
     font-size: 14px;
     color: #ffc010;
     margin-bottom: 20px;
@@ -383,14 +385,14 @@ p.about-text {
 }
 
 .prize-pos {
-    font-family: 'Press Start 2P', cursive;
+    font-family: "Press Start 2P", cursive;
     font-size: 10px;
     color: #00ffea;
     flex: 1;
 }
 
 .prize-amt {
-    font-family: 'Press Start 2P', cursive;
+    font-family: "Press Start 2P", cursive;
     font-size: 12px;
     color: #ffc010;
     font-weight: bold;
@@ -430,7 +432,7 @@ p.about-text {
 
 .rule-text {
     flex: 1;
-    font-family: 'Press Start 2P', cursive;
+    font-family: "Press Start 2P", cursive;
     font-size: 10px;
     line-height: 2;
     color: #ffffff;
@@ -452,79 +454,145 @@ p.about-text {
     transform: translateX(-50%) skewX(-5deg);
 }
 
-.coordinator-card {
+/* ── Group labels (Coordinators / Volunteers) ── */
+.coord-group-label {
+    font-family: "Press Start 2P", cursive;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 0 auto 6px;
+    padding: 8px 18px;
+    display: block;
     text-align: center;
-    padding: 30px 20px;
-    background: linear-gradient(135deg, rgba(26, 14, 34, 0.8) 0%, rgba(15, 10, 26, 0.9) 100%);
-    border: 3px solid #ffc010;
-    box-shadow: 0 5px 20px rgba(255, 192, 16, 0.2);
+    border-left: none;
+    border-bottom: 3px solid currentColor;
+    width: fit-content;
+}
+
+.coord-group-label--coordinator {
+    color: #ffc010;
+    background: rgba(255, 192, 16, 0.07);
+}
+
+.coord-group-label--volunteer {
+    color: #00ffea;
+    background: rgba(0, 255, 234, 0.06);
+}
+
+/* ── Card shell ── */
+.coord-card {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition:
+        transform 0.4s ease-out,
+        box-shadow 0.4s ease-out,
+        border-color 0.4s ease-out;
+    cursor: pointer;
+    /* remove any default nes-container background */
+    background: transparent !important;
+}
+
+/* ── Dim background image via pseudo layer ── */
+.coord-card-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center bottom;
+    opacity: 0.28;
+    filter: brightness(1.1) saturate(1.4);
+    z-index: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+.coord-card:hover .coord-card-bg {
+    opacity: 0.45;
+}
+
+/* ── Text content sits above the bg ── */
+.coord-card-content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+}
+
+/* ── Name ── */
+.coordinator-name {
+    font-family: "Press Start 2P", cursive;
+    font-size: 11px;
+    color: #ffc010;
+    margin: 0 0 10px;
+    line-height: 1.7;
+}
+
+.coordinator-name--volunteer {
+    color: #00ffea;
+}
+
+/* ── Role badge ── */
+.coordinator-role {
+    font-family: "Press Start 2P", cursive;
+    font-size: 8px;
+    color: #ffc010;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: rgba(255, 192, 16, 0.1);
+    border: 1px solid rgba(255, 192, 16, 0.35);
+    padding: 4px 8px;
+    display: inline-block;
+}
+
+.coordinator-role--volunteer {
+    color: #00ffea;
+    background: rgba(0, 255, 234, 0.08);
+    border-color: rgba(0, 255, 234, 0.3);
+}
+
+/* ── Phone ── */
+.coordinator-contacts {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255, 192, 16, 0.25);
+}
+
+.coord-phone-wrapper {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border: 2px solid #ffc010;
+    border-radius: 6px;
+    background: rgba(255, 192, 16, 0.1);
+    box-shadow: 0 0 10px rgba(255, 192, 16, 0.2);
     transition: all 0.3s ease;
 }
 
-.coordinator-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(255, 192, 16, 0.4);
-    border-color: #00ffea;
+.coord-phone-wrapper:hover {
+    background: rgba(255, 192, 16, 0.2);
+    box-shadow: 0 0 15px rgba(255, 192, 16, 0.4);
+    transform: translateY(-2px);
 }
 
-.coordinator-avatar {
-    width: 100px;
-    height: 100px;
-    margin: 0 auto 20px;
-    border: 4px solid #ffc010;
-    box-shadow: 0 0 20px rgba(255, 192, 16, 0.4);
-    overflow: hidden;
-    border-radius: 50%;
-}
-
-.coordinator-avatar img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    image-rendering: pixelated;
-}
-
-.avatar-placeholder {
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, #ffc010 0%, #ff8c00 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Press Start 2P', cursive;
-    font-size: 36px;
-    color: #1a0e22;
-    font-weight: bold;
-}
-
-.coordinator-name {
-    font-family: 'Press Start 2P', cursive;
-    font-size: 12px;
+.phone-icon {
+    width: 14px;
+    height: 14px;
     color: #ffc010;
-    margin: 15px 0 8px;
-    line-height: 1.6;
-}
-
-.coordinator-role {
-    font-family: 'Press Start 2P', cursive;
-    font-size: 9px;
-    color: #00ffea;
-    margin-bottom: 15px;
-    text-transform: uppercase;
-}
-
-.coordinator-contacts {
-    margin-top: 15px;
-    padding-top: 15px;
-    border-top: 2px solid rgba(255, 192, 16, 0.3);
+    flex-shrink: 0;
 }
 
 .coord-phone,
 .coord-email {
-    font-family: 'Press Start 2P', cursive;
-    font-size: 8px;
+    font-family: "Press Start 2P", cursive;
+    font-size: 11px;
     color: #ffffff;
-    margin: 8px 0;
+    margin: 0;
     line-height: 1.8;
     word-break: break-all;
 }
@@ -586,7 +654,7 @@ p.about-text {
         font-size: 9px;
     }
 
-   .meta-value,
+    .meta-value,
     .fee-text {
         font-size: 10px;
     }

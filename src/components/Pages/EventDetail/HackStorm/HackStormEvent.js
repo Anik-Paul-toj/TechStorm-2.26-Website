@@ -117,8 +117,6 @@ const HackStormEvent = () => {
               }
             ],
     rules: [
-      "Coding Time: 10:00-(6:30 – 7:00)",
-      "Judging and Prize declaration : (6:30 – 7:00) – 8:00",
       "HACKSTORM HACKATHON RULES",
       "",
       "THIS IS AN OFFLINE EVENT WITH NO ENTRY FEE",
@@ -191,8 +189,14 @@ const HackStormEvent = () => {
       "Providing false information regarding AI tool usage or project development.",
       "Any unsportsmanlike conduct or rule violations at organizer discretion.",
       "Organizer decisions on disqualification are final.",
+<<<<<<< HEAD
       
      ],
+=======
+      "",
+    ],
+    prizes: [],
+>>>>>>> 68d4231e8c9d848cbc757547cee76b5e49112da7
     contact: [
       {
         name: "Hack Coordinator",

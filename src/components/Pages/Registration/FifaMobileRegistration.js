@@ -130,11 +130,6 @@ const FifaMobileRegistration = () => {
             <p className="registration-subtitle">Registration Information Required from Participants</p>
           </div>
 
-          {submitSuccess && (
-            <div className="success-message">
-              Registration Successful! Redirecting to events page...
-            </div>
-          )}
           {errors.submit && (
             <div className="error-message" style={{ 
               marginBottom: '20px', 
@@ -341,14 +336,14 @@ const FifaMobileRegistration = () => {
                         id="paymentReceipt"
                         onChange={handleInputChange}
                         className="file-upload-input"
-                        accept="image/*,.pdf"
+                        accept="image/jpeg,image/jpg,image/png,.jpg,.jpeg,.png"
                       />
                       <label htmlFor="paymentReceipt" className="file-upload-label">
-                        <div className="file-upload-icon">FILE</div>
+                        <div className="file-upload-icon"></div>
                         <div className="file-upload-text">
                           <span className="highlight">Click to upload</span><br/>
                           {formData.paymentMode === 'online' ? 'Payment screenshot' : 'Offline receipt'}<br/>
-                          (PNG, JPG, PDF)
+                          (PNG, JPG, JPEG)
                         </div>
                       </label>
                     </div>
@@ -430,6 +425,12 @@ const FifaMobileRegistration = () => {
                 Cancel
               </button>
             </div>
+
+            {submitSuccess && (
+              <div className="success-message" style={{ marginTop: '20px' }}>
+                ✓ Registration Successful! Redirecting to events page...
+              </div>
+            )}
           </form>
         </div>
       </div>

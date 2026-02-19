@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import heroVideo from '../../../assets/img/HERO.mp4';
 import aboutBg from '../../../assets/img/aboutbg.png';
 import SectionTitle from '../../Utilities/SectionTitle/SectionTitle';
-import Member from '../../Utilities/Team/Member';
+import ProfileCardMember from '../../Utilities/Team/ProfileCardMember';
 import { coreMembers } from './teamData';
 import TeamEventCards from './TeamEventCards';
 import './Team.css';
@@ -54,7 +54,7 @@ const Teams = () => {
                 </div>
               </div>
               <div className="row team-org-members-row">
-                <Member teamData={coreMembers} />
+                <ProfileCardMember teamData={coreMembers} />
               </div>
             </div>
           </section>

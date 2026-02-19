@@ -121,14 +121,7 @@ const ForzaHorizonRegistration = () => {
           <div className="registration-header">
             <h1 className="registration-title">Forza Horizon Registration Form</h1>
             <p className="registration-subtitle">Note: "*" indicates mandatory fields.</p>
-          </div>
-
-          {submitSuccess && (
-            <div className="success-message">
-              Registration Successful! Redirecting to events page...
-            </div>
-          )}
-          {errors.submit && (
+          </div>{errors.submit && (
             <div className="error-message" style={{ 
               marginBottom: '20px', 
               padding: '15px', 
@@ -223,15 +216,15 @@ const ForzaHorizonRegistration = () => {
                       name="participantIdProof"
                       id="participantIdProof"
                       className="file-upload-input"
-                      accept="image/*,.pdf"
+                      accept="image/jpeg,image/jpg,image/png,.jpg,.jpeg,.png"
                       onChange={handleInputChange}
                     />
                     <label htmlFor="participantIdProof" className="file-upload-label">
-                      <div className="file-upload-icon">FILE</div>
+                      <div className="file-upload-icon"></div>
                       <div className="file-upload-text">
                         <span className="highlight">Click to upload</span>
                         <br />
-                        PNG, JPG, PDF
+                        PNG, JPG, JPEG
                       </div>
                     </label>
                   </div>
@@ -294,15 +287,15 @@ const ForzaHorizonRegistration = () => {
                       name="paymentScreenshot"
                       id="paymentScreenshot"
                       className="file-upload-input"
-                      accept="image/*,.pdf"
+                      accept="image/jpeg,image/jpg,image/png,.jpg,.jpeg,.png"
                       onChange={handleInputChange}
                     />
                     <label htmlFor="paymentScreenshot" className="file-upload-label">
-                      <div className="file-upload-icon">FILE</div>
+                      <div className="file-upload-icon"></div>
                       <div className="file-upload-text">
                         <span className="highlight">Click to upload</span>
                         <br />
-                        PNG, JPG, PDF
+                        PNG, JPG, JPEG
                       </div>
                     </label>
                   </div>
@@ -360,6 +353,12 @@ const ForzaHorizonRegistration = () => {
                 Cancel
               </button>
             </div>
+
+            {submitSuccess && (
+              <div className="success-message" style={{ marginTop: '20px' }}>
+                ✓ Registration Successful! Redirecting to events page...
+              </div>
+            )}
           </form>
         </div>
       </div>
