@@ -677,13 +677,16 @@ function InfoCard({ card, isActive, progress, index, isMobile }) {
   return (
     <div
       ref={cardRef}
+      data-info-card="true"
       style={{
         background: active ? "rgba(0,0,0,0.92)" : "rgba(0,0,0,0.45)",
         border: `2px solid ${active ? card.color : "rgba(255,255,255,0.06)"}`,
         padding: isMobile ? "20px 16px" : "16px 20px",
-        width: isMobile ? "100vw" : "auto",
+        width: isMobile ? "78vw" : "auto",
+        maxWidth: isMobile ? "320px" : "none",
+        minWidth: isMobile ? "240px" : "auto",
         flexShrink: 0,
-        scrollSnapAlign: isMobile ? "start" : "none",
+        scrollSnapAlign: isMobile ? "center" : "none",
         boxSizing: "border-box",
         transition: isMobile
           ? "all 0.5s cubic-bezier(0.16, 1, 0.3, 1)"
@@ -691,9 +694,9 @@ function InfoCard({ card, isActive, progress, index, isMobile }) {
         transform: active
           ? "scale(1)"
           : isMobile
-            ? "scale(0.9) translateY(10px)"
+            ? "scale(0.97)"
             : "scale(0.96)",
-        opacity: active ? 1 : isMobile ? 0.4 : 0.2,
+        opacity: active ? 1 : isMobile ? 0.65 : 0.2,
         boxShadow: active
           ? `0 0 35px ${card.color}22, 0 8px 40px rgba(0,0,0,0.95)`
           : "none",
@@ -863,12 +866,17 @@ export default function About() {
   /* Sync activeCard with horizontal scroll position on mobile */
   useEffect(() => {
     if (!isMobile) return;
-    const wrapper = cardsWrapperRef.current;
+    // Use cardsContainerRef as the scroll container on mobile
+    const wrapper = cardsContainerRef.current;
     if (!wrapper) return;
 
     const onHScroll = () => {
       const scrollLeft = wrapper.scrollLeft;
-      const cardWidth = wrapper.offsetWidth;
+      // Find the first actual card (skip non-card elements like <style>)
+      const firstCard = wrapper.querySelector("[data-info-card]");
+      const cardWidth = firstCard
+        ? firstCard.offsetWidth + 12 /* gap between cards */
+        : wrapper.offsetWidth;
       const idx = Math.min(
         Math.round(scrollLeft / cardWidth),
         INFO_CARDS.length - 1,
@@ -1079,19 +1087,16 @@ export default function About() {
               ref={cardsWrapperRef}
               style={{
                 flex: isMobile ? "none" : "0 0 520px",
-                width: isMobile ? "100vw" : "520px",
+                width: isMobile ? "calc(100% + 40px)" : "520px",
+                marginLeft: isMobile ? "-20px" : "0",
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "flex-start",
-                gap: isMobile ? "0" : "12px",
-                overflowX: isMobile ? "auto" : "hidden",
+                gap: isMobile ? "8px" : "12px",
+                overflowX: "visible",
                 overflowY: "visible",
-                scrollSnapType: isMobile ? "x mandatory" : "none",
-                WebkitOverflowScrolling: "touch",
-                scrollbarWidth: "none",
-                msOverflowStyle: "none",
                 zIndex: 2,
-                paddingBottom: isMobile ? "8px" : "0",
+                paddingBottom: isMobile ? "12px" : "0",
               }}
             >
               {/* Swipe Guide for Mobile */}
@@ -1099,38 +1104,50 @@ export default function About() {
                 <div
                   style={{
                     fontFamily: "'VT323', monospace",
-                    fontSize: "14px",
+                    fontSize: "15px",
                     color: "var(--orange)",
                     textAlign: "center",
                     letterSpacing: "3px",
-                    marginBottom: "10px",
+                    marginBottom: "4px",
+                    paddingLeft: "20px",
+                    paddingRight: "20px",
                     animation: "blink 2s infinite",
                   }}
                 >
-                  ▼ SCROLL DOWN TO EXPLORE QUESTS ▼
+                  ◀ SWIPE TO EXPLORE QUESTS ▶
                 </div>
               )}
 
-              {/* Cards Container */}
+              {/* Scrollbar suppression — lives outside the scroll container */}
+              <style
+                dangerouslySetInnerHTML={{
+                  __html: `
+                .no-scrollbar::-webkit-scrollbar { display: none; }
+                .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+              `,
+                }}
+              />
+
+              {/* Cards Container — only this row scrolls horizontally on mobile */}
               <div
                 ref={cardsContainerRef}
                 className="no-scrollbar"
                 style={{
                   display: "flex",
                   flexDirection: isMobile ? "row" : "column",
-                  gap: isMobile ? "0" : "12px",
-                  width: isMobile ? "max-content" : "100%",
-                  overflowX: "visible",
+                  gap: isMobile ? "12px" : "12px",
+                  width: "100%",
+                  overflowX: isMobile ? "auto" : "visible",
+                  overflowY: "visible",
+                  scrollSnapType: isMobile ? "x mandatory" : "none",
+                  scrollPaddingLeft: isMobile ? "20px" : "0",
+                  WebkitOverflowScrolling: isMobile ? "touch" : "auto",
+                  paddingLeft: isMobile ? "20px" : "0",
+                  paddingRight: isMobile ? "20px" : "0",
+                  boxSizing: "border-box",
                   position: "relative",
                 }}
               >
-                <style
-                  dangerouslySetInnerHTML={{
-                    __html: `
-                  .no-scrollbar::-webkit-scrollbar { display: none; }
-                `,
-                  }}
-                />
                 {INFO_CARDS.map((card, i) => (
                   <InfoCard
                     key={i}
@@ -1143,10 +1160,10 @@ export default function About() {
                 ))}
               </div>
 
-              {/* Status footer & Indicators */}
+              {/* Status footer & Indicators — always visible, never scrolls away */}
               <div
                 style={{
-                  marginTop: "12px",
+                  marginTop: "8px",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: isMobile ? "center" : "space-between",
@@ -1154,6 +1171,8 @@ export default function About() {
                   fontSize: "8px",
                   color: "#444",
                   letterSpacing: "1px",
+                  paddingLeft: isMobile ? "20px" : "0",
+                  paddingRight: isMobile ? "20px" : "0",
                 }}
               >
                 <div style={{ display: "flex", gap: "8px" }}>
@@ -1161,14 +1180,15 @@ export default function About() {
                     <div
                       key={i}
                       style={{
-                        width: !isMobile && i === activeCard ? "20px" : "8px",
+                        width: i === activeCard ? "20px" : "8px",
                         height: "8px",
-                        background:
-                          !isMobile && i === activeCard ? c.color : "#222",
-                        border: `1px solid ${!isMobile && i === activeCard ? c.color : "#333"}`,
-                        borderRadius: isMobile ? "50%" : "0",
+                        background: i === activeCard ? c.color : "#333",
+                        border: `1px solid ${i === activeCard ? c.color : "#444"}`,
+                        borderRadius: isMobile ? "4px" : "0",
                         transition: "all 0.4s ease",
-                        opacity: isMobile ? 0.3 : 1,
+                        opacity: 1,
+                        boxShadow:
+                          i === activeCard ? `0 0 6px ${c.color}` : "none",
                       }}
                     />
                   ))}
