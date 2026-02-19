@@ -24,6 +24,86 @@ const EventDetail = ({ eventData }) => {
     teamSize,
   } = eventData;
 
+  // Refs for auto-scroll functionality
+  const scrollContainerRef = useRef(null);
+  const autoScrollInterval = useRef(null);
+  const pauseTimeout = useRef(null);
+
+  // State for rules dialog
+  const [isRulesDialogOpen, setIsRulesDialogOpen] = useState(false);
+
+  // Event-specific coordinators data
+  const eventCoordinators = {
+    "Code-Bee": [
+      { name: "Saikat Mondal", role: "Student Co-Ordinator", phone: "6291341212", type: "coordinator" },
+      { name: "Adarsh Kumar", role: "Student Co-Ordinator", phone: "8271238822", type: "coordinator" },
+      { name: "Medhansh Arora", role: "Volunteer", phone: "7003962640", type: "volunteer" }
+    ],
+    "Hack Storm": [
+      { name: "Ootso Dhar Chowdhury", role: "Student Co-Ordinator", phone: "9593135858", type: "coordinator" },
+      { name: "Sambit Das", role: "Student Co-Ordinator", phone: "8240653185", type: "coordinator" },
+      { name: "Parthita Chattopadhay", role: "Volunteer", phone: "7001088737", type: "volunteer" },
+      { name: "Priyam Kumar", role: "Volunteer", phone: "8873932040", type: "volunteer" }
+    ],
+    "TechnoMania": [
+      { name: "Disha Saha", role: "Student Co-Ordinator", phone: "9339744395", type: "coordinator" },
+      { name: "Arpita Gupta", role: "Student Co-Ordinator", phone: "9832199722", type: "coordinator" }
+    ],
+    "Ro-Navigator": [
+      { name: "Arushmita Sikder", role: "Student Co-Ordinator", phone: "8100396199", type: "coordinator" },
+      { name: "Amrita Ghosh", role: "Student Co-Ordinator", phone: "9800472736", type: "coordinator" }
+    ],
+    "Ro-Combat": [
+      { name: "Soumyadeep Ghosh", role: "Student Co-Ordinator", phone: "7001022557", type: "coordinator" },
+      { name: "Sumit Ghosh", role: "Student Co-Ordinator", phone: "9749645061", type: "coordinator" },
+      { name: "Sampurna Biswas", role: "Volunteer", phone: "8777726522", type: "volunteer" }
+    ],
+    "Ro-Soccer": [
+      { name: "Soumadeep Layek", role: "Student Co-Ordinator", phone: "7439443801", type: "coordinator" },
+      { name: "Samima Nasrin", role: "Student Co-Ordinator", phone: "7044290112", type: "coordinator" }
+    ],
+    "Ro-Terrance": [
+      { name: "Abhijit Mahato", role: "Student Co-Ordinator", phone: "9064545534", type: "coordinator" },
+      { name: "Aditya Saha", role: "Student Co-Ordinator", phone: "8240655792", type: "coordinator" }
+    ],
+    "Ro-Sumo": [
+      { name: "D Samir Dora", role: "Student Co-Ordinator", phone: "9477924228", type: "coordinator" },
+      { name: "Sagnek Chowdhury", role: "Student Co-Ordinator", phone: "8584031268", type: "coordinator" }
+    ],
+    "Tech Hunt": [
+      { name: "Soumi Maji", role: "Student Co-Ordinator", phone: "8597607718", type: "coordinator" },
+      { name: "Chitradeep Das", role: "Student Co-Ordinator", phone: "9547182611", type: "coordinator" },
+      { name: "Prerit Mishra", role: "Volunteer", phone: "7519103600", type: "volunteer" }
+    ],
+    "Omegatrix": [
+      { name: "Nandini Saboo", role: "Student Co-Ordinator", phone: "7439617848", type: "coordinator" },
+      { name: "Aditya Jaiswal", role: "Student Co-Ordinator", phone: "8100207280", type: "coordinator" },
+      { name: "Ayushi", role: "Volunteer", phone: "9113122297", type: "volunteer" }
+    ],
+    "Creative Canvas": [
+      { name: "Rashmi Kumari", role: "Student Co-Ordinator", phone: "9142151819", type: "coordinator" },
+      { name: "Madhurima Roy", role: "Student Co-Ordinator", phone: "6294245592", type: "coordinator" }
+    ],
+    "Passion with Reels": [
+      { name: "Soumili Mahindar", role: "Student Co-Ordinator", phone: "8240369593", type: "coordinator" },
+      { name: "Rishav Kumar", role: "Student Co-Ordinator", phone: "7488327181", type: "coordinator" }
+    ],
+    "KHET": [
+      { name: "Himobanta Dutta", role: "Student Co-Ordinator", phone: "8167599621", type: "coordinator" }
+    ],
+    "Forza Horizon": [
+      { name: "Snehasish Banerjee", role: "Student Co-Ordinator", phone: "7980441675", type: "coordinator" },
+      { name: "Sayan Das", role: "Student Co-Ordinator", phone: "7439763472", type: "coordinator" }
+    ],
+    "FIFA Mobile": [
+      { name: "Adrish Basak", role: "Student Co-Ordinator", phone: "7003940421", type: "coordinator" },
+      { name: "Shubham Mallik", role: "Student Co-Ordinator", phone: "9830339469", type: "coordinator" }
+    ]
+  };
+
+  // Get coordinators for current event
+  const currentEventCoordinators = eventCoordinators[name] || coordinators || contact || [];
+
   // Map event names to registration routes
   const getRegistrationRoute = (eventName) => {
     const routeMap = {
@@ -1654,8 +1734,8 @@ const EventDetail = ({ eventData }) => {
             </div>
           </div>
           <div className="row justify-content-center mt-40">
-            {coordinators && coordinators.length > 0
-              ? coordinators.map((coordinator, index) => (
+            {currentEventCoordinators && currentEventCoordinators.length > 0
+              ? currentEventCoordinators.map((person, index) => (
                   <div
                     key={index}
                     className="col-lg-3 col-md-4 col-sm-6 mb-30"
@@ -1683,68 +1763,30 @@ const EventDetail = ({ eventData }) => {
                       }}
                     >
                       <div className="coordinator-avatar">
-                        {coordinator.image ? (
-                          <img src={coordinator.image} alt={coordinator.name} />
+                        {person.image ? (
+                          <img src={person.image} alt={person.name} />
                         ) : (
                           <div className="avatar-placeholder">
-                            {coordinator.name.charAt(0)}
+                            {person.name.charAt(0)}
                           </div>
                         )}
                       </div>
-                      <h4 className="coordinator-name">{coordinator.name}</h4>
+                      <h4 className="coordinator-name">{person.name}</h4>
                       <p className="coordinator-role">
-                        {coordinator.role || "Coordinator"}
+                        {person.type === "volunteer" ? "Volunteer" : person.role || "Student Co-Ordinator"}
                       </p>
                       <div className="coordinator-contacts">
-                        <p className="coord-phone">{coordinator.phone}</p>
-                        <p className="coord-email">{coordinator.email}</p>
+                        {person.type === "coordinator" && person.phone && (
+                          <p className="coord-phone">{person.phone}</p>
+                        )}
+                        {person.email && (
+                          <p className="coord-email">{person.email}</p>
+                        )}
                       </div>
                     </div>
                   </div>
                 ))
-              : contact && contact.length > 0
-                ? contact.map((person, index) => (
-                    <div
-                      key={index}
-                      className="col-lg-3 col-md-4 col-sm-6 mb-30"
-                      style={{ paddingTop: "10px" }}
-                    >
-                      <div
-                        className="nes-container is-rounded"
-                        style={{
-                          borderColor: "#555",
-                          transition: "all 0.4s ease-out",
-                          cursor: "pointer",
-                        }}
-                        onMouseEnter={(e) => {
-                          e.currentTarget.style.transform =
-                            "translateY(-8px) scale(1.02)";
-                          e.currentTarget.style.boxShadow =
-                            "0 5px 15px rgba(255, 215, 0, 0.2), 0 10px 30px rgba(255, 215, 0, 0.15), 0 20px 50px rgba(255, 215, 0, 0.1), 0 0 40px rgba(255, 215, 0, 0.3)";
-                          e.currentTarget.style.borderColor = "#888";
-                        }}
-                        onMouseLeave={(e) => {
-                          e.currentTarget.style.transform =
-                            "translateY(0) scale(1)";
-                          e.currentTarget.style.boxShadow = "none";
-                          e.currentTarget.style.borderColor = "#555";
-                        }}
-                      >
-                        <div className="coordinator-avatar">
-                          <div className="avatar-placeholder">
-                            {person.name.charAt(0)}
-                          </div>
-                        </div>
-                        <h4 className="coordinator-name">{person.name}</h4>
-                        <p className="coordinator-role">Contact Person</p>
-                        <div className="coordinator-contacts">
-                          <p className="coord-phone">{person.phone}</p>
-                          <p className="coord-email">{person.email}</p>
-                        </div>
-                      </div>
-                    </div>
-                  ))
-                : null}
+              : null}
           </div>
         </div>
       </section>
