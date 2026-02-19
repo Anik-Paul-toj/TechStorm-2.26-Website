@@ -319,7 +319,7 @@ const ProfileCardComponent = ({
     handleDeviceOrientation,
   ]);
 
-  const cardRadius = "30px";
+  const cardRadius = "0px";
 
   const cardStyle = useMemo(
     () => ({
@@ -390,7 +390,8 @@ const ProfileCardComponent = ({
         " ",
       ),
     gridArea: "1 / -1",
-    borderRadius: cardRadius,
+    borderRadius: "0",
+    imageRendering: "pixelated",
     pointerEvents: "none",
   };
 
@@ -402,7 +403,8 @@ const ProfileCardComponent = ({
     filter: "brightness(0.8) contrast(1.2)",
     zIndex: 4,
     gridArea: "1 / -1",
-    borderRadius: cardRadius,
+    borderRadius: "0",
+    imageRendering: "pixelated",
     pointerEvents: "none",
   };
 
@@ -433,13 +435,26 @@ const ProfileCardComponent = ({
             height: "65svh",
             maxHeight: "420px",
             aspectRatio: "0.78",
-            borderRadius: cardRadius,
+            borderRadius: "0",
             backgroundBlendMode: "color-dodge, normal, normal, normal",
             boxShadow:
               "rgba(255, 140, 0, 0.4) calc((var(--pointer-from-left) * 10px) - 3px) calc((var(--pointer-from-top) * 20px) - 6px) 20px -5px, rgba(0, 0, 0, 0.6) calc((var(--pointer-from-left) * 10px) - 3px) calc((var(--pointer-from-top) * 20px) - 6px) 25px -3px",
             transition: "transform 1s ease",
             transform: "translateZ(0) rotateX(0deg) rotateY(0deg)",
             background: "rgba(40, 30, 15, 0.95)",
+            imageRendering: "pixelated",
+            clipPath: `polygon(
+              0 12px, 12px 12px, 12px 8px, 16px 8px, 16px 4px, 20px 4px, 20px 0,
+              calc(100% - 20px) 0, calc(100% - 20px) 4px, calc(100% - 16px) 4px,
+              calc(100% - 16px) 8px, calc(100% - 12px) 8px, calc(100% - 12px) 12px, 100% 12px,
+              100% calc(100% - 12px), calc(100% - 12px) calc(100% - 12px),
+              calc(100% - 12px) calc(100% - 8px), calc(100% - 16px) calc(100% - 8px),
+              calc(100% - 16px) calc(100% - 4px), calc(100% - 20px) calc(100% - 4px),
+              calc(100% - 20px) 100%, 20px 100%,
+              20px calc(100% - 4px), 16px calc(100% - 4px), 16px calc(100% - 8px),
+              12px calc(100% - 8px), 12px calc(100% - 12px), 0 calc(100% - 12px)
+            )`,
+            border: "4px solid #ffc010",
           }}
           onMouseEnter={(e) => {
             e.currentTarget.style.transition = "none";
@@ -462,7 +477,19 @@ const ProfileCardComponent = ({
             style={{
               backgroundImage: "var(--inner-gradient)",
               backgroundColor: "rgba(40, 30, 15, 0.95)",
-              borderRadius: cardRadius,
+              borderRadius: "0",
+              imageRendering: "pixelated",
+              clipPath: `polygon(
+                0 10px, 10px 10px, 10px 6px, 14px 6px, 14px 3px, 17px 3px, 17px 0,
+                calc(100% - 17px) 0, calc(100% - 17px) 3px, calc(100% - 14px) 3px,
+                calc(100% - 14px) 6px, calc(100% - 10px) 6px, calc(100% - 10px) 10px, 100% 10px,
+                100% calc(100% - 10px), calc(100% - 10px) calc(100% - 10px),
+                calc(100% - 10px) calc(100% - 6px), calc(100% - 14px) calc(100% - 6px),
+                calc(100% - 14px) calc(100% - 3px), calc(100% - 17px) calc(100% - 3px),
+                calc(100% - 17px) 100%, 17px 100%,
+                17px calc(100% - 3px), 14px calc(100% - 3px), 14px calc(100% - 6px),
+                10px calc(100% - 6px), 10px calc(100% - 10px), 0 calc(100% - 10px)
+              )`,
             }}
           >
             <div style={shineStyle} />
@@ -476,8 +503,19 @@ const ProfileCardComponent = ({
                   transformOrigin: "50% 100%",
                   transform:
                     "translateX(calc(-50% + (var(--pointer-from-left) - 0.5) * 6px)) translateZ(0) scaleY(calc(1 + (var(--pointer-from-top) - 0.5) * 0.02)) scaleX(calc(1 + (var(--pointer-from-left) - 0.5) * 0.01))",
-                  borderRadius: cardRadius,
+                  borderRadius: "0",
+                  imageRendering: "pixelated",
                   filter: "sepia(0.3) saturate(1.3) brightness(1.05) contrast(1.05)",
+                  clipPath: `polygon(
+                    0 8px, 8px 8px, 8px 4px, 12px 4px, 12px 0,
+                    calc(100% - 12px) 0, calc(100% - 12px) 4px, calc(100% - 8px) 4px,
+                    calc(100% - 8px) 8px, 100% 8px,
+                    100% calc(100% - 8px), calc(100% - 8px) calc(100% - 8px),
+                    calc(100% - 8px) calc(100% - 4px), calc(100% - 12px) calc(100% - 4px),
+                    calc(100% - 12px) 100%, 12px 100%,
+                    12px calc(100% - 4px), 8px calc(100% - 4px), 8px calc(100% - 8px),
+                    0 calc(100% - 8px)
+                  )`,
                 }}
                 onError={(e) => {
                   const t = e.target;

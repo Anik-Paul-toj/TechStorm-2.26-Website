@@ -18,14 +18,15 @@ function FAQAccordion({ faqs }) {
     <div
       style={{
         maxWidth: 900,
-        margin: "32px 32px 0 32px", // 32px left/right margin
-        padding: "24px 40px",
+        margin: "16px",
+        padding: "clamp(12px, 3vw, 24px) clamp(12px, 3vw, 40px)",
         
         background: "#1a0e22", // deep purple background (theme)
         boxShadow: "0 4px 32px 0 rgba(0,0,0,0.18)",
         fontFamily: "Press Start 2P, monospace",
         color: "#ffc010", // gold text (theme)
         border: "3px solid #ffc010",
+        boxSizing: "border-box",
       }}
     >
       {faqs.map((faq, idx) => (
@@ -40,19 +41,37 @@ function FAQAccordion({ faqs }) {
               border: "none",
               color: "#ffc010",
               fontFamily: "Press Start 2P, monospace",
-              fontSize: 15,
-              padding: "18px 5px 8px 0",
+              fontSize: "clamp(8px, 2vw, 15px)",
+              padding: "clamp(12px, 3vw, 18px) 5px 8px 0",
               cursor: "pointer",
               outline: "none",
               display: "flex",
-              alignItems: "center",
+              alignItems: "flex-start",
               justifyContent: "space-between",
-              letterSpacing: "1px",
+              letterSpacing: "0.5px",
               transition: "background 0.2s, color 0.2s",
+              lineHeight: "1.5",
+              gap: "clamp(8px, 2vw, 10px)",
+              boxSizing: "border-box",
             }}
           >
-            <span>{faq.q}</span>
-            <span style={{ fontSize: 18,fontWeight: "bold", marginLeft: 12 }}>
+            <span style={{ 
+              flex: 1, 
+              wordBreak: "break-word",
+              overflowWrap: "anywhere",
+              hyphens: "auto",
+              minWidth: 0,
+              whiteSpace: "normal",
+            }}>
+              {faq.q}
+            </span>
+            <span style={{ 
+              fontSize: "clamp(12px, 2.5vw, 18px)", 
+              fontWeight: "bold", 
+              flexShrink: 0,
+              minWidth: "clamp(16px, 4vw, 20px)",
+              textAlign: "center",
+            }}>
               {openIndex === idx ? "\u02C4" : "\u02C5"}
             </span>
           </button>
@@ -61,32 +80,34 @@ function FAQAccordion({ faqs }) {
               style={{
                 display: "flex",
                 alignItems: "stretch",
+                gap: "clamp(6px, 1.5vw, 12px)",
               }}
             >
               <div
                 style={{
-                  width: "4px",
-                  minWidth: "px",
+                  width: "clamp(3px, 1vw, 4px)",
+                  minWidth: "3px",
                   background: "#22c9e2",
-                  marginRight: "12px",
                   boxShadow: "0 0 8px 0 #18122B55",
+                  flexShrink: 0,
                 }}
               />
               <div
                 style={{
                   flex: 1,
-                  padding: "8px 0 18px 0",
+                  padding: "8px 0 clamp(12px, 3vw, 18px) 0",
                   color: "#ffffff",
-
-                  fontSize: 12,
-                  lineHeight: 1.7,
+                  fontSize: "clamp(8px, 1.8vw, 12px)",
+                  lineHeight: 1.6,
                   fontFamily: "Silkscreen, monospace",
                   marginLeft: 0,
                   marginBottom: 0,
-                  whiteSpace: "pre-line",
+                  whiteSpace: "pre-wrap",
+                  wordBreak: "break-word",
+                  overflowWrap: "anywhere",
                   borderRadius: "0 6px 6px 0",
-
                   borderLeft: "none",
+                  minWidth: 0,
                 }}
               >
                 {faq.a}
