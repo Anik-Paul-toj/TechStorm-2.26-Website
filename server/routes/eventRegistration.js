@@ -3,6 +3,7 @@ const router = express.Router();
 const EventRegistrationFactory = require('../models/EventRegistration');
 const { asyncHandler } = require('../middleware/errorHandler');
 const { optionalAuthenticate } = require('../middleware/auth');
+const { uploadRegistrationFiles, handleMulterError } = require('../middleware/upload');
 
 /**
  * Register for an event
@@ -10,28 +11,94 @@ const { optionalAuthenticate } = require('../middleware/auth');
  * Public endpoint - no authentication required
  */
 router.post('/:eventName',
+  uploadRegistrationFiles,
+  handleMulterError,
   asyncHandler(async (req, res) => {
     const { eventName } = req.params;
-    const registrationData = req.body;
+    let registrationData = { ...req.body };
+
+    console.log('📥 Received registration for:', eventName);
+    console.log('📝 Body data:', req.body);
+    console.log('📎 Files:', req.files ? Object.keys(req.files) : 'No files');
 
     // Validate event name
     if (!eventName || eventName.trim().length === 0) {
       return res.status(400).json({
         error: 'Invalid event name',
-        message: 'Event name is required'
+        message: 'Event name is required',
+        timestamp: new Date().toISOString()
       });
     }
+
+    // Parse JSON strings back to objects/arrays
+    if (registrationData.participants && typeof registrationData.participants === 'string') {
+      try {
+        registrationData.participants = JSON.parse(registrationData.participants);
+        
+        // Clean up empty idFile objects in participants array
+        if (Array.isArray(registrationData.participants)) {
+          registrationData.participants = registrationData.participants.map((participant, index) => {
+            // Remove empty or null participants
+            if (!participant.name || !participant.name.trim()) {
+              return null;
+            }
+            
+            // Remove empty idFile objects
+            if (participant.idFile && typeof participant.idFile === 'object' && Object.keys(participant.idFile).length === 0) {
+              delete participant.idFile;
+            }
+            
+            return participant;
+          }).filter(p => p !== null); // Remove null entries
+        }
+      } catch (e) {
+        console.error('Error parsing participants:', e);
+      }
+    }
+
+    // Handle file uploads - convert to simple string references
+    if (req.files) {
+      Object.keys(req.files).forEach(fieldName => {
+        const file = req.files[fieldName][0];
+        // Store just the filename for now (simplified)
+        // Later integrate with Cloudinary for actual storage
+        registrationData[fieldName] = file.originalname;
+        console.log(`✅ Processed file: ${fieldName} - ${file.originalname} (${(file.size / 1024).toFixed(2)}KB)`);
+      });
+    }
+
+    // Add eventName to registration data
+    registrationData.eventName = eventName;
 
     // Get or create model for this event
     const RegistrationModel = EventRegistrationFactory.getModel(eventName);
 
     // Check for duplicate registration based on email or phone
     const duplicateQuery = [];
-    if (registrationData.email) {
-      duplicateQuery.push({ email: registrationData.email.toLowerCase().trim() });
+    
+    // Handle email from different sources
+    const email = registrationData.email || registrationData.emailAddress;
+    // Handle phone from different sources
+    const phone = registrationData.phone || registrationData.contactNumber || registrationData.contact;
+    
+    // Check participants array for email/phone
+    if (registrationData.participants && Array.isArray(registrationData.participants)) {
+      const firstParticipant = registrationData.participants[0];
+      if (firstParticipant) {
+        if (!email && firstParticipant.email) {
+          registrationData.email = firstParticipant.email;
+        }
+        if (!phone && firstParticipant.contact) {
+          registrationData.phone = firstParticipant.contact;
+        }
+      }
     }
-    if (registrationData.phone) {
-      duplicateQuery.push({ phone: registrationData.phone.trim() });
+    
+    if (email) {
+      duplicateQuery.push({ email: email.toLowerCase().trim() });
+    }
+    if (phone) {
+      duplicateQuery.push({ phone: phone.trim() });
     }
 
     if (duplicateQuery.length > 0) {
@@ -47,7 +114,8 @@ router.post('/:eventName',
             email: existingRegistration.email,
             phone: existingRegistration.phone,
             registeredAt: existingRegistration.submittedAt
-          }
+          },
+          timestamp: new Date().toISOString()
         });
       }
     }

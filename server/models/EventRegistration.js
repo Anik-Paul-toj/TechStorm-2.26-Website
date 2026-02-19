@@ -57,19 +57,36 @@ class EventRegistrationFactory {
       email: {
         type: String,
         trim: true,
-        lowercase: true,
-        index: true
+        lowercase: true
+        // Index removed - using compound index below
+      },
+      emailAddress: {
+        type: String,
+        trim: true,
+        lowercase: true
       },
       phone: {
         type: String,
-        trim: true,
-        index: true
+        trim: true
+        // Index removed - using compound index below
+      },
+      contactNumber: {
+        type: String,
+        trim: true
       },
       college: {
         type: String,
         trim: true
       },
+      collegeName: {
+        type: String,
+        trim: true
+      },
       year: {
+        type: String,
+        trim: true
+      },
+      yearOfStudy: {
         type: String,
         trim: true
       },
@@ -110,11 +127,29 @@ class EventRegistrationFactory {
         email: String,
         college: String,
         year: String,
-        idFile: String
+        department: String,
+        idFile: String,
+        idFileUrl: String,
+        idFileCloudinaryId: String,
+        role: String,
+        order: Number
       }],
+
+      // Game-Specific Fields (FIFA Mobile, Forza Horizon, etc.)
+      fifaUsername: String,
+      teamOvr: String,
+      deviceModel: String,
+      gameUsername: String,
+      playerRating: String,
+      gamingPlatform: String,
 
       // Payment Information
       paymentMode: {
+        type: String,
+        trim: true,
+        index: true
+      },
+      paymentMethod: {
         type: String,
         trim: true
       },
@@ -124,11 +159,24 @@ class EventRegistrationFactory {
       },
       transactionId: {
         type: String,
-        trim: true
+        trim: true,
+        index: true
       },
       paymentReceipt: String,
+      paymentReceiptUrl: String,
+      paymentReceiptCloudinaryId: String,
       paymentScreenshot: String,
+      paymentScreenshotUrl: String,
+      paymentScreenshotCloudinaryId: String,
       cashReceipt: String,
+      cashReceiptUrl: String,
+      cashReceiptCloudinaryId: String,
+      paymentStatus: {
+        type: String,
+        enum: ['pending', 'verified', 'failed', 'not-required'],
+        default: 'pending',
+        index: true
+      },
 
       // Event Specific
       experienceLevel: String,
@@ -138,13 +186,30 @@ class EventRegistrationFactory {
 
       // Files
       idProof: String,
+      idProofUrl: String,
+      idProofCloudinaryId: String,
+      idFile: String,
 
       // Custom fields (flexible for event-specific data)
-      customField1: String,
-      customField2: String,
-      customField3: String,
-      customField4: String,
-      customField5: String,
+      customField1: mongoose.Schema.Types.Mixed,
+      customField2: mongoose.Schema.Types.Mixed,
+      customField3: mongoose.Schema.Types.Mixed,
+      customField4: mongoose.Schema.Types.Mixed,
+      customField5: mongoose.Schema.Types.Mixed,
+      customField6: mongoose.Schema.Types.Mixed,
+      customField7: mongoose.Schema.Types.Mixed,
+      customField8: mongoose.Schema.Types.Mixed,
+      customField9: mongoose.Schema.Types.Mixed,
+      customField10: mongoose.Schema.Types.Mixed,
+
+      // Form Responses (structured answers with metadata)
+      formResponses: [{
+        fieldName: String,
+        fieldLabel: String,
+        fieldType: String,
+        value: mongoose.Schema.Types.Mixed,
+        order: Number
+      }],
 
       // Confirmations
       whatsappConfirmed: {
@@ -161,18 +226,35 @@ class EventRegistrationFactory {
       },
 
       // Registration metadata
+      eventName: {
+        type: String,
+        index: true
+      },
       registrationStatus: {
         type: String,
-        enum: ['pending', 'confirmed', 'cancelled', 'waitlist'],
-        default: 'pending'
+        enum: ['pending', 'confirmed', 'cancelled', 'waitlist', 'rejected', 'checked-in'],
+        default: 'pending',
+        index: true
+      },
+      registrationNumber: {
+        type: String,
+        unique: true,
+        sparse: true,
+        index: true
       },
       submittedAt: {
         type: Date,
-        default: Date.now
+        default: Date.now,
+        index: true
       },
       updatedAt: {
         type: Date,
         default: Date.now
+      },
+      source: {
+        type: String,
+        enum: ['web', 'mobile', 'admin'],
+        default: 'web'
       }
     }, {
       strict: false, // Allow additional fields not defined in schema
@@ -182,9 +264,18 @@ class EventRegistrationFactory {
     // Create compound index for duplicate prevention
     schema.index({ email: 1, phone: 1 });
 
-    // Pre-save middleware to update timestamp
+    // Pre-save middleware to update timestamp and generate registration number
     schema.pre('save', function(next) {
       this.updatedAt = new Date();
+      
+      // Generate registration number if not exists
+      if (!this.registrationNumber && this.eventName) {
+        const eventPrefix = this.eventName.substring(0, 3).toUpperCase();
+        const timestamp = Date.now().toString(36).toUpperCase();
+        const random = Math.random().toString(36).substring(2, 5).toUpperCase();
+        this.registrationNumber = `${eventPrefix}-${timestamp}-${random}`;
+      }
+      
       next();
     });
 
