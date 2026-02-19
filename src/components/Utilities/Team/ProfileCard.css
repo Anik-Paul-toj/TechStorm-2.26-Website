@@ -294,9 +294,13 @@
 @media (max-width: 576px) {
   .profile-card-wrap {
     max-width: 260px;
+    margin-left: auto;
+    margin-right: auto;
   }
   
   .profile-card-section {
     max-height: 360px !important;
+    margin-left: auto;
+    margin-right: auto;
   }
 }

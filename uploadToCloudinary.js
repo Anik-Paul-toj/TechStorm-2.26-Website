@@ -15,9 +15,9 @@ function getSubfolders(rootPath) {
   return fs.readdirSync(rootPath).filter(f => fs.statSync(path.join(rootPath, f)).isDirectory());
 }
 
-// Folders to upload from src/assets/img (all subfolders of gallery, carousel, events, logo)
+// Folders to upload from src/assets/img (all subfolders of gallery, carousel, events, logo, team)
 const assetImgRoot = path.join(__dirname, 'src', 'assets', 'img');
-const assetFolders = ['gallery', 'carousel', 'events', 'logo'];
+const assetFolders = ['team'];
 const assetSubfolders = assetFolders.flatMap(folder => {
   const folderPath = path.join(assetImgRoot, folder);
   return getSubfolders(folderPath).map(sub => ({

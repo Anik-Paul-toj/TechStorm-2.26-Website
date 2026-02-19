@@ -249,6 +249,9 @@
   .team-org-section .team-org-members-row > div {
     flex: 0 0 100%;
     max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .team-org-section .team-thumb .brd {
@@ -264,13 +267,15 @@
     flex-shrink: 0;
   }
   
-  /* Adjust profile card size on mobile */
+  /* Adjust profile card size on mobile and center it */
   .profile-card-section {
     max-height: 380px !important;
+    margin: 0 auto;
   }
   
   .profile-card-wrap {
     max-width: 260px !important;
+    margin: 0 auto;
   }
 }
 

@@ -882,7 +882,7 @@ function HeroOne() {
 
             {/* View Events */}
             <a
-              href="#events"
+              href="/events"
               style={{
                 display: "inline-flex",
                 alignItems: "center",
