@@ -339,20 +339,21 @@ function HeroOne() {
         {/* Starfield */}
         <canvas ref={canvasRef} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', pointerEvents: 'none' }} />
 
-        {/* Retrowave grid floor */}
-        <div style={{
-          position: 'absolute',
-          bottom: 0, left: '-10%', right: '-10%',
-          height: '52%',
-          background: `
-            linear-gradient(to bottom, transparent 0%, rgba(61,90,254,0.12) 100%),
-            repeating-linear-gradient(90deg, transparent, transparent 59px, rgba(61,90,254,0.28) 59px, rgba(61,90,254,0.28) 61px),
-            repeating-linear-gradient(0deg, transparent, transparent 38px, rgba(61,90,254,0.2) 38px, rgba(61,90,254,0.2) 40px)
-          `,
-          transform: 'perspective(700px) rotateX(62deg)',
-          transformOrigin: 'bottom',
-          pointerEvents: 'none',
-        }} />
+        {/* Retrowave grid floor — wrapper clips AFTER the transform so left/right % actually work */}
+        <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', pointerEvents: 'none' }}>
+          <div style={{
+            position: 'absolute',
+            bottom: 0, left: '-30%', right: '-30%',
+            height: '52%',
+            background: `
+              linear-gradient(to bottom, transparent 0%, rgba(61,90,254,0.12) 100%),
+              repeating-linear-gradient(90deg, transparent, transparent 59px, rgba(61,90,254,0.28) 59px, rgba(61,90,254,0.28) 61px),
+              repeating-linear-gradient(0deg, transparent, transparent 38px, rgba(61,90,254,0.2) 38px, rgba(61,90,254,0.2) 40px)
+            `,
+            transform: 'perspective(700px) rotateX(62deg)',
+            transformOrigin: 'center bottom',
+          }} />
+        </div>
         {/* ══ MAIN CONTENT ══ */}
         <div style={{ position: 'relative', zIndex: 10, textAlign: 'center', padding: '0 20px' }}>
 

@@ -9,42 +9,42 @@ const EVENT_PHOTOS = [
   {
     id: 0, label: 'HACKATHON NIGHT', year: '2024',
     bg: 'linear-gradient(135deg,#1a0500 0%,#3d1200 50%,#1a0800 100%)',
-    accent: '#FF6B00', emoji: '💻',
+    accent: '#FF6B00', nesIcon: 'nes-mario',
     caption: '300+ coders. 48 hours. Zero sleep. Maximum output.',
     src: null,
   },
   {
     id: 1, label: 'ROBO CLASH ARENA', year: '2024',
     bg: 'linear-gradient(135deg,#00050f 0%,#001a2e 50%,#000814 100%)',
-    accent: '#00B4FF', emoji: '🤖',
+    accent: '#00B4FF', nesIcon: 'nes-ash',
     caption: 'Steel meets code. Bots battle for supremacy on the main stage.',
     src: null,
   },
   {
     id: 2, label: 'AI ARENA FINALS', year: '2024',
     bg: 'linear-gradient(135deg,#0d0018 0%,#1e0035 50%,#0a0015 100%)',
-    accent: '#A855F7', emoji: '🧠',
+    accent: '#A855F7', nesIcon: 'nes-bulbasaur',
     caption: 'Models trained, tested, and deployed live before 500 judges.',
     src: null,
   },
   {
     id: 3, label: 'PRIZE CEREMONY', year: '2024',
     bg: 'linear-gradient(135deg,#0f0a00 0%,#2a1f00 50%,#0f0900 100%)',
-    accent: '#FFD700', emoji: '🏆',
-    caption: '₹5 Lakhs awarded. Champions crowned. Legends made.',
+    accent: '#FFD700', nesIcon: 'nes-pokeball',
+    caption: '5 Lakhs awarded. Champions crowned. Legends made.',
     src: null,
   },
   {
     id: 4, label: 'CTF STORM', year: '2023',
     bg: 'linear-gradient(135deg,#150010 0%,#2d0025 50%,#0f0010 100%)',
-    accent: '#D946EF', emoji: '🔒',
+    accent: '#D946EF', nesIcon: 'nes-squirtle',
     caption: 'Ethical hacking at its finest. Capture. Crack. Conquer.',
     src: null,
   },
   {
     id: 5, label: 'CLOSING NIGHT', year: '2023',
     bg: 'linear-gradient(135deg,#1a0800 0%,#0d0018 50%,#001a2e 100%)',
-    accent: '#FF8C00', emoji: '🎆',
+    accent: '#FF8C00', nesIcon: 'nes-kirby',
     caption: 'Three days of chaos ends with one epic celebration.',
     src: null,
   },
@@ -55,16 +55,16 @@ const EVENT_PHOTOS = [
 ───────────────────────────────────────── */
 const INFO_CARDS = [
   {
-    icon: '⚡', title: 'WHAT IS TECHSTORM?', color: '#FF6B00', tag: 'EST. 2018',
+    nesIcon: 'nes-mario', title: 'WHAT IS TECHSTORM?', color: '#FF6B00', tag: 'EST. 2018',
     body: 'The ultimate annual technical festival where brilliant minds collide, innovations spark, and legends are born. Three days of hacking, building, and competing at its finest.',
   },
   {
-    icon: '🎮', title: 'CHOOSE YOUR CLASS', color: '#00B4FF', tag: '30+ EVENTS',
+    nesIcon: 'nes-ash', title: 'CHOOSE YOUR CLASS', color: '#00B4FF', tag: '30+ EVENTS',
     body: 'From lone-wolf coders to full-stack teams — pick your event category, register your squad, and enter the arena. Every skill level has a battlefield waiting.',
   },
   {
-    icon: '🏆', title: 'PRIZE POOL', color: '#FFD700', tag: '₹5 LAKHS',
-    body: 'Over ₹5,00,000 in prizes across all categories. Cash rewards, internships, mentorships, and direct placement opportunities with top-tier sponsors.',
+    nesIcon: 'nes-kirby', title: 'PRIZE POOL', color: '#FFD700', tag: '5 LAKHS',
+    body: 'Over 5,00,000 in prizes across all categories. Cash rewards, internships, mentorships, and direct placement opportunities with top-tier sponsors.',
   },
 ];
 
@@ -98,7 +98,7 @@ function ArcadeBtn({ direction, color, onClick }) {
 /* ─────────────────────────────────────────
    ARCADE MACHINE
 ───────────────────────────────────────── */
-function ArcadeMachine({ current, onPrev, onNext, onSelect }) {
+function ArcadeMachine({ current, onPrev, onNext, onSelect, onCardScroll }) {
   const photo = EVENT_PHOTOS[current];
   const [beam, setBeam] = useState(0);
   useEffect(() => {
@@ -162,9 +162,6 @@ function ArcadeMachine({ current, onPrev, onNext, onSelect }) {
               display: 'flex', flexDirection: 'column',
               alignItems: 'center', justifyContent: 'center', gap: '10px',
             }}>
-              <div style={{ fontSize: '54px', filter: `drop-shadow(0 0 16px ${photo.accent}) drop-shadow(0 0 32px ${photo.accent}66)` }}>
-                {photo.emoji}
-              </div>
               <div style={{
                 fontFamily: "'Press Start 2P', monospace", fontSize: '8px',
                 color: photo.accent, textShadow: `0 0 12px ${photo.accent}`,
@@ -277,17 +274,22 @@ function ArcadeMachine({ current, onPrev, onNext, onSelect }) {
             </div>
           </div>
 
-          {/* Action buttons ABCD */}
+          {/* Action buttons ABC — scroll to info cards */}
           <div style={{ display: 'flex', justifyContent: 'center', gap: '8px', marginTop: '10px' }}>
-            {[['A','#FF4444'],['B','#FFD700'],['C','#44FF88'],['D','#4488FF']].map(([l, c]) => (
-              <div key={l} style={{
-                width: '30px', height: '30px', borderRadius: '50%',
-                background: `radial-gradient(circle at 35% 35%, ${c}bb, ${c}44)`,
-                border: `2px solid ${c}`,
-                boxShadow: `0 0 8px ${c}55, inset 0 -3px 0 rgba(0,0,0,0.5)`,
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                fontFamily: "'Press Start 2P', monospace", fontSize: '9px', color: '#000', fontWeight: 'bold', cursor: 'pointer',
-              }}>{l}</div>
+            {[['A','#FF4444',0],['B','#FFD700',1],['C','#44FF88',2]].map(([l, c, cardIdx]) => (
+              <div
+                key={l}
+                onClick={() => onCardScroll && onCardScroll(cardIdx)}
+                title={cardIdx === 0 ? 'WHAT IS TECHSTORM?' : cardIdx === 1 ? 'CHOOSE YOUR CLASS' : 'PRIZE POOL'}
+                style={{
+                  width: '30px', height: '30px', borderRadius: '50%',
+                  background: `radial-gradient(circle at 35% 35%, ${c}bb, ${c}44)`,
+                  border: `2px solid ${c}`,
+                  boxShadow: `0 0 8px ${c}55, inset 0 -3px 0 rgba(0,0,0,0.5)`,
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  fontFamily: "'Press Start 2P', monospace", fontSize: '9px', color: '#000', fontWeight: 'bold',
+                  cursor: 'pointer',
+                }}>{l}</div>
             ))}
           </div>
 
@@ -323,23 +325,9 @@ function ArcadeMachine({ current, onPrev, onNext, onSelect }) {
    INFO CARD
 ───────────────────────────────────────── */
 function InfoCard({ card, isActive, progress, index, isMobile }) {
-  const [inView, setInView] = useState(false);
   const cardRef = useRef(null);
 
-  useEffect(() => {
-    if (!isMobile) return;
-    const observer = new IntersectionObserver(([entry]) => {
-      setInView(entry.isIntersecting);
-    }, { 
-      threshold: 0.6,
-      rootMargin: '0px -20% 0px -20%' 
-    });
-
-    if (cardRef.current) observer.observe(cardRef.current);
-    return () => observer.disconnect();
-  }, [isMobile]);
-
-  const active = isMobile ? inView : isActive;
+  const active = isActive;
 
   return (
     <div 
@@ -393,15 +381,15 @@ function InfoCard({ card, isActive, progress, index, isMobile }) {
       <div style={{ display: 'flex', alignItems: 'flex-start', gap: '16px' }}>
         {/* Icon box with flicker animation */}
         <div style={{
-          fontSize: '24px',
           background: active ? `${card.color}22` : 'rgba(255,255,255,0.02)',
           border: `2px solid ${active ? card.color : '#1a1a1a'}`,
           padding: '8px 10px', lineHeight: 1, flexShrink: 0,
           transition: 'all 0.5s',
           boxShadow: active ? `0 0 15px ${card.color}44` : 'none',
           animation: active ? 'flicker 3s infinite' : 'none',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
         }}>
-          {card.icon}
+          <i className={card.nesIcon} style={{ transform: 'scale(0.85)', transformOrigin: 'center', display: 'block' }} />
         </div>
 
         <div style={{ flex: 1 }}>
@@ -526,8 +514,20 @@ export default function About() {
   const goPrev = useCallback(() => setCurrentPhoto(p => (p - 1 + EVENT_PHOTOS.length) % EVENT_PHOTOS.length), []);
   const goNext = useCallback(() => setCurrentPhoto(p => (p + 1) % EVENT_PHOTOS.length), []);
 
+  /* Scroll to a specific info card zone (used by ABCD buttons) */
+  const scrollToInfoCard = useCallback((cardIndex) => {
+    const el = sectionRef.current;
+    if (!el) return;
+    const scrollable = el.offsetHeight - window.innerHeight;
+    if (scrollable <= 0) return;
+    const ZONE = 1 / INFO_CARDS.length;
+    const targetPct = cardIndex * ZONE + ZONE * 0.12;
+    const targetY = el.offsetTop + Math.max(0, Math.min(scrollable, targetPct * scrollable));
+    window.scrollTo({ top: targetY, behavior: 'smooth' });
+  }, []);
+
   /* Section is tall enough for each card to breathe */
-  const SECTION_H = isMobile ? '350vh' : `${(INFO_CARDS.length + 1.2) * 100}vh`;
+  const SECTION_H = isMobile ? '500vh' : `${(INFO_CARDS.length + 1.2) * 100}vh`;
 
   return (
     <section
@@ -632,6 +632,7 @@ export default function About() {
                 onPrev={goPrev}
                 onNext={goNext}
                 onSelect={setCurrentPhoto}
+                onCardScroll={scrollToInfoCard}
               />
             </div>
 
@@ -690,8 +691,8 @@ export default function About() {
                     card={card}
                     index={i}
                     isMobile={isMobile}
-                    isActive={isMobile ? true : (i === activeCard)}
-                    progress={isMobile ? 1 : (i === activeCard ? cardProgress : 0)}
+                    isActive={i === activeCard}
+                    progress={i === activeCard ? cardProgress : 0}
                   />
                 ))}
               </div>
