@@ -493,6 +493,14 @@ function HeroOne() {
   const [showVideo, setShowVideo] = useState(false);
   const [coinPressed, setCoinPressed] = useState(false);
   const [coinBounce, setCoinBounce] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
 
   // Idle glitch every 4s
   useEffect(() => {
@@ -684,13 +692,17 @@ function HeroOne() {
             <div
               style={{
                 fontFamily: "'Press Start 2P', monospace",
-                fontSize: "clamp(18px, 5.2vw, 62px)",
+                fontSize: isMobile
+                  ? "clamp(30px, 9vw, 48px)"
+                  : "clamp(18px, 5.2vw, 62px)",
                 color: glitching ? "var(--blue-electric)" : "var(--orange)",
                 textShadow: glitching
                   ? "6px 0 var(--purple-neon), -6px 0 var(--blue-electric), 0 0 70px var(--blue-electric)"
-                  : "5px 5px 0 var(--yellow), -2px -2px 0 rgba(255,107,0,0.45), 0 0 60px var(--orange), 0 0 120px rgba(255,107,0,0.2)",
-                letterSpacing: "6px",
-                lineHeight: 1.1,
+                  : isMobile
+                    ? "3px 3px 0 var(--yellow), 0 0 24px var(--orange)"
+                    : "5px 5px 0 var(--yellow), -2px -2px 0 rgba(255,107,0,0.45), 0 0 60px var(--orange), 0 0 120px rgba(255,107,0,0.2)",
+                letterSpacing: isMobile ? "3px" : "6px",
+                lineHeight: isMobile ? 1.35 : 1.1,
                 transition: "all 0.04s",
                 transform: glitching
                   ? "translate(4px, -2px) skewX(-3deg)"
@@ -699,7 +711,22 @@ function HeroOne() {
                 userSelect: "none",
               }}
             >
-              TECHSTORM 2.26
+              {isMobile ? (
+                <>
+                  <div>TECHSTORM</div>
+                  <div
+                    style={{
+                      fontSize: "0.78em",
+                      letterSpacing: isMobile ? "4px" : "6px",
+                      marginTop: "4px",
+                    }}
+                  >
+                    2.26
+                  </div>
+                </>
+              ) : (
+                "TECHSTORM 2.26"
+              )}
             </div>
             {glitching && (
               <>
@@ -709,15 +736,27 @@ function HeroOne() {
                     top: 0,
                     left: "6px",
                     fontFamily: "'Press Start 2P', monospace",
-                    fontSize: "clamp(18px, 5.2vw, 62px)",
+                    fontSize: isMobile
+                      ? "clamp(30px, 9vw, 48px)"
+                      : "clamp(18px, 5.2vw, 62px)",
                     color: "var(--purple-neon)",
                     opacity: 0.8,
-                    letterSpacing: "6px",
+                    letterSpacing: isMobile ? "3px" : "6px",
+                    lineHeight: isMobile ? 1.35 : 1.1,
                     clipPath: "polygon(0 20%, 100% 20%, 100% 48%, 0 48%)",
                     pointerEvents: "none",
                   }}
                 >
-                  TECHSTORM 2.26
+                  {isMobile ? (
+                    <>
+                      <div>TECHSTORM</div>
+                      <div style={{ fontSize: "0.78em", marginTop: "4px" }}>
+                        2.26
+                      </div>
+                    </>
+                  ) : (
+                    "TECHSTORM 2.26"
+                  )}
                 </div>
                 <div
                   style={{
@@ -725,15 +764,27 @@ function HeroOne() {
                     top: 0,
                     left: "-6px",
                     fontFamily: "'Press Start 2P', monospace",
-                    fontSize: "clamp(18px, 5.2vw, 62px)",
+                    fontSize: isMobile
+                      ? "clamp(30px, 9vw, 48px)"
+                      : "clamp(18px, 5.2vw, 62px)",
                     color: "var(--blue-electric)",
                     opacity: 0.8,
-                    letterSpacing: "6px",
+                    letterSpacing: isMobile ? "3px" : "6px",
+                    lineHeight: isMobile ? 1.35 : 1.1,
                     clipPath: "polygon(0 54%, 100% 54%, 100% 82%, 0 82%)",
                     pointerEvents: "none",
                   }}
                 >
-                  TECHSTORM 2.26
+                  {isMobile ? (
+                    <>
+                      <div>TECHSTORM</div>
+                      <div style={{ fontSize: "0.78em", marginTop: "4px" }}>
+                        2.26
+                      </div>
+                    </>
+                  ) : (
+                    "TECHSTORM 2.26"
+                  )}
                 </div>
               </>
             )}
@@ -743,12 +794,16 @@ function HeroOne() {
           <div
             style={{
               fontFamily: "'VT323', monospace",
-              fontSize: "clamp(20px, 3.5vw, 36px)",
+              fontSize: isMobile
+                ? "clamp(18px, 5vw, 28px)"
+                : "clamp(20px, 3.5vw, 36px)",
               color: "var(--yellow)",
-              letterSpacing: "8px",
-              marginTop: "20px",
-              marginBottom: "50px",
-              textShadow: "0 0 30px var(--yellow)",
+              letterSpacing: isMobile ? "3px" : "8px",
+              marginTop: isMobile ? "14px" : "20px",
+              marginBottom: isMobile ? "32px" : "50px",
+              textShadow: "0 0 20px var(--yellow)",
+              paddingLeft: isMobile ? "10px" : "0",
+              paddingRight: isMobile ? "10px" : "0",
             }}
           >
             &gt;&gt;Play The Past, Build The Future&lt;&lt;
@@ -773,12 +828,14 @@ function HeroOne() {
                 alignItems: "center",
                 gap: "14px",
                 fontFamily: "'Press Start 2P', monospace",
-                fontSize: "clamp(9px, 1.5vw, 12px)",
+                fontSize: isMobile
+                  ? "clamp(10px, 2.8vw, 12px)"
+                  : "clamp(9px, 1.5vw, 12px)",
                 background: coinPressed
                   ? "rgba(255,107,0,0.15)"
                   : "linear-gradient(135deg, #FF8C00 0%, #FFD700 55%, #FF5500 100%)",
                 color: coinPressed ? "rgba(255,107,0,0.6)" : "#000",
-                padding: "17px 30px",
+                padding: isMobile ? "13px 20px" : "17px 30px",
                 border: `3px solid ${coinPressed ? "rgba(255,107,0,0.4)" : "var(--yellow)"}`,
                 cursor: coinPressed ? "not-allowed" : "pointer",
                 letterSpacing: "2px",
@@ -831,10 +888,12 @@ function HeroOne() {
                 alignItems: "center",
                 gap: "10px",
                 fontFamily: "'Press Start 2P', monospace",
-                fontSize: "clamp(9px, 1.5vw, 12px)",
+                fontSize: isMobile
+                  ? "clamp(10px, 2.8vw, 12px)"
+                  : "clamp(9px, 1.5vw, 12px)",
                 background: "transparent",
                 color: "var(--blue-electric)",
-                padding: "17px 30px",
+                padding: isMobile ? "13px 20px" : "17px 30px",
                 textDecoration: "none",
                 letterSpacing: "2px",
                 border: "3px solid var(--blue-electric)",
