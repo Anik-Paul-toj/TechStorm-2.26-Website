@@ -498,13 +498,13 @@ const ProfileCardComponent = ({
               <img
                 src={avatarUrl}
                 alt={`${name || "User"} avatar`}
-                loading="lazy"
+                crossOrigin="anonymous"
                 style={{
                   transformOrigin: "50% 100%",
                   transform:
                     "translateX(calc(-50% + (var(--pointer-from-left) - 0.5) * 6px)) translateZ(0) scaleY(calc(1 + (var(--pointer-from-top) - 0.5) * 0.02)) scaleX(calc(1 + (var(--pointer-from-left) - 0.5) * 0.01))",
                   borderRadius: "0",
-                  imageRendering: "pixelated",
+                  imageRendering: "auto",
                   filter: "sepia(0.3) saturate(1.3) brightness(1.05) contrast(1.05)",
                   clipPath: `polygon(
                     0 8px, 8px 8px, 8px 4px, 12px 4px, 12px 0,
@@ -517,12 +517,17 @@ const ProfileCardComponent = ({
                     0 calc(100% - 8px)
                   )`,
                 }}
+                onLoad={(e) => {
+                  console.log('Image loaded successfully:', name, avatarUrl);
+                  e.target.style.opacity = '1';
+                }}
                 onError={(e) => {
-                  console.error('Image failed to load:', avatarUrl);
+                  console.error('Image failed to load:', name, avatarUrl);
                   // Don't hide the image, show a placeholder background instead
                   const t = e.target;
                   t.style.backgroundColor = '#ffc010';
                   t.style.minHeight = '300px';
+                  t.style.opacity = '1';
                 }}
               />
               {showUserInfo && (

@@ -1,49 +1,44 @@
 /**
  * Team data from TechStorm 2.24 team page template.
  * Core members = Organizing Committee; eventTeams = event-wise coordinators & volunteers.
- * Images hosted on Cloudinary, converted to WebP for optimal performance.
+ * Images hosted on Cloudinary - using direct URLs for reliability.
  */
 
-// Cloudinary base URL with WebP conversion and quality optimization
-// f_webp: convert to WebP format
-// q_auto:good: automatic quality optimization (good balance)
-// w_600: max width 600px for profile cards
-// c_limit: only scale down if larger, never scale up
+// Cloudinary base URL - direct access without transformations for maximum reliability
 const cloudinaryBase = 'https://res.cloudinary.com/dyj3kxni2/image/upload';
-const webpParams = '/f_webp,q_auto:good,w_600,c_limit';
 
 // Default avatar
-const defaultAvatar = `${cloudinaryBase}${webpParams}/v1771534202/eoorox/team/IMG202602191108292-GouravPaul.png`;
+const defaultAvatar = `${cloudinaryBase}/v1771534202/eoorox/team/IMG202602191108292-GouravPaul.png`;
 
-// Core Team Member Images from Cloudinary (converted to WebP)
-const aniketDeImg = `${cloudinaryBase}${webpParams}/v1771534189/eoorox/team/1000507264~2%20-%20Aniket%20De.png`;
-const bapanBanikImg = `${cloudinaryBase}${webpParams}/v1771534211/eoorox/team/IMG_20260216_202234%20-%20Bapan%20Banik.png`;
-const anikPaulImg = `${cloudinaryBase}${webpParams}/v1771534195/eoorox/team/file_00000000fb6471faad0fa22d7155287b%20-%20Anik%20Paul.png`;
-const pushkarShawImg = `${cloudinaryBase}${webpParams}/v1771534223/eoorox/team/photo__%20-%20PUSHKAR%20IT3065.png`;
-const srijitaDuttaImg = `${cloudinaryBase}${webpParams}/v1771534199/eoorox/team/IMG-20260218-WA0018(2)%20-%20SRIJITA%20ECE3086.png`;
-const soumiliSahaImg = `${cloudinaryBase}${webpParams}/v1771534216/eoorox/team/IMG_20260218_203358%20-%20Soumili%20Saha.png`;
-const sohamSahaImg = `${cloudinaryBase}${webpParams}/v1771534198/eoorox/team/IMG-20251221-WA0027%20-%20SohamSaha.png`;
-const soumadeepLayekImg = `${cloudinaryBase}${webpParams}/v1771534230/eoorox/team/WhatsApp%20Image%202026-02-18%20at%209.24.42%20PM%20-%20Soumadeep%20Layek.png`;
-const gouravPaulImg = `${cloudinaryBase}${webpParams}/v1771534202/eoorox/team/IMG202602191108292-GouravPaul.png`;
-const saptarshiGhoshImg = `${cloudinaryBase}${webpParams}/v1771534194/eoorox/team/file_00000000d1fc71faa8882c412c66c7bd%20-%20Saptarshi%20Ghosh.png`;
-const harshSinghImg = `${cloudinaryBase}${webpParams}/v1771534222/eoorox/team/IMG_7070%20-%20Harsh%20Singh.png`;
-const prantikGhoshImg = `${cloudinaryBase}${webpParams}/v1771534235/eoorox/team/WhatsApp%20Image%202026-02-19%20at%2010.17.06%20AM%20-%20Prantik%20Ghosh.png`;
-const gauravChaudharyImg = `${cloudinaryBase}${webpParams}/v1771534217/eoorox/team/IMG_20260218_204930%20-%20Gaurav%20Kumar.png`;
-const shreyaSahaImg = `${cloudinaryBase}${webpParams}/v1771534204/eoorox/team/IMG_20250702_221316%20-%20SHREYA%20ECE3066.png`;
-const saniaDharImg = `${cloudinaryBase}${webpParams}/v1771534233/eoorox/team/WhatsApp%20Image%202026-02-19%20at%2010.02.29%20AM%20copy%20-%20Sania%20Dhar.png`;
-const oliviaSikderImg = `${cloudinaryBase}${webpParams}/v1771534206/eoorox/team/IMG_20251221_232659%20-%20OLIVIA%20CSE3084.png`;
-const gourabDeyImg = `${cloudinaryBase}${webpParams}/v1771534196/eoorox/team/Goyurab%20Dey%20-%20MCA%20-%20GOURAB%20DEY%20MCA4039.png`;
-const adityaChoubeyImg = `${cloudinaryBase}${webpParams}/v1771534215/eoorox/team/IMG_20260218_201846%20-%20ADITYA%20CHOUBEY.png`;
-const krishnaKaliImg = `${cloudinaryBase}${webpParams}/v1771534200/eoorox/team/IMG-20260219-WA0005-Krishnakali.png`;
-const debaditoImg = `${cloudinaryBase}${webpParams}/v1771534193/eoorox/team/Debadrito.png`;
-const shreyaJhaImg = `${cloudinaryBase}${webpParams}/v1771534205/eoorox/team/IMG_20251214_033807.jpg%20-%20Shreya%20Jha.png`;
-const ankitaAmanImg = `${cloudinaryBase}${webpParams}/v1771534220/eoorox/team/IMG_20260219_151927%20-%20Ankita%20Aman.png`;
-const abhishekKumarImg = `${cloudinaryBase}${webpParams}/v1771534191/eoorox/team/ABHISHEK%20PHOTO%20-%20Abhishek%20Kumar.png`;
-const protyoyBhandaryImg = `${cloudinaryBase}${webpParams}/v1771534228/eoorox/team/Protyoy.png`;
-const pranayChatterjeeImg = `${cloudinaryBase}${webpParams}/v1771534225/eoorox/team/Pranay.png`;
-const souvikDeyImg = `${cloudinaryBase}${webpParams}/v1771534219/eoorox/team/IMG_20260219_130801%20-%20Souvik%20Dey.png`;
-const shivamKumarImg = `${cloudinaryBase}${webpParams}/v1771534190/eoorox/team/1771488293669%20-%20Shivam%20Kumar.png`;
-const adrishBasakImg = `${cloudinaryBase}${webpParams}/v1771534208/eoorox/team/IMG_20251226_234300%20-%20Adrish%20Basak.png`;
+// Core Team Member Images from Cloudinary (direct URLs)
+const aniketDeImg = `${cloudinaryBase}/v1771534189/eoorox/team/1000507264~2%20-%20Aniket%20De.png`;
+const bapanBanikImg = `${cloudinaryBase}/v1771534211/eoorox/team/IMG_20260216_202234%20-%20Bapan%20Banik.png`;
+const anikPaulImg = `${cloudinaryBase}/v1771534195/eoorox/team/file_00000000fb6471faad0fa22d7155287b%20-%20Anik%20Paul.png`;
+const pushkarShawImg = `${cloudinaryBase}/v1771534223/eoorox/team/photo__%20-%20PUSHKAR%20IT3065.png`;
+const srijitaDuttaImg = `${cloudinaryBase}/v1771534199/eoorox/team/IMG-20260218-WA0018(2)%20-%20SRIJITA%20ECE3086.png`;
+const soumiliSahaImg = `${cloudinaryBase}/v1771534216/eoorox/team/IMG_20260218_203358%20-%20Soumili%20Saha.png`;
+const sohamSahaImg = `${cloudinaryBase}/v1771534198/eoorox/team/IMG-20251221-WA0027%20-%20SohamSaha.png`;
+const soumadeepLayekImg = `${cloudinaryBase}/v1771534230/eoorox/team/WhatsApp%20Image%202026-02-18%20at%209.24.42%20PM%20-%20Soumadeep%20Layek.png`;
+const gouravPaulImg = `${cloudinaryBase}/v1771534202/eoorox/team/IMG202602191108292-GouravPaul.png`;
+const saptarshiGhoshImg = `${cloudinaryBase}/v1771534194/eoorox/team/file_00000000d1fc71faa8882c412c66c7bd%20-%20Saptarshi%20Ghosh.png`;
+const harshSinghImg = `${cloudinaryBase}/v1771534222/eoorox/team/IMG_7070%20-%20Harsh%20Singh.png`;
+const prantikGhoshImg = `${cloudinaryBase}/v1771534235/eoorox/team/WhatsApp%20Image%202026-02-19%20at%2010.17.06%20AM%20-%20Prantik%20Ghosh.png`;
+const gauravChaudharyImg = `${cloudinaryBase}/v1771534217/eoorox/team/IMG_20260218_204930%20-%20Gaurav%20Kumar.png`;
+const shreyaSahaImg = `${cloudinaryBase}/v1771534204/eoorox/team/IMG_20250702_221316%20-%20SHREYA%20ECE3066.png`;
+const saniaDharImg = `${cloudinaryBase}/v1771534233/eoorox/team/WhatsApp%20Image%202026-02-19%20at%2010.02.29%20AM%20copy%20-%20Sania%20Dhar.png`;
+const oliviaSikderImg = `${cloudinaryBase}/v1771534206/eoorox/team/IMG_20251221_232659%20-%20OLIVIA%20CSE3084.png`;
+const gourabDeyImg = `${cloudinaryBase}/v1771534196/eoorox/team/Goyurab%20Dey%20-%20MCA%20-%20GOURAB%20DEY%20MCA4039.png`;
+const adityaChoubeyImg = `${cloudinaryBase}/v1771534215/eoorox/team/IMG_20260218_201846%20-%20ADITYA%20CHOUBEY.png`;
+const krishnaKaliImg = `${cloudinaryBase}/v1771534200/eoorox/team/IMG-20260219-WA0005-Krishnakali.png`;
+const debaditoImg = `${cloudinaryBase}/v1771534193/eoorox/team/Debadrito.png`;
+const shreyaJhaImg = `${cloudinaryBase}/v1771534205/eoorox/team/IMG_20251214_033807.jpg%20-%20Shreya%20Jha.png`;
+const ankitaAmanImg = `${cloudinaryBase}/v1771534220/eoorox/team/IMG_20260219_151927%20-%20Ankita%20Aman.png`;
+const abhishekKumarImg = `${cloudinaryBase}/v1771534191/eoorox/team/ABHISHEK%20PHOTO%20-%20Abhishek%20Kumar.png`;
+const protyoyBhandaryImg = `${cloudinaryBase}/v1771534228/eoorox/team/Protyoy.png`;
+const pranayChatterjeeImg = `${cloudinaryBase}/v1771534225/eoorox/team/Pranay.png`;
+const souvikDeyImg = `${cloudinaryBase}/v1771534219/eoorox/team/IMG_20260219_130801%20-%20Souvik%20Dey.png`;
+const shivamKumarImg = `${cloudinaryBase}/v1771534190/eoorox/team/1771488293669%20-%20Shivam%20Kumar.png`;
+const adrishBasakImg = `${cloudinaryBase}/v1771534208/eoorox/team/IMG_20251226_234300%20-%20Adrish%20Basak.png`;
 
 export const coreMembers = [
     // FINANCE MANAGEMENT TEAM
