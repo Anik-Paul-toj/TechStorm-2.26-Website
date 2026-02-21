@@ -161,7 +161,7 @@ const Footer = () => {
             </div>
 
             {/* ── Column 4: Follow Us + Map ── */}
-            <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+            <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
               <div className="footer-widget mb-30 footer-links-section">
                 <div className="f-widget-title">
                   <h2>{"Follow Us"}</h2>

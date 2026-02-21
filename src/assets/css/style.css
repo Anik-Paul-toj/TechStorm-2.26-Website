@@ -236,6 +236,14 @@ h6 {
 	overflow: visible !important;
 }
 
+/* Exception: keep footer social NES sprites from getting clipped */
+.footer-top .container,
+.footer-top .container-fluid,
+.footer-top .row,
+.footer-top [class*="col-"] {
+	overflow: visible !important;
+}
+
 /* Exception: Allow overflow for header/navigation */
 .header-area .container-fluid,
 .header-area .row,
