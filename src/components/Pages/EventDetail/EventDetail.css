@@ -78,6 +78,11 @@
     text-align: center;
 }
 
+.event-name-title-row {
+    display: block;
+    margin-bottom: 0;
+}
+
 .event-title-white,
 .event-title-gold {
     font-family: "Press Start 2P", cursive;
@@ -94,8 +99,13 @@
     color: #ffffff;
     margin-right: 20px;
     text-shadow:
-        4px 4px 0 rgba(0, 0, 0, 0.3),
-        0 0 20px rgba(255, 255, 255, 0.3);
+        2px 2px 0 #000,
+        -2px -2px 0 #000,
+        2px -2px 0 #000,
+        -2px 2px 0 #000,
+        0 0 0 3px rgba(0, 0, 0, 0.8),
+        4px 4px 0 rgba(0, 0, 0, 0.5),
+        0 0 24px rgba(255, 255, 255, 0.25);
 }
 
 .event-title-gold {
@@ -103,15 +113,23 @@
     letter-spacing: 3px;
     color: #ffc010;
     text-shadow:
-        4px 4px 0 rgba(0, 0, 0, 0.3),
+        2px 2px 0 #000,
+        -2px -2px 0 #000,
+        2px -2px 0 #000,
+        -2px 2px 0 #000,
+        0 0 0 3px rgba(0, 0, 0, 0.8),
+        4px 4px 0 rgba(0, 0, 0, 0.5),
         0 0 30px rgba(255, 192, 16, 0.7);
 }
 
+/* Brush sits below title with clear gap so it never overlaps text */
 .event-name-heading .heading-brush {
-    position: absolute;
-    bottom: -20px;
-    left: 50%;
-    transform: translateX(-50%);
+    position: relative;
+    left: auto;
+    bottom: auto;
+    transform: none;
+    margin: 18px auto 0;
+    display: block;
     width: 200px;
     height: 12px;
     background: linear-gradient(90deg, #ffc010 0%, #ffb000 50%, #ffc010 100%);
@@ -693,6 +711,12 @@ p.about-text {
         font-size: 42px;
     }
 
+    .event-name-heading .heading-brush {
+        width: 140px;
+        height: 8px;
+        margin-top: 14px;
+    }
+
     .heading-white,
     .heading-gold {
         font-size: 36px;
@@ -718,6 +742,12 @@ p.about-text {
         font-size: 28px;
         display: block;
         margin-right: 0;
+    }
+
+    .event-name-heading .heading-brush {
+        width: 100px;
+        height: 6px;
+        margin-top: 12px;
     }
 
     .heading-white,
@@ -753,6 +783,12 @@ p.about-text {
     .event-title-white,
     .event-title-gold {
         font-size: 20px;
+    }
+
+    .event-name-heading .heading-brush {
+        width: 80px;
+        height: 5px;
+        margin-top: 10px;
     }
 
     .heading-white,
