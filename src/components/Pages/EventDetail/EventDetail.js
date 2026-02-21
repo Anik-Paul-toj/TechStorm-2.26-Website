@@ -1291,7 +1291,7 @@ const EventDetail = ({ eventData }) => {
                             // const isJudgingCriteria = false;
                             // Check if it's a registration fee header
 
-                            // Highlight KHET and Ro-Terrance section headings with gold color and emoji
+                            // Highlight KHET, Ro-Terrance, and Passion With Reels section headings with gold color and emoji
                             const khetHeadingsToHighlight = [
                               'GENERAL RULES',
                               'RULES AND REGULATIONS',
@@ -1301,6 +1301,9 @@ const EventDetail = ({ eventData }) => {
                               'POINTS TO BE NOTED',
                               'SETUPS',
                               'NOTE'
+                            ];
+                            const passionWithReelsHeadingsToHighlight = [
+                              'RULES:',
                             ];
                             const roTerranceHeadingsToHighlight = [
                               'REGISTRATION FEES:',
@@ -1317,6 +1320,10 @@ const EventDetail = ({ eventData }) => {
                               name === "KHET" && (
                                 khetHeadingsToHighlight.some(h => normalizedRule.includes(normalizeRuleText(h))) ||
                                 /RULES$/i.test(rule.trim())
+                              );
+                            const isPassionWithReelsSectionHeader =
+                              name === "Passion with Reels" && (
+                                passionWithReelsHeadingsToHighlight.some(h => normalizedRule === normalizeRuleText(h))
                               );
                             const isRoTerranceSectionHeader =
                               name === "Ro-Terrance" && (
@@ -1362,7 +1369,33 @@ const EventDetail = ({ eventData }) => {
                                 .trim()
                                 .toUpperCase()
                                 .includes("FORZA HORIZON GAME RULES");
-                            if (isKhetSectionHeader || isRoTerranceSectionHeader || isRoSoccerSectionHeader || isRoSumoSectionHeader || isRoCombatSectionHeader || isHeader) {
+                            if (isKhetSectionHeader || isRoTerranceSectionHeader || isRoSoccerSectionHeader || isRoSumoSectionHeader || isRoCombatSectionHeader || isPassionWithReelsSectionHeader || isHeader) {
+                              // Passion With Reels specific
+                              if (isPassionWithReelsSectionHeader) {
+                                return (
+                                  <h3
+                                    key={index}
+                                    style={{
+                                      color: '#ffc010',
+                                      fontSize: 'clamp(15px, 3.5vw, 22px)',
+                                      fontFamily: 'Press Start 2P',
+                                      fontWeight: 'bold',
+                                      marginTop: index === 0 ? '0' : '28px',
+                                      marginBottom: '18px',
+                                      lineHeight: '1.5',
+                                      textTransform: 'uppercase',
+                                      letterSpacing: '2.5px',
+                                      textAlign: 'left',
+                                      display: 'flex',
+                                      alignItems: 'center',
+                                      gap: '10px',
+                                    }}
+                                  >
+                                    <span style={{fontSize: '1.2em'}}>📜</span>
+                                    {rule}
+                                  </h3>
+                                );
+                              }
                               // Choose emoji based on heading
                               let emoji = '⭐';
                               if (normalizedRule.includes('GENERAL RULES')) emoji = '📋';
