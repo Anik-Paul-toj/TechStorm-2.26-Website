@@ -295,6 +295,9 @@ router.put('/registrations/:eventName/:id',
       });
     }
     
+    console.log(`✅ [UPDATE] Registration ${id} updated in MongoDB for event: ${eventName}`);
+    console.log(`📝 Updated fields:`, Object.keys(updateData).filter(k => k !== 'updatedAt').join(', '));
+    
     res.json({
       message: 'Registration updated successfully',
       registration
@@ -351,6 +354,9 @@ router.patch('/registrations/:eventName/:id',
       });
     }
     
+    console.log(`✅ [PATCH] Registration ${id} status updated in MongoDB for event: ${eventName}`);
+    console.log(`📝 Updated:`, updateData);
+    
     res.json({
       message: 'Registration updated successfully',
       registration
@@ -395,6 +401,9 @@ router.delete('/registrations/:eventName/:id',
         message: 'Registration not found'
       });
     }
+    
+    console.log(`🗑️ [DELETE] Registration ${id} permanently deleted from MongoDB for event: ${eventName}`);
+    console.log(`📧 Deleted registration email: ${registration.email || registration.emailAddress}`);
     
     res.json({
       message: 'Registration deleted successfully',
@@ -443,6 +452,9 @@ router.post('/registrations/:eventName',
     
     const registration = new model(registrationData);
     await registration.save();
+    
+    console.log(`➕ [CREATE] New registration ${registration._id} created in MongoDB for event: ${eventName}`);
+    console.log(`📧 Email: ${registration.email || registration.emailAddress}`);
     
     res.status(201).json({
       message: 'Registration created successfully',

@@ -201,6 +201,8 @@ const ViewRegistrationModal = ({ registration, onClose }) => {
               {registration.participants && registration.participants.length > 0 && (
                 <div className="detail-section">
                   <h3>Participants ({registration.participants.length})</h3>
+                  {console.log('👥 Total participants:', registration.participants.length)}
+                  {console.log('👥 Participants data:', registration.participants)}
                   {registration.participants.map((participant, index) => (
                     <div key={index} className="team-member-card">
                       <h4>Participant {index + 1}</h4>
