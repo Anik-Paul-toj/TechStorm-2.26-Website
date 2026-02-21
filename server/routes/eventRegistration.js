@@ -73,6 +73,9 @@ router.post('/:eventName',
           
           console.log(`📄 Processing file: ${fieldName} (${file.originalname})`);
           
+          // Check if this is a participant ID file (format: participants[0].idFile)
+          const participantMatch = fieldName.match(/participants\[(\d+)\]\.idFile/);
+          
           if (isImage) {
             // Upload images to Cloudinary
             console.log(`☁️ Uploading image to Cloudinary: ${fieldName}`);
@@ -96,23 +99,72 @@ router.post('/:eventName',
               }
             );
             
-            // Store Cloudinary data in registration
-            registrationData[fieldName] = file.originalname;
-            registrationData[`${fieldName}Url`] = uploadResult.secure_url;
-            registrationData[`${fieldName}CloudinaryId`] = uploadResult.public_id;
-            
-            console.log(`✅ Image uploaded to Cloudinary: ${uploadResult.secure_url}`);
+            // Handle participant ID files specially
+            if (participantMatch) {
+              const participantIndex = parseInt(participantMatch[1]);
+              console.log(`👤 Storing participant ${participantIndex} ID file in Cloudinary`);
+              
+              // Ensure participants array exists and has the right structure
+              if (!Array.isArray(registrationData.participants)) {
+                registrationData.participants = [];
+              }
+              
+              // Ensure participant object exists at this index
+              if (!registrationData.participants[participantIndex]) {
+                registrationData.participants[participantIndex] = {};
+              }
+              
+              // Store file data in participant object
+              registrationData.participants[participantIndex].idFile = file.originalname;
+              registrationData.participants[participantIndex].idFileUrl = uploadResult.secure_url;
+              registrationData.participants[participantIndex].idFileCloudinaryId = uploadResult.public_id;
+              
+              console.log(`✅ Participant ${participantIndex} ID uploaded: ${uploadResult.secure_url}`);
+            } else {
+              // Store Cloudinary data in registration (top-level fields)
+              registrationData[fieldName] = file.originalname;
+              registrationData[fieldName] = file.originalname;
+              registrationData[`${fieldName}Url`] = uploadResult.secure_url;
+              registrationData[`${fieldName}CloudinaryId`] = uploadResult.public_id;
+              
+              console.log(`✅ Image uploaded to Cloudinary: ${uploadResult.secure_url}`);
+            }
             
           } else if (isPDF) {
             // Store PDFs directly in MongoDB as base64
             console.log(`💾 Storing PDF in MongoDB: ${fieldName}`);
             
-            registrationData[fieldName] = file.originalname;
-            registrationData[`${fieldName}Data`] = file.buffer.toString('base64');
-            registrationData[`${fieldName}MimeType`] = file.mimetype;
-            registrationData[`${fieldName}Size`] = file.size;
-            
-            console.log(`✅ PDF stored in MongoDB: ${file.originalname} (${(file.size / 1024).toFixed(2)}KB)`);
+            // Handle participant ID files specially
+            if (participantMatch) {
+              const participantIndex = parseInt(participantMatch[1]);
+              console.log(`👤 Storing participant ${participantIndex} ID file (PDF) in MongoDB`);
+              
+              // Ensure participants array exists
+              if (!Array.isArray(registrationData.participants)) {
+                registrationData.participants = [];
+              }
+              
+              // Ensure participant object exists
+              if (!registrationData.participants[participantIndex]) {
+                registrationData.participants[participantIndex] = {};
+              }
+              
+              // Store PDF data in participant object
+              registrationData.participants[participantIndex].idFile = file.originalname;
+              registrationData.participants[participantIndex].idFileData = file.buffer.toString('base64');
+              registrationData.participants[participantIndex].idFileMimeType = file.mimetype;
+              registrationData.participants[participantIndex].idFileSize = file.size;
+              
+              console.log(`✅ Participant ${participantIndex} ID (PDF) stored: ${file.originalname}`);
+            } else {
+              // Top-level PDF fields
+              registrationData[fieldName] = file.originalname;
+              registrationData[`${fieldName}Data`] = file.buffer.toString('base64');
+              registrationData[`${fieldName}MimeType`] = file.mimetype;
+              registrationData[`${fieldName}Size`] = file.size;
+              
+              console.log(`✅ PDF stored in MongoDB: ${file.originalname} (${(file.size / 1024).toFixed(2)}KB)`);
+            }
             
           } else {
             // Unknown file type - store in MongoDB
