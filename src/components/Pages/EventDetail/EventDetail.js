@@ -683,6 +683,21 @@ const EventDetail = ({ eventData }) => {
           console.error("Creative Canvas gallery fetch error:", err);
           setCreativeCanvasGalleryImages([]);
         });
+    } else if (name === "Passion with Reels") {
+      fetch("/passion-with-reels-cloudinary-urls.json")
+        .then((res) => {
+          if (!res.ok) {
+            throw new Error("Failed to fetch Passion with Reels images");
+          }
+          return res.json();
+        })
+        .then((data) => {
+          setKhetGalleryImages(Object.values(data)); // Reuse KHET state for simplicity
+        })
+        .catch((err) => {
+          console.error("Passion with Reels gallery fetch error:", err);
+          setKhetGalleryImages([]);
+        });
     }
   }, [name]);
 
@@ -691,6 +706,8 @@ const EventDetail = ({ eventData }) => {
       ? khetGalleryImages
       : name === "Creative Canvas" && creativeCanvasGalleryImages.length > 0
       ? creativeCanvasGalleryImages
+      : name === "Passion with Reels" && khetGalleryImages.length > 0
+      ? khetGalleryImages
       : previousYearImages && previousYearImages.length > 0
         ? previousYearImages
         : dummyImages;

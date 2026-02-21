@@ -36,6 +36,12 @@ const picturesOfGallerySubfolders = getSubfolders(picturesOfGalleryRoot).map(sub
       cloud: `eoorox/pictures_of_gallery/${sub}`
     };
   }
+  if (sub === 'Passion with reels-20260216T161844Z-1-001') {
+    return {
+      local: path.join(picturesOfGalleryRoot, sub, 'Passion with reels', 'compressed'),
+      cloud: `eoorox/pictures_of_gallery/${sub}/Passion with reels`
+    };
+  }
   return {
     local: path.join(picturesOfGalleryRoot, sub),
     cloud: `eoorox/pictures_of_gallery/${sub}`
