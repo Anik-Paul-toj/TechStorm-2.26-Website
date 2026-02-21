@@ -7,7 +7,7 @@
 }
 
 .gallery-hero-video {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -15,6 +15,7 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-attachment: fixed;
   z-index: 0;
 }
 
@@ -57,7 +58,7 @@
   color: #ffbb00 !important;
 }
 
-.gallery-breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+.gallery-breadcrumb .breadcrumb-item+.breadcrumb-item::before {
   color: rgb(255, 187, 1);
 }
 
@@ -67,6 +68,7 @@
 .gallery-hero-overlay section#work .row.align-items-center.mb-30 [class*="col-"] {
   overflow: visible;
 }
+
 .gallery-hero-overlay section#work.gallery-work-section {
   padding-bottom: 1rem;
 }
@@ -74,10 +76,12 @@
 .gallery-hero-overlay section#work .row.align-items-center.mb-30 {
   margin-bottom: 16px !important;
 }
+
 .gallery-heading-title.section-title,
 .gallery-heading-title.section-title h2 {
   overflow: visible;
 }
+
 .gallery-heading-title.section-title {
   margin-bottom: 0 !important;
 }
@@ -144,8 +148,13 @@
 }
 
 @keyframes gallery-toast-fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 .gallery-toast {
@@ -159,19 +168,17 @@
     0 0 0 6px #ffc010,
     0 0 40px rgba(255, 192, 16, 0.3);
   padding: 8px;
-  clip-path: polygon(
-    0 12px, 12px 12px, 12px 0,
-    calc(100% - 12px) 0, calc(100% - 12px) 12px, 100% 12px,
-    100% calc(100% - 12px), calc(100% - 12px) calc(100% - 12px),
-    calc(100% - 12px) 100%, 12px 100%, 12px calc(100% - 12px),
-    0 calc(100% - 12px)
-  );
+  clip-path: polygon(0 12px, 12px 12px, 12px 0,
+      calc(100% - 12px) 0, calc(100% - 12px) 12px, 100% 12px,
+      100% calc(100% - 12px), calc(100% - 12px) calc(100% - 12px),
+      calc(100% - 12px) 100%, 12px 100%, 12px calc(100% - 12px),
+      0 calc(100% - 12px));
 }
 
 .gallery-toast-img {
   display: block;
   max-width: 100%;
-  max-height: calc(70vh - 24px);
+  max-height: calc(70vh - 16px);
   width: auto;
   height: auto;
   object-fit: contain;
@@ -179,24 +186,27 @@
 
 .gallery-toast-close {
   position: absolute;
-  top: -8px;
-  right: -8px;
-  width: 36px;
-  height: 36px;
+  top: 12px;
+  right: 12px;
+  width: 30px;
+  height: 30px;
   border: none;
-  background: #ffc010;
-  color: #0f0819;
+  background: rgba(15, 8, 25, 0.75);
+  color: #ffc010;
   border-radius: 0;
   cursor: pointer;
-  font-size: 16px;
-  z-index: 1;
-  box-shadow: 2px 2px 0 #0f0819;
-  transition: background 0.2s, transform 0.2s;
+  font-size: 14px;
+  line-height: 30px;
+  text-align: center;
+  z-index: 10;
+  box-shadow: 0 0 0 2px #ffc010, 2px 2px 0 #0f0819;
+  transition: background 0.2s, color 0.2s;
+  backdrop-filter: blur(2px);
 }
 
 .gallery-toast-close:hover {
-  background: #fff;
-  transform: scale(1.05);
+  background: #ffc010;
+  color: #0f0819;
 }
 
 /* Retro pixel gallery cards (4 columns) + proper height spacing */
@@ -215,13 +225,11 @@
     0 0 0 2px #0f0819,
     4px 4px 0 #0f0819,
     0 0 0 6px #ffc010;
-  clip-path: polygon(
-    0 10px, 10px 10px, 10px 0,
-    calc(100% - 10px) 0, calc(100% - 10px) 10px, 100% 10px,
-    100% calc(100% - 10px), calc(100% - 10px) calc(100% - 10px),
-    calc(100% - 10px) 100%, 10px 100%, 10px calc(100% - 10px),
-    0 calc(100% - 10px)
-  );
+  clip-path: polygon(0 10px, 10px 10px, 10px 0,
+      calc(100% - 10px) 0, calc(100% - 10px) 10px, 100% 10px,
+      100% calc(100% - 10px), calc(100% - 10px) calc(100% - 10px),
+      calc(100% - 10px) 100%, 10px 100%, 10px calc(100% - 10px),
+      0 calc(100% - 10px));
   image-rendering: pixelated;
   image-rendering: -moz-crisp-edges;
   image-rendering: crisp-edges;
@@ -312,6 +320,7 @@
     width: calc(50% - 6px);
     margin: 0 3px 40px;
   }
+
   .gallery-retro .portfolio .grid.col4.gallery-grid-4x3,
   .gallery-grid-4x3 {
     row-gap: 40px;
@@ -324,13 +333,11 @@
   .gallery-retro .grid-item .box {
     border-width: 2px;
     box-shadow: 0 0 0 2px #0f0819, 3px 3px 0 #0f0819;
-    clip-path: polygon(
-      0 6px, 6px 6px, 6px 0,
-      calc(100% - 6px) 0, calc(100% - 6px) 6px, 100% 6px,
-      100% calc(100% - 6px), calc(100% - 6px) calc(100% - 6px),
-      calc(100% - 6px) 100%, 6px 100%, 6px calc(100% - 6px),
-      0 calc(100% - 6px)
-    );
+    clip-path: polygon(0 6px, 6px 6px, 6px 0,
+        calc(100% - 6px) 0, calc(100% - 6px) 6px, 100% 6px,
+        100% calc(100% - 6px), calc(100% - 6px) calc(100% - 6px),
+        calc(100% - 6px) 100%, 6px 100%, 6px calc(100% - 6px),
+        0 calc(100% - 6px));
   }
 
   .gallery-retro .grid-item .box-hover {
@@ -379,22 +386,23 @@
   .gallery-toast {
     max-width: 96vw;
     max-height: 82vh;
-    padding: 6px;
+    padding: 8px;
     border-width: 2px;
   }
 
   .gallery-toast-img {
-    max-height: calc(82vh - 20px);
+    max-height: calc(82vh - 16px);
   }
 
   .gallery-toast-close {
-    top: 4px;
-    right: 4px;
-    width: 44px;
-    height: 44px;
-    font-size: 18px;
-    min-width: 44px;
-    min-height: 44px;
+    top: 10px;
+    right: 10px;
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+    min-width: 36px;
+    min-height: 36px;
+    line-height: 36px;
   }
 }
 
@@ -427,6 +435,7 @@
     margin: 0 0 48px;
     max-width: 100%;
   }
+
   .gallery-retro .portfolio .grid.col4.gallery-grid-4x3,
   .gallery-grid-4x3 {
     row-gap: 48px;
@@ -478,7 +487,7 @@
   }
 
   .gallery-toast-close {
-    top: 8px;
-    right: 8px;
+    top: 6px;
+    right: 6px;
   }
 }

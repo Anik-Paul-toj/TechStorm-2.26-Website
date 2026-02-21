@@ -4,22 +4,56 @@
 
 /* Extra Large Desktop - Larger fonts */
 @media only screen and (min-width: 1600px) {
-    h1 { font-size: 28px; }
-    h2 { font-size: 24px; }
-    h3 { font-size: 18px; }
-    h4 { font-size: 16px; }
-    h5 { font-size: 14px; }
-    h6 { font-size: 12px; }
+    h1 {
+        font-size: 28px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    h3 {
+        font-size: 18px;
+    }
+
+    h4 {
+        font-size: 16px;
+    }
+
+    h5 {
+        font-size: 14px;
+    }
+
+    h6 {
+        font-size: 12px;
+    }
 }
 
 /* Large Desktop - Slightly larger */
 @media only screen and (min-width: 1200px) and (max-width: 1599px) {
-    h1 { font-size: 26px; }
-    h2 { font-size: 22px; }
-    h3 { font-size: 17px; }
-    h4 { font-size: 15px; }
-    h5 { font-size: 13px; }
-    h6 { font-size: 11px; }
+    h1 {
+        font-size: 26px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
+    h3 {
+        font-size: 17px;
+    }
+
+    h4 {
+        font-size: 15px;
+    }
+
+    h5 {
+        font-size: 13px;
+    }
+
+    h6 {
+        font-size: 11px;
+    }
 }
 
 @media only screen and (min-width: 1200px) {
@@ -31,7 +65,7 @@
 
 @media only screen and (max-width: 1366px) {
     .insg-grid ul li {
-        width     : 16%;
+        width: 16%;
         margin-top: 10px;
     }
 
@@ -47,10 +81,10 @@
     }
 
     .best-gaming .about-content.s-about-content {
-        margin-top  : 0;
+        margin-top: 0;
         padding-left: 0;
-        padding-top : 60px;
-        margin-left : 50px;
+        padding-top: 60px;
+        margin-left: 50px;
     }
 
     .team .text {
@@ -70,15 +104,15 @@
 /* Normal desktop :1200px. */
 @media (min-width: 1200px) and (max-width: 1500px) {
     .portfolio .col4 .grid-item {
-        width  : 24.9%;
-        margin : 0;
+        width: 24.9%;
+        margin: 0;
         padding: 0;
     }
 
     .contact-area .map {
         position: absolute;
-        right   : -300px;
-        top     : 0;
+        right: -300px;
+        top: 0;
     }
 
     .container-p {
@@ -95,7 +129,7 @@
 
     .slider-active .slick-next {
         right: 20px;
-        left : auto;
+        left: auto;
     }
 
     .section-t h2 {
@@ -103,9 +137,9 @@
     }
 
     .f-cta-area {
-        margin-left  : 60px;
-        margin-right : 60px;
-        padding-left : 50px;
+        margin-left: 60px;
+        margin-right: 60px;
+        padding-left: 50px;
         padding-right: 50px;
     }
 
@@ -137,7 +171,7 @@
 /* Normal desktop :992px. */
 @media (min-width: 992px) and (max-width: 1200px) {
     .logo img {
-        width    : auto;
+        width: auto;
         max-width: initial;
     }
 
@@ -167,13 +201,13 @@
 
     .testimonial-area .test-bg {
         position: absolute;
-        top     : 0;
-        left    : -102px;
-        right   : -24px;
+        top: 0;
+        left: -102px;
+        right: -24px;
     }
 
     .breadcrumb-title h2 {
-        font-size    : 36px;
+        font-size: 36px;
         margin-bottom: 15px;
     }
 
@@ -181,9 +215,9 @@
     .testimonial-area::after,
     .contact-area::after,
     .team-area::after {
-        width  : 100%;
-        left   : 0;
-        top    : 0;
+        width: 100%;
+        left: 0;
+        top: 0;
         z-index: 0;
     }
 
@@ -216,7 +250,7 @@
     }
 
     .team-active .slick-next {
-        left : inherit;
+        left: inherit;
         right: 0;
     }
 
@@ -238,12 +272,12 @@
     }
 
     .services-active2 .slick-next {
-        left : inherit;
+        left: inherit;
         right: 0px;
     }
 
     .right-menu .text strong {
-        color    : #002e5b;
+        color: #002e5b;
         font-size: 14px;
     }
 
@@ -265,7 +299,7 @@
 
     .top-btn {
         font-size: 11px;
-        padding  : 16px 27px;
+        padding: 16px 27px;
     }
 
     .header-cta ul li {
@@ -274,19 +308,19 @@
 
     .menu-area::before {
         width: 27%;
-        top  : 48px;
+        top: 48px;
     }
 
     .sticky-menu::before {
         height: 71px;
-        top   : 0;
-        left  : -20px;
+        top: 0;
+        left: -20px;
     }
 
     .call-area h2 {
-        color     : #fff;
+        color: #fff;
         margin-top: 100px;
-        font-size : 26px;
+        font-size: 26px;
     }
 
     .call-area .number {
@@ -314,7 +348,7 @@
     }
 
     .services-content {
-        padding       : 50px 30px;
+        padding: 50px 30px;
         padding-bottom: 45px;
     }
 
@@ -332,8 +366,8 @@
 
     .video-position {
         bottom: -222px;
-        left  : 20px;
-        right : 20px;
+        left: 20px;
+        right: 20px;
     }
 
     .v-padding {
@@ -341,7 +375,7 @@
     }
 
     .wp-list {
-        padding       : 35px 15px;
+        padding: 35px 15px;
         padding-bottom: 25px;
     }
 
@@ -354,7 +388,7 @@
     }
 
     .team-info {
-        margin-left : 0;
+        margin-left: 0;
         margin-right: 0;
     }
 
@@ -383,7 +417,7 @@
     }
 
     .blog-content h4 {
-        font-size    : 18px;
+        font-size: 18px;
         margin-bottom: 20px;
     }
 
@@ -392,9 +426,9 @@
     }
 
     .f-cta-area {
-        margin-left  : 20px;
-        margin-right : 20px;
-        padding-left : 50px;
+        margin-left: 20px;
+        margin-right: 20px;
+        padding-left: 50px;
         padding-right: 50px;
     }
 
@@ -404,12 +438,12 @@
 
     .footer-social-nes {
         justify-content: center;
-        gap            : 18px;
-        flex-wrap      : wrap;
+        gap: 18px;
+        flex-wrap: nowrap;
     }
 
     .footer-social-nes .nes-icon {
-        width : 48px !important;
+        width: 48px !important;
         height: 48px !important;
     }
 
@@ -487,7 +521,7 @@
 
     .bsingle__content h2 {
         padding-right: 0;
-        font-size    : 27px;
+        font-size: 27px;
     }
 
     .widget__banner-overly>span {
@@ -496,11 +530,11 @@
 
     .widget__banner-overly h3 {
         margin-bottom: 91px;
-        font-size    : 35px;
+        font-size: 35px;
     }
 
     .widget__post-content h6 {
-        font-size    : 14px;
+        font-size: 14px;
         padding-right: 0;
     }
 
@@ -529,8 +563,8 @@
     }
 
     .services-box.service2 .services-icon {
-        width      : 210px;
-        height     : 210px;
+        width: 210px;
+        height: 210px;
         padding-top: 30px;
     }
 
@@ -545,18 +579,41 @@
 
 /* Tablet and smaller - Reduce font sizes */
 @media only screen and (max-width: 991px) {
-    h1 { font-size: 20px; letter-spacing: 0.3px; }
-    h2 { font-size: 18px; letter-spacing: 0.3px; }
-    h3 { font-size: 15px; letter-spacing: 0.3px; }
-    h4 { font-size: 13px; letter-spacing: 0.2px; }
-    h5 { font-size: 11px; letter-spacing: 0.2px; }
-    h6 { font-size: 10px; letter-spacing: 0.2px; }
+    h1 {
+        font-size: 20px;
+        letter-spacing: 0.3px;
+    }
+
+    h2 {
+        font-size: 18px;
+        letter-spacing: 0.3px;
+    }
+
+    h3 {
+        font-size: 15px;
+        letter-spacing: 0.3px;
+    }
+
+    h4 {
+        font-size: 13px;
+        letter-spacing: 0.2px;
+    }
+
+    h5 {
+        font-size: 11px;
+        letter-spacing: 0.2px;
+    }
+
+    h6 {
+        font-size: 10px;
+        letter-spacing: 0.2px;
+    }
 
     .about-content.s-about-content {
         margin-top: 25px;
-        max-width : 100%;
+        max-width: 100%;
     }
-    
+
     /* About Section Tablet Fixes */
     .about-date {
         position: relative !important;
@@ -566,7 +623,7 @@
         text-align: center !important;
         margin-bottom: 20px !important;
     }
-    
+
     .about-nes-container .nes-balloon {
         max-width: 350px !important;
         font-size: 12px !important;
@@ -581,9 +638,9 @@
     }
 
     .video-grid .video-full-img .play-btn a {
-        width      : 80px;
-        height     : 80px;
-        font-size  : 40px;
+        width: 80px;
+        height: 80px;
+        font-size: 40px;
         line-height: 88px;
     }
 
@@ -596,7 +653,7 @@
     }
 
     .about-right-image {
-        margin        : 50px 50px 60px;
+        margin: 50px 50px 60px;
         padding-bottom: 0;
     }
 
@@ -652,19 +709,19 @@
     .testimonial-area::after,
     .contact-area::after {
         width: 100%;
-        left : 0;
+        left: 0;
     }
 
     .testimonial-active2 {
-        width        : 100%;
-        background   : rgb(80, 82, 171);
+        width: 100%;
+        background: rgb(80, 82, 171);
         margin-bottom: 50px;
-        padding      : 30px;
+        padding: 30px;
     }
 
     .button-group button {
         margin: 0 4px;
-        flex  : 0 0 33%;
+        flex: 0 0 33%;
     }
 
     .portfolio .col4 .grid-item {
@@ -697,16 +754,16 @@
 
     .mean-container a.meanmenu-reveal {
         margin-top: -35px;
-        color     : #fff;
+        color: #fff;
     }
 
     .contact-bg02 {
-        padding      : 30px;
+        padding: 30px;
         margin-bottom: 80px;
     }
 
     .contact-bg-an-02 {
-        right : -100px;
+        right: -100px;
         bottom: 0;
     }
 
@@ -723,9 +780,9 @@
     }
 
     .header-cta ul li {
-        display    : inline-block;
+        display: inline-block;
         margin-left: 12px;
-        font-size  : 12px;
+        font-size: 12px;
     }
 
     #video {
@@ -733,7 +790,7 @@
     }
 
     .s-video-wrap {
-        width : 100%;
+        width: 100%;
         height: 500px;
     }
 
@@ -754,16 +811,16 @@
     }
 
     .newslater-area #contact-form4 {
-        margin-top  : 0;
-        float       : right;
-        width       : 100%;
+        margin-top: 0;
+        float: right;
+        width: 100%;
         padding-left: 0;
     }
 
     .cta-area.cta-bg::before {
         height: 100%;
-        width : 100%;
-        top   : 0;
+        width: 100%;
+        top: 0;
     }
 
     .cta-bg {
@@ -772,7 +829,7 @@
 
     .cta-bg .video-img {
         margin-top: 0px;
-        height    : 757px;
+        height: 757px;
     }
 
     .services-active2 .slick-arrow {
@@ -780,31 +837,30 @@
     }
 
     .services-active2 .slick-next {
-        left : inherit;
+        left: inherit;
         right: 0px;
     }
 
     .menu-area::before {
-        width : 32%;
+        width: 32%;
         height: 84px;
-        left  : -34px;
+        left: -34px;
     }
 
     .sticky-menu::before {
         height: 84px;
-        top   : 0;
-        left  : -29px;
+        top: 0;
+        left: -29px;
     }
 
     .logo {
-        height     : auto;
-        margin-top : 0;
+        height: auto;
+        margin-top: 0;
         line-height: inherit;
-        width      : 25%;
+        width: 25%;
         display: flex;
         align-items: center;
         gap: 8px
-        
     }
 
     .main-menu .has-sub>ul {
@@ -824,11 +880,11 @@
     }
 
     .about-img {
-        margin-left  : 0;
-        text-align   : center;
+        margin-left: 0;
+        text-align: center;
         margin-bottom: 30px;
     }
-    
+
     /* About Section Mobile Adjustments */
     .about-date {
         position: relative !important;
@@ -839,17 +895,17 @@
         margin-bottom: 20px !important;
         line-height: 1.8 !important;
     }
-    
+
     .about-nes-container .nes-balloon p {
         font-size: 12px !important;
     }
-    
+
     .about-content3 ul.green li {
         font-size: 12px !important;
     }
 
     .about-content.pl-30 {
-        padding-left  : 0;
+        padding-left: 0;
         padding-bottom: 4px;
     }
 
@@ -862,19 +918,19 @@
     }
 
     .services-content {
-        padding       : 50px 28px;
+        padding: 50px 28px;
         padding-bottom: 45px;
     }
 
     .video-position {
         bottom: 70px;
-        left  : 120px;
+        left: 120px;
     }
 
     .wp-img {
-        margin-top   : 30px;
+        margin-top: 30px;
         margin-bottom: -15px;
-        margin-right : 0;
+        margin-right: 0;
     }
 
     .counter small {
@@ -887,7 +943,7 @@
 
     .ta-bg {
         background-position: center;
-        margin             : 25px auto;
+        margin: 25px auto;
     }
 
     .testimonial-area.pb-120 {
@@ -895,9 +951,9 @@
     }
 
     .f-cta-area {
-        margin-left  : 20px;
-        margin-right : 20px;
-        padding-left : 50px;
+        margin-left: 20px;
+        margin-right: 20px;
+        padding-left: 50px;
         padding-right: 50px;
     }
 
@@ -906,14 +962,14 @@
     }
 
     .responsive {
-        float     : right;
-        display   : block;
-        cursor    : pointer;
+        float: right;
+        display: block;
+        cursor: pointer;
         margin-top: -38px;
     }
 
     .responsive i {
-        color    : #002e5b;
+        color: #002e5b;
         font-size: 25px;
     }
 
@@ -927,9 +983,9 @@
     }
 
     .main-menu ul li {
-        display      : block;
+        display: block;
         border-bottom: 1px solid #f7f7f74f;
-        margin-left  : 0;
+        margin-left: 0;
     }
 
     .main-menu ul li.active a,
@@ -942,19 +998,19 @@
     }
 
     .main-menu ul li a {
-        color      : #fff;
-        padding    : 12px 20px;
-        display    : block;
-        font-size  : 14px;
+        color: #fff;
+        padding: 12px 20px;
+        display: block;
+        font-size: 14px;
         font-family: 'Source Sans Pro', sans-serif;
         font-weight: 500;
     }
 
     .second-menu {
         margin-bottom: 0;
-        box-shadow   : none;
-        padding      : 0;
-        margin-top   : 0;
+        box-shadow: none;
+        padding: 0;
+        margin-top: 0;
     }
 
     .second-menu::before {
@@ -963,7 +1019,7 @@
 
     .second-header {
         position: relative;
-        z-index : 99;
+        z-index: 99;
     }
 
     .second-menu .main-menu ul li {
@@ -983,7 +1039,7 @@
     }
 
     .testimonial-p {
-        padding-top   : 100px;
+        padding-top: 100px;
         padding-bottom: 100px;
     }
 
@@ -1014,7 +1070,7 @@
 
     .widget__banner-overly h3 {
         margin-bottom: 352px;
-        font-size    : 80px;
+        font-size: 80px;
     }
 
     .widget__banner-overly h3 span {
@@ -1035,7 +1091,7 @@
 
     .portfolio .col3 .grid-item,
     .portfolio .col2 .grid-item {
-        width  : 33.33%;
+        width: 33.33%;
         padding: 15px;
     }
 
@@ -1044,16 +1100,16 @@
     }
 
     .testimonial-active2 {
-        width        : 100%;
-        background   : rgb(80, 82, 171);
+        width: 100%;
+        background: rgb(80, 82, 171);
         margin-bottom: 50px;
-        margin-top   : 0;
+        margin-top: 0;
     }
 
     .newslater-area.pt-170.pb-80 {
         background-color: #ffc010;
         background-image: none !important;
-        padding         : 100px 0;
+        padding: 100px 0;
     }
 
     .newslater-area .section-title {
@@ -1083,9 +1139,9 @@
 
     .blog-thumb2 img {
         margin-left: 0;
-        height     : 400px;
-        width      : 100%;
-        object-fit : cover;
+        height: 400px;
+        width: 100%;
+        object-fit: cover;
     }
 
     .video-area {
@@ -1103,26 +1159,26 @@
 
     .mean-container a.meanmenu-reveal span {
         background: no-repeat;
-        display   : block;
-        height    : 3px;
+        display: block;
+        height: 3px;
         margin-top: 3px;
         border-top: 3px solid #fff;
-        color     : #fff;
+        color: #fff;
     }
 
     .mean-container .mean-nav ul li a {
-        border-top     : 1px solid rgba(217, 217, 217, 0.5);
-        color          : #333;
-        display        : block;
-        float          : left;
-        margin         : 0;
-        padding        : 10px 5%;
-        text-align     : left;
+        border-top: 1px solid rgba(217, 217, 217, 0.5);
+        color: #333;
+        display: block;
+        float: left;
+        margin: 0;
+        padding: 10px 5%;
+        text-align: left;
         text-decoration: none;
-        text-transform : uppercase;
-        width          : 90%;
-        font-size      : 15px;
-        font-weight    : 600;
+        text-transform: uppercase;
+        width: 90%;
+        font-size: 15px;
+        font-weight: 600;
     }
 
     .menu .sub-menu li,
@@ -1133,15 +1189,15 @@
     .mean-container .mean-nav {
         background: #FFFFFF 0% 0% no-repeat padding-box;
         box-shadow: 3px 4px 15px #0000001A;
-        position  : absolute;
+        position: absolute;
     }
 
     .mean-container .mean-nav ul li a.mean-expand {
         text-align: right;
-        top       : 0;
-        width     : 100%;
-        z-index   : 2;
-        padding   : 9px 12px;
+        top: 0;
+        width: 100%;
+        z-index: 2;
+        padding: 9px 12px;
     }
 
     .mean-container .mean-nav ul li a.mean-expand:hover {
@@ -1150,20 +1206,20 @@
 
     .mean-container .mean-nav ul {
         overflow: hidden;
-        display : block;
+        display: block;
     }
 
     .menu .page_item_has_children>ul>.page_item_has_children:hover>ul {
         margin-left: 0;
-        margin-top : 0;
-        top        : 0;
+        margin-top: 0;
+        top: 0;
     }
 
     .menu .sub-menu {
-        position  : relative;
-        height    : auto;
-        overflow  : scroll;
-        display   : block;
+        position: relative;
+        height: auto;
+        overflow: scroll;
+        display: block;
         transition: inherit;
         background: none;
         box-shadow: 0 0 0 0;
@@ -1171,7 +1227,7 @@
 
     /* mobile menu End*/
     .team-img-box img {
-        width        : 100%;
+        width: 100%;
         margin-bottom: 50px;
     }
 }
@@ -1179,8 +1235,8 @@
 /* small mobile :320px. */
 @media (max-width: 812px) {
     .error-page .error-code {
-        display      : inline-block;
-        font-size    : 150px;
+        display: inline-block;
+        font-size: 150px;
         margin-bottom: 80px;
     }
 
@@ -1193,23 +1249,23 @@
     }
 
     .live-team-box {
-        width     : 100%;
+        width: 100%;
         margin-top: 0;
     }
 
     .video-active2 {
-        margin-left : 0;
+        margin-left: 0;
         margin-right: 0;
     }
 
     .macthe-box2 .team .text,
     .macthe-box2 .team2 .text {
-        position  : relative;
-        top       : 0;
-        right     : 0;
-        width     : 100%;
+        position: relative;
+        top: 0;
+        right: 0;
+        width: 100%;
         margin-top: 30px;
-        left      : 0;
+        left: 0;
     }
 
     .macthe-active .team,
@@ -1220,7 +1276,7 @@
     .macthe-active .team img,
     .macthe-active .team2 img {
         display: inline-block;
-        float  : none;
+        float: none;
     }
 
     .match-time {
@@ -1261,7 +1317,7 @@
     }
 
     .container-fluid.pl-50.pr-50 {
-        padding-left : 15px;
+        padding-left: 15px;
         padding-right: 15px;
     }
 
@@ -1270,7 +1326,7 @@
     }
 
     .testi-author img {
-        float        : left;
+        float: left;
         margin-bottom: 0;
     }
 
@@ -1284,8 +1340,8 @@
 
     .testimonial-active .slick-slide {
         position: relative;
-        padding : 30px 15px 0;
-        margin  : 15px;
+        padding: 30px 15px 0;
+        margin: 15px;
     }
 
     #comments {
@@ -1293,7 +1349,7 @@
     }
 
     .team-img-box img {
-        width        : 100%;
+        width: 100%;
         margin-bottom: 50px;
     }
 
@@ -1308,25 +1364,25 @@
 
     .mean-container a.meanmenu-reveal span {
         background: no-repeat;
-        display   : block;
-        height    : 3px;
+        display: block;
+        height: 3px;
         margin-top: 3px;
         border-top: 3px solid #fff;
     }
 
     .mean-container .mean-nav ul li a {
-        border-top     : 1px solid rgba(217, 217, 217, 0.5);
-        color          : #333;
-        display        : block;
-        float          : left;
-        margin         : 0;
-        padding        : 10px 5%;
-        text-align     : left;
+        border-top: 1px solid rgba(217, 217, 217, 0.5);
+        color: #333;
+        display: block;
+        float: left;
+        margin: 0;
+        padding: 10px 5%;
+        text-align: left;
         text-decoration: none;
-        text-transform : uppercase;
-        width          : 90%;
-        font-size      : 15px;
-        font-weight    : 600;
+        text-transform: uppercase;
+        width: 90%;
+        font-size: 15px;
+        font-weight: 600;
     }
 
     .menu .sub-menu li,
@@ -1337,15 +1393,15 @@
     .mean-container .mean-nav {
         background: #FFFFFF 0% 0% no-repeat padding-box;
         box-shadow: 3px 4px 15px #0000001A;
-        position  : absolute;
+        position: absolute;
     }
 
     .mean-container .mean-nav ul li a.mean-expand {
         text-align: right;
-        top       : 0;
-        width     : 100%;
-        z-index   : 2;
-        padding   : 9px 12px;
+        top: 0;
+        width: 100%;
+        z-index: 2;
+        padding: 9px 12px;
     }
 
     .mean-container .mean-nav ul li a.mean-expand:hover {
@@ -1354,20 +1410,20 @@
 
     .mean-container .mean-nav ul {
         overflow: hidden;
-        display : block;
+        display: block;
     }
 
     .menu .page_item_has_children>ul>.page_item_has_children:hover>ul {
         margin-left: 0;
-        margin-top : 0;
-        top        : 0;
+        margin-top: 0;
+        top: 0;
     }
 
     .menu .sub-menu {
-        position  : relative;
-        height    : auto;
-        overflow  : scroll;
-        display   : block;
+        position: relative;
+        height: auto;
+        overflow: scroll;
+        display: block;
         transition: inherit;
         background: none;
         box-shadow: 0 0 0 0;
@@ -1391,19 +1447,21 @@
     }
 
     .footer-social-nes {
-        justify-content: center;
-        gap            : 20px;
-        flex-wrap      : wrap;
-        padding        : 0;
+        justify-content: space-evenly;
+        gap: 6px;
+        flex-wrap: nowrap;
+        padding: 0;
+        width: 100%;
     }
 
     .footer-social-nes .nes-icon {
-        width : 52px !important;
-        height: 52px !important;
+        width: 40px !important;
+        height: 40px !important;
     }
 
     .footer-social-nes .nes-social-icon {
-        padding: 10px;
+        padding: 2px;
+        flex: 0 0 auto;
     }
 
     .map-f-container {
@@ -1420,7 +1478,7 @@
 
     /* Two column layout for Our Links and Events on mobile */
     .footer-top .col-6 .footer-widget {
-        padding-left : 5px;
+        padding-left: 5px;
         padding-right: 5px;
     }
 
@@ -1459,10 +1517,10 @@
     }
 
     .testimonial-active2 {
-        width        : 100%;
-        background   : rgb(80, 82, 171);
+        width: 100%;
+        background: rgb(80, 82, 171);
         margin-bottom: 50px;
-        margin-top   : 0;
+        margin-top: 0;
     }
 
     .testimonial-area .test-bg {
@@ -1470,7 +1528,7 @@
     }
 
     .about-content .exprince {
-        margin-top   : 15px;
+        margin-top: 15px;
         margin-bottom: 15px;
     }
 
@@ -1478,9 +1536,9 @@
     .testimonial-area::after,
     .contact-area::after,
     .team-area::after {
-        width  : 100%;
-        left   : 0;
-        top    : 0;
+        width: 100%;
+        left: 0;
+        top: 0;
         z-index: 0;
     }
 
@@ -1497,8 +1555,8 @@
     }
 
     .slider-three .slider-img {
-        margin-left : 0;
-        margin-top  : 50px;
+        margin-left: 0;
+        margin-top: 50px;
         margin-right: 0;
     }
 
@@ -1508,7 +1566,7 @@
 
     .button-group button {
         margin: 0 4px;
-        flex  : 0 0 55%;
+        flex: 0 0 55%;
     }
 
     .portfolio .col4 .grid-item {
@@ -1516,10 +1574,10 @@
     }
 
     .project-detail .pr-ul li {
-        display      : flex;
+        display: flex;
         margin-bottom: 15px;
-        float        : left;
-        width        : 100%;
+        float: left;
+        width: 100%;
     }
 
     .header-two .logo {
@@ -1540,8 +1598,8 @@
 
     .s-about-img.p-relative {
         margin-bottom: 50px;
-        margin-left  : 0;
-        margin-top   : 0;
+        margin-left: 0;
+        margin-top: 0;
     }
 
     .about-content3 .row {
@@ -1550,7 +1608,7 @@
 
     .mean-container a.meanmenu-reveal {
         margin-top: -65px;
-        color     : #fff;
+        color: #fff;
     }
 
     .contact-bg02 {
@@ -1558,7 +1616,7 @@
     }
 
     .contact-bg-an-02 {
-        right : -100px;
+        right: -100px;
         bottom: 0;
     }
 
@@ -1575,8 +1633,8 @@
     }
 
     .slider-four .slider-img {
-        margin-left : 0;
-        margin-top  : 50px;
+        margin-left: 0;
+        margin-top: 50px;
         margin-right: 0;
     }
 
@@ -1594,7 +1652,7 @@
 
     .cta-area.cta-bg::before {
         height: 100%;
-        top   : 0;
+        top: 0;
     }
 
     .team-active .slick-arrow {
@@ -1602,7 +1660,7 @@
     }
 
     .team-active .slick-next {
-        left : inherit;
+        left: inherit;
         right: 0px;
     }
 
@@ -1616,14 +1674,14 @@
 
     .single-testimonial-bg {
         border-radius: 10px;
-        width        : 100%;
-        float        : right;
-        padding      : 300px 50px 100px 50px;
-        margin       : 0;
+        width: 100%;
+        float: right;
+        padding: 300px 50px 100px 50px;
+        margin: 0;
     }
 
     .testimonial-active .slick-dots {
-        width : 100%;
+        width: 100%;
         bottom: 7%;
     }
 
@@ -1642,7 +1700,7 @@
 
     .services-active2 .slider-nav {
         position: absolute;
-        top     : 150px;
+        top: 150px;
     }
 
     .services-active2 .slick-arrow {
@@ -1650,25 +1708,25 @@
     }
 
     .services-active2 .slick-next {
-        left : inherit;
+        left: inherit;
         right: -15px;
     }
 
     .services-active2 h2 {
-        font-size : 28px;
+        font-size: 28px;
         margin-top: 30px;
     }
 
     .sinature-box {
         position: relative;
-        left    : 0;
-        width   : 100%;
+        left: 0;
+        width: 100%;
     }
 
     .newslater-area #contact-form4 {
-        margin-top  : 0;
-        float       : right;
-        width       : 100%;
+        margin-top: 0;
+        float: right;
+        width: 100%;
         padding-left: 0;
     }
 
@@ -1677,7 +1735,7 @@
     }
 
     .portfolio-active .slick-arrow {
-        top : -113px;
+        top: -113px;
         left: 60.5%;
     }
 
@@ -1690,7 +1748,7 @@
     }
 
     .com-icon {
-        top  : 80px;
+        top: 80px;
         width: 50px;
     }
 
@@ -1710,12 +1768,12 @@
 
     #project {
         background-size: cover !important;
-        padding-bottom : 90px;
+        padding-bottom: 90px;
     }
 
     .call-area {
         background-size: cover;
-        padding        : 120px 0;
+        padding: 120px 0;
     }
 
     .call-area h2 span {
@@ -1727,7 +1785,7 @@
     }
 
     .testimonial-active2 .ta-info {
-        margin-top   : 30px;
+        margin-top: 30px;
         margin-bottom: 30px;
     }
 
@@ -1741,14 +1799,14 @@
 
     .cta-bg .video-img {
         margin-top: 50px;
-        height    : 500px;
+        height: 500px;
     }
 
     .logo {
-        height     : auto;
-        margin-top : 0;
+        height: auto;
+        margin-top: 0;
         line-height: inherit;
-        width      : 167px;
+        width: 167px;
     }
 
     .slider-price {
@@ -1764,23 +1822,23 @@
     }
 
     .slider-bg2 {
-        min-height         : 700px;
-        position           : relative;
-        margin-top         : -118px;
-        z-index            : 1;
-        background-size    : cover;
+        min-height: 700px;
+        position: relative;
+        margin-top: -118px;
+        z-index: 1;
+        background-size: cover;
         background-position: center center;
-        background-repeat  : no-repeat;
+        background-repeat: no-repeat;
     }
 
     .row {
         margin-right: 0;
-        margin-left : 0;
+        margin-left: 0;
     }
 
     .portfolio .col3 .grid-item,
     .portfolio .col2 .grid-item {
-        width  : 100%;
+        width: 100%;
         padding: 15px;
     }
 
@@ -1792,7 +1850,7 @@
     .woocommerce div.product .woocommerce-tabs ul.tabs li,
     .woocommerce-page #content div.product .woocommerce-tabs ul.tabs li,
     .woocommerce-page div.product .woocommerce-tabs ul.tabs li {
-        width     : 100%;
+        width: 100%;
         text-align: center;
     }
 
@@ -1805,8 +1863,8 @@
     .woocommerce div.product div.images,
     .woocommerce-page #content div.product div.images,
     .woocommerce-page div.product div.images {
-        float   : left;
-        width   : 100%;
+        float: left;
+        width: 100%;
         overflow: hidden;
     }
 
@@ -1816,24 +1874,24 @@
 
     li.has-sub.has-mega-menu ul {
         position: relative;
-        top     : 0px;
+        top: 0px;
         /*insert the needed value*/
-        z-index : 100;
-        left    : 0px;
-        right   : 0px;
-        width   : 100%;
+        z-index: 100;
+        left: 0px;
+        right: 0px;
+        width: 100%;
     }
 
     li.has-sub.has-mega-menu:hover>ul {
         /*flexbox fallback for browsers that do not support CSS GRID lyout*/
-        display              : flex;
-        flex-wrap            : wrap;
+        display: flex;
+        flex-wrap: wrap;
         /*CSS GRID lyout*/
-        display              : grid;
+        display: grid;
         grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
-        margin-left          : 0px;
-        height               : 200px;
-        overflow             : auto;
+        margin-left: 0px;
+        height: 200px;
+        overflow: auto;
     }
 
     .timeline {
@@ -1864,18 +1922,18 @@
     }
 
     .size-full.wp-image-906 {
-        width : 100%;
+        width: 100%;
         height: auto;
     }
 
     .pages-content img {
-        width : 100%;
+        width: 100%;
         height: auto;
     }
 
     .row {
         margin-right: 0;
-        margin-left : 0;
+        margin-left: 0;
     }
 
     .header-btn.second-header-btn {
@@ -1909,9 +1967,9 @@
     }
 
     .s-video-wrap {
-        padding-left : 13px;
+        padding-left: 13px;
         padding-right: 13px;
-        width        : 100%;
+        width: 100%;
     }
 
     .video-area {
@@ -1935,10 +1993,10 @@
     }
 
     .main-menu .has-sub>ul {
-        display      : none;
-        position     : relative;
-        float        : left;
-        width        : 100%;
+        display: none;
+        position: relative;
+        float: left;
+        width: 100%;
         margin-bottom: 10px;
     }
 
@@ -1947,16 +2005,16 @@
     }
 
     .main-menu .has-sub>ul>.has-sub>ul {
-        display      : none;
-        position     : relative;
-        float        : left;
-        width        : 100%;
+        display: none;
+        position: relative;
+        float: left;
+        width: 100%;
         margin-bottom: 10px;
-        margin-left  : 0;
-        margin-top   : 0;
-        padding-left : 15px;
-        box-shadow   : 0px 8px 16px 0px rgba(0, 0, 0, 0);
-        border-top   : 1px solid #f7f7f7;
+        margin-left: 0;
+        margin-top: 0;
+        padding-left: 15px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0);
+        border-top: 1px solid #f7f7f7;
     }
 
     .main-menu .has-sub>ul>.has-sub>ul li:last-child {
@@ -1964,15 +2022,15 @@
     }
 
     .main-menu .has-sub>ul>.has-sub>ul>.has-sub>ul {
-        display      : none;
-        position     : relative;
-        float        : left;
-        width        : 100%;
+        display: none;
+        position: relative;
+        float: left;
+        width: 100%;
         margin-bottom: 10px;
-        margin-left  : 0;
-        margin-top   : 0;
-        background   : #d29751;
-        box-shadow   : 0px 8px 16px 0px rgba(0, 0, 0, 0);
+        margin-left: 0;
+        margin-top: 0;
+        background: #d29751;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0);
     }
 
     .main-menu .has-sub li a {
@@ -1993,26 +2051,26 @@
     }
 
     .menu-area {
-        padding-top   : 15px;
+        padding-top: 15px;
         padding-bottom: 5px;
     }
 
     .slider-bg {
-        min-height         : 600px !important;
+        min-height: 600px !important;
         background-position: -500px 0;
     }
 
     .slider-content h2 {
-        font-size     : 30px;
+        font-size: 30px;
         letter-spacing: 0;
-        margin-bottom : 30px;
+        margin-bottom: 30px;
     }
 
     .menu-area::before {
-        width : 56%;
+        width: 56%;
         height: 82px;
-        top   : 0;
-        left  : -40px;
+        top: 0;
+        left: -40px;
     }
 
     .down-arrow {
@@ -2037,17 +2095,17 @@
 
     .about-text {
         height: 109px;
-        width : 214px;
+        width: 214px;
     }
 
     .about-content.pl-30 {
-        padding-left  : 0;
-        margin-top    : 30px;
+        padding-left: 0;
+        margin-top: 30px;
         padding-bottom: 3px;
     }
 
     .about-title h2 {
-        font-size     : 30px;
+        font-size: 30px;
         letter-spacing: -1px;
     }
 
@@ -2056,12 +2114,12 @@
     }
 
     .section-title {
-        padding-left : 0;
+        padding-left: 0;
         padding-right: 0;
     }
 
     .section-title h2 {
-        font-size     : 32px;
+        font-size: 32px;
         letter-spacing: -1px;
     }
 
@@ -2074,42 +2132,42 @@
     }
 
     .video-img a {
-        height     : 50px;
-        width      : 50px;
+        height: 50px;
+        width: 50px;
         line-height: 15px;
-        padding    : 17px;
+        padding: 17px;
     }
 
     .v-list ul li i {
-        display     : block;
+        display: block;
         margin-right: 15px;
-        float       : left;
-        margin-top  : 2px;
+        float: left;
+        margin-top: 2px;
     }
 
     .v-list ul li span {
         overflow: hidden;
-        display : block;
+        display: block;
     }
 
     .wp-list ul li {
-        display    : block;
+        display: block;
         align-items: unset;
     }
 
     .wp-list {
-        padding       : 30px 20px;
+        padding: 30px 20px;
         padding-bottom: 25px;
     }
 
     .wp-icon {
-        margin-right : 0;
+        margin-right: 0;
         margin-bottom: 10px;
     }
 
     .wp-img {
-        margin-right : 0;
-        margin-top   : 30px;
+        margin-right: 0;
+        margin-top: 30px;
         margin-bottom: -15px;
     }
 
@@ -2118,8 +2176,8 @@
     }
 
     .wp-img .wp-tag {
-        left : 0;
-        top  : 75px;
+        left: 0;
+        top: 75px;
         width: 25%;
     }
 
@@ -2133,7 +2191,7 @@
 
     .testimonial-area.pb-120 {
         padding-bottom: 185px;
-        padding-top   : 113px;
+        padding-top: 113px;
     }
 
     .blog-content {
@@ -2149,21 +2207,21 @@
     }
 
     .responsive {
-        float     : right;
-        display   : block;
-        cursor    : pointer;
+        float: right;
+        display: block;
+        cursor: pointer;
         margin-top: -38px;
     }
 
     .responsive i {
-        color    : #002e5b;
+        color: #002e5b;
         font-size: 25px;
     }
 
     #mobile-menu {
-        display   : none;
+        display: none;
         background: no-repeat;
-        padding   : 20px 0;
+        padding: 20px 0;
         margin-top: 21px;
         background: #002e5b;
     }
@@ -2173,9 +2231,9 @@
     }
 
     .main-menu ul li {
-        display      : block;
+        display: block;
         border-bottom: 1px solid #ffffff3d;
-        margin-left  : 0;
+        margin-left: 0;
     }
 
     .button-group button {
@@ -2187,19 +2245,19 @@
     }
 
     .main-menu ul li a {
-        color      : #fff;
-        padding    : 12px 15px;
-        display    : inline-block;
-        font-size  : 14px;
+        color: #fff;
+        padding: 12px 15px;
+        display: inline-block;
+        font-size: 14px;
         font-family: 'Source Sans Pro', sans-serif;
         font-weight: 500;
     }
 
     .second-menu {
         margin-bottom: 0;
-        box-shadow   : none;
-        padding      : 0;
-        margin-top   : 0;
+        box-shadow: none;
+        padding: 0;
+        margin-top: 0;
     }
 
     .second-menu::before {
@@ -2207,9 +2265,9 @@
     }
 
     .second-header {
-        padding : 10px 0;
+        padding: 10px 0;
         position: relative;
-        z-index : 99;
+        z-index: 99;
     }
 
     .second-menu .main-menu ul li {
@@ -2254,7 +2312,7 @@
 
     .portfolio .col3 .grid-item,
     .portfolio .col2 .grid-item {
-        width  : 100%;
+        width: 100%;
         padding: 15px;
     }
 
@@ -2295,15 +2353,15 @@
     }
 
     .choose-list ul li i {
-        display     : block;
+        display: block;
         margin-right: 15px;
-        float       : left;
-        margin-top  : 2px;
+        float: left;
+        margin-top: 2px;
     }
 
     .choose-list ul li span {
         overflow: hidden;
-        display : block;
+        display: block;
     }
 
     .inner-wp-icon {
@@ -2320,7 +2378,7 @@
 
     .bsingle__content h2 {
         padding-right: 0;
-        font-size    : 24px;
+        font-size: 24px;
     }
 
     .bsingle__content p {
@@ -2328,8 +2386,8 @@
     }
 
     .quote-post .quote-icon {
-        margin-top   : 14px;
-        float        : unset;
+        margin-top: 14px;
+        float: unset;
         margin-bottom: 15px;
     }
 
@@ -2338,7 +2396,7 @@
     }
 
     .widget__post-content h6 {
-        font-size    : 14px;
+        font-size: 14px;
         padding-right: 0;
     }
 
@@ -2347,10 +2405,10 @@
     }
 
     .widget__banner-overly h3 {
-        color        : #ffffff;
-        font-size    : 32px;
+        color: #ffffff;
+        font-size: 32px;
         margin-bottom: 100px;
-        font-weight  : 500;
+        font-weight: 500;
     }
 
     .breadcrumb-title h2 {
@@ -2358,12 +2416,12 @@
     }
 
     .breadcrumb-title p {
-        padding  : 0;
+        padding: 0;
         font-size: 15px;
     }
 
     .breadcrumb-area {
-        min-height         : 300px;
+        min-height: 300px;
         background-position: 0 0;
     }
 
@@ -2373,13 +2431,13 @@
 
     .details__content blockquote {
         padding-right: 20px;
-        padding-left : 45px;
+        padding-left: 45px;
     }
 
     .details__content figure img {
-        float        : unset;
-        width        : 100%;
-        margin-right : 0;
+        float: unset;
+        width: 100%;
+        margin-right: 0;
         margin-bottom: 40px;
     }
 
@@ -2405,12 +2463,12 @@
 
     .posts_navigation .blog-filter {
         margin-bottom: 30px;
-        display      : inline-block;
+        display: inline-block;
     }
 
     .related-post-wrap .rp__content {
-        padding      : 35px;
-        padding-left : 25px;
+        padding: 35px;
+        padding-left: 25px;
         padding-right: 25px;
     }
 
@@ -2423,7 +2481,7 @@
     }
 
     .single__comment .comments-avatar {
-        float        : unset;
+        float: unset;
         margin-bottom: 15px;
     }
 
@@ -2477,7 +2535,7 @@
     }
 
     #scrollUp {
-        right : 20px;
+        right: 20px;
         bottom: 30px;
     }
 
@@ -2491,8 +2549,8 @@
 
     .video-position {
         position: unset;
-        bottom  : unset;
-        left    : unset;
+        bottom: unset;
+        left: unset;
     }
 
     .counter-area.pb-90 {
@@ -2504,12 +2562,12 @@
     }
 
     .contact-wrapper input {
-        height : 65px;
+        height: 65px;
         padding: 0 25px;
     }
 
     .contact-wrapper textarea {
-        height : 160px;
+        height: 160px;
         padding: 30px 25px;
     }
 
@@ -2530,7 +2588,7 @@
     }
 
     .portfolio-active .slick-arrow {
-        top : -173px;
+        top: -173px;
         left: 60.5%;
     }
 
@@ -2547,12 +2605,12 @@
     }
 
     .section-title h2 {
-        font-size     : 42px;
+        font-size: 42px;
         letter-spacing: -1px;
     }
 
     .wp-list {
-        padding       : 80px 50px;
+        padding: 80px 50px;
         padding-bottom: 75px;
     }
 
@@ -2569,7 +2627,7 @@
     }
 
     .s-video-content {
-        padding-left : 40px;
+        padding-left: 40px;
         padding-right: 40px;
     }
 
@@ -2598,11 +2656,11 @@
     }
 
     .quote-post .quote-icon {
-        float        : left;
-        margin-right : 30px;
-        display      : block;
+        float: left;
+        margin-right: 30px;
+        display: block;
         margin-bottom: 0;
-        margin-top   : 20px;
+        margin-top: 20px;
     }
 
     .widget__banner-overly>span {
@@ -2611,7 +2669,7 @@
 
     .widget__banner-overly h3 {
         margin-bottom: 210px;
-        font-size    : 60px;
+        font-size: 60px;
     }
 
     .avatar__wrap {
@@ -2644,12 +2702,12 @@
 
     .video-grid .video-full-img img {
         height: 250px;
-        width : 100%;
+        width: 100%;
     }
 
     .services-box.service2 .services-icon {
-        width      : 210px;
-        height     : 210px;
+        width: 210px;
+        height: 210px;
         padding-top: 30px;
     }
 
@@ -2684,12 +2742,35 @@
 
 /* Mobile - Further reduce font sizes */
 @media only screen and (max-width: 575px) {
-    h1 { font-size: 16px; letter-spacing: 0.2px; }
-    h2 { font-size: 14px; letter-spacing: 0.2px; }
-    h3 { font-size: 12px; letter-spacing: 0.2px; }
-    h4 { font-size: 11px; letter-spacing: 0.1px; }
-    h5 { font-size: 10px; letter-spacing: 0.1px; }
-    h6 { font-size: 9px; letter-spacing: 0.1px; }
+    h1 {
+        font-size: 16px;
+        letter-spacing: 0.2px;
+    }
+
+    h2 {
+        font-size: 14px;
+        letter-spacing: 0.2px;
+    }
+
+    h3 {
+        font-size: 12px;
+        letter-spacing: 0.2px;
+    }
+
+    h4 {
+        font-size: 11px;
+        letter-spacing: 0.1px;
+    }
+
+    h5 {
+        font-size: 10px;
+        letter-spacing: 0.1px;
+    }
+
+    h6 {
+        font-size: 9px;
+        letter-spacing: 0.1px;
+    }
 
     .best-gaming .about-content.s-about-content {
         margin: 0 30px;
@@ -2701,20 +2782,43 @@
 
     .testimonial-active .qt-img2 {
         position: absolute;
-        right   : 10px;
-        top     : 0;
+        right: 10px;
+        top: 0;
     }
 
 }
 
 /* Small Mobile - Minimal font sizes */
 @media only screen and (max-width: 480px) {
-    h1 { font-size: 14px; letter-spacing: 0.1px; }
-    h2 { font-size: 12px; letter-spacing: 0.1px; }
-    h3 { font-size: 11px; letter-spacing: 0.1px; }
-    h4 { font-size: 10px; letter-spacing: 0.1px; }
-    h5 { font-size: 9px; letter-spacing: 0.1px; }
-    h6 { font-size: 8px; letter-spacing: 0.1px; }
+    h1 {
+        font-size: 14px;
+        letter-spacing: 0.1px;
+    }
+
+    h2 {
+        font-size: 12px;
+        letter-spacing: 0.1px;
+    }
+
+    h3 {
+        font-size: 11px;
+        letter-spacing: 0.1px;
+    }
+
+    h4 {
+        font-size: 10px;
+        letter-spacing: 0.1px;
+    }
+
+    h5 {
+        font-size: 9px;
+        letter-spacing: 0.1px;
+    }
+
+    h6 {
+        font-size: 8px;
+        letter-spacing: 0.1px;
+    }
 
     .team:after,
     .team2:after {
@@ -2736,7 +2840,7 @@
     }
 
     .button-group button {
-        padding-left : 10px;
+        padding-left: 10px;
         padding-right: 10px;
     }
 
@@ -2770,7 +2874,7 @@
     .contact-map {
         min-height: 500px;
     }
-    
+
     /* About Section Mobile Fixes */
     .about-date {
         position: relative !important;
@@ -2781,13 +2885,13 @@
         margin-bottom: 20px !important;
         margin-top: 10px !important;
     }
-    
+
     .about-nes-container {
         padding: 15px !important;
         padding-top: 35px !important;
         overflow: visible !important;
     }
-    
+
     /* Fix Event Info title overlapping */
     .about-event-title {
         white-space: nowrap !important;
@@ -2796,30 +2900,30 @@
         padding: 5px 10px !important;
         line-height: 1.2 !important;
     }
-    
+
     .about-nes-container .message {
         margin-bottom: 15px !important;
         position: relative !important;
     }
-    
+
     .about-nes-container .nes-balloon {
         max-width: 100% !important;
         font-size: 11px !important;
         z-index: 2 !important;
     }
-    
+
     .about-nes-container .nes-balloon p {
         position: relative !important;
         z-index: 1 !important;
     }
-    
+
     /* Make emojis fully visible on mobile */
     .about-emoji {
         font-size: 32px !important;
         z-index: 3 !important;
         position: relative !important;
     }
-    
+
     .about-nes-container .nes-mario,
     .about-nes-container .nes-ash,
     .about-nes-container .nes-kirby {
@@ -2827,13 +2931,13 @@
         z-index: 3 !important;
         position: relative !important;
     }
-    
+
     .about-nes-container .nes-mario::before,
     .about-nes-container .nes-ash::before,
     .about-nes-container .nes-kirby::before {
         font-size: 32px !important;
     }
-    
+
     /* Emojis positioned on left side with proper spacing */
     .about-nes-container .message.-left .about-emoji,
     .about-nes-container .message.-right .about-emoji {
@@ -2841,11 +2945,11 @@
         margin-left: 0 !important;
         flex-shrink: 0 !important;
     }
-    
+
     .about-content.s-about-content {
         padding-top: 30px !important;
     }
-    
+
     .about-area.pb-140 {
         padding-bottom: 60px !important;
     }
@@ -2858,7 +2962,7 @@
     }
 
     .s-video-content h1 {
-        font-size : 35px;
+        font-size: 35px;
         margin-top: 30px;
     }
 
@@ -2884,7 +2988,7 @@
     }
 
     .team .text {
-        top  : 23%;
+        top: 23%;
         width: 50%;
     }
 
@@ -2913,27 +3017,27 @@
         min-width: 190px;
     }
 
-    /* Footer NES.css icons for mobile - 3x2 Grid with less spacing */
+    /* Footer NES.css icons for mobile - 1 Row Grid */
     .footer-social-nes {
-        display              : grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap                  : 8px;
-        padding              : 10px 0;
-        justify-items        : center;
-        max-width            : 220px;
-        margin               : 0 auto;
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: nowrap;
+        gap: 4px;
+        padding: 8px 0;
+        margin: 0 auto;
+        width: 100%;
     }
 
     .footer-social-nes .nes-icon {
-        width : 48px !important;
-        height: 48px !important;
+        width: 38px !important;
+        height: 38px !important;
     }
 
     .footer-social-nes .nes-social-icon {
-        padding        : 4px;
-        transition     : transform 0.3s ease;
-        display        : flex;
-        align-items    : center;
+        padding: 1px;
+        transition: transform 0.3s ease;
+        display: flex;
+        align-items: center;
         justify-content: center;
     }
 
@@ -2954,8 +3058,8 @@
     }
 
     .f-widget-title h2 {
-        font-size     : 15px;
-        margin-bottom : 15px;
+        font-size: 15px;
+        margin-bottom: 15px;
         padding-bottom: 10px;
     }
 
@@ -2965,7 +3069,7 @@
 
     /* Two column layout styling */
     .footer-top .col-6 {
-        padding-left : 10px;
+        padding-left: 10px;
         padding-right: 10px;
     }
 
@@ -2987,12 +3091,12 @@
     }
 
     .f-contact ul li {
-        font-size    : 12px;
+        font-size: 12px;
         margin-bottom: 12px;
     }
 
     .f-contact ul li .icon {
-        font-size   : 14px;
+        font-size: 14px;
         margin-right: 10px;
     }
 
@@ -3020,7 +3124,7 @@
 
 @media screen and (max-width:1024px) {
     .portfolio .col4 .grid-item {
-        width : 33.33%;
+        width: 33.33%;
         margin: 0 !important;
     }
 
