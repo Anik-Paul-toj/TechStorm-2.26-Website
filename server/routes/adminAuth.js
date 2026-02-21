@@ -62,6 +62,8 @@ router.post('/login',
   asyncHandler(async (req, res) => {
     const { email, password } = req.body;
 
+    console.log('🔐 Login attempt:', { email, passwordLength: password?.length });
+
     if (!email || !password) {
       return res.status(400).json({
         error: 'Validation error',
@@ -72,7 +74,10 @@ router.post('/login',
     // Parse email to get role and event abbreviation
     const parsed = parseEmail(email);
     
+    console.log('📧 Parsed email:', parsed);
+    
     if (!parsed) {
+      console.log('❌ Invalid email format');
       return res.status(401).json({
         error: 'Authentication failed',
         message: 'Invalid email format for admin access'
@@ -82,7 +87,10 @@ router.post('/login',
     // Validate credentials against the pattern
     const validation = validateCredentials(email, password);
     
+    console.log('✅ Validation result:', validation);
+    
     if (!validation.valid) {
+      console.log('❌ Invalid credentials:', validation.error);
       return res.status(401).json({
         error: 'Authentication failed',
         message: 'Invalid credentials'
