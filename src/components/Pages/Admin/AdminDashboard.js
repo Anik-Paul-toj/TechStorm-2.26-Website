@@ -119,33 +119,6 @@ const AdminDashboard = () => {
             <button className="card-button" onClick={() => handleNavigate('statistics')}>Open</button>
           </div>
 
-          {user.permissions?.includes('read') && (
-            <div className="dashboard-card">
-              <p className="card-kicker">Data</p>
-              <h3>Events</h3>
-              <p>Review schedules and event records.</p>
-              <button className="card-button" onClick={() => handleNavigate('events')}>Open</button>
-            </div>
-          )}
-
-          {user.permissions?.includes('update') && (
-            <div className="dashboard-card">
-              <p className="card-kicker">Actions</p>
-              <h3>Edit Content</h3>
-              <p>Update event details and announcements.</p>
-              <button className="card-button" onClick={() => handleNavigate('edit')}>Open</button>
-            </div>
-          )}
-
-          {user.permissions?.includes('create') && (
-            <div className="dashboard-card">
-              <p className="card-kicker">Actions</p>
-              <h3>Create New</h3>
-              <p>Add new events and resources.</p>
-              <button className="card-button" onClick={() => handleNavigate('create')}>Open</button>
-            </div>
-          )}
-
           {user.permissions?.includes('delete') && (
             <div className="dashboard-card">
               <p className="card-kicker">Admin</p>
