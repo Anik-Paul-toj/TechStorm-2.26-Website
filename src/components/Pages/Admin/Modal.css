@@ -370,3 +370,241 @@
     width: 100%;
   }
 }
+
+/* Tabs Styles */
+.modal-tabs {
+  display: flex;
+  gap: 4px;
+  padding: 0 24px;
+  border-bottom: 1px solid #e5e7eb;
+  background: #f9fafb;
+  overflow-x: auto;
+}
+
+.tab-btn {
+  border: none;
+  background: transparent;
+  color: #6b7280;
+  padding: 14px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.tab-btn:hover {
+  color: #111827;
+  background: rgba(17, 24, 39, 0.05);
+}
+
+.tab-btn.active {
+  color: #0f766e;
+  border-bottom-color: #0f766e;
+  background: #ffffff;
+}
+
+.modal-subtitle {
+  margin: 4px 0 0;
+  color: #6b7280;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: 'Courier New', monospace;
+}
+
+/* Team Member Cards */
+.team-member-card {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.team-member-card:last-child {
+  margin-bottom: 0;
+}
+
+.team-member-card h4 {
+  margin: 0 0 12px;
+  color: #111827;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* File Links */
+.file-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.file-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.file-link:hover {
+  background: #f3f4f6;
+  border-color: #d1d5db;
+}
+
+.file-link span {
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.view-file-btn {
+  border: 1px solid #2563eb;
+  background: #ffffff;
+  color: #2563eb;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s;
+  display: inline-block;
+}
+
+.view-file-btn:hover {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+/* Raw Data Display */
+.raw-data {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.raw-field {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.raw-field label {
+  display: block;
+  margin-bottom: 8px;
+  color: #6b7280;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.raw-value {
+  color: #111827;
+  font-size: 14px;
+  word-break: break-word;
+}
+
+.raw-value pre {
+  margin: 0;
+  padding: 12px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  overflow-x: auto;
+  font-size: 12px;
+  font-family: 'Courier New', monospace;
+  color: #374151;
+}
+
+.raw-value span {
+  font-weight: 600;
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: #9ca3af;
+  font-size: 14px;
+}
+
+/* Highlight Field */
+.detail-field.highlight {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.detail-field.highlight label {
+  color: #065f46;
+}
+
+.detail-field.highlight p {
+  color: #047857;
+}
+
+/* Payment Status Colors */
+.status-pill.payment-verified {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.status-pill.payment-not-required {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+.status-pill.reg-waitlist {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.status-pill.reg-rejected {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.status-pill.reg-checked-in {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+/* Scrollbar Styling */
+.modal-body::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal-body::-webkit-scrollbar-track {
+  background: #f3f4f6;
+}
+
+.modal-body::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 4px;
+}
+
+.modal-body::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+.modal-tabs::-webkit-scrollbar {
+  height: 4px;
+}
+
+.modal-tabs::-webkit-scrollbar-track {
+  background: #f3f4f6;
+}
+
+.modal-tabs::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 2px;
+}
