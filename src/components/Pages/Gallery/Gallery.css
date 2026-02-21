@@ -178,7 +178,7 @@
 .gallery-toast-img {
   display: block;
   max-width: 100%;
-  max-height: calc(70vh - 24px);
+  max-height: calc(70vh - 16px);
   width: auto;
   height: auto;
   object-fit: contain;
@@ -186,24 +186,27 @@
 
 .gallery-toast-close {
   position: absolute;
-  top: -8px;
-  right: -8px;
-  width: 36px;
-  height: 36px;
+  top: 12px;
+  right: 12px;
+  width: 30px;
+  height: 30px;
   border: none;
-  background: #ffc010;
-  color: #0f0819;
+  background: rgba(15, 8, 25, 0.75);
+  color: #ffc010;
   border-radius: 0;
   cursor: pointer;
-  font-size: 16px;
-  z-index: 1;
-  box-shadow: 2px 2px 0 #0f0819;
-  transition: background 0.2s, transform 0.2s;
+  font-size: 14px;
+  line-height: 30px;
+  text-align: center;
+  z-index: 10;
+  box-shadow: 0 0 0 2px #ffc010, 2px 2px 0 #0f0819;
+  transition: background 0.2s, color 0.2s;
+  backdrop-filter: blur(2px);
 }
 
 .gallery-toast-close:hover {
-  background: #fff;
-  transform: scale(1.05);
+  background: #ffc010;
+  color: #0f0819;
 }
 
 /* Retro pixel gallery cards (4 columns) + proper height spacing */
@@ -383,22 +386,23 @@
   .gallery-toast {
     max-width: 96vw;
     max-height: 82vh;
-    padding: 6px;
+    padding: 8px;
     border-width: 2px;
   }
 
   .gallery-toast-img {
-    max-height: calc(82vh - 20px);
+    max-height: calc(82vh - 16px);
   }
 
   .gallery-toast-close {
-    top: 4px;
-    right: 4px;
-    width: 44px;
-    height: 44px;
-    font-size: 18px;
-    min-width: 44px;
-    min-height: 44px;
+    top: 10px;
+    right: 10px;
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+    min-width: 36px;
+    min-height: 36px;
+    line-height: 36px;
   }
 }
 
@@ -483,7 +487,7 @@
   }
 
   .gallery-toast-close {
-    top: 8px;
-    right: 8px;
+    top: 6px;
+    right: 6px;
   }
 }
