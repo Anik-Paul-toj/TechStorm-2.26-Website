@@ -38,7 +38,7 @@ const CreativeCanvasEvent = () => {
         "w_800,h_600,c_fill,q_auto:good,f_auto",
       ),
       getCloudinaryUrl(
-        "pictures_of_gallery/Creative Canva_",
+        "pictures_of_gallery/Creative Canvas",
         "IMG_8186.JPG",
         "w_800,h_600,c_fill,q_auto:good,f_auto",
       ),

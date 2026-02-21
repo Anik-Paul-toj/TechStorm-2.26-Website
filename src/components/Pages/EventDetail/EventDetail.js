@@ -666,6 +666,7 @@ const EventDetail = ({ eventData }) => {
 
   // Use provided images or fall back to dummy images
   const [khetGalleryImages, setKhetGalleryImages] = useState([]);
+  const [creativeCanvasGalleryImages, setCreativeCanvasGalleryImages] = useState([]);
   useEffect(() => {
     if (name === "KHET") {
       fetch("/khet-cloudinary-urls.json")
@@ -682,15 +683,38 @@ const EventDetail = ({ eventData }) => {
           console.error("KHET gallery fetch error:", err);
           setKhetGalleryImages([]);
         });
+    } else if (name === "Creative Canvas") {
+      fetch("/creative-canvas-cloudinary-urls.json")
+        .then((res) => {
+          if (!res.ok) {
+            throw new Error("Failed to fetch Creative Canvas images");
+          }
+          return res.json();
+        })
+        .then((data) => {
+          const images = Object.values(data);
+          console.log("Creative Canvas fetched images:", images);
+          setCreativeCanvasGalleryImages(images);
+        })
+        .catch((err) => {
+          console.error("Creative Canvas gallery fetch error:", err);
+          setCreativeCanvasGalleryImages([]);
+        });
     }
   }, [name]);
 
   const galleryImages =
     name === "KHET" && khetGalleryImages.length > 0
       ? khetGalleryImages
+      : name === "Creative Canvas" && creativeCanvasGalleryImages.length > 0
+      ? creativeCanvasGalleryImages
       : previousYearImages && previousYearImages.length > 0
       ? previousYearImages
       : dummyImages;
+
+  if (name === "Creative Canvas") {
+    console.log("galleryImages for Creative Canvas:", galleryImages);
+  }
 
   // Start auto-scroll
   const startAutoScroll = () => {
@@ -788,20 +812,25 @@ const EventDetail = ({ eventData }) => {
         <div className="container">
           <div className="row">
             <div className="col-12">
-              <div className="event-name-heading">
-                <h1 className="event-title-white">{name.split(" ")[0]}</h1>
-                {name.split(" ").slice(1).join(" ") && (
-                  <h1 className="event-title-gold">
-                    {name.split(" ").slice(1).join(" ")}
-                  </h1>
-                )}
-                <div className="heading-brush"></div>
-                {name === "KHET" && khetGalleryImages.length === 0 && (
-                  <div style={{color: '#ffc010', marginTop: 10, fontSize: 14}}>
-                    KHET gallery images failed to load. Please check your network or contact admin.
-                  </div>
-                )}
-              </div>
+                <div className="event-name-heading">
+                  <h1 className="event-title-white">{name.split(" ")[0]}</h1>
+                  {name.split(" ").slice(1).join(" ") && (
+                    <h1 className="event-title-gold">
+                      {name.split(" ").slice(1).join(" ")}
+                    </h1>
+                  )}
+                  <div className="heading-brush"></div>
+                  {name === "KHET" && khetGalleryImages.length === 0 && (
+                    <div style={{color: '#ffc010', marginTop: 10, fontSize: 14}}>
+                      KHET gallery images failed to load. Please check your network or contact admin.
+                    </div>
+                  )}
+                  {name === "Creative Canvas" && creativeCanvasGalleryImages.length === 0 && (
+                    <div style={{color: '#ffc010', marginTop: 10, fontSize: 14}}>
+                      Creative Canvas gallery images failed to load. Please check your network or contact admin.
+                    </div>
+                  )}
+                </div>
             </div>
           </div>
         </div>

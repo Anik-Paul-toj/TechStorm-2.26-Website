@@ -29,10 +29,18 @@ const assetSubfolders = assetFolders.flatMap(folder => {
 
 // Folders to upload from public/pictures_of_gallery (all subfolders)
 const picturesOfGalleryRoot = path.join(__dirname, 'public', 'pictures_of_gallery');
-const picturesOfGallerySubfolders = getSubfolders(picturesOfGalleryRoot).map(sub => ({
-  local: path.join(picturesOfGalleryRoot, sub),
-  cloud: `eoorox/pictures_of_gallery/${sub}`
-}));
+const picturesOfGallerySubfolders = getSubfolders(picturesOfGalleryRoot).map(sub => {
+  if (sub === 'Creative Canva_') {
+    return {
+      local: path.join(picturesOfGalleryRoot, sub, 'compressed'),
+      cloud: `eoorox/pictures_of_gallery/${sub}`
+    };
+  }
+  return {
+    local: path.join(picturesOfGalleryRoot, sub),
+    cloud: `eoorox/pictures_of_gallery/${sub}`
+  };
+});
 
 // Root images to upload (directly in img folder)
 const rootImages = [
