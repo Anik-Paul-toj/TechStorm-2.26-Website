@@ -1315,7 +1315,7 @@ const EventDetail = ({ eventData }) => {
                               name === "Ro-Terrance" && (
                                 roTerranceHeadingsToHighlight.some(h => normalizedRule.includes(normalizeRuleText(h)))
                               );
-                            // Ro-Soccer headings and highlight logic
+                            // Ro-Soccer and Ro-Sumo headings and highlight logic
                             const roSoccerHeadingsToHighlight = [
                               'BOT SPECIFICATIONS:',
                               'GENERAL RULES (COMMON FOR PRELIMS & FINALS):',
@@ -1325,9 +1325,17 @@ const EventDetail = ({ eventData }) => {
                               'RANKING CRITERIA:',
                               'KNOCKOUT & FINALS RULES:',
                             ];
+                            const roSumoHeadingsToHighlight = [
+                              'BOT SPECIFICATIONS:',
+                              'GENERAL RULES (COMMON FOR PRELIMS & FINALS):',
+                            ];
                             const isRoSoccerSectionHeader =
                               name === "Ro-Soccer" && (
                                 roSoccerHeadingsToHighlight.some(h => normalizedRule.includes(normalizeRuleText(h)))
+                              );
+                            const isRoSumoSectionHeader =
+                              name === "Ro-Sumo" && (
+                                roSumoHeadingsToHighlight.some(h => normalizedRule.includes(normalizeRuleText(h)))
                               );
                             const isForzaHorizonHeader =
                               name === "Forza Horizon" &&
@@ -1335,7 +1343,7 @@ const EventDetail = ({ eventData }) => {
                                 .trim()
                                 .toUpperCase()
                                 .includes("FORZA HORIZON GAME RULES");
-                            if (isKhetSectionHeader || isRoTerranceSectionHeader || isRoSoccerSectionHeader || isHeader) {
+                            if (isKhetSectionHeader || isRoTerranceSectionHeader || isRoSoccerSectionHeader || isRoSumoSectionHeader || isHeader) {
                               // Choose emoji based on heading
                               let emoji = '⭐';
                               if (normalizedRule.includes('GENERAL RULES')) emoji = '📋';
@@ -1363,6 +1371,11 @@ const EventDetail = ({ eventData }) => {
                                 else if (normalizedRule.includes('BRICK PENALTY RULE')) emoji = '🧱';
                                 else if (normalizedRule.includes('RANKING CRITERIA')) emoji = '🏅';
                                 else if (normalizedRule.includes('KNOCKOUT & FINALS RULES')) emoji = '🏆';
+                              }
+                              // Ro-Sumo specific
+                              else if (name === "Ro-Sumo") {
+                                if (normalizedRule.includes('BOT SPECIFICATIONS')) emoji = '🤖';
+                                else if (normalizedRule.includes('GENERAL RULES')) emoji = '📋';
                               }
                               return (
                                 <h3
