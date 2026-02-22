@@ -12,19 +12,10 @@ The backend is throwing `FUNCTION_INVOCATION_FAILED` errors when users try to re
 
 ### 1. ✅ Updated `vercel.json` Configuration
 
-Added timeout and memory settings:
+Added timeout and memory settings using the `functions` property:
 
 ```json
 {
-  "builds": [
-    {
-      "src": "server.js",
-      "use": "@vercel/node",
-      "config": {
-        "maxDuration": 60
-      }
-    }
-  ],
   "functions": {
     "server.js": {
       "maxDuration": 60,
@@ -34,7 +25,10 @@ Added timeout and memory settings:
 }
 ```
 
-**Note**: `maxDuration: 60` requires a **Pro plan** ($20/month). On the free Hobby plan, the max is 10 seconds.
+**Important Notes**:
+- `maxDuration: 60` requires a **Vercel Pro plan** ($20/month)
+- On the free Hobby plan, the max is **10 seconds**
+- Removed `builds` property as it conflicts with `functions`
 
 ### 2. ✅ Changed File Upload from Parallel to Sequential
 
