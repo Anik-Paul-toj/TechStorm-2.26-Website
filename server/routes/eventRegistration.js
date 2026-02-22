@@ -191,6 +191,30 @@ router.post('/:eventName',
       }
     }
 
+    // Handle college name logic
+    // If collegeName is "Others", use the collegeOther field value
+    if (registrationData.collegeName === 'Others' && registrationData.collegeOther) {
+      registrationData.collegeName = registrationData.collegeOther.trim();
+      // Keep collegeOther for reference but store the actual name in collegeName
+    }
+    
+    // Also handle the 'college' field for backward compatibility
+    if (registrationData.college === 'Others' && registrationData.collegeOther) {
+      registrationData.college = registrationData.collegeOther.trim();
+    }
+
+    // Handle college name logic in participants array
+    if (registrationData.participants && Array.isArray(registrationData.participants)) {
+      registrationData.participants = registrationData.participants.map(participant => {
+        if (participant.college === 'Others' && participant.collegeOther) {
+          // Store the actual college name in the college field
+          participant.college = participant.collegeOther.trim();
+          // Keep collegeOther for reference
+        }
+        return participant;
+      });
+    }
+
     // Add eventName to registration data
     registrationData.eventName = eventName;
 

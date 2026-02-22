@@ -82,6 +82,10 @@ class EventRegistrationFactory {
         type: String,
         trim: true
       },
+      collegeOther: {
+        type: String,
+        trim: true
+      },
       year: {
         type: String,
         trim: true
@@ -126,6 +130,7 @@ class EventRegistrationFactory {
         contact: String,
         email: String,
         college: String,
+        collegeOther: String,
         year: String,
         department: String,
         idFile: String,
