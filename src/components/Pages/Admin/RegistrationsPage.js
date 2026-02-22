@@ -54,7 +54,12 @@ const RegistrationsPage = () => {
         params.search = searchTerm;
       }
       
+      console.log('🔍 Fetching registrations with params:', params);
       const result = await getRegistrations(params);
+      console.log('📊 API Response:', result);
+      console.log('📊 Total from pagination:', result.pagination?.total);
+      console.log('📊 Registrations received:', result.registrations?.length);
+      
       setRegistrations(result.registrations || []);
       
       // Calculate stats
@@ -62,10 +67,12 @@ const RegistrationsPage = () => {
       const pendingPayments = result.registrations?.filter(r => r.paymentStatus === 'pending').length || 0;
       const confirmed = result.registrations?.filter(r => r.registrationStatus === 'confirmed').length || 0;
       
+      console.log('📊 Stats calculated:', { total, pendingPayments, confirmed });
+      
       setStats({ total, pendingPayments, confirmed });
       setError(null);
     } catch (err) {
-      console.error('Error fetching registrations:', err);
+      console.error('❌ Error fetching registrations:', err);
       setError(err.message);
     } finally {
       setLoading(false);
