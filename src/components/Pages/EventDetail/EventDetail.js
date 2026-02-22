@@ -645,6 +645,7 @@ const EventDetail = ({ eventData }) => {
       "Ro-Navigator": "/register/ro-navigator",
       "Ro-Combat": "/register/ro-combat",
       "Ro-Soccer": "/register/ro-soccer",
+      "Ro-Sumo": "/register/ro-sumo",
       "Ro-Terrance": "/register/ro-terrance",
       "Creative Canvas": "/register/creative-canvas",
       "Passion with Reels": "/register/passion-with-reels",

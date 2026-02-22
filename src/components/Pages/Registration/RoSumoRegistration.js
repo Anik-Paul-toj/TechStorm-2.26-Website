@@ -247,7 +247,7 @@ const RoSumoRegistration = () => {
           )}
 
           <form className="registration-form">
-            <Stepper onStepValidation={handleStepValidation} onComplete={handleComplete}>
+            <Stepper onStepValidation={handleStepValidation} onFinalStepCompleted={handleComplete}>
               <Step label="Team Details">
                 <div className="form-section">
                   <h2 className="form-section-title">&gt;&gt;&gt; Team Details</h2>
