@@ -271,10 +271,17 @@ const RegistrationsPage = () => {
               </thead>
               <tbody>
                 {filteredRegistrations.length > 0 ? (
-                  filteredRegistrations.map(reg => (
+                  filteredRegistrations.map(reg => {
+                    // Get the name - check multiple sources
+                    const displayName = reg.fullName || 
+                                       (reg.participants && reg.participants[0]?.name) || 
+                                       reg.teamName || 
+                                       'N/A';
+                    
+                    return (
                     <tr key={reg._id}>
                       <td className="reg-number">{reg.registrationNumber}</td>
-                      <td>{reg.fullName}</td>
+                      <td>{displayName}</td>
                       <td className="email-cell">{reg.emailAddress || reg.email}</td>
                       <td>{reg.contactNumber || reg.phone}</td>
                       <td className="college-cell">{reg.collegeName || reg.college}</td>
@@ -326,7 +333,7 @@ const RegistrationsPage = () => {
                         </div>
                       </td>
                     </tr>
-                  ))
+                  )})
                 ) : (
                   <tr>
                     <td colSpan={role === 'core' ? 9 : 8} style={{ textAlign: 'center', padding: '2rem' }}>

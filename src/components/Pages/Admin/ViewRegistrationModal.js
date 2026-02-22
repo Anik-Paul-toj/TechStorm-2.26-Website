@@ -268,14 +268,47 @@ const ViewRegistrationModal = ({ registration, onClose }) => {
             <div className="detail-section">
               <h3>All Uploaded Files</h3>
               <div className="file-list">
-                {renderFileLink(registration.idProofUrl, registration.idProofCloudinaryId, 'ID Proof')}
-                {renderFileLink(registration.idFileUrl, registration.idFileCloudinaryId, 'ID File')}
+                {/* Main ID Proofs */}
+                {renderFileLink(registration.idProofUrl, registration.idProofCloudinaryId, 'ID Proof (Main)')}
+                {renderFileLink(registration.idFileUrl, registration.idFileCloudinaryId, 'ID File (Main)')}
+                {renderFileLink(registration.collegeIdProofUrl, registration.collegeIdProofCloudinaryId, 'College ID Proof')}
+                {renderFileLink(registration.participantIdProofUrl, registration.participantIdProofCloudinaryId, 'Participant ID Proof')}
+                
+                {/* Participant ID Proofs from participants array */}
+                {registration.participants && registration.participants.length > 0 && (
+                  <>
+                    <h4 style={{ marginTop: '20px', marginBottom: '10px', color: '#666' }}>Participant ID Proofs</h4>
+                    {registration.participants.map((participant, index) => (
+                      participant.idFileUrl && (
+                        <div key={index} className="file-link">
+                          <span>📎 Participant {index + 1} - {participant.name || 'N/A'} ID Proof</span>
+                          <a href={participant.idFileUrl} target="_blank" rel="noopener noreferrer" className="view-file-btn">
+                            View File
+                          </a>
+                        </div>
+                      )
+                    ))}
+                  </>
+                )}
+                
+                {/* Payment Documents */}
+                <h4 style={{ marginTop: '20px', marginBottom: '10px', color: '#666' }}>Payment Documents</h4>
                 {renderFileLink(registration.paymentReceiptUrl, registration.paymentReceiptCloudinaryId, 'Payment Receipt')}
                 {renderFileLink(registration.paymentScreenshotUrl, registration.paymentScreenshotCloudinaryId, 'Payment Screenshot')}
                 {renderFileLink(registration.cashReceiptUrl, registration.cashReceiptCloudinaryId, 'Cash Receipt')}
                 
+                {/* Transaction ID if available */}
+                {registration.transactionId && (
+                  <div className="file-link" style={{ marginTop: '15px', padding: '10px', background: '#f5f5f5', borderRadius: '4px' }}>
+                    <span style={{ fontWeight: 'bold' }}>💳 Transaction ID:</span>
+                    <span style={{ marginLeft: '10px', fontFamily: 'monospace' }}>{registration.transactionId}</span>
+                  </div>
+                )}
+                
                 {!registration.idProofUrl && !registration.idFileUrl && !registration.paymentReceiptUrl && 
-                 !registration.paymentScreenshotUrl && !registration.cashReceiptUrl && (
+                 !registration.paymentScreenshotUrl && !registration.cashReceiptUrl && 
+                 !registration.collegeIdProofUrl && !registration.participantIdProofUrl &&
+                 (!registration.participants || !registration.participants.some(p => p.idFileUrl)) && (
                   <p className="empty-state">No files uploaded</p>
                 )}
               </div>

@@ -35,8 +35,28 @@ export const submitEventRegistration = async (eventName, registrationData) => {
       }
       // Handle arrays (like participants)
       else if (Array.isArray(value)) {
-        formData.append(key, JSON.stringify(value));
-        console.log(`📋 Appending array: ${key} with ${value.length} items`);
+        // Special handling for participants array to extract files
+        if (key === 'participants') {
+          const participantsWithoutFiles = value.map((participant, index) => {
+            const participantCopy = { ...participant };
+            
+            // Extract file if it exists and append it separately
+            if (participant.idFile instanceof File) {
+              formData.append(`participants[${index}].idFile`, participant.idFile);
+              console.log(`📎 Appending participant ${index} ID file: ${participant.idFile.name}`);
+              // Remove file from participant object before JSON stringify
+              delete participantCopy.idFile;
+            }
+            
+            return participantCopy;
+          });
+          
+          formData.append(key, JSON.stringify(participantsWithoutFiles));
+          console.log(`📋 Appending participants array: ${value.length} items`);
+        } else {
+          formData.append(key, JSON.stringify(value));
+          console.log(`📋 Appending array: ${key} with ${value.length} items`);
+        }
       }
       // Handle objects
       else if (typeof value === 'object') {
