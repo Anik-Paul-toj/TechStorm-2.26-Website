@@ -30,6 +30,11 @@ const allowedOrigins = (
   .map(normalizeOrigin)
   .filter(Boolean);
 
+console.log('🔧 CORS Configuration:');
+console.log('📝 CORS_ORIGINS env:', process.env.CORS_ORIGINS);
+console.log('📝 FRONTEND_URL env:', process.env.FRONTEND_URL);
+console.log('✅ Allowed origins:', allowedOrigins);
+
 // Security middleware
 app.use(helmet({
   crossOriginResourcePolicy: { policy: "cross-origin" }
@@ -51,6 +56,7 @@ app.use('/api/', limiter);
 // CORS configuration
 const corsOptions = {
   origin: (origin, callback) => {
+    // Allow requests with no origin (like mobile apps, Postman, etc.)
     if (!origin) {
       return callback(null, true);
     }
@@ -61,9 +67,15 @@ const corsOptions = {
       return callback(null, true);
     }
 
+    console.log(`❌ CORS blocked for origin: ${origin}`);
+    console.log(`✅ Allowed origins: ${allowedOrigins.join(', ')}`);
     return callback(new Error(`CORS blocked for origin: ${origin}`));
   },
-  credentials: true
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  exposedHeaders: ['Content-Range', 'X-Content-Range'],
+  maxAge: 86400 // 24 hours
 };
 
 app.use(cors(corsOptions));
