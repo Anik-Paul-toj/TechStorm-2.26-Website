@@ -231,39 +231,33 @@ const OmegatrixRegistration = () => {
 
                 <div className="form-group">
                   <label className="form-label required">Year</label>
-                  <div className="mcq-group">
+                  <select
+                    name="year"
+                    value={formData.year}
+                    onChange={handleInputChange}
+                    className="retro-input"
+                  >
+                    <option value="">Select Year</option>
                     {YEAR_OPTIONS.map((option) => (
-                      <label className="mcq-option" key={option}>
-                        <input
-                          type="radio"
-                          name="year"
-                          value={option}
-                          checked={formData.year === option}
-                          onChange={handleInputChange}
-                        />
-                        <span className="mcq-option-label">{option}</span>
-                      </label>
+                      <option key={option} value={option}>{option}</option>
                     ))}
-                  </div>
+                  </select>
                   {errors.year && <div className="error-message">{errors.year}</div>}
                 </div>
 
                 <div className="form-group">
                   <label className="form-label">Department</label>
-                  <div className="mcq-group">
+                  <select
+                    name="department"
+                    value={formData.department}
+                    onChange={handleInputChange}
+                    className="retro-input"
+                  >
+                    <option value="">Select Department</option>
                     {DEPARTMENT_OPTIONS.map((deptOption) => (
-                      <label className="mcq-option" key={deptOption}>
-                        <input
-                          type="radio"
-                          name="department"
-                          value={deptOption}
-                          checked={formData.department === deptOption}
-                          onChange={handleInputChange}
-                        />
-                        <span className="mcq-option-label">{deptOption}</span>
-                      </label>
+                      <option key={deptOption} value={deptOption}>{deptOption}</option>
                     ))}
-                  </div>
+                  </select>
                 </div>
 
                 <div className="form-group">

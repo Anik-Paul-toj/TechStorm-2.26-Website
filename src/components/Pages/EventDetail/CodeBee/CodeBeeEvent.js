@@ -38,7 +38,7 @@ const CodeBeeEvent = () => {
     duration: "3 Hours",
     venue: "Computer Lab A",
     entryFeeInternal: "₹80 per team",
-    entryFeeExternal: "₹100 per team",
+    entryFeeExternal: "₹80 per team",
     qrCode: "", // Add QR code image path here
     paymentLink: "", // Add online payment link here
     registerButton: {
@@ -55,7 +55,7 @@ const CodeBeeEvent = () => {
       "",
       "REGISTRATION FEES & REFUND POLICY",
       "BPPIMT Students (Internal): ₹80",
-      "External Students: ₹100",
+      "External Students: ₹80",
       "Mixed Teams: Teams comprising one BPPIMT student and one External student are categorized as External for the event but are eligible for the discounted fee of ₹80",
       "Note: Cross-college teams are allowed",
       "Refund Policy: Registration fees are strictly non-refundable",
@@ -129,7 +129,7 @@ const CodeBeeEvent = () => {
       },
       {
         q: "What is the registration fee?",
-        a: `BPPIMT Students: ₹80, External Students: ₹100\nMixed Teams (1 BPPIMT + 1 External): ₹80 (Discounted rate!)`
+        a: `BPPIMT Students: ₹80, External Students: ₹80\nMixed Teams (1 BPPIMT + 1 External): ₹80 (Discounted rate!)`
       },
       {
         q: "I am from BPPIMT, but my teammate is from another college. Which category do we fall under?",

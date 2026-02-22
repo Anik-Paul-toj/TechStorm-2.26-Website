@@ -257,39 +257,33 @@ const ForzaHorizonRegistration = () => {
 
                 <div className="form-group">
                   <label className="form-label required">Year</label>
-                  <div className="mcq-group">
+                  <select
+                    name="year"
+                    value={formData.year}
+                    onChange={handleInputChange}
+                    className="retro-input"
+                  >
+                    <option value="">Select Year</option>
                     {YEAR_OPTIONS.map((yearOption) => (
-                      <label className="mcq-option" key={yearOption}>
-                        <input
-                          type="radio"
-                          name="year"
-                          value={yearOption}
-                          checked={formData.year === yearOption}
-                          onChange={handleInputChange}
-                        />
-                        <span className="mcq-option-label">{yearOption}</span>
-                      </label>
+                      <option key={yearOption} value={yearOption}>{yearOption}</option>
                     ))}
-                  </div>
+                  </select>
                   {errors.year && <div className="error-message">{errors.year}</div>}
                 </div>
 
                 <div className="form-group">
                   <label className="form-label">Department</label>
-                  <div className="mcq-group">
+                  <select
+                    name="department"
+                    value={formData.department}
+                    onChange={handleInputChange}
+                    className="retro-input"
+                  >
+                    <option value="">Select Department</option>
                     {DEPARTMENT_OPTIONS.map((deptOption) => (
-                      <label className="mcq-option" key={deptOption}>
-                        <input
-                          type="radio"
-                          name="department"
-                          value={deptOption}
-                          checked={formData.department === deptOption}
-                          onChange={handleInputChange}
-                        />
-                        <span className="mcq-option-label">{deptOption}</span>
-                      </label>
+                      <option key={deptOption} value={deptOption}>{deptOption}</option>
                     ))}
-                  </div>
+                  </select>
                 </div>
 
                 <div className="form-group">

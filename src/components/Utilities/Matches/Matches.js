@@ -174,8 +174,7 @@ const Matches = () => {
       name: "Code-Bee",
       category: "Technical",
       url: "/events/code-bee",
-      entryFeeInternal: "₹80",
-      entryFeeExternal: "₹100",
+      entryFee: "₹80",
       teamSize: "Max 2 Members",
     },
     {

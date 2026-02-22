@@ -395,20 +395,17 @@ const PassionWithReelsRegistration = () => {
 
                     <div className="form-group">
                       <label className="form-label required">Department</label>
-                      <div className="mcq-group">
+                      <select
+                        name={`participantDepartment_${index}`}
+                        value={participant.department}
+                        onChange={(e) => handleParticipantChange(index, 'department', e.target.value)}
+                        className="retro-input"
+                      >
+                        <option value="">Select Department</option>
                         {DEPARTMENT_OPTIONS.map((deptOption) => (
-                          <label className="mcq-option" key={`${number}_${deptOption}`}>
-                            <input
-                              type="radio"
-                              name={`participantDepartment_${index}`}
-                              value={deptOption}
-                              checked={participant.department === deptOption}
-                              onChange={(e) => handleParticipantChange(index, 'department', e.target.value)}
-                            />
-                            <span className="mcq-option-label">{deptOption}</span>
-                          </label>
+                          <option key={`${number}_${deptOption}`} value={deptOption}>{deptOption}</option>
                         ))}
-                      </div>
+                      </select>
                       {errors[`participant_${index}_department`] && (
                         <div className="error-message">{errors[`participant_${index}_department`]}</div>
                       )}
@@ -416,20 +413,17 @@ const PassionWithReelsRegistration = () => {
 
                     <div className="form-group">
                       <label className="form-label required">Year</label>
-                      <div className="mcq-group">
+                      <select
+                        name={`participantYear_${index}`}
+                        value={participant.year}
+                        onChange={(e) => handleParticipantChange(index, 'year', e.target.value)}
+                        className="retro-input"
+                      >
+                        <option value="">Select Year</option>
                         {YEAR_OPTIONS.map((option) => (
-                          <label className="mcq-option" key={`${number}-${option}`}>
-                            <input
-                              type="radio"
-                              name={`participantYear_${index}`}
-                              value={option}
-                              checked={participant.year === option}
-                              onChange={(e) => handleParticipantChange(index, 'year', e.target.value)}
-                            />
-                            <span className="mcq-option-label">{option}</span>
-                          </label>
+                          <option key={`${number}-${option}`} value={option}>{option}</option>
                         ))}
-                      </div>
+                      </select>
                       {errors[`participant_${index}_year`] && (
                         <div className="error-message">{errors[`participant_${index}_year`]}</div>
                       )}

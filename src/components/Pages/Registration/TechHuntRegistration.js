@@ -347,20 +347,17 @@ const TechHuntRegistration = () => {
 
                     <div className="form-group">
                       <label className="form-label required">Year</label>
-                      <div className="mcq-group">
+                      <select
+                        name={`participantYear_${index}`}
+                        value={participant.year}
+                        onChange={(e) => handleParticipantChange(index, 'year', e.target.value)}
+                        className="retro-input"
+                      >
+                        <option value="">Select Year</option>
                         {YEAR_OPTIONS.map((yearOption) => (
-                          <label className="mcq-option" key={`${number}_${yearOption}`}>
-                            <input
-                              type="radio"
-                              name={`participantYear_${index}`}
-                              value={yearOption}
-                              checked={participant.year === yearOption}
-                              onChange={(e) => handleParticipantChange(index, 'year', e.target.value)}
-                            />
-                            <span className="mcq-option-label">{yearOption}</span>
-                          </label>
+                          <option key={`${number}_${yearOption}`} value={yearOption}>{yearOption}</option>
                         ))}
-                      </div>
+                      </select>
                       {errors[`participant_${index}_year`] && (
                         <div className="error-message">{errors[`participant_${index}_year`]}</div>
                       )}
@@ -368,20 +365,17 @@ const TechHuntRegistration = () => {
 
                     <div className="form-group">
                       <label className="form-label">Department</label>
-                      <div className="mcq-group">
+                      <select
+                        name={`participantDepartment_${index}`}
+                        value={participant.department}
+                        onChange={(e) => handleParticipantChange(index, 'department', e.target.value)}
+                        className="retro-input"
+                      >
+                        <option value="">Select Department</option>
                         {DEPARTMENT_OPTIONS.map((deptOption) => (
-                          <label className="mcq-option" key={`${number}_${deptOption}`}>
-                            <input
-                              type="radio"
-                              name={`participantDepartment_${index}`}
-                              value={deptOption}
-                              checked={participant.department === deptOption}
-                              onChange={(e) => handleParticipantChange(index, 'department', e.target.value)}
-                            />
-                            <span className="mcq-option-label">{deptOption}</span>
-                          </label>
+                          <option key={`${number}_${deptOption}`} value={deptOption}>{deptOption}</option>
                         ))}
-                      </div>
+                      </select>
                     </div>
 
                     <div className="form-group">

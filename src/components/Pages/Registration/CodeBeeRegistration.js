@@ -6,7 +6,7 @@ const CodeBeeRegistration = () => {
     const eventConfig = {
         eventName: 'Code-Bee',
         breadcrumbBg: codeBeeGif,
-        entryFee: '₹100 per team',
+        entryFee: '₹80 per team',
         minTeamSize: 1,
         maxTeamSize: 2,
         teamSizeOptions: [

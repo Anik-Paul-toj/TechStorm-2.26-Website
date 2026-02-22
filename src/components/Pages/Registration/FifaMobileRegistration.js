@@ -245,39 +245,33 @@ const FifaMobileRegistration = () => {
 
                 <div className="form-group">
                   <label className="form-label required">Department / Branch</label>
-                  <div className="mcq-group">
+                  <select
+                    name="department"
+                    value={formData.department}
+                    onChange={handleInputChange}
+                    className="retro-input"
+                  >
+                    <option value="">Select Department</option>
                     {DEPARTMENT_OPTIONS.map((deptOption) => (
-                      <label className="mcq-option" key={deptOption}>
-                        <input
-                          type="radio"
-                          name="department"
-                          value={deptOption}
-                          checked={formData.department === deptOption}
-                          onChange={handleInputChange}
-                        />
-                        <span className="mcq-option-label">{deptOption}</span>
-                      </label>
+                      <option key={deptOption} value={deptOption}>{deptOption}</option>
                     ))}
-                  </div>
+                  </select>
                   {errors.department && <div className="error-message">{errors.department}</div>}
                 </div>
 
                 <div className="form-group">
                   <label className="form-label required">Year of Study</label>
-                  <div className="mcq-group">
+                  <select
+                    name="yearOfStudy"
+                    value={formData.yearOfStudy}
+                    onChange={handleInputChange}
+                    className="retro-input"
+                  >
+                    <option value="">Select Year</option>
                     {YEAR_OPTIONS.map((yearOption) => (
-                      <label className="mcq-option" key={yearOption}>
-                        <input
-                          type="radio"
-                          name="yearOfStudy"
-                          value={yearOption}
-                          checked={formData.yearOfStudy === yearOption}
-                          onChange={handleInputChange}
-                        />
-                        <span className="mcq-option-label">{yearOption}</span>
-                      </label>
+                      <option key={yearOption} value={yearOption}>{yearOption}</option>
                     ))}
-                  </div>
+                  </select>
                   {errors.yearOfStudy && <div className="error-message">{errors.yearOfStudy}</div>}
                 </div>
 
