@@ -28,6 +28,10 @@ export default function Stepper({
   const isCompleted = currentStep > totalSteps;
   const isLastStep = currentStep === totalSteps;
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'auto' });
+  };
+
   const updateStep = newStep => {
     setCurrentStep(newStep);
     if (newStep > totalSteps) {
@@ -58,6 +62,7 @@ export default function Stepper({
       setValidatedSteps(prev => new Set([...prev, currentStep + 1]));
       setDirection(1);
       updateStep(currentStep + 1);
+      scrollToTop();
     }
   };
 
@@ -72,6 +77,7 @@ export default function Stepper({
 
     setDirection(1);
     updateStep(totalSteps + 1);
+    scrollToTop();
   };
 
   return (
@@ -283,3 +289,4 @@ function CheckIcon(props) {
     </svg>
   );
 }
+
