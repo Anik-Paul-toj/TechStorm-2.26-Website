@@ -336,12 +336,23 @@ h2.techstorm-arcade-title {
     image-rendering: pixelated !important;
     text-shadow: 1px 0 0 #ff9b00, 0 1px 0 #ff9b00, -1px 0 0 #ff9b00, 0 -1px 0 #ff9b00, 2px 2px 0 #c85a00, 3px 3px 0 #c85a00 !important;
     margin-bottom: 10px !important;
-    white-space: nowrap !important;
+    white-space: normal !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+}
+
+@media (max-width: 768px) {
+    .section-title.gallery-heading-title h2,
+    .gallery-heading-title.section-title.cta-title.mb-35 h2 {
+        font-size: clamp(12px, 4vw, 20px) !important;
+        line-height: 1.4 !important;
+        padding: 0 10px !important;
+    }
 }
 
 .section-title.gallery-heading-title h2 span,
 .gallery-heading-title.section-title.cta-title.mb-35 h2 span {
-    display: inline-block !important;
+    display: inline !important;
     margin-bottom: 0 !important;
     color: #ff9b00 !important;
 }

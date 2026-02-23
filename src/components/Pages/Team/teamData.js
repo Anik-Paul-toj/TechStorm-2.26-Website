@@ -7,9 +7,6 @@
 // Cloudinary base URL - direct access without transformations for maximum reliability
 const cloudinaryBase = 'https://res.cloudinary.com/dyj3kxni2/image/upload';
 
-// Default avatar
-const defaultAvatar = `${cloudinaryBase}/v1771534202/eoorox/team/IMG202602191108292-GouravPaul.png`;
-
 // Core Team Member Images from Cloudinary (direct URLs)
 const aniketDeImg = `${cloudinaryBase}/v1771534189/eoorox/team/1000507264~2%20-%20Aniket%20De.png`;
 const bapanBanikImg = `${cloudinaryBase}/v1771534211/eoorox/team/IMG_20260216_202234%20-%20Bapan%20Banik.png`;
@@ -39,6 +36,7 @@ const pranayChatterjeeImg = `${cloudinaryBase}/v1771534225/eoorox/team/Pranay.pn
 const souvikDeyImg = `${cloudinaryBase}/v1771534219/eoorox/team/IMG_20260219_130801%20-%20Souvik%20Dey.png`;
 const shivamKumarImg = `${cloudinaryBase}/v1771534190/eoorox/team/1771488293669%20-%20Shivam%20Kumar.png`;
 const adrishBasakImg = `${cloudinaryBase}/v1771534208/eoorox/team/IMG_20251226_234300%20-%20Adrish%20Basak.png`;
+const indraniBanikImg = `${cloudinaryBase}/v1771858328/indranibanik_myhv3i.png`;
 
 export const coreMembers = [
     // FINANCE MANAGEMENT TEAM
@@ -76,7 +74,7 @@ export const coreMembers = [
     { id: '23', avatar: gourabDeyImg, name: 'Gourab Dey', deg: 'Creative & Social Member' },
     { id: '25', avatar: shreyaSahaImg, name: 'Shreya Saha', deg: 'Disc. & Hospitality Member'},
     { id: '26', avatar: shivamKumarImg, name: 'Shivam Kumar', deg: 'Disc. & Hospitality Member' },
-    { id: '27', avatar: defaultAvatar, name: 'Indrani Banik', deg: 'Disc. & Hospitality Member' },
+    { id: '27', avatar: indraniBanikImg, name: 'Indrani Banik', deg: 'Disc. & Hospitality Member' },
     { id: '28', avatar: adityaChoubeyImg, name: 'Aditya Choubey', deg: 'Disc. & Hospitality Member' },
     
     // WEB DEVELOPMENT TEAM
