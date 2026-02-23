@@ -7,9 +7,6 @@
 // Cloudinary base URL - direct access without transformations for maximum reliability
 const cloudinaryBase = 'https://res.cloudinary.com/dyj3kxni2/image/upload';
 
-// Default avatar
-const defaultAvatar = `${cloudinaryBase}/v1771534202/eoorox/team/IMG202602191108292-GouravPaul.png`;
-
 // Core Team Member Images from Cloudinary (direct URLs)
 const aniketDeImg = `${cloudinaryBase}/v1771534189/eoorox/team/1000507264~2%20-%20Aniket%20De.png`;
 const bapanBanikImg = `${cloudinaryBase}/v1771534211/eoorox/team/IMG_20260216_202234%20-%20Bapan%20Banik.png`;
