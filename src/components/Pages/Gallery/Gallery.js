@@ -148,7 +148,11 @@ const Gallery = () => {
             <div className="container">
               <div className="row align-items-center mb-30">
                 <div className="col-lg-12">
-                  <SectionTitle titlefirst="Glimpses of" titleSec="last year" className="gallery-heading-title" />
+                  <SectionTitle
+                    titlefirst="Glimpses of"
+                    titleSec="last year"
+                    className="gallery-heading-title techstorm-arcade-title"
+                  />
                 </div>
               </div>
               <div className="portfolio gallery-retro">

@@ -62,7 +62,11 @@ const Teams = () => {
             <div className="container">
               <div className="row">
                 <div className="col-lg-12 p-relative">
-                  <SectionTitle titlefirst="Organizing" titleSec="Committee" />
+                  <SectionTitle
+                    titlefirst="Organizing"
+                    titleSec="Committee"
+                    className="techstorm-arcade-title"
+                  />
                 </div>
               </div>
               <div className="row team-org-members-row">

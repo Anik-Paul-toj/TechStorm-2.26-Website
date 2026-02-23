@@ -23,7 +23,9 @@ const BlogOne = () => {
             backgroundRepeat: 'no-repeat'
         }}>
             <div className="container">
-                <h2 className="text-center mb-4 sponsor-preview-title">Our Sponsors</h2>
+                <h2 className="text-center mb-4 sponsor-preview-title techstorm-arcade-title">
+                    Our Sponsors
+                </h2>
                 <p className="text-center sponsor-coming-soon mb-5">
                     Talks are currently going on. Sponsor announcements coming soon.
                 </p>

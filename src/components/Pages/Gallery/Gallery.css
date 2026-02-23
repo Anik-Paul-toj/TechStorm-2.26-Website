@@ -84,42 +84,18 @@
 
 .gallery-heading-title.section-title {
   margin-bottom: 0 !important;
+  text-align: center;
 }
 
-/* Gallery heading: pixel/8-bit style like "Organizing Committee" */
+/* Fine-tune the arcade heading on Gallery page */
 .gallery-heading-title.section-title h2 {
-  font-family: 'Press Start 2P', 'Silkscreen', monospace, cursive;
-  color: #fff !important;
-  font-size: 1.75rem;
-  line-height: 1.6;
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
   image-rendering: pixelated;
   image-rendering: -moz-crisp-edges;
   image-rendering: crisp-edges;
 }
 
-.gallery-heading-title.section-title h2 span {
-  color: #ffc010 !important;
-  display: inline;
-  margin-top: 0;
-}
-
 .gallery-heading-title.section-title img {
   display: none;
-}
-
-/* Brushstroke dash: use provided brushstroke image */
-.gallery-heading-title.section-title h2::after {
-  content: '';
-  display: block;
-  margin-top: 12px;
-  width: 200px;
-  height: 28px;
-  background: url('../../../assets/img/brushstroke-dash.png') no-repeat left center;
-  background-size: contain;
-  position: relative;
-  left: 0;
 }
 
 /* 4x3 grid: 4 columns, 3 rows (12 items per page) + proper height spacing */

@@ -59,10 +59,99 @@
 }
 
 /* Add padding to section to prevent hover cut-off */
+/* Add padding to section to prevent hover cut-off */
 #work .portfolio {
     padding-top: 30px;
     padding-bottom: 30px;
     overflow: visible;
+}
+
+#work .gallery-container {
+    overflow: visible;
+}
+
+/* Prevent global overflow:hidden from clipping the title */
+#work .row.align-items-center.mb-30,
+#work .row.align-items-center.mb-30 [class*="col-"] {
+    overflow: visible !important;
+}
+
+/* Center ONLY the "All Events" text; keep layout (arrows, filters) unchanged */
+.all-events-header {
+    column-gap: 16px;
+    overflow: visible !important;
+    min-height: 64px;
+    position: relative;
+    column-gap: 16px;
+    overflow: visible;
+    overflow: visible !important;
+    min-height: 64px;
+}
+
+@media (max-width: 768px) {
+    /* On mobile arrows are hidden; keep title in normal flow */
+    .all-events-title-wrap {
+        position: static;
+        transform: none;
+        width: 100%;
+        max-width: 100%;
+        text-align: center;
+    }
+}
+
+.all-events-header .section-title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    width: auto;
+    white-space: nowrap;
+}
+
+.gallery-nav-buttons {
+    justify-self: end;
+}
+
+@media (max-width: 768px) {
+    .all-events-header {
+        grid-template-columns: 1fr;
+        row-gap: 12px;
+        text-align: center;
+    }
+
+    .all-events-title-wrap {
+        justify-self: center;
+        width: 100%;
+        position: static;
+        transform: none;
+        max-width: 100%;
+    }
+}
+
+/* Center the category filter buttons under "All Events" */
+.button-group.filter-button-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 32px;
+    margin-top: 12px;
+    margin-bottom: 4px;
+}
+
+.button-group.filter-button-group button {
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-family: "Press Start 2P", system-ui;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    padding: 0;
+}
+
+.button-group.filter-button-group button.active {
+    color: #ffc010;
 }
 
 /* Background artwork responsiveness for All Events section */

@@ -291,3 +291,33 @@ section#about [style*="scrollSnapType"]::-webkit-scrollbar {
         0 0 20px var(--blue-electric),
         0 0 60px rgba(0, 180, 255, 0.3);
 }
+
+/* ─────────────────────────────────────────────────────────────────
+   Reusable arcade heading style — matches "ABOUT THE STORM"
+   Apply via `techstorm-arcade-title` on the SectionTitle wrapper,
+   or directly on standalone headings.
+   ──────────────────────────────────────────────────────────────── */
+.techstorm-arcade-title {
+    text-align: center;
+}
+
+.techstorm-arcade-title h2,
+h2.techstorm-arcade-title {
+    font-family: 'Press Start 2P', monospace !important;
+    font-size: clamp(16px, 5vw, 32px) !important;
+    color: var(--yellow) !important;
+    text-shadow: 4px 4px 0 var(--orange) !important;
+    letter-spacing: 2px !important;
+    margin: 0 !important;
+    line-height: 1.4 !important;
+    text-transform: uppercase !important;
+}
+
+.techstorm-arcade-title h2 span {
+    color: var(--yellow) !important;
+}
+
+/* Hide the default SectionTitle underline image for arcade headings */
+.section-title.techstorm-arcade-title img {
+    display: none !important;
+}
