@@ -188,7 +188,7 @@ const WorkGallery = () => {
             if (firstCard) {
                 const cardWidth = firstCard.offsetWidth;
                 const computedStyle = window.getComputedStyle(scrollContainerRef.current);
-                const gap = parseInt(computedStyle.gap) || 20; // Get actual gap from CSS
+                const gap = parseInt(computedStyle.gap) || 20;
                 const scrollAmount = cardWidth + gap;
                 scrollContainerRef.current.scrollBy({
                     left: direction === 'left' ? -scrollAmount : scrollAmount,
@@ -208,14 +208,12 @@ const WorkGallery = () => {
                     const maxScroll = container.scrollWidth - container.clientWidth;
                     const cardWidth = firstCard.offsetWidth;
                     const computedStyle = window.getComputedStyle(container);
-                    const gap = parseInt(computedStyle.gap) || 20; // Get actual gap from CSS
-                    const scrollAmount = cardWidth + gap; // 1 card width + gap
+                    const gap = parseInt(computedStyle.gap) || 20;
+                    const scrollAmount = cardWidth + gap;
                     
-                    // If we're at or near the end, scroll back to start
                     if (container.scrollLeft >= maxScroll - 10) {
                         container.scrollTo({ left: 0, behavior: 'smooth' });
                     } else {
-                        // Scroll 1 card at a time
                         container.scrollBy({
                             left: scrollAmount,
                             behavior: 'smooth'
@@ -223,7 +221,7 @@ const WorkGallery = () => {
                     }
                 }
             }
-        }, 3000); // 3 seconds
+        }, 3000);
 
         return () => clearInterval(interval);
     }, [items]);
@@ -236,7 +234,6 @@ const WorkGallery = () => {
             style={{
                 backgroundColor: '#05030a',
                 backgroundImage: `url(${bgImg})`,
-                // Show the full cityscape artwork without zooming / cropping
                 backgroundRepeat: 'no-repeat',
                 backgroundSize: 'contain',
                 backgroundPosition: 'center top',
@@ -244,8 +241,6 @@ const WorkGallery = () => {
                 position: 'relative',
             }}
         >
-            {/* Gradient overlay for smooth blending with neighboring sections,
-                but keep some of the cityscape visible near the bottom */}
             <div
                 style={{
                     position: 'absolute',
@@ -255,25 +250,53 @@ const WorkGallery = () => {
                     bottom: 0,
                     background:
                         'linear-gradient(to bottom,' +
-                        'rgba(0, 0, 0, 0.85) 0%,' +   // darken hero overlap
+                        'rgba(0, 0, 0, 0.85) 0%,' +
                         'rgba(0, 0, 0, 0.4) 25%,' +
                         'rgba(0, 0, 0, 0.25) 65%,' +
-                        'rgba(0, 0, 0, 0.15) 88%,' +  // ease out towards the seam
-                        'rgba(0, 0, 0, 0.0) 100%)',   // match the plain #05030a below
+                        'rgba(0, 0, 0, 0.15) 88%,' +
+                        'rgba(0, 0, 0, 0.0) 100%)',
                     pointerEvents: 'none',
                     zIndex: 0,
                 }}
             ></div>
             
             <div className="container-fluid gallery-container" style={{ position: 'relative', zIndex: 1 }}>
-                <div className="portfolio ">
+                <div className="portfolio">
                     <div className="row align-items-center mb-30">
-                        <div className="col-lg-12 d-flex justify-content-between align-items-center">
+                        {/*
+                         * Title row: position:relative so the absolutely-centred
+                         * SectionTitle sits within this row, while the nav arrows
+                         * stay pushed to the right via justify-content-end.
+                         */}
+                        <div
+                            className="col-lg-12 d-flex justify-content-end align-items-center"
+                            style={{ position: 'relative', minHeight: '64px' }}
+                        >
+                            {/* Centred heading — absolutely positioned so arrows don't shift */}
                             <AnimateOnScroll animation="section-title-wrapper">
-                                <SectionTitle
-                                    titlefirst='All Events'
-                                    titleSec='' />
+                                <div
+                                    style={{
+                                        position: 'absolute',
+                                        left: '50%',
+                                        transform: 'translateX(-50%)',
+                                        textAlign: 'center',
+                                        whiteSpace: 'nowrap',
+                                        pointerEvents: 'none',
+                                    }}
+                                >
+                                    <SectionTitle
+                                        titlefirst='All Events'
+                                        titleSec=''
+                                                     className="gallery-heading-title"
+                                                     /* Use the gallery-heading-title class so this
+                                                         section uses the same pixel/8-bit font as other
+                                                         section headings and the decorative image is
+                                                         hidden via existing styles. */
+                                    />
+                                </div>
                             </AnimateOnScroll>
+
+                            {/* Navigation arrows stay right-aligned */}
                             <div style={{ display: 'flex', gap: '10px' }} className="gallery-nav-buttons">
                                 <button 
                                     onClick={() => scroll('left')}
@@ -321,23 +344,24 @@ const WorkGallery = () => {
                                 </button>
                             </div>
                         </div>
+
                         <div className="col-lg-12">
                             <AnimateOnScroll animation="fade-slide-up-subtle" delay={100}>
                                 <div className="my-masonry">
-                                    <div className="button-group filter-button-group ">
-                                    <button className={activeFilter === 'All' ? 'active' : ''} onClick={showAllItems}>All</button>
-                                    <button className={activeFilter === 'Coding' ? 'active' : ''} onClick={() => fliterItem('Coding')}>
-                                        {'Coding'}
-                                    </button>
-                                    <button className={activeFilter === 'Robotics' ? 'active' : ''} onClick={() => fliterItem('Robotics')}>
-                                        {'Robotics'}
-                                    </button>
-                                    <button className={activeFilter === 'Gaming' ? 'active' : ''} onClick={() => fliterItem('Gaming')}>
-                                        {'Gaming'}
-                                    </button>
-                                    <button className={activeFilter === 'Brain' ? 'active' : ''} onClick={() => fliterItem('Brain')}>
-                                        {'Brain Teaser'}
-                                    </button>
+                                    <div className="button-group filter-button-group">
+                                        <button className={activeFilter === 'All' ? 'active' : ''} onClick={showAllItems}>All</button>
+                                        <button className={activeFilter === 'Coding' ? 'active' : ''} onClick={() => fliterItem('Coding')}>
+                                            {'Coding'}
+                                        </button>
+                                        <button className={activeFilter === 'Robotics' ? 'active' : ''} onClick={() => fliterItem('Robotics')}>
+                                            {'Robotics'}
+                                        </button>
+                                        <button className={activeFilter === 'Gaming' ? 'active' : ''} onClick={() => fliterItem('Gaming')}>
+                                            {'Gaming'}
+                                        </button>
+                                        <button className={activeFilter === 'Brain' ? 'active' : ''} onClick={() => fliterItem('Brain')}>
+                                            {'Brain Teaser'}
+                                        </button>
                                         <button className={activeFilter === 'Creative' ? 'active' : ''} onClick={() => fliterItem('Creative')}>
                                             {'Creative'}
                                         </button>
@@ -346,6 +370,7 @@ const WorkGallery = () => {
                             </AnimateOnScroll>
                         </div>
                     </div>
+
                     <div 
                         ref={scrollContainerRef}
                         style={{

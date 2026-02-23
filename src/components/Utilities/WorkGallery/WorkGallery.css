@@ -59,7 +59,6 @@
 }
 
 /* Add padding to section to prevent hover cut-off */
-/* Add padding to section to prevent hover cut-off */
 #work .portfolio {
     padding-top: 30px;
     padding-bottom: 30px;
@@ -82,14 +81,11 @@
     overflow: visible !important;
     min-height: 64px;
     position: relative;
-    column-gap: 16px;
     overflow: visible;
-    overflow: visible !important;
     min-height: 64px;
 }
 
 @media (max-width: 768px) {
-    /* On mobile arrows are hidden; keep title in normal flow */
     .all-events-title-wrap {
         position: static;
         transform: none;
@@ -106,6 +102,33 @@
     text-align: center;
     width: auto;
     white-space: nowrap;
+}
+
+/* ── Center the "All Events" heading and strip the brushstroke underline ── */
+#work .section-title-wrapper {
+    width: 100%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    pointer-events: none; /* arrows above stay clickable */
+}
+
+#work .section-title-wrapper > * {
+    pointer-events: auto;
+}
+
+/* Remove brushstroke / decorative underline pseudo-elements on All Events heading */
+#work [class*="section-title"]::after,
+#work [class*="section-title"] *::after,
+#work [class*="section__title"]::after,
+#work [class*="section__title"] *::after,
+#work .section-title-wrapper *::after {
+    display: none !important;
+    content: none !important;
+    background: none !important;
 }
 
 .gallery-nav-buttons {
@@ -157,7 +180,6 @@
 /* Background artwork responsiveness for All Events section */
 @media (max-width: 991px) {
     #work {
-        /* Let the events background cover the viewport more naturally on tablets/phones */
         background-size: cover !important;
         background-position: center top !important;
         background-repeat: no-repeat !important;
@@ -167,7 +189,6 @@
 
 @media (max-width: 768px) {
     #work {
-        /* Keep key artwork centered on smaller screens */
         background-size: cover !important;
         background-position: top center !important;
     }
@@ -175,7 +196,6 @@
 
 @media (max-width: 576px) {
     #work {
-        /* Slightly loosen to avoid harsh cropping on ultra‑small screens */
         background-position: 50% 10% !important;
     }
 }
@@ -217,7 +237,6 @@
         padding: 0 10px;
     }
     
-    /* Scale down card content for better visibility */
     .gallery-card-wrapper .gallery-image-container {
         padding-bottom: 75% !important;
     }
@@ -298,4 +317,37 @@
         padding-left: 0.1rem;
         padding-right: 0.1rem;
     }
+}
+
+/* Pixel / 8-bit style heading for gallery sections (match attached image) */
+.section-title.gallery-heading-title h2,
+.gallery-heading-title.section-title.cta-title.mb-35 h2 {
+    font-family: 'Press Start 2P', 'Silkscreen', monospace, cursive !important;
+    color: #ffd200 !important; /* fill (yellow) */
+    font-size: 1.75rem !important;
+    line-height: 1.2 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.02em !important;
+    -webkit-font-smoothing: none !important;
+    text-rendering: optimizeLegibility !important;
+    image-rendering: pixelated !important;
+    /* stronger, crisp 8-bit outline using exact hexes */
+    text-shadow: 1px 0 0 #ff9b00, 0 1px 0 #ff9b00, -1px 0 0 #ff9b00, 0 -1px 0 #ff9b00, 2px 2px 0 #c85a00, 3px 3px 0 #c85a00 !important;
+}
+
+.section-title.gallery-heading-title h2 span,
+.gallery-heading-title.section-title.cta-title.mb-35 h2 span {
+    color: #ff9b00 !important; /* accent */
+}
+
+.gallery-heading-title.section-title img {
+    display: none !important;
+}
+
+/* Remove decorative ::after brushstroke if present from other styles */
+.section-title.gallery-heading-title h2::after,
+.gallery-heading-title.section-title.cta-title.mb-35 h2::after {
+    display: none !important;
+    content: none !important;
+    background: none !important;
 }
