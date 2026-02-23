@@ -232,6 +232,7 @@ const WorkGallery = () => {
             id="work"
             className="pt-120 pb-120"
             style={{
+                paddingTop: '60px',
                 backgroundColor: '#05030a',
                 backgroundImage: `url(${bgImg})`,
                 backgroundRepeat: 'no-repeat',
