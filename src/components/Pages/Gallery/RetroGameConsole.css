@@ -1,0 +1,1014 @@
+/* ================================================================
+   RETRO GAME CONSOLE — pixel/8-bit aesthetic
+   Matches TechStorm palette: #1a0e22 / #0f0819 / #ffc010 / #fff
+   Font: 'Press Start 2P' (already loaded site-wide)
+   ================================================================ */
+
+/* ── section wrapper ── */
+.retro-console-section {
+  width: 100%;
+  max-width: 660px;
+  margin: 0 auto;
+  padding: 14px 12px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+
+/* ── outer console shell ── */
+.retro-console-shell {
+  width: 100%;
+  max-width: 636px;
+  margin: 0 auto;
+  background: #16082a;
+  border: 3px solid #3a1e5c;
+  box-shadow:
+    0 0 0 2px #0f0819,
+    0 0 0 5px #ffc010,
+    0 0 0 7px #0f0819,
+    8px 8px 0 #0f0819,
+    0 0 48px rgba(255, 192, 16, 0.12);
+  clip-path: polygon(
+    0 14px, 14px 14px, 14px 0,
+    calc(100% - 14px) 0, calc(100% - 14px) 14px, 100% 14px,
+    100% calc(100% - 14px), calc(100% - 14px) calc(100% - 14px),
+    calc(100% - 14px) 100%, 14px 100%, 14px calc(100% - 14px),
+    0 calc(100% - 14px)
+  );
+  transition: box-shadow 0.4s ease;
+  font-family: 'Press Start 2P', monospace;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+.retro-console-shell.is-powered {
+  box-shadow:
+    0 0 0 2px #0f0819,
+    0 0 0 5px #ffc010,
+    0 0 0 7px #0f0819,
+    8px 8px 0 #0f0819,
+    0 0 80px rgba(255, 192, 16, 0.22),
+    0 0 160px rgba(255, 192, 16, 0.08);
+  border-color: #ffc010;
+}
+
+/* ─────────────────────────────────
+   TOP BAR
+───────────────────────────────── */
+.retro-console-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #0f0819;
+  border-bottom: 3px solid #ffc010;
+  padding: 7px 14px;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.retro-console-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #ffc010;
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px rgba(255, 192, 16, 0.6);
+}
+
+.retro-brand-arrow {
+  font-size: 11px;
+  color: #ff4444;
+  text-shadow: 0 0 8px rgba(255, 68, 68, 0.8);
+  animation: brand-arrow-pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes brand-arrow-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.retro-brand-text {
+  font-size: 8px;
+  letter-spacing: 2px;
+}
+
+.retro-console-topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* ── Power LED ── */
+.retro-led {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 0;          /* pixel square */
+  clip-path: polygon(
+    0 3px, 3px 3px, 3px 0,
+    calc(100% - 3px) 0, calc(100% - 3px) 3px, 100% 3px,
+    100% calc(100% - 3px), calc(100% - 3px) calc(100% - 3px),
+    calc(100% - 3px) 100%, 3px 100%, 3px calc(100% - 3px),
+    0 calc(100% - 3px)
+  );
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+.retro-led.led-off {
+  background: #3a1e5c;
+  box-shadow: none;
+}
+
+.retro-led.led-on {
+  background: #44ff88;
+  box-shadow: 0 0 6px #44ff88, 0 0 14px rgba(68, 255, 136, 0.5);
+  animation: led-steady 2s ease-in-out infinite;
+}
+
+.retro-led.led-pulse {
+  animation: led-boot-pulse 0.25s steps(1) infinite !important;
+}
+
+@keyframes led-steady {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes led-boot-pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* ── Power button ── */
+.retro-power-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 8px;
+  letter-spacing: 1px;
+  color: #ffc010;
+  background: #1a0e22;
+  border: none;
+  cursor: pointer;
+  padding: 6px 12px;
+  box-shadow:
+    0 0 0 2px #ffc010,
+    2px 2px 0 #0f0819;
+  clip-path: polygon(
+    0 5px, 5px 5px, 5px 0,
+    calc(100% - 5px) 0, calc(100% - 5px) 5px, 100% 5px,
+    100% calc(100% - 5px), calc(100% - 5px) calc(100% - 5px),
+    calc(100% - 5px) 100%, 5px 100%, 5px calc(100% - 5px),
+    0 calc(100% - 5px)
+  );
+  transition: color 0.2s, background 0.2s, box-shadow 0.2s, transform 0.1s;
+  white-space: nowrap;
+}
+
+.retro-power-btn:hover {
+  color: #0f0819;
+  background: #ffc010;
+  box-shadow:
+    0 0 0 2px #ffc010,
+    2px 2px 0 #0f0819,
+    0 0 16px rgba(255, 192, 16, 0.4);
+}
+
+.retro-power-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 0 0 0 2px #ffc010;
+}
+
+.retro-power-btn.is-on {
+  color: #0f0819;
+  background: #44ff88;
+  box-shadow:
+    0 0 0 2px #44ff88,
+    2px 2px 0 #0f0819,
+    0 0 14px rgba(68, 255, 136, 0.35);
+}
+
+.power-icon {
+  font-size: 10px;
+  line-height: 1;
+}
+
+/* ─────────────────────────────────
+   MAIN PANEL (terminal + screen)
+   Height driven by game screen aspect-ratio (560:384)
+───────────────────────────────── */
+.retro-console-main {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 0;
+  /* no min-height — height is governed by .retro-game-screen aspect-ratio */
+}
+
+/* ─────────────────────────────────
+   TERMINAL PANEL (left)
+───────────────────────────────── */
+.retro-terminal-panel {
+  background: #0a0515;
+  border-right: 3px solid #3a1e5c;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: border-color 0.3s;
+  min-height: 0;
+  /* max-height caps the panel so the grid row can't grow with boot content.
+     At 636px shell width, the game screen's aspect-ratio (560:384) computes
+     to ~335px tall — match that so terminal and screen stay the same height.
+     The body's overflow-y:auto then scrolls content taller than this. */
+  max-height: 340px;
+}
+
+.retro-terminal-panel.is-off {
+  border-right-color: #1e0f2e;
+}
+
+.retro-terminal-titlebar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #180b28;
+  border-bottom: 2px solid #3a1e5c;
+  padding: 6px 10px;
+}
+
+.tbar-dots {
+  display: flex;
+  gap: 5px;
+}
+
+.tbar-dots span {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  background: #3a1e5c;
+  clip-path: polygon(0 2px, 2px 2px, 2px 0, calc(100% - 2px) 0, calc(100% - 2px) 2px, 100% 2px, 100% calc(100% - 2px), calc(100% - 2px) calc(100% - 2px), calc(100% - 2px) 100%, 2px 100%, 2px calc(100% - 2px), 0 calc(100% - 2px));
+}
+
+.tbar-dots span:nth-child(1) { background: #ff5f57; }
+.tbar-dots span:nth-child(2) { background: #febc2e; }
+.tbar-dots span:nth-child(3) { background: #28c840; }
+
+.tbar-label {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  color: #6644aa;
+  letter-spacing: 1px;
+  flex: 1;
+  text-align: center;
+}
+
+.retro-terminal-body {
+  flex: 1;
+  /* height:0 + flex:1 = classic fix that forces overflow-y to trigger */
+  height: 0;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 10px 10px 8px;
+  scrollbar-width: thin;
+  scrollbar-color: #7755cc #0a0515;
+}
+
+.retro-terminal-body::-webkit-scrollbar { width: 5px; }
+.retro-terminal-body::-webkit-scrollbar-track {
+  background: #0a0515;
+  border-left: 1px solid #1e0f2e;
+}
+.retro-terminal-body::-webkit-scrollbar-thumb {
+  background: #5533aa;
+  box-shadow: 0 0 4px rgba(153, 102, 255, 0.4);
+}
+.retro-terminal-body::-webkit-scrollbar-thumb:hover { background: #7755cc; }
+
+/* ── offline state ── */
+.retro-offline-msg {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 14px;
+  color: #3a1e5c;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 8px;
+  text-align: center;
+  padding: 20px;
+}
+
+.offline-icon {
+  font-size: 18px;
+  color: #2a0e3c;
+  letter-spacing: 6px;
+  animation: offline-blink 1.4s steps(1) infinite;
+}
+
+@keyframes offline-blink {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.1; }
+}
+
+.offline-hint {
+  color: #2a0e3c;
+  font-size: 7px;
+  line-height: 1.8;
+}
+
+/* ── terminal lines ── */
+.retro-tline {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  color: #a0c888;
+  line-height: 1.9;
+  white-space: pre-wrap;      /* wrap long lines instead of overflowing */
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  min-height: 14px;
+  display: block;
+}
+
+.retro-tline.tline-divider {
+  color: #3a1e5c;
+  letter-spacing: 0;
+}
+
+.retro-tline.tline-option {
+  color: #ffc010;
+}
+
+.retro-tline.tline-cmd {
+  color: #ffffff;
+}
+
+.retro-tline.tline-error {
+  color: #ff4444;
+  text-shadow: 0 0 8px rgba(255, 68, 68, 0.5);
+}
+
+.retro-tline.tline-ready {
+  color: #44ff88;
+  text-shadow: 0 0 8px rgba(68, 255, 136, 0.5);
+}
+
+.retro-tline.tline-loading {
+  color: #ffc010;
+}
+
+.retro-tline.tline-bar {
+  color: #44ff88;
+  letter-spacing: 2px;
+}
+
+/* ── input row ── */
+.retro-input-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 6px;
+}
+
+.retro-prompt-sym {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 8px;
+  color: #ffc010;
+  flex-shrink: 0;
+}
+
+.retro-terminal-input {
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 8px;
+  color: #ffffff;
+  width: 28px;
+  caret-color: transparent;  /* we use custom cursor-block */
+  line-height: 1;
+}
+
+.retro-cursor-block {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 8px;
+  color: #ffc010;
+  transition: opacity 0.1s;
+  line-height: 1;
+}
+
+/* ── quick pick buttons ── */
+.retro-quickpick {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 14px;
+  padding-top: 10px;
+  border-top: 1px solid #1e0f2e;
+}
+
+.retro-qpick-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  color: var(--game-color, #ffc010);
+  background: rgba(255, 192, 16, 0.04);
+  border: none;
+  cursor: pointer;
+  padding: 7px 10px;
+  text-align: left;
+  box-shadow: inset 1px 1px 0 var(--game-color, #ffc010),
+              inset -1px -1px 0 var(--game-color, #ffc010);
+  transition: background 0.15s, box-shadow 0.15s;
+  width: 100%;
+}
+
+.retro-qpick-btn:hover {
+  background: rgba(255, 192, 16, 0.12);
+  box-shadow: inset 2px 2px 0 var(--game-color, #ffc010),
+              inset -2px -2px 0 var(--game-color, #ffc010);
+  color: #ffffff;
+}
+
+.qpick-num {
+  color: var(--game-color, #ffc010);
+  flex-shrink: 0;
+}
+
+.qpick-name {
+  color: #cccccc;
+}
+
+/* ─────────────────────────────────
+   GAME SCREEN (right)
+   Locks to 560:384 — the native Archive.org embed ratio
+───────────────────────────────── */
+.retro-game-screen {
+  background: #050210;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  /* ── aspect ratio lock: 560 wide × 384 tall ── */
+  aspect-ratio: 560 / 384;
+  width: 100%;
+}
+
+.retro-screen-bezel {
+  flex: 1;
+  position: relative;
+  background: #000;
+  border: 3px solid #1e0f2e;
+  margin: 12px;
+  overflow: hidden;
+  box-shadow:
+    inset 0 0 30px rgba(0, 0, 0, 0.7),
+    0 0 0 1px #0a0515;
+  clip-path: polygon(
+    0 8px, 8px 8px, 8px 0,
+    calc(100% - 8px) 0, calc(100% - 8px) 8px, 100% 8px,
+    100% calc(100% - 8px), calc(100% - 8px) calc(100% - 8px),
+    calc(100% - 8px) 100%, 8px 100%, 8px calc(100% - 8px),
+    0 calc(100% - 8px)
+  );
+  display: flex;
+  flex-direction: column;
+  /* fill the full height the aspect-ratio-locked parent provides */
+  min-height: 0;
+}
+
+/* CRT scanlines */
+.retro-scanlines {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 2px,
+    rgba(0, 0, 0, 0.18) 2px,
+    rgba(0, 0, 0, 0.18) 4px
+  );
+}
+
+/* ── shared screen state ── */
+.retro-screen-state {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  font-family: 'Press Start 2P', monospace;
+}
+
+/* ── OFF state ── */
+.retro-screen-off {
+  background: #000;
+}
+
+.no-signal-grid {
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(0deg, transparent 0, transparent 3px, rgba(255,255,255,0.015) 3px, rgba(255,255,255,0.015) 4px),
+    repeating-linear-gradient(90deg, transparent 0, transparent 3px, rgba(255,255,255,0.015) 3px, rgba(255,255,255,0.015) 4px);
+  opacity: 0.4;
+  animation: static-noise 0.12s steps(1) infinite;
+}
+
+@keyframes static-noise {
+  0%   { background-position: 0 0, 0 0; }
+  25%  { background-position: 2px 1px, -1px 2px; }
+  50%  { background-position: -1px 3px, 2px -1px; }
+  75%  { background-position: 1px -2px, -2px 1px; }
+  100% { background-position: 0 0, 0 0; }
+}
+
+.no-signal-text {
+  font-size: 11px;
+  color: #2a1040;
+  letter-spacing: 3px;
+  position: relative;
+  z-index: 3;
+}
+
+/* ── IDLE state ── */
+.retro-screen-idle {
+  background: radial-gradient(ellipse at center, #0c0520 0%, #000 70%);
+  gap: 14px;
+  padding: 20px;
+}
+
+.idle-pixel-anim {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.idle-pixel {
+  width: 10px;
+  height: 10px;
+  background: #ffc010;
+  clip-path: polygon(0 3px, 3px 3px, 3px 0, calc(100% - 3px) 0, calc(100% - 3px) 3px, 100% 3px, 100% calc(100% - 3px), calc(100% - 3px) calc(100% - 3px), calc(100% - 3px) 100%, 3px 100%, 3px calc(100% - 3px), 0 calc(100% - 3px));
+  animation: pixel-bounce 1.2s ease-in-out infinite;
+}
+
+@keyframes pixel-bounce {
+  0%, 100% { transform: translateY(0); opacity: 1; }
+  50% { transform: translateY(-8px); opacity: 0.4; }
+}
+
+.idle-label {
+  font-size: 13px;
+  color: #ffc010;
+  text-shadow: 0 0 16px rgba(255, 192, 16, 0.5);
+  letter-spacing: 2px;
+  animation: idle-glow 2s ease-in-out infinite;
+}
+
+@keyframes idle-glow {
+  0%, 100% { text-shadow: 0 0 16px rgba(255, 192, 16, 0.5); }
+  50% { text-shadow: 0 0 32px rgba(255, 192, 16, 0.9), 0 0 60px rgba(255, 192, 16, 0.3); }
+}
+
+.idle-hint {
+  font-size: 7px;
+  color: #6644aa;
+  letter-spacing: 1px;
+}
+
+.idle-btns {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.retro-idle-sel-btn {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 8px;
+  color: var(--game-color, #ffc010);
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  cursor: pointer;
+  padding: 8px 14px;
+  box-shadow: 0 0 0 2px var(--game-color, #ffc010),
+              2px 2px 0 #000;
+  clip-path: polygon(0 4px, 4px 4px, 4px 0, calc(100% - 4px) 0, calc(100% - 4px) 4px, 100% 4px, 100% calc(100% - 4px), calc(100% - 4px) calc(100% - 4px), calc(100% - 4px) 100%, 4px 100%, 4px calc(100% - 4px), 0 calc(100% - 4px));
+  transition: background 0.2s, color 0.2s;
+}
+
+.retro-idle-sel-btn:hover {
+  background: var(--game-color, #ffc010);
+  color: #000;
+}
+
+/* ── ACTIVE / game playing ── */
+.retro-screen-active {
+  background: #000;
+  padding: 0;
+  align-items: stretch;
+  justify-content: flex-start;
+}
+
+.retro-nowplaying-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #0f0819;
+  border-bottom: 2px solid #ffc010;
+  padding: 6px 12px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  color: #ffc010;
+  flex-shrink: 0;
+  z-index: 10;
+}
+
+.np-icon {
+  color: #44ff88;
+  animation: np-pulse 1s steps(1) infinite;
+}
+
+@keyframes np-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.np-text {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.retro-eject-btn {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  color: #ff4444;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px 8px;
+  box-shadow: 0 0 0 1px #ff4444;
+  clip-path: polygon(0 3px, 3px 3px, 3px 0, calc(100% - 3px) 0, calc(100% - 3px) 3px, 100% 3px, 100% calc(100% - 3px), calc(100% - 3px) calc(100% - 3px), calc(100% - 3px) 100%, 3px 100%, 3px calc(100% - 3px), 0 calc(100% - 3px));
+  transition: background 0.2s, color 0.2s;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.retro-eject-btn:hover {
+  background: #ff4444;
+  color: #000;
+}
+
+/* Fullscreen button — shown always, prominent on mobile */
+.retro-fullscreen-btn {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  color: #ffc010;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px 8px;
+  box-shadow: 0 0 0 1px #ffc010;
+  clip-path: polygon(0 3px, 3px 3px, 3px 0, calc(100% - 3px) 0, calc(100% - 3px) 3px, 100% 3px, 100% calc(100% - 3px), calc(100% - 3px) calc(100% - 3px), calc(100% - 3px) 100%, 3px 100%, 3px calc(100% - 3px), 0 calc(100% - 3px));
+  transition: background 0.2s, color 0.2s;
+  flex-shrink: 0;
+  white-space: nowrap;
+  touch-action: manipulation;
+}
+
+.retro-fullscreen-btn:hover {
+  background: #ffc010;
+  color: #000;
+}
+
+.retro-iframe-wrap {
+  flex: 1;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  background: #000;
+  overflow: hidden;
+  position: relative;
+  min-height: 0;
+  /* touch-action:none → browser does NOT claim any touch for scroll/zoom;
+     all pointer events are delivered directly into the iframe game context */
+  touch-action: none;
+}
+
+.retro-iframe-wrap iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  border: 0;
+  /* touch-action: auto lets the browser route gestures into the cross-origin
+     game content; touch-action:none here would starve the iframe of touches */
+  touch-action: auto;
+  pointer-events: auto;
+}
+
+/* ─────────────────────────────────
+   BOTTOM BAR
+───────────────────────────────── */
+.retro-console-bottombar {
+  background: #0c0418;
+  border-top: 3px solid #2a1040;
+  padding: 10px 14px 16px;   /* extra bottom room for button depth + hover glow */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+/* D-pad — decorative */
+.retro-dpad {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  color: #3a1e5c;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.dpad-row {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  line-height: 1.2;
+}
+
+.dpad-center {
+  color: #2a0e3c;
+  font-size: 8px;
+}
+
+/* ── Dynamic status panel ── */
+.retro-status-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+  padding: 0 8px;
+}
+
+.rsp-dot-row {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.rsp-dot {
+  width: 6px;
+  height: 6px;
+  background: #2a1040;
+  clip-path: polygon(
+    0 2px, 2px 2px, 2px 0, calc(100% - 2px) 0,
+    calc(100% - 2px) 2px, 100% 2px, 100% calc(100% - 2px),
+    calc(100% - 2px) calc(100% - 2px), calc(100% - 2px) 100%,
+    2px 100%, 2px calc(100% - 2px), 0 calc(100% - 2px)
+  );
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+.rsp-dot.rsp-dot-on {
+  background: #44ff88;
+  box-shadow: 0 0 5px #44ff88;
+  animation: led-steady 2s ease-in-out infinite;
+}
+
+.rsp-dot.rsp-dot-game {
+  background: #ffc010;
+  box-shadow: 0 0 5px #ffc010;
+}
+
+.rsp-label {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  color: #ffc010;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  text-shadow: 0 0 8px rgba(255, 192, 16, 0.4);
+}
+
+.rsp-hint {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 5px;
+  color: #4a2a6a;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  letter-spacing: 0.5px;
+}
+
+
+
+/* ─────────────────────────────────
+   RESPONSIVE — TABLET (≤ 991px)
+───────────────────────────────── */
+@media (max-width: 991px) {
+  .retro-console-section {
+    padding: 10px 10px 14px;
+  }
+
+  .retro-console-main {
+    grid-template-columns: 150px 1fr;
+  }
+}
+
+/* ─────────────────────────────────
+   RESPONSIVE — MOBILE (≤ 767px)
+   Stack: terminal on top, screen below
+───────────────────────────────── */
+@media (max-width: 767px) {
+  .retro-console-section {
+    padding: 12px 0 20px;
+  }
+
+  .retro-console-shell {
+    clip-path: polygon(
+      0 10px, 10px 10px, 10px 0,
+      calc(100% - 10px) 0, calc(100% - 10px) 10px, 100% 10px,
+      100% calc(100% - 10px), calc(100% - 10px) calc(100% - 10px),
+      calc(100% - 10px) 100%, 10px 100%, 10px calc(100% - 10px),
+      0 calc(100% - 10px)
+    );
+    box-shadow:
+      0 0 0 2px #0f0819,
+      0 0 0 4px #ffc010,
+      0 0 0 6px #0f0819,
+      4px 4px 0 #0f0819;
+  }
+
+  .retro-console-topbar {
+    padding: 8px 14px;
+  }
+
+  .retro-brand-text {
+    font-size: 8px;
+    letter-spacing: 2px;
+  }
+
+  .retro-console-main {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    min-height: unset;
+  }
+
+  .retro-terminal-panel {
+    border-right: none;
+    border-bottom: 3px solid #3a1e5c;
+    max-height: 260px;
+  }
+
+  .retro-terminal-panel.is-off {
+    border-bottom-color: #1e0f2e;
+  }
+
+  /* aspect-ratio: 560/384 drives game screen height on mobile too */
+  .retro-game-screen {
+    width: 100%;
+  }
+
+  .retro-screen-bezel {
+    margin: 8px;
+  }
+
+  .retro-console-bottombar {
+    padding: 10px 16px;
+    gap: 10px;
+  }
+
+  .retro-console-bottombar .retro-dpad {
+    display: none;   /* hide decorative d-pad on mobile */
+  }
+
+  /* ── Collapse terminal when a game is running to give max screen space ── */
+  .retro-console-shell.is-game-active .retro-terminal-panel {
+    display: none;
+  }
+
+  .retro-console-shell.is-game-active .retro-console-main {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
+
+  /* tighter bezel margin when game is active = more game pixels */
+  .retro-console-shell.is-game-active .retro-screen-bezel {
+    margin: 4px;
+    /* remove clip-path — mobile browsers restrict touch hit-testing
+       to the clip-path polygon, making parts of the game unresponsive */
+    clip-path: none;
+  }
+
+  /* fullscreen + eject buttons: larger tap targets on mobile */
+  .retro-fullscreen-btn,
+  .retro-eject-btn {
+    font-size: 8px;
+    padding: 7px 10px;
+    touch-action: manipulation;
+  }
+
+  .idle-label {
+    font-size: 10px;
+  }
+
+  .idle-btns {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+}
+
+/* ─────────────────────────────────
+   RESPONSIVE — SMALL MOBILE (≤ 480px)
+───────────────────────────────── */
+@media (max-width: 480px) {
+  .retro-console-topbar {
+    padding: 7px 10px;
+    gap: 8px;
+  }
+
+  .retro-brand-text {
+    font-size: 7px;
+    letter-spacing: 1px;
+  }
+
+  .retro-console-brand {
+    gap: 7px;
+  }
+
+  .retro-power-btn {
+    font-size: 7px;
+    padding: 5px 9px;
+  }
+
+  .retro-terminal-panel {
+    max-height: 220px;
+  }
+
+  .retro-tline {
+    font-size: 6px;
+  }
+
+  .retro-terminal-input,
+  .retro-prompt-sym,
+  .retro-cursor-block {
+    font-size: 7px;
+  }
+
+  .retro-qpick-btn {
+    font-size: 6px;
+    padding: 6px 8px;
+  }
+
+  .idle-label {
+    font-size: 8px;
+  }
+
+  .idle-hint,
+  .retro-idle-sel-btn {
+    font-size: 6px;
+  }
+
+  .retro-nowplaying-bar {
+    font-size: 6px;
+    padding: 5px 8px;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  .retro-eject-btn,
+  .retro-fullscreen-btn {
+    font-size: 6px;
+    padding: 5px 8px;
+    touch-action: manipulation;
+  }
+
+  .tbar-label {
+    font-size: 6px;
+  }
+}
