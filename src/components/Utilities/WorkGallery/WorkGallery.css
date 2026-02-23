@@ -79,10 +79,9 @@
 .all-events-header {
     column-gap: 16px;
     overflow: visible !important;
-    min-height: 64px;
+    min-height: 120px; /* increase title area height for better spacing */
     position: relative;
     overflow: visible;
-    min-height: 64px;
 }
 
 @media (max-width: 768px) {

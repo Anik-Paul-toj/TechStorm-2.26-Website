@@ -270,13 +270,14 @@ const WorkGallery = () => {
                          */}
                         <div
                             className="col-lg-12 d-flex justify-content-end align-items-center"
-                            style={{ position: 'relative', minHeight: '64px' }}
+                            style={{ position: 'relative', minHeight: '120px' }}
                         >
                             {/* Centred heading — absolutely positioned so arrows don't shift */}
                             <AnimateOnScroll animation="section-title-wrapper">
                                 <div
                                     style={{
                                         position: 'absolute',
+                                        top: '8px',
                                         left: '50%',
                                         transform: 'translateX(-50%)',
                                         textAlign: 'center',
