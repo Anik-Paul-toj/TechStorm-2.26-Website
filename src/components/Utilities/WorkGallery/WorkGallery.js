@@ -488,6 +488,19 @@ const WorkGallery = () => {
                     </div>
                 </div>
             </div>
+            {/* Bottom fade blend into next section */}
+            <div
+                style={{
+                    position: 'absolute',
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    height: '160px',
+                    background: 'linear-gradient(to bottom, transparent 0%, #05030a 100%)',
+                    pointerEvents: 'none',
+                    zIndex: 2,
+                }}
+            />
         </section>
     );
 }

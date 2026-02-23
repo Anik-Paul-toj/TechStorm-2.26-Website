@@ -49,6 +49,7 @@ const Carousel8bit = () => {
         <section
             className="carousel-8bit-section pt-120 pb-120"
             style={{
+                position: 'relative',
                 backgroundColor: '#05030a',
                 backgroundImage: `url(${highlightBg})`,
                 // Show the full artwork without zooming / cropping
@@ -57,6 +58,19 @@ const Carousel8bit = () => {
                 backgroundPosition: 'center top',
             }}
         >
+            {/* Top fade blend from previous section */}
+            <div
+                style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    height: '160px',
+                    background: 'linear-gradient(to bottom, #05030a 0%, transparent 100%)',
+                    pointerEvents: 'none',
+                    zIndex: 2,
+                }}
+            />
             <div className="container">
                 <div className="row">
                     <div className="col-lg-12">
