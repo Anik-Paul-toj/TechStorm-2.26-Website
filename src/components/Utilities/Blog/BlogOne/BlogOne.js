@@ -23,10 +23,10 @@ const BlogOne = () => {
             backgroundRepeat: 'no-repeat'
         }}>
             <div className="container">
-                <h2 className="text-center mb-4 sponsor-preview-title techstorm-arcade-title">
+                <h2 className="text-center sponsor-preview-title techstorm-arcade-title" style={{ marginBottom: '30px' }}>
                     Our Sponsors
                 </h2>
-                <p className="text-center sponsor-coming-soon mb-5">
+                <p className="text-center sponsor-coming-soon mb-5" style={{ marginTop: '30px' }}>
                     Talks are currently going on. Sponsor announcements coming soon.
                 </p>
 
@@ -55,5 +55,3 @@ const BlogOne = () => {
 };
 
 export default BlogOne;
-
-
