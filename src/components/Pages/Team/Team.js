@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import teamBg from '../../../assets/img/teamsbg.png'; // replace file with team-bg.jpg once saved
 import teamBgMobile from '../../../assets/img/2.png';
 import SectionTitle from '../../Utilities/SectionTitle/SectionTitle';
