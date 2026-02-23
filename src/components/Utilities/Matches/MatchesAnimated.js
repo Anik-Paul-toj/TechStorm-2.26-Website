@@ -72,7 +72,7 @@ const MatchesAnimated = () => {
                     <div className="col-lg-12">
                         {/* Animated Section Title */}
                         <AnimateOnScroll animation="section-title-wrapper">
-                            <SectionTitle titlefirst='Featured' titleSec='Events' />
+                            <SectionTitle titlefirst='Featured' titleSec='Events' className="gallery-heading-title" />
                         </AnimateOnScroll>
                     </div>
                     <div className="col-lg-12">

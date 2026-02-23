@@ -40,7 +40,7 @@ const TrendingGames = () => {
                         <SectionTitle
                             titlefirst={'Popular'}
                             titleSec={'Events'}
-                            className={'text-center'} />
+                            className={'gallery-heading-title text-center'} />
                     </div>
 
                     <GameCard TrendingData={TrendingData} />

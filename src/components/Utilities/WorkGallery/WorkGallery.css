@@ -158,7 +158,7 @@
     align-items: center;
     flex-wrap: wrap;
     gap: 32px;
-    margin-top: 12px;
+    margin-top: 20px;
     margin-bottom: 4px;
 }
 
@@ -333,6 +333,7 @@
     image-rendering: pixelated !important;
     /* stronger, crisp 8-bit outline using exact hexes */
     text-shadow: 1px 0 0 #ff9b00, 0 1px 0 #ff9b00, -1px 0 0 #ff9b00, 0 -1px 0 #ff9b00, 2px 2px 0 #c85a00, 3px 3px 0 #c85a00 !important;
+    margin-bottom: 10px !important;
 }
 
 .section-title.gallery-heading-title h2 span,

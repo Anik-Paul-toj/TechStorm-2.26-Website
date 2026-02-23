@@ -321,3 +321,39 @@ h2.techstorm-arcade-title {
 .section-title.techstorm-arcade-title img {
     display: none !important;
 }
+
+/* Gallery / pixel-heading reuse: match gallery color + remove brushstroke */
+.section-title.gallery-heading-title h2,
+.gallery-heading-title.section-title.cta-title.mb-35 h2 {
+    font-family: 'Press Start 2P', 'Silkscreen', monospace, cursive !important;
+    color: #ffd200 !important; /* fill (yellow) */
+    font-size: clamp(16px, 5vw, 32px) !important;
+    line-height: 1.2 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.02em !important;
+    -webkit-font-smoothing: none !important;
+    text-rendering: optimizeLegibility !important;
+    image-rendering: pixelated !important;
+    text-shadow: 1px 0 0 #ff9b00, 0 1px 0 #ff9b00, -1px 0 0 #ff9b00, 0 -1px 0 #ff9b00, 2px 2px 0 #c85a00, 3px 3px 0 #c85a00 !important;
+    margin-bottom: 10px !important;
+    white-space: nowrap !important;
+}
+
+.section-title.gallery-heading-title h2 span,
+.gallery-heading-title.section-title.cta-title.mb-35 h2 span {
+    display: inline-block !important;
+    margin-bottom: 0 !important;
+    color: #ff9b00 !important;
+}
+
+.gallery-heading-title.section-title img {
+    display: none !important;
+}
+
+/* Remove decorative ::after brushstroke if present from other styles */
+.section-title.gallery-heading-title h2::after,
+.gallery-heading-title.section-title.cta-title.mb-35 h2::after {
+    display: none !important;
+    content: none !important;
+    background: none !important;
+}

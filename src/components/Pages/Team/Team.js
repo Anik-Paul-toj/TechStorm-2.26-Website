@@ -65,7 +65,7 @@ const Teams = () => {
                   <SectionTitle
                     titlefirst="Organizing"
                     titleSec="Committee"
-                    className="techstorm-arcade-title"
+                    className="techstorm-arcade-title gallery-heading-title"
                   />
                 </div>
               </div>
