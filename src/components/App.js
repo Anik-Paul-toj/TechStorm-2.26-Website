@@ -81,7 +81,6 @@ const navItems = [
 
 const AppContent = () => {
   const location = useLocation();
-  const [activeSection, setActiveSection] = React.useState("");
 
   // Check if current route is an admin route
   const isAdminRoute = location.pathname.startsWith("/admin");
@@ -91,47 +90,10 @@ const AppContent = () => {
     window.scrollTo(0, 0);
   }, [location.pathname]);
 
-  // Track scroll position and update active section
-  React.useEffect(() => {
-    const handleScroll = () => {
-      if (location.pathname !== "/") return;
-
-      const sections = ["home", "about"];
-      const scrollPosition = window.scrollY + 100; // Offset for header
-
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const { offsetTop, offsetHeight } = element;
-          if (
-            scrollPosition >= offsetTop &&
-            scrollPosition < offsetTop + offsetHeight
-          ) {
-            setActiveSection(section);
-            break;
-          }
-        }
-      }
-    };
-
-    // Initial check
-    handleScroll();
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [location.pathname]);
-
   // Determine active href including hash
   const getActiveHref = () => {
-    // For home page sections
+    // For home page - always keep Home button active
     if (location.pathname === "/") {
-      if (location.hash) {
-        return `/${location.hash}`;
-      }
-      // Use detected section based on scroll position
-      if (activeSection) {
-        return `/#${activeSection}`;
-      }
       return "/#home";
     }
     // For other pages

@@ -39,7 +39,7 @@ const HackStormEvent = () => {
     breadcrumbBg: hackStormBanner,
     description:
       "HackStorm is a learning-driven, build-focused hackathon designed to help participants experiment, collaborate, and strengthen their technical and problem-solving skills through an intensive in-person development experience.",
-    teamSize: "3-5 Members",
+    teamSize: "2-4 Members",
     isFree: true,
     duration:
       "10:00-(6:30 – 7:00) Coding | (6:30 – 7:00) – 8:00 Judging & Prize Declaration",

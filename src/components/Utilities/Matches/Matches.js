@@ -184,7 +184,7 @@ const Matches = () => {
       category: "Technical",
       url: "/events/hack-storm",
       entryFee: "FREE",
-      teamSize: "3-5 Members",
+      teamSize: "3-4 Members",
     },
     {
       logo: technomania,

@@ -49,33 +49,31 @@ export const coreMembers = [
     { id: '3', avatar: bapanBanikImg, name: 'Bapan Banik', deg: 'Event Joint Coordinator' },
     { id: '4', avatar: debaditoImg, name: 'Debadrito Saha', deg: 'Event Joint Coordinator' },
     
-    // PUBLIC RELATIONS MANAGEMENT TEAM
+    // ALL LEADS
     { id: '5', avatar: anikPaulImg, name: 'Anik Paul', deg: 'PR Lead' },
+    { id: '12', avatar: pranayChatterjeeImg, name: 'Pranay Chatterjee', deg: 'Sponsorship Lead' },
+    { id: '19', avatar: gauravChaudharyImg, name: 'Gaurav Chaudhary', deg: 'Social Lead' },
+    { id: '20', avatar: shreyaJhaImg, name: 'Shreya Jha', deg: 'Creative Lead' },
+    { id: '24', avatar: souvikDeyImg, name: 'Souvik Dey', deg: 'Disc. & Hospitality Lead' },
+    
+    // ALL JOINT LEADS
     { id: '6', avatar: pushkarShawImg, name: 'Pushkar Shaw', deg: 'PR Joint Lead' },
     { id: '7', avatar: srijitaDuttaImg, name: 'Srijita Dutta', deg: 'PR Joint Lead' },
+    { id: '13', avatar: saptarshiGhoshImg, name: 'Saptarshi Ghosh', deg: 'Sponsorship Joint Lead' },
+    { id: '14', avatar: harshSinghImg, name: 'Harsh Singh', deg: 'Sponsorship Joint Lead' },
+    
+    // ALL TEAM MEMBERS
     { id: '8', avatar: soumiliSahaImg, name: 'Soumili Saha', deg: 'PR Team Member' },
     { id: '9', avatar: sohamSahaImg, name: 'Soham Saha', deg: 'PR Team Member' },
     { id: '10', avatar: soumadeepLayekImg, name: 'Soumadeep Layek', deg: 'PR Team Member' },
     { id: '11', avatar: gouravPaulImg, name: 'Gourav Paul', deg: 'PR Team Member' },
-    
-    // SPONSORSHIP MANAGEMENT TEAM
-    { id: '12', avatar: pranayChatterjeeImg, name: 'Pranay Chatterjee', deg: 'Sponsorship Lead' },
-    { id: '13', avatar: saptarshiGhoshImg, name: 'Saptarshi Ghosh', deg: 'Sponsorship Joint Lead' },
-    { id: '14', avatar: harshSinghImg, name: 'Harsh Singh', deg: 'Sponsorship Joint Lead' },
     { id: '15', avatar: prantikGhoshImg, name: 'Prantik Ghosh', deg: 'Sponsorship Team Member' },
     { id: '16', avatar: krishnaKaliImg, name: 'Krishna Kali Sarkar', deg: 'Sponsorship Team Member' },
     { id: '17', avatar: ankitaAmanImg, name: 'Ankita Aman', deg: 'Sponsorship Team Member' },
     { id: '18', avatar: abhishekKumarImg, name: 'Abhishek Kumar', deg: 'Sponsorship Team Member' },
-    
-    // CREATIVE & SOCIAL MANAGEMENT TEAM
-    { id: '19', avatar: gauravChaudharyImg, name: 'Gaurav Chaudhary', deg: 'Social Lead' },
-    { id: '20', avatar: shreyaJhaImg, name: 'Shreya Jha', deg: 'Creative Lead' },
     { id: '21', avatar: saniaDharImg, name: 'Sania Dhar', deg: 'Creative & Social Member' },
     { id: '22', avatar: oliviaSikderImg, name: 'Olivia Sikder', deg: 'Creative & Social Member' },
     { id: '23', avatar: gourabDeyImg, name: 'Gourab Dey', deg: 'Creative & Social Member' },
-    
-    // DISCIPLINE & HOSPITALITY MANAGEMENT TEAM
-    { id: '24', avatar: souvikDeyImg, name: 'Souvik Dey', deg: 'Disc. & Hospitality Lead' },
     { id: '25', avatar: shreyaSahaImg, name: 'Shreya Saha', deg: 'Disc. & Hospitality Member'},
     { id: '26', avatar: shivamKumarImg, name: 'Shivam Kumar', deg: 'Disc. & Hospitality Member' },
     { id: '27', avatar: defaultAvatar, name: 'Indrani Banik', deg: 'Disc. & Hospitality Member' },
