@@ -8,10 +8,21 @@ import API_URL from '../config/api';
 const API_BASE_URL = API_URL;
 
 /**
- * Get authentication token from localStorage
+ * Get authentication token from localStorage based on current role
  */
 const getAuthToken = () => {
-  return localStorage.getItem('adminToken');
+  // Try to get role from current URL
+  const pathParts = window.location.pathname.split('/');
+  const role = pathParts[2]; // /admin/core/... -> core
+  
+  if (role && ['core', 'coordinator', 'volunteer'].includes(role)) {
+    return localStorage.getItem(`adminToken_${role}`);
+  }
+  
+  // Fallback: try all roles
+  return localStorage.getItem('adminToken_core') || 
+         localStorage.getItem('adminToken_coordinator') || 
+         localStorage.getItem('adminToken_volunteer');
 };
 
 /**

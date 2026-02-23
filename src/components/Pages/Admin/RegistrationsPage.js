@@ -135,7 +135,7 @@ const RegistrationsPage = () => {
   }, [selectedEvent, searchTerm]);
 
   useEffect(() => {
-    const userData = localStorage.getItem('adminUser');
+    const userData = localStorage.getItem(`adminUser_${role}`);
     if (userData) {
       setUser(JSON.parse(userData));
     }
@@ -143,7 +143,7 @@ const RegistrationsPage = () => {
     // Fetch initial data with full page loading
     fetchEvents();
     fetchRegistrations(true); // Pass true for initial load
-  }, [fetchRegistrations]);
+  }, [fetchRegistrations, role]);
 
   useEffect(() => {
     // Refetch when filters change (but NOT searchInput, only searchTerm)

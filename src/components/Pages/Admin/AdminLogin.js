@@ -55,9 +55,9 @@ const AdminLogin = () => {
       const data = await response.json();
 
       if (response.ok) {
-        // Store token and user data
-        localStorage.setItem('adminToken', data.token);
-        localStorage.setItem('adminUser', JSON.stringify(data.user));
+        // Store token and user data with role-specific keys
+        localStorage.setItem(`adminToken_${role}`, data.token);
+        localStorage.setItem(`adminUser_${role}`, JSON.stringify(data.user));
 
         // Redirect to dashboard
         history.push(`/admin/${role}/dashboard`);

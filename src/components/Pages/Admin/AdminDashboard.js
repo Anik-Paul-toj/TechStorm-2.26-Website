@@ -13,15 +13,15 @@ const AdminDashboard = () => {
   const role = location.pathname.split('/')[2];
 
   const handleLogout = useCallback(() => {
-    localStorage.removeItem('adminToken');
-    localStorage.removeItem('adminUser');
+    localStorage.removeItem(`adminToken_${role}`);
+    localStorage.removeItem(`adminUser_${role}`);
     history.push('/admin');
-  }, [history]);
+  }, [history, role]);
 
   useEffect(() => {
-    // Check authentication
-    const token = localStorage.getItem('adminToken');
-    const userData = localStorage.getItem('adminUser');
+    // Check authentication with role-specific keys
+    const token = localStorage.getItem(`adminToken_${role}`);
+    const userData = localStorage.getItem(`adminUser_${role}`);
 
     if (!token || !userData) {
       history.push(`/admin/${role}`);
