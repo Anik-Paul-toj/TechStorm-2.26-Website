@@ -1043,9 +1043,9 @@ export default function About() {
             <div
               style={{
                 flexShrink: 0,
-                transform: isMobile ? "scale(0.70)" : "none",
-                marginTop: isMobile ? "-40px" : "0",
-                marginBottom: isMobile ? "-80px" : "0",
+                transform: isMobile ? "scale(0.95)" : "none",
+                marginTop: isMobile ? "-10px" : "0",
+                marginBottom: isMobile ? "-50px" : "0",
                 zIndex: 1,
               }}
             >

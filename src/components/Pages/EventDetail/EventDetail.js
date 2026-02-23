@@ -46,7 +46,7 @@ function FAQAccordion({ faqs }) {
               border: "none",
               color: "#ffc010",
               fontFamily: "Press Start 2P, monospace",
-              fontSize: "clamp(8px, 2vw, 15px)",
+              fontSize: "clamp(12px, 2vw, 15px)",
               padding: "clamp(12px, 3vw, 18px) 5px 8px 0",
               cursor: "pointer",
               outline: "none",
@@ -89,7 +89,7 @@ function FAQAccordion({ faqs }) {
               style={{
                 padding: "8px 0 clamp(12px, 3vw, 18px) 0",
                 color: "#ffffff",
-                fontSize: "clamp(8px, 1.8vw, 12px)",
+                fontSize: "clamp(12px, 1.8vw, 14px)",
                 lineHeight: 1.6,
                 fontFamily: "Silkscreen, monospace",
                 whiteSpace: "pre-wrap",
