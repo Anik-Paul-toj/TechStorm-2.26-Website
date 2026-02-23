@@ -46,12 +46,13 @@
 }
 
 .team-org-section {
-  padding-top: 40px; /* increased to add breathing room above the team grid */
-  padding-bottom: 60px;
+  padding-top: 80px; /* increased padding above the heading */
+  padding-bottom: 100px; /* increased padding below the section */
 }
 
 .team-org-section .section-title h2 {
   color: #fff !important;
+  margin-bottom: 60px; /* add gap between heading and cards */
 }
 
 .team-org-section .section-title span {
@@ -87,6 +88,7 @@
   flex-wrap: wrap;
   margin: 0 -15px;
   justify-content: center;
+  margin-top: 60px; /* add gap between heading and cards */
 }
 
 .team-org-section .team-org-members-row > div {

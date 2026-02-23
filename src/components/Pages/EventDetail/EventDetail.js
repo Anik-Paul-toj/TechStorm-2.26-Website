@@ -2623,7 +2623,7 @@ const EventDetail = ({ eventData }) => {
                   >
                     <div
                       style={{
-                        maxWidth: "480px",
+                        maxWidth: "400px",
                         width: "100%",
                         background: "rgba(0, 255, 234, 0.05)",
                         border: "2px solid rgba(0, 255, 234, 0.4)",
@@ -2719,9 +2719,11 @@ const EventDetail = ({ eventData }) => {
                       style={{
                         display: "flex",
                         justifyContent: "center",
-                        gap: "24px",
+                        gap: "20px",
                         flexWrap: "wrap",
                         marginBottom: "24px",
+                        maxWidth: "800px",
+                        margin: "0 auto 24px auto",
                       }}
                     >
                       {/* BPPIMT Students Card */}
@@ -2729,9 +2731,7 @@ const EventDetail = ({ eventData }) => {
                         onMouseEnter={() => setHoveredFee("bppimt")}
                         onMouseLeave={() => setHoveredFee(null)}
                         style={{
-                          flex: "1",
-                          minWidth: "260px",
-                          maxWidth: "400px",
+                          width: "380px",
                           background:
                             hoveredFee === "bppimt"
                               ? "rgba(10,6,0,0.97)"
@@ -2876,9 +2876,7 @@ const EventDetail = ({ eventData }) => {
                         onMouseEnter={() => setHoveredFee("outside")}
                         onMouseLeave={() => setHoveredFee(null)}
                         style={{
-                          flex: "1",
-                          minWidth: "260px",
-                          maxWidth: "400px",
+                          width: "380px",
                           background:
                             hoveredFee === "outside"
                               ? "rgba(0,8,8,0.97)"
@@ -3030,7 +3028,8 @@ const EventDetail = ({ eventData }) => {
                   onMouseEnter={() => setHoveredTeam(true)}
                   onMouseLeave={() => setHoveredTeam(false)}
                   style={{
-                    maxWidth: "700px",
+                    width: "780px",
+                    maxWidth: "100%",
                     margin: "0 auto",
                     background: hoveredTeam
                       ? "rgba(5,0,12,0.97)"
