@@ -64,6 +64,8 @@ const RegistrationsPage = () => {
   const [loading, setLoading] = useState(true);
   const [tableLoading, setTableLoading] = useState(false); // New: separate loading for table only
   const [error, setError] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage] = useState(10);
   const [stats, setStats] = useState({
     total: 0,
     pendingPayments: 0,
@@ -151,6 +153,7 @@ const RegistrationsPage = () => {
   // Handle search button click
   const handleSearch = () => {
     setSearchTerm(searchInput);
+    setCurrentPage(1); // Reset to first page on new search
   };
 
   // Handle Enter key in search input
@@ -164,6 +167,7 @@ const RegistrationsPage = () => {
   const handleClearSearch = () => {
     setSearchInput('');
     setSearchTerm('');
+    setCurrentPage(1); // Reset to first page
   };
 
   // Dummy registration data - REMOVED, now fetching from API
@@ -248,6 +252,30 @@ const RegistrationsPage = () => {
 
   // Apply search and event filter - now handled by API, just display what we have
   // filteredRegistrations = filteredRegistrations.filter(reg => {...});
+
+  // Pagination logic
+  const totalPages = Math.ceil(filteredRegistrations.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const paginatedRegistrations = filteredRegistrations.slice(startIndex, endIndex);
+
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+    // Scroll to top of table
+    document.querySelector('.registrations-section')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const handlePrevPage = () => {
+    if (currentPage > 1) {
+      handlePageChange(currentPage - 1);
+    }
+  };
+
+  const handleNextPage = () => {
+    if (currentPage < totalPages) {
+      handlePageChange(currentPage + 1);
+    }
+  };
 
   if (loading) {
     return (
@@ -385,6 +413,96 @@ const RegistrationsPage = () => {
             </div>
           )}
           
+          {/* Pagination Controls - Top */}
+          {filteredRegistrations.length > itemsPerPage && (
+            <div style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              marginBottom: '20px',
+              padding: '15px',
+              backgroundColor: '#f9fafb',
+              borderRadius: '8px',
+              border: '1px solid #e5e7eb'
+            }}>
+              <div style={{ color: '#6b7280', fontSize: '14px' }}>
+                Showing {startIndex + 1} to {Math.min(endIndex, filteredRegistrations.length)} of {filteredRegistrations.length} registrations
+              </div>
+              
+              <div style={{ display: 'flex', gap: '5px', alignItems: 'center' }}>
+                <button
+                  onClick={handlePrevPage}
+                  disabled={currentPage === 1}
+                  style={{
+                    padding: '8px 12px',
+                    backgroundColor: currentPage === 1 ? '#e5e7eb' : '#0f766e',
+                    color: currentPage === 1 ? '#9ca3af' : 'white',
+                    border: 'none',
+                    borderRadius: '5px',
+                    cursor: currentPage === 1 ? 'not-allowed' : 'pointer',
+                    fontWeight: '500',
+                    fontSize: '14px'
+                  }}
+                >
+                  ← Previous
+                </button>
+                
+                {/* Page numbers */}
+                <div style={{ display: 'flex', gap: '5px' }}>
+                  {Array.from({ length: Math.min(5, totalPages) }, (_, i) => {
+                    let pageNum;
+                    if (totalPages <= 5) {
+                      pageNum = i + 1;
+                    } else if (currentPage <= 3) {
+                      pageNum = i + 1;
+                    } else if (currentPage >= totalPages - 2) {
+                      pageNum = totalPages - 4 + i;
+                    } else {
+                      pageNum = currentPage - 2 + i;
+                    }
+                    
+                    return (
+                      <button
+                        key={pageNum}
+                        onClick={() => handlePageChange(pageNum)}
+                        style={{
+                          padding: '8px 12px',
+                          backgroundColor: currentPage === pageNum ? '#0f766e' : 'white',
+                          color: currentPage === pageNum ? 'white' : '#374151',
+                          border: '1px solid #d1d5db',
+                          borderRadius: '5px',
+                          cursor: 'pointer',
+                          fontWeight: currentPage === pageNum ? '600' : '500',
+                          fontSize: '14px',
+                          minWidth: '40px'
+                        }}
+                      >
+                        {pageNum}
+                      </button>
+                    );
+                  })}
+                </div>
+                
+                <button
+                  onClick={handleNextPage}
+                  disabled={currentPage === totalPages}
+                  style={{
+                    padding: '8px 12px',
+                    backgroundColor: currentPage === totalPages ? '#e5e7eb' : '#0f766e',
+                    color: currentPage === totalPages ? '#9ca3af' : 'white',
+                    border: 'none',
+                    borderRadius: '5px',
+                    cursor: currentPage === totalPages ? 'not-allowed' : 'pointer',
+                    fontWeight: '500',
+                    fontSize: '14px'
+                  }}
+                >
+                  Next →
+                </button>
+              </div>
+            </div>
+          )}
+          
           <div className="table-container" style={{ opacity: tableLoading ? 0.5 : 1, transition: 'opacity 0.3s' }}>
             <table className="data-table">
               <thead>
@@ -401,8 +519,8 @@ const RegistrationsPage = () => {
                 </tr>
               </thead>
               <tbody>
-                {filteredRegistrations.length > 0 ? (
-                  filteredRegistrations.map(reg => {
+                {paginatedRegistrations.length > 0 ? (
+                  paginatedRegistrations.map(reg => {
                     const displayName = getDisplayValue(reg, 'fullName', 'full_name', 'name') ||
                                        (reg.participants && reg.participants[0]?.name) ||
                                        reg.teamName ||
