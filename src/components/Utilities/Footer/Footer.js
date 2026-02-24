@@ -59,16 +59,17 @@ const Footer = () => {
         <div className="container">
           <div className="row">
             {/* ── Column 1: Logo + Contact ── */}
-            <div className="col-xl-5 col-lg-5 col-md-6 col-sm-6">
+            <div className="col-xl-5 col-lg-5 col-md-12 col-sm-12 col-12">
               <div className="footer-widget mb-30">
                 <div className="f-widget-title mb-20">
                   <img
                     src={logo}
                     alt="TechStorm Logo"
-                    style={{ maxWidth: "350px", height: "auto" }}
+                    className="footer-logo"
+                    style={{ maxWidth: "350px", width: "100%", height: "auto" }}
                   />
                 </div>
-                <div className="footer-link" style={{ fontSize: "13px", lineHeight: "1.9" }}>
+                <div className="footer-link" style={{ fontSize: "clamp(11px, 2.5vw, 13px)", lineHeight: "1.9" }}>
                   {
                     "TechStorm 2026 - Play the Past, Build the Future. The flagship technical fest celebrating retro arcade culture and modern innovation."
                   }
@@ -105,7 +106,7 @@ const Footer = () => {
             </div>
 
             {/* ── Column 2: Our Links ── */}
-            <div className="col-xl-2 col-lg-2 col-md-6 col-sm-6 col-6">
+            <div className="col-xl-2 col-lg-2 col-md-6 col-sm-6 col-6 footer-links-col">
               <div className="footer-widget mb-30 footer-links-section">
                 <div className="f-widget-title">
                   <h2>{"Our Links"}</h2>
@@ -133,7 +134,7 @@ const Footer = () => {
             </div>
 
             {/* ── Column 3: Event Categories → /events?category=… ── */}
-            <div className="col-xl-2 col-lg-2 col-md-6 col-sm-6 col-6">
+            <div className="col-xl-2 col-lg-2 col-md-6 col-sm-6 col-6 footer-links-col">
               <div className="footer-widget mb-30 footer-links-section">
                 <div className="f-widget-title">
                   <h2>{"Events"}</h2>

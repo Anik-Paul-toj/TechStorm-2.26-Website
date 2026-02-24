@@ -6797,6 +6797,14 @@ section:hover .section-title h2:before {
 	font-family: 'Press Start 2P', system-ui;
 }
 
+/* Footer Logo - responsive */
+.footer-logo {
+	max-width: 350px;
+	width: 100%;
+	height: auto;
+	display: block;
+}
+
 .copyright-wrap .copyright-content div {
 	line-height: 1.8;
 }
