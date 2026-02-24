@@ -245,8 +245,12 @@ const PacManLoader = ({ onComplete }) => {
 
     rafId = requestAnimationFrame(animate);
 
+    /* ── Hard 3-second maximum duration ── */
+    const timer = setTimeout(handleDone, 3000);
+
     return () => {
       cancelAnimationFrame(rafId);
+      clearTimeout(timer);
       window.removeEventListener('resize', resize);
     };
   }, [handleDone]);

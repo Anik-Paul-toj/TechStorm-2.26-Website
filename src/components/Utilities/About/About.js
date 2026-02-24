@@ -81,15 +81,15 @@ const INFO_CARDS = [
     nesIcon: "nes-ash",
     title: "CHOOSE YOUR CLASS",
     color: "#00B4FF",
-    tag: "30+ EVENTS",
+    tag: "15 EVENTS",
     body: "From lone-wolf coders to full-stack teams — pick your event category, register your squad, and enter the arena. Every skill level has a battlefield waiting.",
   },
   {
     nesIcon: "nes-kirby",
     title: "PRIZE POOL",
     color: "#FFD700",
-    tag: "5 LAKHS",
-    body: "Over 5,00,000 in prizes across all categories. Cash rewards, internships, mentorships, and direct placement opportunities with top-tier sponsors.",
+    tag: "2 LAKHS+",
+    body: "Over 2,00,000+ in prizes across all categories. Cash rewards, internships, mentorships, and direct placement opportunities with top-tier sponsors.",
   },
 ];
 
