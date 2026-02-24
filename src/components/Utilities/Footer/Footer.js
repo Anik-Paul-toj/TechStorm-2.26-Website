@@ -53,13 +53,13 @@ const Footer = () => {
       />
 
       <div
-        className="footer-top pt-70"
+        className="footer-top pt-70 pl-40 pr-40"
         style={{ position: "relative", zIndex: 2, paddingBottom: "40px" }}
       >
         <div className="container">
           <div className="row">
             {/* ── Column 1: Logo + Contact ── */}
-            <div className="col-xl-4 col-lg-4 col-md-6 col-sm-6">
+            <div className="col-xl-5 col-lg-5 col-md-6 col-sm-6">
               <div className="footer-widget mb-30">
                 <div className="f-widget-title mb-20">
                   <img
@@ -155,7 +155,7 @@ const Footer = () => {
             </div>
 
             {/* ── Column 4: Follow Us + Map ── */}
-            <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
+            <div className="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
               <div className="footer-widget mb-30 footer-links-section">
                 <div className="f-widget-title">
                   <h2>{"Follow Us"}</h2>
