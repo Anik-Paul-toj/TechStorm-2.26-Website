@@ -1,22 +1,29 @@
 // TechStorm 2026 - Service Worker
-// Strategy: Cache-first for static assets, Network-first for pages
+// Strategy: Cache-first for static assets, Network-first for pages, Workbox for routing
+
+importScripts('https://storage.googleapis.com/workbox-cdn/releases/6.6.0/workbox-sw.js');
 
 const CACHE_VERSION = 'v1';
 const STATIC_CACHE = `techstorm-static-${CACHE_VERSION}`;
 const DYNAMIC_CACHE = `techstorm-dynamic-${CACHE_VERSION}`;
+const OFFLINE_PAGE = '/offline.html';
 
-// Static assets to pre-cache on install
 const PRECACHE_ASSETS = [
   '/',
-  '/index.html',
   '/offline.html',
   '/manifest.json',
   '/favicon.ico',
-  '/logo192.png',
-  '/logo512.png',
+  '/techfest_logo.png',
   '/college-logo.png',
   '/IIC_Cell_Logo.png',
 ];
+
+// ─── MESSAGE (Skip Waiting) ───────────────────────────────────────────────────
+self.addEventListener('message', (event) => {
+  if (event.data && event.data.type === 'SKIP_WAITING') {
+    self.skipWaiting();
+  }
+});
 
 // ─── INSTALL ─────────────────────────────────────────────────────────────────
 self.addEventListener('install', (event) => {
@@ -27,7 +34,7 @@ self.addEventListener('install', (event) => {
       return cache.addAll(PRECACHE_ASSETS);
     })
   );
-  self.skipWaiting(); // activate immediately
+  self.skipWaiting();
 });
 
 // ─── ACTIVATE ────────────────────────────────────────────────────────────────
@@ -37,10 +44,7 @@ self.addEventListener('activate', (event) => {
     caches.keys().then((cacheNames) =>
       Promise.all(
         cacheNames
-          .filter(
-            (name) =>
-              name !== STATIC_CACHE && name !== DYNAMIC_CACHE
-          )
+          .filter((name) => name !== STATIC_CACHE && name !== DYNAMIC_CACHE)
           .map((name) => {
             console.log('[SW] Deleting old cache:', name);
             return caches.delete(name);
@@ -48,52 +52,96 @@ self.addEventListener('activate', (event) => {
       )
     )
   );
-  return self.clients.claim(); // take control of all open pages immediately
+  self.clients.claim();
 });
 
-// ─── FETCH ───────────────────────────────────────────────────────────────────
+// ─── WORKBOX SETUP ───────────────────────────────────────────────────────────
+if (workbox) {
+  console.log('[SW] Workbox loaded successfully');
+
+  // Enable navigation preload for faster page loads
+  if (workbox.navigationPreload.isSupported()) {
+    workbox.navigationPreload.enable();
+  }
+
+  // Cache-first for static assets (images, fonts, icons)
+  workbox.routing.registerRoute(
+    ({ request }) =>
+      request.destination === 'image' ||
+      request.destination === 'font',
+    new workbox.strategies.CacheFirst({
+      cacheName: STATIC_CACHE,
+      plugins: [
+        new workbox.expiration.ExpirationPlugin({
+          maxEntries: 60,
+          maxAgeSeconds: 30 * 24 * 60 * 60, // 30 days
+        }),
+      ],
+    })
+  );
+
+  // Stale-while-revalidate for JS and CSS
+  workbox.routing.registerRoute(
+    ({ request }) =>
+      request.destination === 'script' ||
+      request.destination === 'style',
+    new workbox.strategies.StaleWhileRevalidate({
+      cacheName: DYNAMIC_CACHE,
+    })
+  );
+
+} else {
+  console.warn('[SW] Workbox failed to load, falling back to manual caching');
+}
+
+// ─── FETCH (Manual fallback + Navigation handling) ────────────────────────────
 self.addEventListener('fetch', (event) => {
   const { request } = event;
   const url = new URL(request.url);
 
-  // Skip non-GET requests and cross-origin requests
-  if (request.method !== 'GET' || !url.origin.includes(self.location.origin)) {
+  // Skip non-GET, cross-origin, and devtools requests
+  if (
+    request.method !== 'GET' ||
+    !url.origin.includes(self.location.origin) ||
+    url.protocol === 'chrome-extension:' ||
+    url.protocol === 'devtools:'
+  ) {
     return;
   }
 
-  // Skip chrome-extension and devtools requests
-  if (url.protocol === 'chrome-extension:' || url.protocol === 'devtools:') {
-    return;
-  }
-
-  // ── Strategy: Network-first for HTML navigation (always fresh page) ──
+  // ── Network-first for HTML navigation ──
   if (request.mode === 'navigate') {
     event.respondWith(
-      fetch(request)
-        .then((response) => {
-          // Clone and cache the fresh response
-          const clone = response.clone();
+      (async () => {
+        try {
+          // Try navigation preload first (faster)
+          const preloadResponse = await event.preloadResponse;
+          if (preloadResponse) return preloadResponse;
+
+          // Try network
+          const networkResponse = await fetch(request);
+          const clone = networkResponse.clone();
           caches.open(DYNAMIC_CACHE).then((cache) => cache.put(request, clone));
-          return response;
-        })
-        .catch(() => {
-          // Offline: serve cached page or offline fallback
-          return caches.match(request).then(
-            (cached) => cached || caches.match('/offline.html')
-          );
-        })
+          return networkResponse;
+
+        } catch (error) {
+          // Offline: try cache, fallback to offline page
+          const cachedResponse = await caches.match(request);
+          if (cachedResponse) return cachedResponse;
+
+          const offlineResponse = await caches.match(OFFLINE_PAGE);
+          return offlineResponse;
+        }
+      })()
     );
     return;
   }
 
-  // ── Strategy: Cache-first for static assets (JS, CSS, images, fonts) ──
-  if (
-    url.pathname.match(/\.(js|css|png|jpg|jpeg|gif|svg|ico|woff|woff2|ttf|eot|webp|mp4|webm)$/)
-  ) {
+  // ── Cache-first for static file extensions ──
+  if (url.pathname.match(/\.(js|css|png|jpg|jpeg|gif|svg|ico|woff|woff2|ttf|eot|webp|mp4|webm)$/)) {
     event.respondWith(
       caches.match(request).then((cached) => {
         if (cached) return cached;
-
         return fetch(request).then((response) => {
           if (!response || response.status !== 200) return response;
           const clone = response.clone();
@@ -118,21 +166,18 @@ self.addEventListener('fetch', (event) => {
   );
 });
 
-// ─── PUSH NOTIFICATIONS (optional, ready to use) ─────────────────────────────
+// ─── PUSH NOTIFICATIONS ───────────────────────────────────────────────────────
 self.addEventListener('push', (event) => {
   const data = event.data ? event.data.json() : {};
   const options = {
     body: data.body || 'New update from TechStorm 2026!',
-    icon: '/logo192.png',
-    badge: '/logo192.png',
+    icon: '/techfest_logo.png',
+    badge: '/techfest_logo.png',
     vibrate: [200, 100, 200],
     data: { url: data.url || '/' },
   };
   event.waitUntil(
-    self.registration.showNotification(
-      data.title || 'TechStorm 2026 🎮',
-      options
-    )
+    self.registration.showNotification(data.title || 'TechStorm 2026 🎮', options)
   );
 });
 
