@@ -3,10 +3,10 @@
   "name": "TechStorm 2026 - Retro Arcade Tech Fest",
   "short_name": "TechStorm",
   "description": "The ultimate college tech fest at BPPIMT - Retro Arcade Gaming, Coding, Robotics, Hackathons & More!",
-  "start_url": "/",
+  "start_url": ".",
   "scope": "/",
-  "display": "standalone",
-  "display_override": ["standalone", "minimal-ui"],
+  "display": "fullscreen",
+  "display_override": ["fullscreen", "standalone", "minimal-ui"],
   "orientation": "portrait-primary",
   "theme_color": "#FF6B00",
   "background_color": "#0a0a0a",
@@ -16,28 +16,16 @@
   "categories": ["education", "entertainment", "games"],
   "icons": [
     {
-      "src": "techfest_logo.png",
+      "src": "logo192.png",
       "type": "image/png",
       "sizes": "192x192",
-      "purpose": "any"
+      "purpose": "any maskable"
     },
     {
-      "src": "techfest_logo.png",
-      "type": "image/png",
-      "sizes": "192x192",
-      "purpose": "maskable"
-    },
-    {
-      "src": "techfest_logo.png",
+      "src": "logo512.png",
       "type": "image/png",
       "sizes": "512x512",
-      "purpose": "any"
-    },
-    {
-      "src": "techfest_logo.png",
-      "type": "image/png",
-      "sizes": "512x512",
-      "purpose": "maskable"
+      "purpose": "any maskable"
     }
   ],
   "shortcuts": [
@@ -46,26 +34,26 @@
       "short_name": "Register",
       "description": "Register for TechStorm 2026 events",
       "url": "/registration",
-      "icons": [{ "src": "techfest_logo.png", "sizes": "192x192" }]
+      "icons": [{ "src": "logo192.png", "sizes": "192x192" }]
     },
     {
       "name": "View Events",
       "short_name": "Events",
       "description": "Browse all TechStorm events",
       "url": "/events",
-      "icons": [{ "src": "techfest_logo.png", "sizes": "192x192" }]
+      "icons": [{ "src": "logo192.png", "sizes": "192x192" }]
     },
     {
       "name": "Admin Portal",
       "short_name": "Admin",
       "description": "Access admin dashboard",
       "url": "/admin",
-      "icons": [{ "src": "techfest_logo.png", "sizes": "192x192" }]
+      "icons": [{ "src": "logo192.png", "sizes": "192x192" }]
     }
   ],
   "screenshots": [
     {
-      "src": "techfest_logo.png",
+      "src": "logo512.png",
       "sizes": "512x512",
       "type": "image/png",
       "form_factor": "narrow",

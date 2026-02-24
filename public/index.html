@@ -2,21 +2,23 @@
 <html lang="en">
 
 <head>
-  <!-- Google tag (gtag.js) -->
+  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-QNJE6CJ6DW"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-QNJE6CJ6DW');
   </script>
-  <!-- Basic Meta Tags -->
+
+  <!-- Charset & Compatibility -->
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  
-  <!-- Primary SEO Meta Tags -->
+
+  <!-- Viewport (only once, with viewport-fit=cover for fullscreen PWA) -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+
+  <!-- Primary SEO -->
   <title>TechStorm 2026 | Retro Arcade Tech Fest - Play the Past, Build the Future</title>
   <meta name="title" content="TechStorm 2026 | Retro Arcade Tech Fest - Play the Past, Build the Future" />
   <meta name="description" content="Join TechStorm 2026 at BP Poddar Institute - The ultimate college tech fest featuring retro arcade gaming, coding competitions, robotics, hackathons, and creative tech events. Register now!" />
@@ -25,26 +27,24 @@
   <meta name="robots" content="index, follow" />
   <meta name="language" content="English" />
   <meta name="revisit-after" content="7 days" />
-  
-  <!-- Theme and Browser Meta -->
+  <meta name="format-detection" content="telephone=no" />
+
+  <!-- Theme -->
   <meta name="theme-color" content="#FF6B00" />
   <meta name="msapplication-TileColor" content="#FF6B00" />
+
+  <!-- PWA -->
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="TechStorm" />
-  
-  <!-- PWA Display Mode -->
-  <meta name="display-mode" content="standalone" />
-  
-  <!-- Prevent Zoom on Mobile -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
-  
-  <!-- Favicon -->
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+  <!-- Favicon & Icons -->
   <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
   <link rel="apple-touch-icon" href="%PUBLIC_URL%/techfest_logo.png" />
-  
-  <!-- Open Graph / Facebook Meta Tags -->
+
+  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="TechStorm 2026 | Retro Arcade Tech Fest - Play the Past, Build the Future" />
   <meta property="og:description" content="Join TechStorm 2026 at BPPIMT - Experience retro arcade gaming, coding competitions, robotics, hackathons & more. The ultimate college tech fest awaits!" />
@@ -53,55 +53,43 @@
   <meta property="og:image:height" content="630" />
   <meta property="og:site_name" content="TechStorm 2026" />
   <meta property="og:locale" content="en_US" />
-  
-  <!-- Twitter Card Meta Tags -->
+
+  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="TechStorm 2026 | Retro Arcade Tech Fest" />
   <meta name="twitter:description" content="Join TechStorm 2026 - The ultimate college tech fest with retro arcade gaming, coding, robotics & creative events. Play the Past, Build the Future!" />
   <meta name="twitter:image" content="%PUBLIC_URL%/social-preview.jpg" />
   <meta name="twitter:creator" content="@TechStorm2026" />
-  <meta name="format-detection" content="telephone=no" />
-  
-  <!-- Performance & Preconnect -->
+
+  <!-- Performance -->
   <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
-  
-  <!-- NES.css for retro pixel icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet" />
+
+  <!-- NES.css -->
   <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
-  
-  <!-- Manifest -->
-  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
 </head>
 
 <body>
   <noscript>You need to enable JavaScript to run this app.</noscript>
   <div id="root"></div>
-  <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
 
   <!-- Service Worker Registration -->
   <script>
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/service-worker.js')
-        .then((registration) => {
-          console.log('Service Worker registered successfully!', registration);
-        })
-        .catch((error) => {
-          console.error('Service Worker registration failed:', error);
-        });
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('%PUBLIC_URL%/service-worker.js')
+          .then((registration) => {
+            console.log('[SW] Registered successfully:', registration);
+          })
+          .catch((error) => {
+            console.error('[SW] Registration failed:', error);
+          });
+      });
     }
   </script>
 </body>
