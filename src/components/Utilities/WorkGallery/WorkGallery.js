@@ -167,7 +167,14 @@ const WorkGallery = () => {
     const [items, setItems] = useState(galleryItems);
     const [activeFilter, setActiveFilter] = useState('All');
     const [hoveredIndex, setHoveredIndex] = useState(null);
+    const [isMobile, setIsMobile] = useState(() => window.innerWidth <= 768);
     const scrollContainerRef = useRef(null);
+
+    useEffect(() => {
+        const handleResize = () => setIsMobile(window.innerWidth <= 768);
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     const fliterItem = (cat) => {
         setActiveFilter(cat);
@@ -260,8 +267,13 @@ const WorkGallery = () => {
                     zIndex: 0,
                 }}
             ></div>
+
+            {/* Left side fade — full section height, desktop only */}
+            <div className="gallery-side-fade gallery-side-fade--left"></div>
+            {/* Right side fade — full section height, desktop only */}
+            <div className="gallery-side-fade gallery-side-fade--right"></div>
             
-            <div className="container-fluid gallery-container" style={{ position: 'relative', zIndex: 1 }}>
+            <div className="container-fluid gallery-container" style={{ position: 'relative', zIndex: 1, paddingLeft: isMobile ? '15px' : '60px', paddingRight: isMobile ? '15px' : '60px' }}>
                 <div className="portfolio">
                     <div className="row align-items-center mb-30">
                         {/*
@@ -379,7 +391,8 @@ const WorkGallery = () => {
                             display: 'flex',
                             overflowX: 'auto',
                             gap: '20px',
-                            paddingBottom: '20px',
+                            paddingTop: '30px',
+                            paddingBottom: '30px',
                             scrollBehavior: 'smooth',
                             WebkitOverflowScrolling: 'touch',
                             scrollbarWidth: 'thin',

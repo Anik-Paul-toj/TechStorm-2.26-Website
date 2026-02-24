@@ -6,11 +6,44 @@
     gap: 20px;
     padding-top: 30px;
     padding-bottom: 30px;
+    padding-left: 100px;
+    padding-right: 100px;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: thin;
     scrollbar-color: #ffc010 #1a0e22;
     scroll-snap-type: x mandatory;
+}
+
+/* ── Full-height side fades (desktop only) ── */
+.gallery-side-fade {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 200px;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.gallery-side-fade--left {
+    left: 0;
+    background: linear-gradient(to right, rgba(5, 3, 10, 0.92) 0%, rgba(5, 3, 10, 0.6) 50%, transparent 100%);
+}
+
+.gallery-side-fade--right {
+    right: 0;
+    background: linear-gradient(to left, rgba(5, 3, 10, 0.92) 0%, rgba(5, 3, 10, 0.6) 50%, transparent 100%);
+}
+
+@media (max-width: 768px) {
+    .gallery-side-fade {
+        display: none;
+    }
+
+    .gallery-scroll-container {
+        padding-left: 0;
+        padding-right: 0;
+    }
 }
 
 /* Custom scrollbar for webkit browsers */
@@ -47,15 +80,22 @@
     transform: scale(0.95);
 }
 
-/* Gallery card wrapper */
+/* Gallery card wrapper — 4 cards fit exactly on desktop */
 .gallery-card-wrapper {
     transition: transform 0.3s ease;
     scroll-snap-align: start;
     scroll-snap-stop: always;
-    min-width: 350px;
-    max-width: 350px;
+    min-width: calc((100vw - 208px) / 4);
+    max-width: calc((100vw - 208px) / 4);
     flex-shrink: 0;
     margin: 15px 0;
+}
+
+@media (max-width: 768px) {
+    .gallery-card-wrapper {
+        min-width: 280px;
+        max-width: 280px;
+    }
 }
 
 /* Add padding to section to prevent hover cut-off */
