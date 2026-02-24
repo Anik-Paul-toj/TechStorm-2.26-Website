@@ -92,6 +92,15 @@ const AppContent = () => {
     window.scrollTo(0, 0);
   }, [location.pathname]);
 
+  // Google Analytics Page View Tracking
+  React.useEffect(() => {
+    if (window.gtag) {
+      window.gtag('config', 'G-QNJE6CJ6DW', {
+        page_path: location.pathname + location.search,
+      });
+    }
+  }, [location]);
+
   // Determine active href including hash
   const getActiveHref = () => {
     // For home page - always keep Home button active
