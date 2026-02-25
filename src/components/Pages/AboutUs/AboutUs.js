@@ -8,7 +8,7 @@ const AboutUs = () => {
 
         <React.Fragment>
             
-            {/* Breadcrumb component */}
+            {/* Breadcrum component */}
             <Breadcrumb pageTitle={'About TechStorm'} currentPage={'About'} />
             {/* About component */}
             <About/>
