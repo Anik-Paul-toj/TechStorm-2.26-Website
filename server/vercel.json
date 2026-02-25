@@ -1,9 +1,17 @@
 {
   "version": 2,
-  "rewrites": [
+  "name": "techstorm-backend",
+  "builds": [
     {
-      "source": "/(.*)",
-      "destination": "/server.js"
+      "src": "server.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/server.js",
+      "methods": ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"]
     }
   ],
   "headers": [
@@ -29,10 +37,7 @@
       ]
     }
   ],
-  "functions": {
-    "server.js": {
-      "maxDuration": 60,
-      "memory": 1024
-    }
+  "env": {
+    "NODE_ENV": "production"
   }
 }
