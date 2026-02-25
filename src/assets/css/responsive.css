@@ -1494,8 +1494,8 @@
 
     /* Two column layout for Our Links and Events on mobile */
     .footer-top .col-6 .footer-widget {
-        padding-left: 25px;
-        padding-right: 25px;
+        padding-left: 8px;
+        padding-right: 8px;
     }
 
     .footer-link ul li {
@@ -2870,7 +2870,9 @@
     .f-contact li .icon {
         margin-right: 0 !important;
         margin-top: 2px;
-        flex: 0 0 auto;
+        flex: 0 0 18px;
+        width: 18px;
+        text-align: center;
         font-size: 13px;
     }
 
@@ -3246,8 +3248,8 @@
 
     /* Two column layout styling */
     .footer-top .col-6 {
-        padding-left: 20px;
-        padding-right: 20px;
+        padding-left: 6px;
+        padding-right: 6px;
     }
 
     .footer-link ul li {
@@ -3286,6 +3288,9 @@
 
     .f-contact li .icon {
         font-size: 12px;
+        flex: 0 0 18px;
+        width: 18px;
+        text-align: center;
     }
 
     .footer-links-col > .footer-widget {

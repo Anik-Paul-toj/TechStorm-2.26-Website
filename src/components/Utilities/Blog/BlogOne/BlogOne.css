@@ -174,12 +174,12 @@
 @media (max-width: 767px) {
     .sponsor-preview-section {
         height: auto;
-        min-height: clamp(275px, 66vw, 390px);
+        min-height: clamp(360px, 90vw, 520px);
     }
 
     .sponsor-preview-section .container {
         padding-top: 36px;
-        padding-bottom: 100px;
+        padding-bottom: 120px;
         padding-left: 12px;
         padding-right: 12px;
     }
@@ -198,12 +198,14 @@
     }
 
     .sponsor-mystery-row {
-        gap: 14px;
+        gap: 2%;
         margin-top: 6px;
+        flex-wrap: nowrap;
     }
 
     .sponsor-mystery-box {
-        width: 56px;
+        width: 18%;
+        max-width: 95px;
     }
 
     .sponsor-preview-label {
@@ -223,6 +225,7 @@
 
 @media (max-width: 420px) {
     .sponsor-mystery-box {
-        width: 46px;
+        width: 17%;
+        max-width: 75px;
     }
 }
