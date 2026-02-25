@@ -14,6 +14,7 @@ const {
 } = require('../middleware/validation');
 const { asyncHandler } = require('../middleware/errorHandler');
 const { securityLogger } = require('../middleware/logger');
+const { cacheMiddleware, clearCache } = require('../middleware/cache');
 
 const router = express.Router();
 
@@ -123,6 +124,7 @@ const Event = mongoose.model('Event', eventSchema);
 router.get('/',
   optionalAuthenticate,
   validatePagination,
+  cacheMiddleware(300), // Cache for 5 minutes
   asyncHandler(async (req, res) => {
     const { page, limit, sortBy, sortOrder } = req.pagination;
     const { eventType, isActive, upcoming, search } = req.query;
@@ -160,8 +162,10 @@ router.get('/',
       sort = { date: 1 }; // Upcoming events first
     }
 
-    // Execute query with pagination
+    // Execute query with pagination and optimization
     let query = Event.find(filter)
+      .select('-__v') // Exclude version field
+      .lean() // Convert to plain JS objects for better performance
       .sort(sort)
       .skip((page - 1) * limit)
       .limit(limit);
@@ -210,8 +214,9 @@ router.get('/',
 router.get('/:id',
   optionalAuthenticate,
   validateObjectId('id'),
+  cacheMiddleware(600), // Cache for 10 minutes
   asyncHandler(async (req, res) => {
-    let query = Event.findById(req.params.id);
+    let query = Event.findById(req.params.id).select('-__v').lean();
 
     // If user has READ permission, populate additional info
     if (req.user && req.user.canRead()) {
@@ -267,6 +272,9 @@ router.post('/',
     // Populate creator info for response
     await event.populate('createdBy', 'name email role');
 
+    // Clear events cache after creation
+    clearCache('/api/events');
+    
     res.status(201).json({
       message: 'Event created successfully',
       event: event.toJSON()
@@ -310,6 +318,9 @@ router.put('/:id',
       });
     }
 
+    // Clear events cache after update
+    clearCache('/api/events');
+
     res.json({
       message: 'Event updated successfully',
       event: event.toJSON()
@@ -350,6 +361,9 @@ router.delete('/:id',
     }
 
     await Event.findByIdAndDelete(req.params.id);
+
+    // Clear events cache after deletion
+    clearCache('/api/events');
 
     res.json({
       message: 'Event deleted successfully',

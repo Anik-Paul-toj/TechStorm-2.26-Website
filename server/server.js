@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
+const compression = require('compression');
 const path = require('path');
 require('dotenv').config({ path: path.join(__dirname, '.env') });
 
@@ -22,6 +23,19 @@ const { logger } = require('./middleware/logger');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
+
+// Enable compression EARLY (before other middleware)
+app.use(compression({
+  level: 6, // Compression level 0-9
+  threshold: 1024, // Only compress if response > 1KB
+  filter: (req, res) => {
+    if (req.headers['x-no-compression']) {
+      return false;
+    }
+    return compression.filter(req, res);
+  }
+}));
+
 const normalizeOrigin = (value = '') => value.trim().replace(/\/+$/, '');
 const allowedOrigins = (
   process.env.CORS_ORIGINS || process.env.FRONTEND_URL || 'http://localhost:3000'
@@ -102,23 +116,69 @@ const dns = require('dns');
 dns.setServers(['8.8.8.8', '1.1.1.1']);
 
 
-// Connect to MongoDB
-mongoose.connect(process.env.MONGODB_URI)
+// Connect to MongoDB with optimized settings
+mongoose.connect(process.env.MONGODB_URI, {
+  maxPoolSize: 10,
+  minPoolSize: 2,
+  socketTimeoutMS: 45000,
+  serverSelectionTimeoutMS: 5000,
+  compressors: ['zlib'],
+  zlibCompressionLevel: 6,
+})
   .then(() => {
-    console.log('✅ Connected to MongoDB');
+    console.log('✅ Connected to MongoDB with optimized pool');
   })
   .catch((error) => {
     console.error('❌ MongoDB connection error:', error);
     process.exit(1);
   });
 
-// Health check endpoint
+// Monitor MongoDB connection
+mongoose.connection.on('error', err => {
+  console.error('❌ MongoDB error:', err);
+});
+
+mongoose.connection.on('disconnected', () => {
+  console.warn('⚠️ MongoDB disconnected');
+});
+
+mongoose.connection.on('reconnected', () => {
+  console.log('✅ MongoDB reconnected');
+});
+
+// Optimized health check endpoint with caching
+const { getCacheStats } = require('./middleware/cache');
+let healthCache = {
+  status: 'OK',
+  lastCheck: Date.now(),
+  dbStatus: 'unknown'
+};
+
 app.get('/api/health', (req, res) => {
-  res.status(200).json({
-    status: 'OK',
-    timestamp: new Date().toISOString(),
-    uptime: process.uptime()
-  });
+  const now = Date.now();
+  
+  // Only check DB every 30 seconds
+  if (now - healthCache.lastCheck > 30000) {
+    const dbState = mongoose.connection.readyState;
+    const dbStatus = dbState === 1 ? 'connected' : 
+                     dbState === 2 ? 'connecting' : 
+                     dbState === 0 ? 'disconnected' : 'unknown';
+    
+    healthCache = {
+      status: dbState === 1 ? 'OK' : 'ERROR',
+      database: dbStatus,
+      uptime: Math.floor(process.uptime()),
+      memory: {
+        used: Math.floor(process.memoryUsage().heapUsed / 1024 / 1024) + ' MB',
+        total: Math.floor(process.memoryUsage().heapTotal / 1024 / 1024) + ' MB'
+      },
+      cache: getCacheStats(),
+      timestamp: new Date().toISOString(),
+      lastCheck: now
+    };
+  }
+  
+  res.status(healthCache.status === 'OK' ? 200 : 500).json(healthCache);
 });
 
 // API routes
