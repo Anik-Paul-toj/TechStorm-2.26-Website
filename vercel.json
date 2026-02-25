@@ -1,32 +1,18 @@
 {
-  "rewrites": [
+  "routes": [
     {
-      "source": "/.well-known/assetlinks.json",
-      "destination": "/assetlinks.json"
-    }
-  ],
-  "headers": [
-    {
-      "source": "/.well-known/assetlinks.json",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "application/json"
-        },
-        {
-          "key": "Access-Control-Allow-Origin",
-          "value": "*"
-        }
-      ]
+      "src": "/.well-known/assetlinks.json",
+      "dest": "/assetlinks.json",
+      "headers": {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*"
+      }
     },
     {
-      "source": "/(.*)\\.(js|css|png|jpg|jpeg|gif|svg|webp|ico|woff|woff2|ttf|eot|mp4|webm)$",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=2592000"
-        }
-      ]
+      "src": "/(.*)\\.(js|css|png|jpg|jpeg|gif|svg|webp|ico|woff|woff2|ttf|eot|mp4|webm)$",
+      "headers": {
+        "Cache-Control": "public, max-age=2592000"
+      }
     }
   ]
 }
