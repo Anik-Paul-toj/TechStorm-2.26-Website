@@ -1,9 +1,12 @@
 const express = require('express');
 const jwt = require('jsonwebtoken');
 const { User, ROLES } = require('../models/User');
-const roleCredentials = require('../config/roleCredentials.json');
+const getCredentials = require('../config/getCredentials');
 const { asyncHandler } = require('../middleware/errorHandler');
 const { securityLogger } = require('../middleware/logger');
+
+// Load credentials from environment variable (production) or local file (development)
+const roleCredentials = getCredentials();
 
 const router = express.Router();
 
