@@ -25,3 +25,23 @@ server/.env
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Server Configuration
+server/.env
+server/.env.local
+server/.env.production
+
+# Credentials (IMPORTANT - Never commit!)
+server/config/roleCredentials.json
+server/.credentials.base64
+
+# Logs
+server/logs/
+*.log
+
+# Dependencies
+server/node_modules/
+
+# OS files
+.DS_Store
+Thumbs.db
